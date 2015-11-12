@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Visualize color and size results</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+        <script type="text/javascript" src="ValuesFromExperiment.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+        
+        <div id="controls"></div>
+        <div id="results"> </div>
+        <script type="text/javascript">
+
+		    var resultsW = 1000;
+		    var resultsH = 1000;
+		    createControls();
+		    createResultsPanel();
+
+		function createResultsPanel() {
+		    var svg = d3.select("#results")
+					.append("svg")
+					.attr("width", resultsW)
+					.attr("height", resultsH);
+		}
+
+		// Main function to display results
+		function display(c_rgb,size) {
+		    //Clear what's displayed first
+		    clearResults();
+
+            var p_gap = 5; //between patches
+            var svg_gap = 10; //between layouts
+            var left_x = 50;
+            var top_y = 50;
+            var offsets = [2, 1, 0, -1, -2];  //the jitter around the color, in JND steps
+
+            //For each size
+            var pixels = visualAngleToPixels(size, 24, 96); 
+            var offset_rgb = jndColors(size, c_rgb, offsets);
+            var svg_h = offsets.length * pixels + (offsets.length - 1) * p_gap;
+            var svg_w = pixels;
+
+            newStack("#results svg", left_x, top_y, svg_w, svg_h, p_gap, offset_rgb[0]);
+            left_x = left_x + pixels + svg_gap;
+            newStack("#results svg", left_x, top_y, svg_w, svg_h, p_gap, offset_rgb[1]);
+            left_x = left_x + pixels + svg_gap;
+            newStack("#results svg", left_x, top_y, svg_w, svg_h, p_gap, offset_rgb[2]);
+
+        }
+
+		function newStack(name, x, y, w, h, gap, data) {
+		    var this_svg = d3.select(name)
+                .append("svg")
+                .attr("height", h)
+                .attr("width", w)
+                .attr("x", x)
+                .attr("y", y);
+
+		    this_svg.selectAll("rect")
+            .data(data)  //colors
+            .enter()
+            .append("rect")
+			   .attr("y", function (d, i) {
+			       return i * (w + gap);
+			   })
+			   .attr("x", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w)
+			   .attr("height", w)
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   });
+		}
+
+
+		function clearResults() {
+		    d3.select("#results svg").selectAll("svg").remove();
+		}
+		function createControls() {
+
+		   
+           //the list of colors. stimColors are defined in ValuesFromExperiment
+		    var colors = [];
+            //fill it with d3.rgb, which means we have to multiply by 255
+            for (var i = 0; i < stimColors.length;  i++) {
+                var c = stimColors[i];
+                colors[i] = d3.rgb(c[0]*255,c[1]*255,c[2]*255);
+             }
+           
+		    var w = 1000;
+		    var h = 50;
+		    var barPadding = 1;
+		    var cur_size = 2;
+		    //Create SVG element
+		    var svg = d3.select("#controls")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+		    console.log("start");
+		    svg.selectAll("rect")
+			   .data(colors)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function (d, i) {
+			       return i * (w / colors.length);
+			   })
+			   .attr("y", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w / colors.length - barPadding)
+			   .attr("height", function (d) {
+			       return 50;
+			   })
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   })
+               .on("click", function (d) {
+                   display(d, cur_size);
+               });
+
+               //Add label
+               var colorLabel = document.createElement("label");
+               colorLabel.appendChild(document.createTextNode("  Select a color to display"));
+               document.getElementById("controls").appendChild(colorLabel);
+		}
+
+		</script>
+	</body>
+</html>

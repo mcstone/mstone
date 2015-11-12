@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript">
+        function $(s) { return document.getElementById(s); }
+    </script>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<div id="controls" style="position: absolute; left: 100px; top: 20px; width: 520px; height: 350px;">
+<h1>New Selection Algorithm</h1>
+<p>Blends the color with the background (blend < 1).<br />
+Boosting the saturation first (gray < 1) helps maintain colorfulness.<br />
+The third parameter (edge < 1) darkens the outline color </p> 
+<p>Set the background with the hex value (no #)<br />
+Set the color with one of the following: tableau20, red, green, blue, orange, gray</p>
+    <input type="button" value="Set Fog" onclick="createFade($('textFade').value, $('textGray').value, $('textEdge').value);"/>
+    Blend <input type="text" id="textFade" value="0.3" style="width: 50px;"/>
+    Gray <input type="text" id="textGray" value="0.75" style="width: 50px;"/> 
+    Edge <input type="text" id="textEdge" value="0.9" style="width: 50px;"/> 
+    
+    <br />
+    <input type="button" value="Fog All" onclick="fadeAll();" />
+    <input type="button" value="Select All" onclick="selectAll();" />
+    <input type="button" value="Set Colors" onclick="setColors($('colors').value)"/>
+    <input type="text" id="colors" value="tableau20" style="width: 60px;"/>
+    <input type="button" value="Set Background" onclick="setBackground('#' + $('txt').value)"/>
+    <input type="text" id="txt" value="fefefe" style="width: 50px;"/>
+  
+
+ 
+</div>
+    <div id="plot" style="position: absolute; left: 100px; width: 700px; top: 420px; height: 480px; background-color: #fefefe;"></div>
+
+    <script type="text/javascript">
+
+        var tableau20 = ['#1F77B4', '#AEC7E8','#FF7F0E', '#FFBB78','#2CA02C', '#98DF8A','#D62728', '#FF9896','#9467BD', '#C5B0D5','#8C564B', '#C49C94','#E377C2', '#F7B6D2','#7F7F7F', '#C7C7C7','#BCBD22', '#DBDB8D','#17BECF', '#9EDAE5'];
+        var red_bytes = [[234.0, 192.0, 189.0], [248.0, 154.0, 144.0], [245.0, 118.0, 103.0], [227.0, 87.0, 69.0],
+             [216.0, 57.0, 44.0], [207.0, 23.0, 25.0], [194.0, 20.0, 23.0], [177.0, 12.0, 29.0], [156.0, 8.0, 36.0]]
+        var green_bytes = [[188.0, 207.0, 180.0], [148.0, 187.0, 131.0], [105.0, 167.0, 97.0], [51.0, 148.0, 68.0],
+              [39.0, 130.0, 59.0], [26.0, 114.0, 50.0], [9.0, 98.0, 42.0]]
+
+        var blue_bytes = [[180.0, 212.0, 218.0], [123.0, 200.0, 226.0], [103.0, 173.0, 212.0], [58.0, 135.0, 183.0],
+              [28.0, 115.0, 177.0], [28.0, 89.0, 152.0], [38.0, 69.0, 110.0]]
+        var gray_bytes = [[195.0, 195.0, 195.0], [178.0, 178.0, 178.0], [162.0, 162.0, 162.0], [146.0, 146.0, 146.0],
+              [131.0, 131.0, 131.0], [116.0, 116.0, 116.0], [102.0, 102.0, 102.0], [88.0, 88.0, 88.0],
+              [75.0, 75.0, 75.0], [63.0, 63.0, 63.0], [51.0, 51.0, 51.0], [40.0, 40.0, 40.0], [30.0, 30.0, 30.0]]
+        var orange_bytes = [[240.0, 194.0, 148.0], [253.0, 171.0, 103.0], [253.0, 137.0, 56.0], [240.0, 101.0, 17.0],
+                [215.0, 68.0, 1.0], [163.0, 50.0, 2.0], [123.0, 48.0, 20.0]]
+        var dataset = [];
+        var i = 0;
+
+        var background = "#fefefe";
+        var backgroundY = 1.0;
+        var fade = 0.3;
+        var gray = 0.75;
+        var edge = 0.9;
+        var colors = tableau20;
+
+
+        function setBackground(bcolor) {
+            background = bcolor;
+            $('plot').style.backgroundColor = bcolor;
+            backgroundY = luma(bcolor);
+            console.log(backgroundY);
+            createFade(fade, gray, edge);
+        };
+        function luma(hcolor) {
+            var c = d3.rgb(hcolor);
+            return (0.2126*c.r+0.7152*c.g+0.0722*c.g)/255;  //luma, not luminance because gamma is applied
+        };
+
+
+        function saturate(color, v) {
+            if (v>1) return(darken(color,2-v))
+            var min_val = Math.min(Math.min(color.r, color.g), color.b); //we'll saturate it a bit by subtracting gray
+            if ((min_val ==color.r) && (min_val == color.g) && (min_val == color.b)) {return color}; // don't desaturate a gray
+            if (min_val == color.r) { color.r = v * color.r }
+            if (min_val == color.g) { color.g = v * color.g }
+            if (min_val == color.b) { color.b = v * color.b }
+            return color;
+        }
+
+  /*      function darken(color, v) {
+            var min_val = Math.min(Math.min(color.r, color.g), color.b); //we'll subtract a fraction of the gray
+            var d = (1-v) * min_val;  //so that edge < 1 darkens
+            color.r = color.r - d;
+            color.g = color.g - d;
+            color.b = color.b - d;
+            return color;
+        }; */
+
+        function darken(color, v) {
+            color.r = v*color.r;
+            color.g = v*color.g;
+            color.b = v*color.b;
+            return color;
+        };
+
+        function contrast(color, v) {
+            if (backgroundY < 0.5) {v = (1-v)+1;} //make lighter, not darker
+            color.r = v * color.r;
+            color.g = v * color.g;
+            color.b = v * color.b;
+            return color;
+        };
+
+        function toString(color) {
+            color.r = Math.round(color.r);
+            color.b = Math.round(color.b);
+            color.g = Math.round(color.g);
+            return color.toString();
+        }
+
+        function createFade(f, g, e) {
+            fade = f;  //basically alpha
+            gray = g; //We'll use this to make it more colorful as it blends
+            edge = e; //makes the stroke color darker and more colorful
+            d3.selectAll("circle").each(function () {
+                /* console.log(d3.select(this).attr('normalColor'));*/
+                var color = d3.rgb(d3.select(this).attr('normalColor'));
+                var faded = d3.rgb('#ffffff'); //let's be sure we have a copy
+                var bgn = d3.rgb(background);
+                var stroke = d3.rgb(color.toString());
+                contrast(stroke, edge);
+                //console.log(color);
+                color = saturate(color, gray);
+                //console.log(color);
+                faded.r = fade * color.r + (1 - fade) * bgn.r;
+                faded.g = fade * color.g + (1 - fade) * bgn.g;
+                faded.b = fade * color.b + (1 - fade) * bgn.b;
+                //debugger
+                d3.select(this).attr('fadedColor', toString(faded));
+                d3.select(this).attr('strokeColor', toString(stroke));
+                //  debugger
+            });
+        }
+
+        function setColors(name) {
+            colors = tableau20;
+            if (name == "red") { colors = bytesToStrings(red_bytes) }
+            else if (name == "green") { colors = bytesToStrings(green_bytes) }
+            else if (name == "blue") { colors = bytesToStrings(blue_bytes) }
+            else if (name == "orange") { colors = bytesToStrings(orange_bytes) }
+            else if (name == "gray") { colors = bytesToStrings(gray_bytes) }
+            var i = 0;
+            var len = colors.length;
+            d3.selectAll("circle").each(function () {
+                d3.select(this).attr('normalColor', colors[i]);
+                d3.select(this).style('fill', colors[i]);
+                i = (i + 1) % len;
+            });
+            createFade(fade, gray, edge);
+
+        }
+
+        function fadeAll() {
+            //console.log('fadeAll');
+            d3.selectAll("circle").each(function () {
+                /* console.log(d3.select(this).attr('fadedColor'));*/
+                d3.select(this).style('fill', d3.select(this).attr('fadedColor'));
+                d3.select(this).style('stroke', '');
+            });
+        }
+
+        function normalAll() {
+            //console.log('normalAll');
+            d3.selectAll("circle").each(function () {
+               /* console.log(d3.select(this).attr('normalColor'));*/
+                d3.select(this).style('fill', d3.select(this).attr('normalColor'))
+                d3.select(this).style('stroke', '');
+            });
+        }
+        function selectAll() {
+            console.log('normalAll');
+            d3.selectAll("circle").each(function () {
+                /* console.log(d3.select(this).attr('normalColor'));*/
+                d3.select(this).style('fill', d3.select(this).attr('normalColor'))
+                d3.select(this).style('stroke', d3.select(this).attr('strokeColor'));
+            });
+        }
+
+        function bytesToStrings(bytes) {
+            var hex = [];
+            for (i = 0; i < bytes.length; i++) {
+                hex.push(d3.rgb(bytes[i][0], bytes[i][1], bytes[i][2]).toString());
+            }
+            return hex;
+        }
+
+
+        for (i = 0; i < 100; i++) {
+             dataset.push({ "rx": Math.round(Math.random() * 100), "ry": Math.round(Math.random() * 100), "c": '#1F77B4' });
+        }
+
+    
+        var sampleSVG = d3.select("#plot")
+            .append("svg")
+            .attr("width", 600)
+            .attr("height",480);
+
+        sampleSVG.selectAll("circle")
+            .data(dataset)
+            .enter().append("circle")
+            .style("fill", "#1F77B4")
+            .attr("normalColor", "#1F77B4")
+            .attr("fadedColor", "#aaaaaa")
+            .attr("strokeColor", "#000000")
+            .attr("stroke-width", 2)
+            .attr("r", 20)
+            .attr("cx", function (d, i) { return d.rx * 5.5 + 10 })
+            .attr("cy", function (d, i) { return d.ry * 4.5 + 10 })
+            .on("mouseover", function () {
+                fadeAll();
+                d3.select(this).style("fill", d3.select(this).attr('normalColor'))
+                d3.select(this).style("stroke", d3.select(this).attr('strokeColor'));
+            })
+        .on("mouseout", function () { normalAll(); });
+
+        setColors("tableau20");
+        
+
+        /*function animate() {
+            d3.select(this).transition()
+            .duration(1000)
+            .attr("r", 10)
+            .transition()
+            .delay(1000)
+            .attr("r", 40);
+            }; */
+    </script>
+</body>
+</html>

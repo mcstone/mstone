@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Visualize color and size results</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+        <script type="text/javascript" src="ValuesFromExperiment.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */
+		</style>
+	</head>
+	<body>
+
+        <div id="controls"></div>
+        <div id="results"> </div>
+        <script type="text/javascript">
+
+		    var resultsW = 1500;
+		    var resultsH = 1000;
+		    createControls();
+		    createResultsPanel();
+
+		function createResultsPanel() {
+		    var svg = d3.select("#results")
+					.append("svg")
+					.attr("width", resultsW)
+					.attr("height", resultsH);
+		}
+
+		// Main function to display results
+		function display(c_rgb) {
+		    //Clear what's displayed first
+		    clearResults();
+
+		    var left_x = 50;
+		    var top_y = 50;
+            var offsets = [3, 2, 1, 0, -1, -2, -3];  //the jitter around the color, in JND steps
+ //           var top_div = d3.select("#results svg");
+            var spacing = { p_gap: 5, s_gap: 10 , b_gap: 50, v_gap: 50}; //between patches, between stacks, between blocks, between the comparisons
+            var sizes = [2, 1, 0.5, 0.25];
+            for (var s = 0; s < sizes.length; s++) {
+                //For each size
+                var size = sizes[s];
+                var patch_size = visualAngleToPixels(size, 24, 96);
+                var offset_rgb = jndColors(size, c_rgb, offsets);
+                var large_rgb = jndColors(2, c_rgb, offsets);
+                var fixed_rgb = fixedJND(2, c_rgb, offsets);
+                var block_h = offsets.length * patch_size + (offsets.length - 1) * spacing.p_gap;
+                var block_w = 3 * patch_size + 2 * spacing.s_gap;
+                var sx = 0;  //step over for each stack
+                var block_svg = d3.select("#results svg").append("svg").attr("width", block_w).attr("height", block_h).attr("x", left_x).attr("y", top_y);
+                console.log(JND50(sizes[s]));
+                for (var i = 0; i < offset_rgb.length; i++) {
+                    var stack_svg = block_svg.append("svg").attr("width", patch_size).attr("height", block_h).attr("x", sx).attr("y", 0);
+                    newStack(stack_svg, patch_size, spacing.p_gap, offset_rgb[i]);
+                    sx = sx + patch_size+spacing.s_gap;
+                }
+                if (size < 2) { //write out some comparison patches with the same step for L, a, and b.
+                    sx = 0;
+                    var block_svg = d3.select("#results svg").append("svg").attr("width", block_w).attr("height", block_h).attr("x", left_x).attr("y", top_y+block_h+spacing.v_gap);
+                    for (var i = 0; i < offset_rgb.length; i++) {
+                        var stack_svg = block_svg.append("svg").attr("width", patch_size).attr("height", block_h).attr("x", sx).attr("y", 0);
+                        newStack(stack_svg, patch_size, spacing.p_gap, fixed_rgb[i]);
+                        sx = sx + patch_size + spacing.s_gap;
+                    }
+                }
+                left_x = left_x + block_w + spacing.b_gap;
+            }
+        }
+
+        //display one stack of differences
+        function newStack(stack_svg, patch_size, gap, data) {
+            var w = patch_size;
+		    stack_svg.selectAll("rect")
+            .data(data)  //colors
+            .enter()
+            .append("rect")
+			   .attr("y", function (d, i) {
+			       return i * (w + gap);
+			   })
+			   .attr("x", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w)
+			   .attr("height", w)
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   });
+		}
+
+
+		function clearResults() {
+		    d3.select("#results svg").selectAll("svg").remove();
+		}
+		function createControls() {
+
+
+           //the list of colors. stimColors are defined in ValuesFromExperiment
+		    var colors = [];
+            //fill it with d3.rgb, which means we have to multiply by 255
+            for (var i = 0; i < stimColors.length;  i++) {
+                var c = stimColors[i];
+                colors[i] = d3.rgb(c[0]*255,c[1]*255,c[2]*255);
+             }
+
+		    var w = 1000;
+		    var h = 50;
+		    var barPadding = 1;
+		    var cur_size = 2;
+		    //Create SVG element
+		    var svg = d3.select("#controls")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+		    console.log("start");
+		    svg.selectAll("rect")
+			   .data(colors)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function (d, i) {
+			       return i * (w / colors.length);
+			   })
+			   .attr("y", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w / colors.length - barPadding)
+			   .attr("height", function (d) {
+			       return 50;
+			   })
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   })
+               .on("click", function (d) {
+                   display(d);
+               });
+
+               //Add label
+               var colorLabel = document.createElement("label");
+               colorLabel.appendChild(document.createTextNode("  Select a color to display"));
+               document.getElementById("controls").appendChild(colorLabel);
+		}
+
+		</script>
+	</body>
+</html>

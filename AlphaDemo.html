@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Alpha and Contrast</title>
+	<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+	<script type="text/javascript"  src="jquery-ui/jquery-ui.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript"  src="lib/chroma.js"></script>
+	<script type="text/javascript"  src="lib/d3.v3.js"></script>
+	<script type="text/javascript"  src="AlphaDemo/js/alphaStuff.js"></script>
+</head>
+<style>
+	body { 
+		font-family: Sans-Serif;
+	}
+	
+	
+	.control-group {
+		display: inline-flex;
+		margin-right: 15px;
+		margin-bottom: 10px;
+	}
+	.hContainer {
+		display: flex;
+		flex-flow: row;
+	}
+	.g-vContainer {
+		display: flex;
+		flex-flow: column;
+		margin-left: 0px;
+	}
+	.g-topBox {
+		background-color: white;
+		border-color: lightgray;
+		border-width: 1px;
+		font-size: small;
+		display: flex;
+		flex-flow: column;
+	}
+	.g-hContainer {
+		display: inline-flex;
+	}
+	.lSpace {
+		margin-left: 4px;
+	}
+	.vContainer {
+		display: flex;
+		flex-flow: column;
+		margin-left: 20px;
+	}
+	.smallText {
+		border: 0px;
+		width: 40px;
+		margin-left: 3px;
+	}
+	#graph {
+		width: 90%;
+		height: 500px;
+		background-color: silver;
+		margin: 15px;
+	}
+	#hue, #sat, #val {
+		width: 200px;
+		margin: 10px;
+		display: inline-block;
+	}
+	#th-slider {
+		width: 150px;
+		margin-left: 10px;
+		display: inline-block
+	}
+	#swatch {
+		width: 100px;
+		height: 100px;
+		margin-left: 10px;
+	}
+	#th-slider .ui-slider-range {background: #b7b7b7;}
+	#hue .ui-slider-range { background: #b7b7b7; }
+	#sat .ui-slider-range { background: #b7b7b7; }
+	#val .ui-slider-range { background: #b7b7b7; }
+
+	</style>  
+	
+<script type="text/javascript" charset="utf-8">
+
+//This initializes the foreground colors
+
+var state = new Object()  //rather than globals, put it all here
+	state.rows = [0,1,2]  //orig on white, orig on bkg, mod on bkg
+	state.vNames = ["alpha","alphaP","CW0","CW1","CW2"]  //table names
+	//these all are 2D arrays, array[row][value for that row]
+	state.alphaV = [[],[],[]]	//alpha values
+	state.colorV = [[],[],[]]	//colors on current background
+	state.lumV = [[],[],[]]		//luminances of the circles
+	state.crV = [[],[],[]]	//contrast ratios
+	//single values 
+	state.grayV = []	//gray on white, as hex values
+	state.fColor = chroma("black")
+	state.bColor= chroma("silver")  //a chroma color. Hex strings will always be called hex
+	state.powerBoost = 2
+	state.threshold = 0.31
+	state.luminance = state.bColor.luminance()
+	
+	
+//UX has updated state.bColor. Now propogate the changes
+bkgUpdate = function() {
+	var hex = state.bColor.hex()
+	var hsv = state.bColor.hsv()
+	hsv[0] = Math.round(hsv[0])
+	hsv[1] = Math.round((hsv[1]*100))/100
+	hsv[2] = Math.round((hsv[2]*100))/100
+   $(".change-color").css("background-color", hex) //display area, patch
+   $("#color-text").val(hex)
+   $("#hsv-text").val(formatTriple(hsv))
+   	state.luminance = state.bColor.luminance()
+   $("#lum-text").val(state.luminance.toPrecision(3))
+   fgUpdate()
+  }
+formatTriple = function(t) {
+	s = ""
+	s = s+t[0].toString()+", "
+	s = s+t[1].toString()+", "
+	s = s+t[2].toString()
+	return s
+}
+//this updates all the color data and draws the foreground objects. Procs are in alphaStuff.js
+fgUpdate = function() {
+	if (state.luminance> state.threshold){state.fColor = chroma("black")}
+    else {state.fColor = chroma("white")}
+	updateColorData(state)
+	//update the table. May eventually use an iterator over state.vNames
+	//["alpha","alphaM","CR0","CR1","CR2"] 
+	d3.select("#graph").selectAll(".alpha"+"-div")
+		.text(function(d,i) {return state.alphaV[1][i].toPrecision(3)})
+	d3.select("#graph").selectAll(".alphaP"+"-div")
+		.text(function(d,i) {return state.alphaV[2][i].toPrecision(3)}) 
+	d3.select("#graph").selectAll(".CW0"+"-div")
+		.text(function(d,i) {return state.crV[0][i].toPrecision(4)})
+	d3.select("#graph").selectAll(".CW1"+"-div")
+		.text(function(d,i) {return state.crV[1][i].toPrecision(4)})
+	d3.select("#graph").selectAll(".CW2"+"-div")
+		.text(function(d,i) {return state.crV[2][i].toPrecision(4)}) 
+	//original grays
+	d3.select("#graph").selectAll(".row0").data(state.grayV).each(function(s) {
+		d3.select(this).select("svg").style("background","white")
+		d3.select(this).select("circle").style("fill",s)
+	})
+	//same alpha on new background
+	d3.select("#graph").selectAll(".row1").data(state.colorV[1]).each(function(s) {
+		d3.select(this).select("circle").style("fill",s.css())
+	})
+	//some modulated value
+	d3.select("#graph").selectAll(".row2").data(state.colorV[2]).each(function(s) {
+		d3.select(this).select("circle").style("fill",s.css())
+	})
+}
+
+initDisplay = function() {
+	initColorData(state)  //*****
+	var g = $("#graph")	//g is a jQuery object
+	var w = g.width()/state.alphaV.length
+	var sw = w.toString()+"px"
+	var colDivs = d3.select("#graph").selectAll("div")  //array of d3 div objects?
+		.data(state.grayV)
+		.enter().append("div")
+		.attr("class","g-vContainer")
+		.style("width",sw)
+		.style("height",g.height().toString()+"px")
+		.append("div")
+		.attr("class","g-topBox")
+		.append("div").attr("class","grayV-div").text(function(d,i) {return d})
+	
+	
+
+		d3.select("#graph").selectAll(".g-topBox").data(state.grayV).each(function(s) {
+			for (var i=0;i<state.vNames.length;i++) {
+				var s = state.vNames[i]
+				d3.select(this).append("div").attr("class","g-hContainer").text(s)
+				.append("div").attr("class",s+"-div lSpace")
+			}
+		})
+
+	var cy = 35
+	d3.select("#graph").selectAll(".g-vContainer").each(function(s) {
+		for (var i=0; i<3; i++) {
+			d3.select(this)
+			.append("div")
+			.attr("class","row"+i.toString())
+			.append("svg").style({'width': sw,'height': 2*cy+10})
+			.append("circle")
+			.attr("r", 25)
+			.attr("cx", 40)
+			.attr("cy", cy)
+		}
+	})
+}
+	
+		 
+updateThreshold = function() {
+	 var sv = $("#th-slider").slider("option", "value")
+	 $("#thresh-text").val(sv.toPrecision(3))
+	 state.threshold = sv
+	 fgUpdate()
+}
+function readSliders() {
+    var hue= $( "#hue" ).slider( "value" )
+    var sat = $( "#sat" ).slider( "value" )
+    var val = $( "#val" ).slider( "value" )
+	state.bColor = chroma.hsv(hue,sat,val)
+	bkgUpdate()
+  }
+$(document).ready(function() {
+	$( "#th-slider" ).slider({
+		range: "min",
+		value: 0.31,
+		min: 0,
+		max: 1,
+		step: 0.001,
+		slide: updateThreshold,
+		change: updateThreshold
+	})
+	$("#hue").slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 360,
+      value: 127,
+	  step: 1,
+      slide: readSliders,
+      change: readSliders
+    });
+	$( "#sat,#val" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 1,
+      value: 0.7,
+	  step: 0.001,
+      slide: readSliders,
+      change: readSliders
+    });
+	initDisplay()
+    $( "#hue" ).slider( "value", 182 );
+    $( "#sat" ).slider( "value", 0.2 );
+    $( "#val" ).slider( "value", 0.75 );
+	$("#thresh-text").val(state.threshold.toString())
+	$("#thresh-text").keypress(function(event) {
+        if (event.keyCode == 13) {
+            var sv= $("#thresh-text").val()
+			$("#th-slider").slider("option", "value", sv)
+			state.threshold = sv
+			fgUpdate()
+        }
+    })
+	$("#thresh-text").keypress(function(event) {
+        if (event.keyCode == 13) {
+            state.threshold= Number($("#thresh-text").val())
+			fgUpdate()
+        }
+    })
+	$("#color-text").keypress(function(event) {
+		if (event.keyCode == 13) {
+            var v= $("#color-text").val()
+			state.bColor = chroma(v)
+			var hsv = state.bColor.hsv()
+			$("#hue").slider("option","value",hsv[0])
+			$("#sat").slider("option","value",hsv[1])
+			$("#val").slider("option","value",hsv[2])
+			bkgUpdate()
+		}
+	})
+  });
+	
+
+
+ </script>
+</head>
+<body>
+<h2>Exploring alpha and contrast</h2>
+<div class="hContainer">
+	<div class = "vContainer">
+
+	<div id="hue"></div>
+	<div id="sat"></div>
+	<div id="val"></div>
+	</div>
+
+	<div id="swatch" class="change-color"></div>
+														
+	<div class = "vContainer" >
+		<div class = "control-group">
+			<div style="width: 40px;">Hex: </div>
+			<input type="text" class = "smallText" id="color-text" name="color-text" style = "width: 60px;"/></div>
+		<div class = "control-group">
+			<div style="width: 40px;">HSV: </div>
+			<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
+		<div class="control-group"> 
+			<div style="width: 40px;">Lum:</div>
+			<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
+		</div>
+	</div>
+	<div class = "vContainer" >
+		<div class = "control-group">
+			Threshold: 
+			<input type = "text" id="thresh-text" class = "smallText" />
+			<div id="th-slider"> </div>
+		</div> 
+
+	</div>
+</div>
+<div id = "graph" class = "change-color hContainer" >
+</div>
+</body>
+</html>
+
+<!-- Created by <a href="http://www.acko.net/">Steven Wittens</a>.-->

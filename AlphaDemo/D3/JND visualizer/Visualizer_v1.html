@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JND Visualizer</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+        <script type="text/javascript" src="ValuesFromExperiment.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+     	
+
+       
+	<div id="results"> </div>
+      <div id="controls"></div>
+		<script type="text/javascript">
+
+			
+
+			var colors = stimColors; //from ValuesFromExperiment
+			var resultsW = 1000;
+            var resultsH = 800;
+
+			createResultsPanel();
+			createControls();
+			
+			
+			function createResultsPanel() {
+
+				var svg = d3.select("#results")
+						.append("svg")
+						.attr("width", resultsW)
+						.attr("height", resultsH);
+
+
+			}
+
+			// Main function to display results
+			function display(c) {
+			
+			    //Clear what's displayed first
+			     clearResults();
+			   
+			     d3.select('#results svg').append("rect")
+                            .attr("x",resultsW/4)
+                            .attr("y", resultsH/4)
+                            .attr("width", 200)
+                            .attr("height", 200)
+			    .attr("fill", d3.rgb(c[0] * 255, c[1] * 255, c[2] * 255));
+			       
+			}
+
+			// Render control panel
+			function createControls() {
+				//Add label
+				var colorLabel = document.createElement("label");
+				colorLabel.appendChild(document.createTextNode("Select a color name:"));
+				document.getElementById("controls").appendChild(colorLabel);
+
+				var h = 100;
+				var colorSwatchPadding = 2;
+
+				//Create SVG element
+				var svg = d3.select("#controls")
+						.append("svg")
+						.attr("width", resultsW)
+						.attr("height", h);
+			
+				svg.selectAll("rect")
+			 	  .data(colors)
+			 	  .enter()
+			 	  .append("rect")
+			  	 .attr("x", function (d, i) {
+			       return i * resultsW/colors.length + colorSwatchPadding;
+			 	  })
+			  	 .attr("y", function (d, i) {
+			      	 return 0;
+			  		 })
+			   	 .attr("width", resultsW/colors.length)
+			  	 .attr("height",resultsW/colors.length)
+			  	 .attr("fill", function (d) {
+			      	 var c = d3.rgb(d[0] * 255, d[1] * 255, d[2] * 255);
+			       	return c.toString();
+			   	})
+				.on("click", function(d) {
+					display(d);
+				});
+ 
+			} 
+
+			function clearResults() {
+				d3.select("#results svg").select("rect")
+      		 		.remove();
+			}   
+		</script>
+	<br /><br />
+		<button type="submit" id="submitBtn">Submit</button>	
+		<button type="button" id="clearBtn" onClick='clearContents();'>Clear</button>
+	
+	 
+	<br /><br />
+	</body>
+</html>

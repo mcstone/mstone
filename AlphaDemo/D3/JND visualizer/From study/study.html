@@ -1,0 +1,607 @@
+<head>
+    <title>Size Comparisons</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <!-- our custom d3-->
+  <script type="text/javascript" src="d3.v3.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <!-- anything color (conversions, jitters, gamut, visual angle to pixels)-->
+  <script type="text/javascript" src="colorConversion.js"></script>
+  <!-- all the rendering and interaction-->
+  <script type="text/javascript" src="stimuli.js"></script>
+  <!-- process all data parameters, pipes out to PHP script via synchronous ajax-->
+    <script type="text/javascript" src="writeData.js"></script>
+</head>
+<body>
+<script type="text/javascript">// <![CDATA[
+// Session variables -- not all of these are implemented
+  var userId = "";
+  var sessionTime = 0;
+  var dpi = 0;
+  var inchesToDisplay = 24;
+  var startTime = 0;
+  var endTime = 0;
+  var trialStartTime = 0;
+  var resp = "none";
+  var numCircles = 1;
+  var iters = 0;
+  var age = 0;
+  var cvd = "n";
+  var numTrials = 0;
+  
+  // Baseline 2 degree JND for [L, a, b]
+  var jnd = [1, 1, 1];
+  var clrOffset;
+  
+  // Vidya: chop this down to 5 colors
+  var stimColors = [[0.276991736,0.276991723,0.276991727
+],
+[0.323353135,0.272703823,0.121158949
+],
+[0.416265077,0.21440951,0.280102211
+],
+[0.446143626,0.208630427,0.128543973
+],
+[0.351528593,0.22481811,0.430556313
+],
+
+
+[0.379033802,0.379033785,0.379033791
+],
+[0.431925096,0.374205303,0.217090257
+],
+[0.529059665,0.316675585,0.382244027
+],
+[0.565393517,0.310654622,0.223198619
+],
+[0.46042087,0.326397519,0.540788404
+],
+[0.322983705,0.340363035,0.703694269
+],
+[0.657801213,0.213330037,0.38606234
+],
+[0.685729567,0.203695802,0.230306068
+],
+[0.607621817,0.228359007,0.543272335
+],
+[0.520425597,0.249010256,0.70546736
+],
+[0.351920341,0.275006378,0.873156715
+],
+[0.26189251,0.417666976,0.211960592
+],
+[0.486148083,0.486148062,0.486148069
+],
+[0.544472494,0.480878466,0.3180297
+],
+[0.37422926,0.494083521,0.652780661
+],
+[0.645396987,0.423304615,0.489452981
+],
+[0.687376955,0.417025927,0.323559679
+],
+[0.573241361,0.432704508,0.655054828
+],
+[0.444331966,0.445642829,0.824166957
+],
+[0.783480503,0.330657412,0.493285097
+],
+[0.816572684,0.322115865,0.329890584
+],
+[0.72891819,0.343250123,0.657703194
+],
+[0.640720965,0.360242173,0.826132762
+],
+[0.368631414,0.527435265,0.313276183
+],
+[0.597700354,0.597700328,0.597700337
+],
+[0.660672955,0.592058021,0.423787611
+],
+[0.697091863,0.588422557,0.233302381
+],
+[0.487964156,0.605726636,0.770532756
+],
+[0.765042214,0.53408353,0.601094189
+],
+[0.812021707,0.527558978,0.429003963
+],
+[0.840216576,0.523343005,0.24372973
+],
+[0.68970146,0.543327145,0.772979243
+],
+[0.853020939,0.458165599,0.775771964
+],
+[0.37642313,0.646366194,0.594749959
+],
+[0.478961432,0.641269212,0.419218745
+],
+[0.532064323,0.63799041,0.223854203
+],
+[0.713215597,0.713215567,0.713215578
+],
+[0.780249747,0.70725019,0.533932234
+],
+[0.821903734,0.703149657,0.343762883
+],
+[0.491738897,0.764238631,0.710140469
+],
+[0.592903085,0.758791103,0.529459843
+],
+[0.65077209,0.755051549,0.335977523
+],
+[0.428892678,0.796750214,0.32901268
+],
+[0.832322923,0.832322888,0.8323229
+],
+[0.609342754,0.88545191,0.829136026
+],
+[0.710290239,0.879693483,0.643635738
+],
+[0.77237392,0.87554465,0.448990874]];
+
+  //important new stuff (mcs)
+ //  var stimSizes = [0.4, 0.8, 1.625];
+  var stimSizes = [2, 4, 6];
+  var defaultStep = 1.25;  //for sizes 1 and above
+
+  // Display parameters
+  var colorType = null;
+  var sizeSet = [];
+  var shapeType = "Circle";
+  var bounds =   [];
+  var colorIterations = 0;
+  var colorFile = "";
+  var useRelativeChroma = false;
+  var baseStep = 1;
+  var chromaF = 0;
+  var background = "white";
+  var gender = "0";
+  
+  // Test parameters
+  var fixedSize = 0;
+  var fixedColor;
+  var fixedChartType = "Marks";
+  var curResponse = -1;
+  
+  var adjustedSize = 0;
+  var adjustedSubSize = 0;
+  var adjustedColor = {};
+  var adjustedChartType = "Marks";
+  var numSamples = 8;
+  var activeColor = {};
+  var respColor = 0;
+  
+  var colorSet = [];
+  var colorPtr = 0;
+  var jndSteps = [];
+  var FIX_IDX = 0;
+  var ADJ_IDX = 1;
+  var REPITITIONS = 3;
+  
+  // This is something that is important
+  var TRIALS_PER_PARTICIPANT = 104;
+
+  // Layout parameters
+  var positions = [];
+  var proximity = 0;
+  var respInt;
+  var whiteInt;
+  var layoutType = "grid";
+  var maxSize;
+  
+  window.onload = (function() {  
+    // Load the appropriate JS and CSS files 
+    /*loadjscssfile("main.css","css", "");
+    loadjscssfile('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css',"css", "");
+    loadjscssfile("d3.v3.js","js","utf-8");
+    loadjscssfile("https://code.jquery.com/jquery-1.10.1.min.js","js","");
+    loadjscssfile("https://code.jquery.com/ui/1.10.3/jquery-ui.js","css","");
+    loadjscssfile("colorConversion.js","js","");
+    loadjscssfile("stimuli.js","js","");
+    loadjscssfile("writeData.js","js","");  */
+    
+    // Hide the page divs
+    console.log("load");
+    document.getElementById("instructions_panel").style.visibility = 'hidden';
+    document.getElementById("test_panel").style.visibility = 'hidden';
+    
+    // Save this for any Turk loading code that we may need
+  });
+  
+  //--------------------------------------------------------------- Utility Functions ---------------------------------------------------------->
+  /*var loadjscssfile = function(filename, filetype, charSet){
+   if (filetype=="js"){ //if filename is a external JavaScript file
+    var fileref=document.createElement('script');
+    fileref.setAttribute("type","text/javascript");
+    fileref.setAttribute("src", filename);
+    if (charSet.length > 0)
+    fileref.charset = charSet;
+   
+   }
+   else if (filetype=="css"){ //if filename is an external CSS file
+    var fileref=document.createElement("link");
+    fileref.setAttribute("rel", "stylesheet");
+    fileref.setAttribute("type", "text/css");
+    fileref.setAttribute("href", filename);
+   } else if (filetype == "meta") {
+    var fileref=document.createElement("meta");
+    fileref.charset = "utf-8";
+   }
+   
+   if (typeof fileref!="undefined")
+    document.getElementsByTagName("head")[0].appendChild(fileref);
+  };*/
+
+  
+  //--------------------------------------------------------------- Index Page Functions ------------------------------------------------------->
+  var sendUser = function() {
+    var ageVal = $("#age").val() == "" ? "0" : $("#age").val();
+    var genderVal = $("#gender").val() == "" ? "0" : $("#gender").val();
+    
+    if (!($("#cvdYes:checked").val() || $("#cvdNo:checked").val())) {
+      alert("Please report any color vision deficiencies.");
+      return;
+    }
+    else 
+      cvd = $("#cvdYes:checked").val() ? "y" : "n"
+    var urlArgs = window.location.search;
+    userId = urlArgs.substring(1, urlArgs.indexOf("&colorPtr="));
+    age = ageVal;
+    gender = genderVal;
+    
+    // Hide the index elements
+    $("#container").remove();
+    
+    // Render the instructions page
+    renderInstructions();
+  
+  };
+  
+  //------------------------------------------------------------------ Instructions Functions ------------------------------------------------->
+  var renderInstructions = function() {
+    document.getElementById("instructions_panel").style.visibility = 'visible';
+  };
+
+  //------------------------------------------------------------------ Test Page Functions ---------------------------------------------------->
+  var renderTest = function() {
+    // Extract the demographic form parameters
+    $("#instructions_panel").remove();
+    document.getElementById("test_panel").style.visibility = 'visible';
+    
+    // Fetch the DPI and id
+    startSession();
+    dpi = $("#dpi").height();
+    
+    // Fetch the configs
+    colorType = COLORTYPE['Lab'];
+    numSamples = 5;
+    numCircles = 1;
+    shapeType = "Square";
+    proximity = visualAngleToPixels(4, inchesToDisplay, dpi);
+    colorIterations = 3;
+    colorFile = 'colorSets/initial_jnd_set.csv';
+    useRelativeChroma = true;
+  
+  // Leftovers from social media study
+    baseStep = 1;
+    chromaF = 0.15;
+  
+    background = "white";
+    $("document").css("background-color", background);
+    fixedSize = 4;
+    TRIALS_PER_PARTICIPANT = 104;
+    
+  // Parse command line argument (important)
+  var urlArgs = window.location.search;
+    colorPtr = parseInt(urlArgs.substring(urlArgs.indexOf("&colorPtr=") + "&colorPtr=".length));
+    clrOffset = colorPtr;
+  
+    // Create the stimulus size pairs and color set -- Pick the sizes here!
+  // numSamples, jnd need to be set before here. 
+    processColors(stimColors, stimSizes);
+    console.log(colorSet.length);
+    //colorPtr = 0;
+    
+    // Set the panel widget
+    var nc = 1;
+    var nr = 1;
+    var panelW = (layoutType == "grid") ? (2 * proximity + 2 * GRID_PAD + 4 * maxSize) * nc: 
+                        2 * (proximity + 2 * maxSize);
+                        
+    var panelH = panelW//(layoutType == "grid") ? (2 * GRID_PAD + 2 * maxSize) * nr: 
+                        2 * (proximity + 2 * maxSize);
+                        
+    $("#stimuli").width(panelW);
+    $("#stimuli").height(panelH);
+    $("#stimuli").css("padding-top", "100px");
+    $("#panel").width(panelW);
+    $("#panel").height(panelH + 100);
+    $("#panel").width($("#panel").width());
+    
+    // Instantiate the input
+    $(this).keyup(function(evt){ 
+      if (evt.which == 70) {
+        resp = 0
+    // This is in Stimuli.js. For flickering the blank screen
+        adapt();
+      }
+      if (evt.which == 74) {
+        resp = 1;
+        adapt();
+      }
+    });
+  
+    // Instantiate the study
+    trialStartTime = new Date();
+    run();
+  };
+
+  var processSizeSet = function (sizes) {
+      // Construct an array of r=3 size combinations
+      sizeSet = sizes;
+      maxSize = visualAngleToPixels(fixedSize, inchesToDisplay, dpi) / 2;
+      console.log("fixed size", fixedSize);
+  };
+
+  var processColors = function (clrs, sizes) {
+      var participantColors = [];
+
+      processSizeSet(sizes);
+
+      // For total number of size permutations
+      participantColors = [];
+
+      // Create a color set for the combination
+      for (var c = 0; c < TRIALS_PER_PARTICIPANT; c++) {
+          participantColors.push(clrs[(c + colorPtr) % clrs.length]);
+      }
+
+      //participantColors.sort(function() { return Math.random() - 0.5;});
+
+      // Compute the steps at each color point for each size 
+      var cp = 0;
+      for (var s = 0; s < sizeSet.length; s++) {
+          // Compute the steps 
+          for (var axis = 0; axis < 3; axis++) {
+
+              jndSteps = [];
+              var arr = [0, 0, 0];
+              arr[axis] = jnd[axis];
+              var base = defaultStep; //magic number for sizes >= 1
+              if (sizeSet[s] < 1) { base = attenuate(arr, sizeSet[s])[axis]; }  //only attenuate smaller sizes. No baseStep, assume=1
+              //        var base = baseStep * attenuate(arr, sizeSet[s])[axis];
+              console.log(base);
+              for (var i = 0; i <= numSamples; i++) {
+                  jndSteps.push(i * base);
+              }
+
+              // For each step
+              for (var step = 0; step < jndSteps.length; step++) {
+                  // Compute the step 
+                  var curClr = convertTo(participantColors[cp++].slice(0), colorType);
+                  var adjClr = curClr.slice(0);
+                  adjClr[axis] += jndSteps[step];
+                  colorSet.push([{ 'id': (cp + clrOffset - 1) % clrs.length,
+                      'color': curClr,
+                      'fixedSide': "left",
+                      'sizes': [sizeSet[s], sizeSet[s]],
+                      'isControl': jndSteps[step] == 0,
+                      'l_deltas': (axis == 0) ? step : 0,
+                      'a_deltas': (axis == 1) ? step : 0,
+                      'b_deltas': (axis == 2) ? step : 0
+                  },
+                   { 'id': (cp + clrOffset - 1) % clrs.length,
+                       'color': adjClr,
+                       'fixedSide': "left",
+                       'sizes': [sizeSet[s], sizeSet[s]],
+                       'isControl': jndSteps[step] == 0,
+                       'l_deltas': (axis == 0) ? step : 0,
+                       'a_deltas': (axis == 1) ? step : 0,
+                       'b_deltas': (axis == 2) ? step : 0
+                   }]);
+
+                  // Add the negative step
+                  if (jndSteps[step] != 0) {
+                      var curClr = convertTo(participantColors[cp++].slice(0), colorType);
+                      var adjClr = curClr.slice(0);
+                      adjClr[axis] -= jndSteps[step];
+                      colorSet.push([{ 'id': (cp + clrOffset - 1) % clrs.length,
+                          'color': curClr,
+                          'fixedSide': "left",
+                          'sizes': [sizeSet[s], sizeSet[s]],
+                          'isControl': jndSteps[step] == 0,
+                          'l_deltas': (axis == 0) ? step : 0,
+                          'a_deltas': (axis == 1) ? step : 0,
+                          'b_deltas': (axis == 2) ? step : 0
+                      },
+                   { 'id': (cp + clrOffset - 1) % clrs.length,
+                       'color': adjClr,
+                       'fixedSide': "left",
+                       'sizes': [sizeSet[s], sizeSet[s]],
+                       'isControl': jndSteps[step] == 0,
+                       'l_deltas': (axis == 0) ? step : 0,
+                       'a_deltas': (axis == 1) ? step : 0,
+                       'b_deltas': (axis == 2) ? step : 0
+                   }]);
+                  }
+              }
+          }
+
+          console.log(colorSet.length);
+      }
+
+      // Add in the massive steps -- backfilling the remaining 5 for validity
+      for (; cp < participantColors.length; cp++) {
+          var curClr = convertTo(participantColors[cp].slice(0), colorType);
+          var adjClr = curClr.slice(0);
+          if (Math.abs(adjClr[1]) > 20)
+              adjClr[1] *= -1;
+          else if (Math.abs(adjClr[2]) > 20)
+              adjClr[2] *= -1;
+          else
+              adjClr = convertTo([.9, .9, .9, 1], colorType);
+          var size = sizeSet[cp % sizeSet.length];
+          colorSet.push([{ 'id': (cp + clrOffset) % clrs.length,
+              'color': curClr,
+              'fixedSide': "left",
+              'sizes': [size, size],
+              'isControl': true,
+              'l_deltas': -1,
+              'a_deltas': -1,
+              'b_deltas': -1
+          },
+                 { 'id': (cp + clrOffset) % clrs.length,
+                     'color': adjClr,
+                     'fixedSide': "left",
+                     'sizes': [size, size],
+                     'isControl': true,
+                     'l_deltas': -1,
+                     'a_deltas': -1,
+                     'b_deltas': -1
+                 }]);
+      }
+
+      // Permute the dataset
+      colorSet.sort(function () { return Math.random() - 0.5; });
+
+      // Set the color pointer to the start position
+      colorPtr = 0;
+  };
+  
+  var run = function() {    
+    // Reset the response
+    activeColor = {'position': -1, 'color': []};
+    clearInterval(respInt);
+    
+    if (colorPtr == -1 || colorPtr >= colorSet.length) {
+      window.location = "done2.php?userId="+userId;
+      return;
+    }
+    
+    // Choose the size
+    setSizes();
+    
+    // Choose the colors and set the slider to the second color
+    if (setColors()) {
+      // Render the stimuli
+      render(proximity);
+    }
+    startTime = new Date();
+  };
+  
+  var setSizes = function() {
+    // Determine the size range of the stimulus. Normalized to account for radius vs. diameter
+    fixedSize = visualAngleToPixels(colorSet[colorPtr][FIX_IDX].sizes[FIX_IDX], inchesToDisplay, dpi) / 2;
+    adjustedSize = visualAngleToPixels(colorSet[colorPtr][ADJ_IDX].sizes[ADJ_IDX], inchesToDisplay, dpi) / 2;
+  };
+  
+  var setColors = function() {
+    // Set start conditions
+    if (colorPtr >= colorSet.length) {
+      window.location = "done2.php?userId="+userId;
+      return true;
+    } else {
+      // Select the appropriate values
+      fixedColor = colorSet[colorPtr][FIX_IDX];
+      adjustedColor = colorSet[colorPtr][ADJ_IDX];
+      
+      return true;
+    }
+  };
+  
+  var startSession = function() {
+    var date = new Date();
+    sessionTime =  (date.getMonth() + 1)  + "_" + date.getDate() + "_" + date.getHours() + "_" + date.getMinutes() + "_" + date.getSeconds();
+    return true;
+  };
+  
+  var logResponse = function() {
+    console.log("logResponse fired "  + (new Date()));
+    // Validate that something has been selected
+    resp = pickResponse(resp);
+    if (activeColor.position == -1) {
+      clearInterval(respInt);
+      return;
+    }
+    
+    writeData(startTime, endTime);
+    
+    pickNext();
+  };
+  
+  var pickNext = function() {
+     colorPtr++;
+    console.log("Pointer is " + colorPtr);
+    numTrials++;
+    if (colorPtr >= colorSet.length){// || numTrials == TRIALS_PER_PARTICIPANT) {
+      colorPtr = -1;
+      //iters++;
+    }
+    
+    // Reset the value ranges for Alpha
+    /*if (colorType == COLORTYPE.Alpha) 
+      colorType.maxs = [1, 1, 1, 1];*/
+    run();
+    
+    $("#progress").html("Completed " + numTrials + " / " + TRIALS_PER_PARTICIPANT + " trials");
+    console.log("logResponse wrapped at " + (new Date()));
+  };
+
+  // For this color, the response function is ALWAYS the adjusted color
+  var pickResponse = function(idx) {
+    if (idx == 0) {
+      respColor = adjustedColor.color.slice(0);
+      return "same";
+    }
+    else {
+      respColor = adjustedColor.color.slice(0);
+      return "different";
+    }
+  };
+  
+  var done = function() {
+    window.location = "done2.php?userId=" + userId;
+  };
+// ]]></script>
+<!---------------------------------------------------------- Index Page Elements ------------------------------------------------------------->
+<div id="container">
+  <div id="center_panel" style="text-align:center;width:100%;margin: 0 auto;"><br /><br /><br /><br /> 
+    <label style="padding: 30px 30px 30px 55px">Age (optional):</label><input type="text" style="width:150px" id="age"></input><br/>
+    <label style="padding: 30px 30px 30px 5px">Gender (M/F) (optional):</label><input type="text" style="width:150px" id="gender"></input><br/><br/>
+    <label style="padding: 10px">Do you have any known color vision deficiencies (e.g. color blindness)?:</label><br/>
+    <div style="float: center;">
+      <input type="radio" id="cvdYes" style="float:center; margin: 10px;" name="cvd">Yes</input>
+      <input type="radio" id="cvdNo" style="float:center; margin: 10px;" name="cvd">No</input>
+    </div>
+<br /><center><button onclick="sendUser();" text="Next">Next</button></center>    
+  </div>
+
+</div>
+
+<!---------------------------------------------------------- Instructions Elements ---------------------------------------------------------->
+<div id="instructions_panel">
+  <div id="center_panel">
+    <p>You will see two shapes, like those shown below. Shapes may be of different sizes and colors. Your task is to identify whether the two shapes appear to be of the same color.</p>
+    <p>Please press "f" if the shapes appear to be exactly <b>same</b> color, or "j" if they appear to be <b>different</b> colors.</p>
+    <p>For the purposes of this study, these shapes are the same color:<br /> <img src="same.png" style="margin: 15px 15px 0 200px;" width="270px" /></p>
+    <p>while these shapes are different colors: <br /><img src="different.png" style="margin: 15px 15px 0 200px;" width="270px" /></p>
+    <p>and these are also very different colors: <br /><img src="verydifferent.png" style="margin: 15px 15px 0 200px;" width="270px" /></p>
+    <p>Please answer as quickly and accurately as possible. <b>Responses will be screened for earnest responses prior to compensation.</b> Please set your browser window to full screen if it is not already and proceed through all 104 questions before exiting the study. Do not press the back button after you have begun the study. We anticipate the study will take roughly 10 minutes total. Thank you for your participation!</p>
+    <br /> <center><button onclick="renderTest();" text="Next">Begin</button></center>
+  </div>
+</div>
+<!---------------------------------------------------------- Test Page Elements ------------------------------------------------------------->
+<div id="test_panel" style="text-align:center;width:100%;margin: 0 auto;">
+  <div id="Instructions">
+    <p style="display: inline; float: left; width: 30%; padding-left: 15px;">Press <b><span style="color: darkred; font-size: xx-large;" color="darkred" size="6px">F</span></b> if the colors look the same.</p>
+    <p style="display: inline; float: right; width: 30%; padding-right: 15px;">Press <b><span style="color: darkred; font-size: xx-large;" color="darkred" size="6px">J</span></b> if the colors look different.</p>
+    <br /><br /><br /><br />
+    <p>Color differences may be subtle. <br/><br/>Please answer as quickly and accurately as possible.</p>
+    <label id="progress">Completed 0 / 104 trials</label> <br /> <label id="loading"></label>
+  </div>
+  <div id="panel" style="text-align:left;width:100%;">
+    <div id="stimuli"></div>
+  </div>
+  <div id="dpi"></div>
+</div>
+</body>

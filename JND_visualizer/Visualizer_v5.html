@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Visualize color and size results</title>
+		<script type="text/javascript" src="../lib/d3.v3.js"></script>
+        <script type="text/javascript" src="ValuesFromExperiment.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */
+		</style>
+	</head>
+	<body>
+
+        <div id="controls"></div>
+        <div id="results"> </div>
+        <script type="text/javascript">
+
+		    var resultsW = 1500;
+		    var resultsH = 1500;
+		    createControls();
+		    createResultsPanel();
+
+		function createResultsPanel() {
+		    var svg = d3.select("#results")
+					.append("svg")
+					.attr("width", resultsW)
+					.attr("height", resultsH);
+		}
+
+		// Main function to display results
+		function display(c_rgb) {
+		    //Clear what's displayed first
+		    clearResults();
+
+		    var left_x = 50;
+		    var top_y = 50;
+            var offsets = [-1, 0, 1];  //the jitter around the color, in JND steps
+ //           var top_div = d3.select("#results svg");
+
+            var sizes = [0.5, 1, 2, 4];
+			var p = 0.5;
+			console.log(d3.lab(c_rgb));
+			for (var i = 0; i < sizes.length; i++) {
+				var ss = sizes[i];
+				var patch_size = visualAngleToPixels(ss, 24, 96);
+				console.log(ss, patch_size, ND(p,ss));
+				}
+
+            for (var s = 0; s < sizes.length; s++) {
+                //For each size
+                var size = sizes[s];
+                var patch_size = visualAngleToPixels(size, 24, 96);
+                var unit_size = Math.max(1.25, patch_size*0.5/80); //based on a 5 pixel gap for a 2-degree square.
+                var spacing = { p_gap: unit_size, s_gap: unit_size*1.5, b_gap: unit_size*6}; //between patches, between rows, between blocks
+                var offset_rgb = jndColors(p, size, c_rgb, offsets);
+                //var large_rgb = jndColors(2, c_rgb, offsets);
+                //var fixed_rgb = fixedJND(2, c_rgb, offsets);
+                //var colors_rgb = chromaSteps(size, c_rgb, offsets);
+				var colors_rgb = offset_rgb;
+                var block_w = offsets.length * patch_size + (offsets.length - 1) * spacing.p_gap;
+                var nrows = colors_rgb.length;
+                var block_h = nrows * patch_size + (nrows-1) * spacing.s_gap;
+                var ty = 0;  //step down for each row
+                var block_svg = d3.select("#results svg").append("svg").attr("width", block_w).attr("height", block_h).attr("x", left_x).attr("y", top_y);
+                for (var i = 0; i < colors_rgb.length; i++) {
+                    var stack_svg = block_svg.append("svg").attr("width", block_w).attr("height", patch_size).attr("x", 0).attr("y", ty);
+                    plotRow(stack_svg, patch_size, spacing.p_gap, colors_rgb[i]);
+                    ty = ty + patch_size+spacing.s_gap;
+                }
+                top_y = top_y + block_h + spacing.b_gap;
+            }
+        }
+
+        //display one row of differences
+        function plotRow(stack_svg, patch_size, gap, data) {
+            var w = patch_size;
+		    stack_svg.selectAll("rect")
+            .data(data)  //colors
+            .enter()
+            .append("rect")
+			   .attr("x", function (d, i) {
+			       return i * (w + gap);
+			   })
+			   .attr("y", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w)
+			   .attr("height", w)
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   });
+		}
+
+
+		function clearResults() {
+		    d3.select("#results svg").selectAll("svg").remove();
+		}
+		function createControls() {
+
+
+           //the list of colors. stimColors are defined in ValuesFromExperiment
+		    var colors = [];
+            //fill it with d3.rgb, which means we have to multiply by 255
+            for (var i = 0; i < stimColors.length;  i++) {
+                var c = stimColors[i];
+                colors[i] = d3.rgb(c[0]*255,c[1]*255,c[2]*255);
+             }
+
+		    var w = 1000;
+		    var h = 50;
+		    var barPadding = 1;
+		    var cur_size = 2;
+		    //Create SVG element
+		    var svg = d3.select("#controls")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+		    console.log("start");
+		    svg.selectAll("rect")
+			   .data(colors)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function (d, i) {
+			       return i * (w / colors.length);
+			   })
+			   .attr("y", function (d) {
+			       return 0;
+			   })
+			   .attr("width", w / colors.length - barPadding)
+			   .attr("height", function (d) {
+			       return 50;
+			   })
+			   .attr("fill", function (d) {
+			       return (d.toString());
+			   })
+               .on("click", function (d) {
+                   display(d);
+               });
+
+               //Add label
+               var colorLabel = document.createElement("label");
+               colorLabel.appendChild(document.createTextNode("  Select a color to display"));
+               document.getElementById("controls").appendChild(colorLabel);
+		}
+
+		</script>
+	</body>
+</html>

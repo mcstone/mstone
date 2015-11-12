@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Visualize color and size results</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+        <script type="text/javascript" src="ValuesFromExperiment.js"></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		    var resultsW = 1000;
+		    var resultsH = 800;
+
+		function createResultsPanel() {
+		    var svg = d3.select("#results")
+					.append("svg")
+					.attr("width", resultsW)
+					.attr("height", resultsH);
+		}
+
+		// Main function to display results
+		function display(c) {
+
+		    //Clear what's displayed first
+		    clearResults();
+
+		    d3.select('#results svg').append("rect")
+                        .attr("x", resultsW / 4)
+                        .attr("y", resultsH / 4)
+                        .attr("width", 200)
+                        .attr("height", 200)
+			.attr("fill", d3.rgb(c[0] * 255, c[1] * 255, c[2] * 255));
+
+		}
+		function clearResults() {
+		    d3.select("#results svg").select("rect")
+      		 		.remove();
+		}
+		function createControls() {
+
+		    //Width and height
+		    var w = 1000;
+		    var h = 100;
+		    var barPadding = 1;
+
+		    var colors = stimColors; //from ValuesFromExperiment
+
+		    //Create SVG element
+		    var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+		    console.log("start");
+
+		    svg.selectAll("rect")
+			   .data(colors)
+			   .enter()
+			   .append("rect")
+			   .attr("x", function (d, i) {
+			       return i * (w / colors.length);
+			   })
+			   .attr("y", function (d) {
+			       return resultsH + 50;
+			   })
+			   .attr("width", w / colors.length - barPadding)
+			   .attr("height", function (d) {
+			       return 50;
+			   })
+			   .attr("fill", function (d) {
+			       var c = d3.rgb(d[0] * 255, d[1] * 255, d[2] * 255);
+			       return c.toString();
+			   })
+               .on("click", function (d) {
+                   display(d);
+               });
+		}
+
+            function display(c) {
+
+                //Clear what's displayed first
+                clearResults();
+
+                d3.select('#results svg').append("rect")
+                        .attr("x", resultsW / 4)
+                        .attr("y", resultsH / 4)
+                        .attr("width", 200)
+                        .attr("height", 200)
+			.attr("fill", d3.rgb(c[0] * 255, c[1] * 255, c[2] * 255));
+
+            }
+		</script>
+	</body>
+</html>
