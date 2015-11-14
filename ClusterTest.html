@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cluster Colors</title>
+	<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+	<script type="text/javascript"  src="jquery-ui/jquery-ui.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+	<link href="mstone.css" rel="stylesheet">
+	<script type="text/javascript"  src="lib/chroma.js"></script>
+	<script type="text/javascript"  src="lib/d3.v3.js"></script>
+	<script type="text/javascript"  src="lib/myclusters.js"></script>
+</head>
+
+<script type="text/javascript" charset="utf-8">
+
+//This initializes the foreground colors
+
+var state = new Object()  //rather than globals, put it all here
+	state.hexvals = ["#013600", "#078EFA", "#0879B2", "#17487A", "#1A213D", "#1C642B", "#213848", "#23658C", "#24C60C", "#252B37", "#27200E", "#285569", "#2D6ED4", "#2E4383", "#2EED81", "#2F2030", "#2F2352", "#303F32", "#30426A", "#308116", "#31F53D", "#344B4A", "#353028", "#361A15", "#379CBC", "#3AA6E9", "#3BA9D0", "#3D9BF3", "#3DA81B", "#3E6385", "#4062CE", "#415A27", "#432129", "#434751", "#44C7F2", "#46090B", "#477E17", "#4881BC", "#4995BD", "#4B59CF", "#4D1C0A", "#50600B", "#52507A", "#534B31", "#537DF0", "#554CBC", "#5693EF", "#573C2A", "#59033D", "#59562C", "#5A6F6A", "#5C3A08", "#5D3A60", "#5D97CA", "#6172C3", "#61A7A5", "#625148", "#629F5A", "#657386", "#658A21", "#65B1F6", "#66BEC6", "#6764F3", "#6A596E", "#6B6F5D", "#6CD82A", "#6D6EC3", "#6E4E9F", "#713713", "#7385B9", "#752C52", "#7655CE", "#793AA2", "#7C3B36", "#82557D", "#836B1F", "#87634C", "#87ACEC", "#890E01", "#8BA552", "#8C6770", "#8FCFF1", "#919468", "#92BCB1", "#93A87A", "#968400", "#985EEA", "#9B4B32", "#9C6E69", "#9C9243", "#9E9A9C", "#9FC324", "#A08A9C", "#A133B1", "#A29CBB", "#A70B2B", "#A857AA", "#A86392", "#A9713C", "#A99A81", "#AD9042", "#B52E38", "#BDA983", "#C67036", "#C7913A", "#C7B3C1", "#CCD61B", "#CE2EC7", "#CF2616", "#D4B5BB", "#D5C17B", "#DDB590", "#DED9BB", "#DFCF60", "#EAC793", "#EE272A", "#EE2D51", "#F07012", "#F3D02D", "#F46829", "#F4E5D4", "#F64389", "#F8B010", "#FC1F05"]
+	state.colors = []
+	state.labvals = []
+	state.lchvals = []
+	state.clusterMaker = myclusters.exports;
+	state.clusters = []
+	state.nclusters = 5
+
+
+formatTriple = function(t) {
+	s = ""
+	s = s+t[0].toString()+", "
+	s = s+t[1].toString()+", "
+	s = s+t[2].toString()
+	return s
+}
+
+
+initDisplay = function() {
+	$("#cluster-count").val(state.nclusters.toString())
+	displayColors(labToHex(state.labvals), "#colors")	
+}
+
+updateDisplay = function() {
+	if (state.clusters.length>0) {displayClusters(state.clusters,"#clusters")}
+}
+
+
+$(document).ready(function() {
+	for(var i=0; i < state.hexvals.length; i++) {
+		state.colors[i] = chroma(state.hexvals[i])
+		state.labvals[i] = state.colors[i].lab()
+		state.lchvals[i] = state.colors[i].lch()
+	}
+	state.labvals = sortColors(state.labvals)
+	state.lchvals = sortColors(state.lchvals)
+	state.clusterMaker.data(state.lchvals)
+	$("#cluster-count").keypress(function(event) {
+        if (event.keyCode == 13) {
+            state.nclusters = Number($("#cluster-count").val())
+        }
+    })
+	$( "#makeClusters" ).click(function() {
+		state.nclusters = Number($("#cluster-count").val())
+		state.clusterMaker.k(state.nclusters)
+		state.clusters = state.clusterMaker.clusters()
+		state.clusters.sort(function(a,b) {
+			if (a.centroid[0] > b.centroid[0]) {
+			return 1;
+		}
+		if (a.centroid[0] < b.centroid[0]) {
+			return -1;
+		}
+		// a must be equal to b
+		  return 0;
+		});
+		console.log(state.clusters)
+		updateDisplay()
+	});
+	initDisplay()
+  });
+	
+sortColors = function(labVals) {
+	//works for both lch and lab, sort by L
+	labVals.sort(function (a,b) {
+		if (a[0] > b[0]) {
+		return 1;
+	}
+	if (a[0] < b[0]) {
+		return -1;
+	  }
+	  // a must be equal to b
+	  return 0;
+	});
+	return labVals
+}
+labToHex = function(labVals) {
+	var hexVals = []
+	var v =[]
+	for (var i=0; i<labVals.length; i++) {
+		v = labVals[i]
+		hexVals[i] = chroma.lab(v[0],v[1],v[2]).hex()
+	}
+	return hexVals
+}
+
+displayClusters = function(clusters, divID) {
+	
+	d3.select(divID).selectAll("div").remove();
+	d3.select(divID).selectAll("div")
+		.data(clusters)
+		.enter()
+		.append("div")
+		.attr("class", "hContainer")
+		.attr("id","cluster-obj")
+	d3.selectAll("#cluster-obj")
+	.data(clusters)
+	.each(function(d) {
+		var size = 20;
+		d3.select(this)
+		.append("div")
+		.append("svg").attr("width", size+10).attr("height",size+5)
+		.append("rect")
+		.attr("width", size)
+		.attr("height",size)
+		.attr("fill",function(d) {
+			var c = d.centroid
+			return(chroma.lch(c[0],c[1],c[2]).hex())
+		})
+	})
+	d3.selectAll("#cluster-obj")
+	.data(clusters)
+	.each(function(d) {
+		var size = 20;
+		var nc = d.points.length	//the number of colors in this cluster
+		var svg = d3.select(this)
+		.append("div")
+		.append("svg").attr("height",size+5).attr("width",nc*(size+3))
+		for (var i = 0; i<nc; i++) {
+			var c = d.points[i]
+			var hex = chroma.lch(c[0],c[1],c[2]).hex()
+			svg.append("rect")
+			.attr("width", size)
+			.attr("height",size)
+			.attr("fill",hex)
+			.attr("x", i*(size+3))
+		}
+	})
+	
+}
+displayColors = function(hexColors, divID) {
+	var w = 1300;
+	var h = 50;
+	var barPadding = 1;
+	var cur_size = 2;
+	//Create SVG element
+	var svg = d3.select(divID)
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+	svg.selectAll("rect")
+	   .data(hexColors)
+	   .enter()
+	   .append("rect")
+	   .attr("x", function (d, i) {
+		   return i * (w / hexColors.length);
+	   })
+	   .attr("y", function (d) {
+		   return 0;
+	   })
+	   .attr("width", w / hexColors.length - barPadding)
+	   .attr("height", function (d) {
+		   return 50;
+	   })
+	   .attr("fill", function (d) {
+		   return (d);
+	   })
+	   .on("click", function (d) {
+	   });	
+}
+
+ </script>
+</head>
+<body>
+<div style = "margin: 20px">
+<h2>Cluster the affect colors</h2>
+<div class="hContainer">
+	<div > Number of clusters</div>
+	<input type= "text" class = "smallText" id="cluster-count" />
+	<button id="makeClusters">Cluster Colors</button>
+
+</div>
+	<div id = "colors" style="margin-top: 5px"></div>
+	<div id = "clusters" style="margin-top: 15px"></div>
+</div>
+</body>
+</html>
+
+<!-- Created by Maureen Stone</a>.-->

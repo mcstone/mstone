@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Color Slider</title>
+	<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+	<script type="text/javascript"  src="jquery-ui/jquery-ui.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript"  src="lib/chroma.js"></script>
+	<script type="text/javascript"  src="lib/d3.v3.js"></script>
+
+</head>
+<style>
+	body { 
+		font-family: Sans-Serif;
+	}
+	
+	.control-group {
+		display: inline-flex;
+		margin-right: 15px;
+		margin-bottom: 10px;
+	}
+	.labeled-slider {
+		display: flex;
+		flex-flow: row;
+	}
+	.hContainer {
+		display: flex;
+		flex-flow: row;
+	}
+	.g-vContainer {
+		display: flex;
+		flex-flow: column;
+		margin-left: 0px;
+	}
+	.g-topBox {
+		background-color: white;
+		border-color: lightgray;
+		border-width: 1px;
+		font-size: small;
+		display: flex;
+		flex-flow: column;
+	}
+	.g-hContainer {
+		display: inline-flex;
+	}
+
+	.vContainer {
+		display: flex;
+		flex-flow: column;
+		margin-left: 20px;
+	}
+	.smallText {
+		border: 0px;
+		width: 40px;
+		margin-left: 3px;
+	}
+	#hue, #sat, #val {
+		width: 200px;
+		margin: 10px;
+		display: inline-block;
+	}
+	#swatch {
+		width: 100px;
+		height: 100px;
+		margin-left: 10px;
+	}
+	#hue .ui-slider-range { background: #b7b7b7; }
+	#sat .ui-slider-range { background: #b7b7b7; }
+	#val .ui-slider-range { background: #b7b7b7; }
+
+	</style>  
+	
+
+<script type="text/javascript" charset="utf-8">
+
+var state = new Object() //rather than globals, put it all here
+state.color = chroma("silver")
+state.luminance = state.color.luminance()
+colorUpdate = function() {
+	var hex = state.color.hex()
+	var hsv = state.color.hsv()
+	
+	hsv[0] = Math.round(hsv[0])
+	hsv[1] = Math.round((hsv[1]*100))/100
+	hsv[2] = Math.round((hsv[2]*100))/100
+   $(".change-color").css("background-color", hex) //patch
+   $("#color-text").val(hex)
+   $("#hsv-text").val(formatTriple(hsv))
+   	state.luminance = state.color.luminance()
+   $("#lum-text").val(state.luminance.toPrecision(3))
+  }
+formatTriple = function(t) {
+	s = ""
+	s = s+t[0].toString()+", "
+	s = s+t[1].toString()+", "
+	s = s+t[2].toString()
+	return s
+}
+function readSliders() {
+    var hue= $( "#hue" ).slider( "value" )
+    var sat = $( "#sat" ).slider( "value" )
+    var val = $( "#val" ).slider( "value" )
+	state.color = chroma.hsv(hue,sat,val)
+	colorUpdate()
+  }
+function updateSliders() {
+	var hsv = state.color.hsv()
+	$("#hue").slider("option","value",hsv[0])
+	$("#sat").slider("option","value",hsv[1])
+	$("#val").slider("option","value",hsv[2])
+}
+$(document).ready(function() {
+//initialize the widgets, state
+	$("#hue").slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 360,
+      value: 127,
+	  step: 0.5,
+      slide: readSliders,
+      change: readSliders
+    });
+	$( "#sat,#val" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 1,
+      value: 0.7,
+	  step: 0.001,
+      slide: readSliders,
+      change: readSliders
+    });
+    $( "#hue" ).slider( "value", 182 );
+    $( "#sat" ).slider( "value", 0.2 );
+    $( "#val" ).slider( "value", 0.75 );
+	
+	$("#color-text").keypress(function(event) {
+		if (event.keyCode == 13) {
+            var v= $("#color-text").val()
+			state.color = chroma(v)
+			updateSliders()
+			colorUpdate()
+		}
+ 	});
+	$("#hsv-text").keypress(function(event) {
+		if (event.keyCode == 13) {
+            var v= $("#hsv-text").val()
+			var vals = v.split(",")
+			if (vals.length == 3) {
+				var h = Number(vals[0])
+				if (h > 360 || h <0) {h = 0}
+				var s = Number(vals[1])
+				if (s > 1 || s <0) {s = 0}
+				var v = Number(vals[2])
+				if (v > 1 || v <0) {v = 0}
+				state.color = chroma.hsv(h,s,v)
+				updateSliders()
+				colorUpdate()
+			}
+		}
+ 	});
+});
+
+ </script>
+</head>
+	
+<body>
+<h2>Color Slider</h2>
+<div class="hContainer">
+	<div class = "vContainer">
+
+	<div class = "labeled-slider">
+		<div style="width: 10px; margin-top: 10px;">H  </div>
+		<div id="hue"></div>
+	</div>
+	<div class = "labeled-slider">
+		<div style="width: 10px; margin-top: 10px;">S  </div>
+		<div id="sat"></div>
+	</div>
+	<div class = "labeled-slider">
+		<div style="width: 10px; margin-top: 10px;">V  </div>
+		<div id="val"></div>
+	</div>
+	</div>
+
+	<div id="swatch" class="change-color"></div>
+														
+	<div class = "vContainer" >
+		<div class = "control-group">
+			<div style="width: 40px;">Hex: </div>
+			<input type="text" class = "smallText" id="color-text" name="color-text" style = "width: 60px;"/></div>
+		<div class = "control-group">
+			<div style="width: 40px;">HSV: </div>
+			<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
+		<div class="control-group"> 
+			<div style="width: 40px;">Lum:</div>
+			<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+<!-- Example of a comment-->

@@ -1,0 +1,65 @@
+/** mstone.css **/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+@font-face {
+    font-family: Benton Sans Book;
+    src: url(../../assets/fonts/bentonSansBook.ttf);
+}
+
+@font-face {
+    font-family: Benton Sans Light;
+    src: url(../../assets/fonts/bentonSansLight.ttf);
+}
+
+@font-face {
+    font-family: Benton Sans Medium;
+    src: url(../../assets/fonts/bentonSansMedium.ttf);
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: Benton Sans Light;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  margin: 0 auto;
+  width: 50em;
+}
+
+.titleContainer {
+  text-align: center;
+}
+
+.titleLogo {
+  display: inline;
+  margin-right: 1em;
+}
+
+.titleText {
+  display: inline;
+  font-size: 2.5em;
+}
+
+.hContainer {
+	display: flex;
+	flex-flow: row;
+}
+.vContainer {
+	display: flex;
+	flex-flow: column;
+}
+.smallText {
+	border: 0px;
+	width: 40px;
+	margin-left: 3px;
+}
+#myslider {
+	width: 200px;
+	margin: 10px;
+	display: inline-block;
+}
+#myslider .ui-slider-range { background: #b7b7b7; }
