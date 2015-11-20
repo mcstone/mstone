@@ -27,11 +27,11 @@ var state = new Object()  //rather than globals, put it all here
 	state.nclusters = 5
 
 
-formatTriple = function(t) {
+formatTriple = function(t,p) {
 	s = ""
-	s = s+t[0].toString()+", "
-	s = s+t[1].toString()+", "
-	s = s+t[2].toString()
+	s = s+t[0].toPrecision(p)+", "
+	s = s+t[1].toPrecision(p)+", "
+	s = s+t[2].toPrecision(p)
 	return s
 }
 
@@ -105,8 +105,17 @@ labToHex = function(labVals) {
 }
 
 displayClusters = function(clusters, divID) {
-	
+	var size = 40;
 	d3.select(divID).selectAll("div").remove();
+	var tooltip = d3.select("body")
+	.append("div")
+	.attr("id", "tooltip")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.style("background-color",'white')
+	.text("a simple tooltip")
+	
 	d3.select(divID).selectAll("div")
 		.data(clusters)
 		.enter()
@@ -116,22 +125,30 @@ displayClusters = function(clusters, divID) {
 	d3.selectAll("#cluster-obj")
 	.data(clusters)
 	.each(function(d) {
-		var size = 20;
+		var c = d.centroid
+		var color = chroma.lch(c[0],c[1],c[2])
+		d3.select("#tooltip").text("LC"+formatTriple(c,3))
+		
 		d3.select(this)
-		.append("div")
 		.append("svg").attr("width", size+10).attr("height",size+5)
 		.append("rect")
 		.attr("width", size)
 		.attr("height",size)
+		.attr("x", 0)
 		.attr("fill",function(d) {
-			var c = d.centroid
-			return(chroma.lch(c[0],c[1],c[2]).hex())
+			return color.hex()
 		})
+		.on("mouseover", function(){
+			var hex = d3.select(this).attr("fill")
+			var lch = chroma(hex).lch()
+			tooltip.text(formatTriple(lch,3))
+			return tooltip.style("visibility", "visible");})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
 	})
 	d3.selectAll("#cluster-obj")
 	.data(clusters)
 	.each(function(d) {
-		var size = 20;
 		var nc = d.points.length	//the number of colors in this cluster
 		var svg = d3.select(this)
 		.append("div")
@@ -144,6 +161,13 @@ displayClusters = function(clusters, divID) {
 			.attr("height",size)
 			.attr("fill",hex)
 			.attr("x", i*(size+3))
+			.on("mouseover", function(){
+			var hex = d3.select(this).attr("fill")
+			var lch = chroma(hex).lch()
+			tooltip.text(formatTriple(lch,3))
+			return tooltip.style("visibility", "visible");})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
 		}
 	})
 	
@@ -154,10 +178,18 @@ displayColors = function(hexColors, divID) {
 	var barPadding = 1;
 	var cur_size = 2;
 	//Create SVG element
+	var tip = d3.select("body")
+	.append("div")
+	.attr("id", "tooltip")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.style("background-color",'white')
+	.text("a simple tooltip")
 	var svg = d3.select(divID)
-				.append("svg")
-				.attr("width", w)
-				.attr("height", h);
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
 	svg.selectAll("rect")
 	   .data(hexColors)
 	   .enter()
@@ -175,8 +207,13 @@ displayColors = function(hexColors, divID) {
 	   .attr("fill", function (d) {
 		   return (d);
 	   })
-	   .on("click", function (d) {
-	   });	
+	   .on("mouseover", function(){
+			var hex = d3.select(this).attr("fill")
+			var lch = chroma(hex).lch()
+			tip.text(formatTriple(lch,3))
+			return tip.style("visibility", "visible");})
+		.on("mousemove", function(){return tip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+		.on("mouseout", function(){return tip.style("visibility", "hidden")});	
 }
 
  </script>
