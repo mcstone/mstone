@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Edit palettes</title>
+	<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+	<script type="text/javascript"  src="jquery-ui/jquery-ui.js"></script>
+	<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+	<link href="mstone.css" rel="stylesheet">
+	<script type="text/javascript"  src="lib/chroma.js"></script>
+	<script type="text/javascript"  src="lib/d3.v3.js"></script>
+	<script type="text/javascript"  src="lib/colorEditorUtils.js"></script>
+</head>
+
+<script type="text/javascript" charset="utf-8">
+
+//This initializes the foreground colors
+
+state = {}
+state.colors = []
+
+state.hex = ['#f13600', '#078EFA', '#0879B2', '#17487A', '#1A213D']
+
+formatTriple = function(t,p) {
+	s = ""
+	s = s+t[0].toPrecision(p)+", "
+	s = s+t[1].toPrecision(p)+", "
+	s = s+t[2].toPrecision(p)
+	return s
+}
+
+
+initDisplay = function() {
+	displayColors("#plots")	
+}
+
+updateDisplay = function() {
+	displayColors("#plots")
+	
+}
+
+
+$(document).ready(function() {
+	state.colors = createColors(state.hex)
+	initDisplay()
+  });
+	
+
+
+displayColors = function(divID) {
+	
+	d3.select(divID).selectAll("svg").remove();
+	//create the tooltip
+	var tooltip = d3.select("body")
+	.append("div")
+	.attr("id", "tooltip")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.style("background-color",'white')
+	.style("margin","2px")
+	.text("a simple tooltip")
+	
+	//Now we want to plot as a function of a,b
+	var abSize = 300;
+	var lWidth = 100;
+	var pSize = 10;
+//create the svg frames. Will eventually add axes, etc. here
+	d3.select("#abPlot").append("svg").attr("width", abSize).attr("height",abSize)
+	d3.select("#lPlot").append("svg").attr("width", lWidth).attr("height",abSize)
+
+	//plot the a,b points	
+	d3.selectAll('#abPlot')
+	.data(state.colors)
+	.each(function(d) {	//d is a colorItem
+		var lab = d.color.lab()
+		console.log(d)
+		d3.select(this)
+		.append("circle")
+		.attr("r", pSize)
+		.attr("cx", Math.round((abSize/300)*lab[1]))
+		.attr("cy", Math.round((abSize/300)*lab[2]))
+		.attr("fill",function(d) {
+			return d.color.hex()
+		})
+		.on("mouseover", function(){
+			var hex = d3.select(this).attr("fill")
+			var lab = chroma(hex).lab()
+			tooltip.text(formatTriple(lab,3))
+			return tooltip.style("visibility", "visible");})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	})
+	//now plot L*
+	d3.selectAll("#lPlot")
+	.data(state.colors)
+	.each(function(d) {	//d is a colorItem
+		var lab = d.color.lab()
+		var pW = pSize*3
+		var pH = pSize/3
+		
+		d3.select(this)
+		.append("rect")
+		.attr("width",pW)
+		.attr("height", pH)
+		.attr("x", (lWidth-pW)/2)
+		.attr("y", Math.round((abSize/100)*lab[0]))
+		.attr("fill",function(d) {
+			return d.color.hex()
+		})
+		.on("mouseover", function(){
+			var hex = d3.select(this).attr("fill")
+			var lab = chroma(hex).lab()
+			tooltip.text(formatTriple(lab,3))
+			return tooltip.style("visibility", "visible");})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+	})	
+}
+
+ </script>
+</head>
+<body>
+<div style = "margin: 20px">
+<h2>Start of a palette editor</h2>
+<div class="hContainer" id = 'plots'>
+	<div id = "abPlot" style="margin: 5px"></div>
+	<div id = "LPlot" style="margin: 5px"></div>
+</div>
+</body>
+</html>
+
+<!-- Created by Maureen Stone</a>.-->
