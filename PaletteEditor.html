@@ -52,8 +52,7 @@ state.colors = []
 state.pColor = chroma('#000000')	//actually set in the .ready function
 state.selectedPt = null
 
-state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5']
-/*'#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']*/
+state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']
 
 formatTriple = function(t,p) {
 	s = ""
@@ -98,6 +97,12 @@ pUpdate = function() {
 	 updateDisplay()  //does a full replot 
    }
   }
+updateSliders = function() {
+	var hsv = state.pColor.hsv()
+	$("#hue").slider("option","value",hsv[0])
+	$("#sat").slider("option","value",hsv[1])
+	$("#val").slider("option","value",hsv[2])
+}
 $(document).ready(function() {
 	state.colors = createColors(state.hex)
 	state.pColor = chroma.hsv(270,0.7,0.7)
@@ -124,10 +129,7 @@ $(document).ready(function() {
 		if (event.keyCode == 13) {
             var v= $("#color-text").val()
 			state.pColor = chroma(v)
-			var hsv = state.pColor.hsv()
-			$("#hue").slider("option","value",hsv[0])
-			$("#sat").slider("option","value",hsv[1])
-			$("#val").slider("option","value",hsv[2])
+			updateSliders()
 			pUpdate()
 		}
 	})
@@ -241,6 +243,7 @@ addActions = function(svgPt) {
 			state.selectedPt = pt
 			c = findColorItem(pt)
 			c.selected = true
+			updateSliders()
 			pUpdate()
 		})
 }
