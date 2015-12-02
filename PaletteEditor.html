@@ -20,7 +20,7 @@
 state = {}
 state.colors = []
 
-state.hex = ['#f13600', '#078EFA', '#0879B2', '#17487A', '#1A213D']
+state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']
 
 formatTriple = function(t,p) {
 	s = ""
@@ -48,9 +48,9 @@ $(document).ready(function() {
 	
 
 
-displayColors = function(divID) {
+displayColors = function() {
 	
-	d3.select(divID).selectAll("svg").remove();
+	d3.select('#plots').selectAll("svg").remove();
 	//create the tooltip
 	var tooltip = d3.select("body")
 	.append("div")
@@ -62,61 +62,75 @@ displayColors = function(divID) {
 	.style("margin","2px")
 	.text("a simple tooltip")
 	
-	//Now we want to plot as a function of a,b
-	var abSize = 300;
+	//For point plotting, various constants 
+	var abSize = 800;
 	var lWidth = 100;
-	var pSize = 10;
+	var pSize = 9;
+	var pW = pSize*3
+	var pH = pSize/3
+	
+	var xOrg = abSize/2
+	var yOrg = abSize/2
+	
+	ab2xy = function(a,b) {
+		var x = xOrg+Math.round((abSize/300)*a)
+		var y = yOrg-Math.round((abSize/300)*b)
+		return a,b
+	}
+	hex2tip = function(hex) {
+		var c = chroma(hex)
+		var lab = c.lab()
+		var tip = hex+ ".."+formatTriple(lab,3)
+		return tip
+	}
+	
 //create the svg frames. Will eventually add axes, etc. here
-	d3.select("#abPlot").append("svg").attr("width", abSize).attr("height",abSize)
-	d3.select("#lPlot").append("svg").attr("width", lWidth).attr("height",abSize)
-
-	//plot the a,b points	
-	d3.selectAll('#abPlot')
-	.data(state.colors)
-	.each(function(d) {	//d is a colorItem
+	var svg_ab = d3.select("#abPlot")
+		.append("svg")
+		.attr("width", abSize).attr("height",abSize)
+		.style("border", "1px solid lightgray")
+	var svg_L = d3.select("#LPlot")
+		.append("svg")
+		.attr("width", lWidth).attr("height",abSize)
+		.style("border", "1px solid lightgray")
+	svg_ab.append("line").attr("x1", 0).attr("y1", yOrg)
+		.attr("x2",abSize).attr("y2",yOrg)
+		.style({stroke: "lightgray", "stroke-width": "1px"})
+	svg_ab.append("line").attr("x1", xOrg).attr("y1",0)
+		.attr("x2",xOrg).attr("y2",abSize)
+		.style({stroke: "lightgray", "stroke-width": "1px"})
+//loop over the colors
+	for (i = 0; i<state.colors.length; i++) {
+		var d = state.colors[i]
 		var lab = d.color.lab()
-		console.log(d)
-		d3.select(this)
-		.append("circle")
+		var hex = d.color.hex()
+		var tip = hex2tip(hex)
+//a,b points
+		svg_ab.append("circle")
 		.attr("r", pSize)
-		.attr("cx", Math.round((abSize/300)*lab[1]))
-		.attr("cy", Math.round((abSize/300)*lab[2]))
-		.attr("fill",function(d) {
-			return d.color.hex()
-		})
+		.attr("cx", xOrg+Math.round((abSize/300)*lab[1]))
+		.attr("cy", yOrg-Math.round((abSize/300)*lab[2]))
+		.attr("fill",hex)
+		.attr("tip",tip)
 		.on("mouseover", function(){
-			var hex = d3.select(this).attr("fill")
-			var lab = chroma(hex).lab()
-			tooltip.text(formatTriple(lab,3))
+			tooltip.text(d3.select(this).attr("tip"))
 			return tooltip.style("visibility", "visible");})
 		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
 		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
-	})
-	//now plot L*
-	d3.selectAll("#lPlot")
-	.data(state.colors)
-	.each(function(d) {	//d is a colorItem
-		var lab = d.color.lab()
-		var pW = pSize*3
-		var pH = pSize/3
-		
-		d3.select(this)
-		.append("rect")
+//L* points
+		svg_L.append("rect")
 		.attr("width",pW)
 		.attr("height", pH)
 		.attr("x", (lWidth-pW)/2)
-		.attr("y", Math.round((abSize/100)*lab[0]))
-		.attr("fill",function(d) {
-			return d.color.hex()
-		})
+		.attr("y", abSize-Math.round((abSize/100)*lab[0]))
+		.attr("fill",hex)
+		.attr("tip",tip)
 		.on("mouseover", function(){
-			var hex = d3.select(this).attr("fill")
-			var lab = chroma(hex).lab()
-			tooltip.text(formatTriple(lab,3))
+			tooltip.text(d3.select(this).attr("tip"))
 			return tooltip.style("visibility", "visible");})
 		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
 		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
-	})	
+	}	
 }
 
  </script>
@@ -125,7 +139,7 @@ displayColors = function(divID) {
 <div style = "margin: 20px">
 <h2>Start of a palette editor</h2>
 <div class="hContainer" id = 'plots'>
-	<div id = "abPlot" style="margin: 5px"></div>
+	<div id = "abPlot" style="margin: 5px; width=300px"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 </div>
 </body>
