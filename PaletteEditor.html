@@ -12,6 +12,36 @@
 	<script type="text/javascript"  src="lib/d3.v3.js"></script>
 	<script type="text/javascript"  src="lib/colorEditorUtils.js"></script>
 </head>
+<style>
+	.control-group {
+		display: inline-flex;
+		margin-right: 15px;
+		margin-bottom: 10px;
+	}
+	.vContainer {
+		margin-left: 20px;
+	}
+	#hue, #sat, #val {
+		width: 200px;
+		margin: 10px;
+		display: inline-block;
+	}
+	#th-slider {
+		width: 150px;
+		margin-left: 10px;
+		display: inline-block
+	}
+	#swatch {
+		width: 100px;
+		height: 100px;
+		margin-left: 10px;
+	}
+	#th-slider .ui-slider-range {background: #b7b7b7;}
+	#hue .ui-slider-range { background: #b7b7b7; }
+	#sat .ui-slider-range { background: #b7b7b7; }
+	#val .ui-slider-range { background: #b7b7b7; }
+
+	</style>  	
 
 <script type="text/javascript" charset="utf-8">
 
@@ -19,6 +49,7 @@
 
 state = {}
 state.colors = []
+state.pColor = chroma('#000000')	//actually set in the .ready function
 
 state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']
 
@@ -32,17 +63,67 @@ formatTriple = function(t,p) {
 
 
 initDisplay = function() {
+	pUpdate()
 	displayColors("#plots")	
 }
 
 updateDisplay = function() {
 	displayColors("#plots")
-	
 }
 
-
+function readSliders() {
+    var hue= $( "#hue" ).slider( "value" )
+    var sat = $( "#sat" ).slider( "value" )
+    var val = $( "#val" ).slider( "value" )
+	state.pColor = chroma.hsv(hue,sat,val)
+	pUpdate()
+  }
+//UX has updated state.pColor. Now propogate the changes
+pUpdate = function() {
+	var hex = state.pColor.hex()
+	var hsv = state.pColor.hsv()
+	hsv[0] = Math.round(hsv[0])
+	hsv[1] = Math.round((hsv[1]*100))/100
+	hsv[2] = Math.round((hsv[2]*100))/100
+   $(".change-color").css("background-color", hex) //patch
+   $("#color-text").val(hex)
+   $("#hsv-text").val(formatTriple(hsv))
+   	state.luminance = state.pColor.luminance()
+   $("#lum-text").val(state.luminance.toPrecision(3))
+  }
 $(document).ready(function() {
 	state.colors = createColors(state.hex)
+	state.pColor = chroma.hsv(270,0.7,0.7)
+	$("#hue").slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 360,
+      value: 270,
+	  step: 1,
+      slide: readSliders,
+      change: readSliders
+    });
+	$( "#sat,#val" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 1,
+      value: 0.7,
+	  step: 0.001,
+      slide: readSliders,
+      change: readSliders
+    })
+
+	$("#color-text").keypress(function(event) {
+		if (event.keyCode == 13) {
+            var v= $("#color-text").val()
+			state.pColor = chroma(v)
+			var hsv = state.pColor.hsv()
+			$("#hue").slider("option","value",hsv[0])
+			$("#sat").slider("option","value",hsv[1])
+			$("#val").slider("option","value",hsv[2])
+			pUpdate()
+		}
+	})
 	initDisplay()
   });
 	
@@ -138,6 +219,26 @@ displayColors = function() {
 <body>
 <div style = "margin: 20px">
 <h2>Start of a palette editor</h2>
+<div class='hContainer' id='controls'>
+	<div class = "vContainer">
+	<div id="hue"></div>
+	<div id="sat"></div>
+	<div id="val"></div>
+	</div>
+	<div id="swatch" class="change-color"></div>
+	<div class = "vContainer" >
+	<div class = "control-group">
+		<div style="width: 40px;">Hex: </div>
+		<input type="text" class = "smallText" id="color-text" name="color-text" style = "width: 60px;"/></div>
+	<div class = "control-group">
+		<div style="width: 40px;">HSV: </div>
+		<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
+	<div class="control-group"> 
+		<div style="width: 40px;">Lum:</div>
+		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
+	</div>
+</div>
+</div>
 <div class="hContainer" id = 'plots'>
 	<div id = "abPlot" style="margin: 5px; width=300px"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
