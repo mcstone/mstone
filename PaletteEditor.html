@@ -50,8 +50,10 @@
 state = {}
 state.colors = []
 state.pColor = chroma('#000000')	//actually set in the .ready function
+state.selectedPt = null
 
-state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']
+state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5']
+/*'#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']*/
 
 formatTriple = function(t,p) {
 	s = ""
@@ -90,6 +92,11 @@ pUpdate = function() {
    $("#hsv-text").val(formatTriple(hsv))
    	state.luminance = state.pColor.luminance()
    $("#lum-text").val(state.luminance.toPrecision(3))
+   if (state.selectedPt != null) {	//this is an svg object
+	 var cIndex = parseInt(state.selectedPt.attr('cIndex'))
+	 state.colors[cIndex].color = state.pColor
+	 updateDisplay()  //does a full replot 
+   }
   }
 $(document).ready(function() {
 	state.colors = createColors(state.hex)
@@ -186,32 +193,56 @@ displayColors = function() {
 		var lab = d.color.lab()
 		var hex = d.color.hex()
 		var tip = hex2tip(hex)
+		var scale = 1.0
+		if (d.selected) {scale = 1.5}
 //a,b points
-		svg_ab.append("circle")
-		.attr("r", pSize)
+		var svgPt = svg_ab.append("circle")
+		.attr("r", pSize*scale)
 		.attr("cx", xOrg+Math.round((abSize/300)*lab[1]))
 		.attr("cy", yOrg-Math.round((abSize/300)*lab[2]))
 		.attr("fill",hex)
 		.attr("tip",tip)
-		.on("mouseover", function(){
-			tooltip.text(d3.select(this).attr("tip"))
-			return tooltip.style("visibility", "visible");})
-		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+		.attr('cIndex',i)
+		addActions(svgPt)
+		
 //L* points
-		svg_L.append("rect")
-		.attr("width",pW)
+		svgPt = svg_L.append("rect")
+		.attr("width",pW*scale)
 		.attr("height", pH)
 		.attr("x", (lWidth-pW)/2)
 		.attr("y", abSize-Math.round((abSize/100)*lab[0]))
 		.attr("fill",hex)
 		.attr("tip",tip)
-		.on("mouseover", function(){
-			tooltip.text(d3.select(this).attr("tip"))
-			return tooltip.style("visibility", "visible");})
-		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-		.on("mouseout", function(){return tooltip.style("visibility", "hidden")});
+		.attr('cIndex',i)
+		addActions(svgPt)
+
 	}	
+}
+
+findColorItem = function(svgPt) {
+	var cIndex = parseInt(state.selectedPt.attr('cIndex'))
+	return state.colors[cIndex]
+}
+
+addActions = function(svgPt) {
+	var tooltip = d3.select('#tooltip')
+	svgPt.on("mouseover", function(){
+			tooltip.text(d3.select(this).attr("tip"))
+			return tooltip.style("visibility", "visible")})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")})
+		.on('click', function() {
+			var pt = d3.select(this)
+			state.pColor = chroma(pt.attr("fill"))
+			if (state.selectedPt != null) {
+				c = findColorItem(state.selectedPt)
+				c.selected = false
+			}
+			state.selectedPt = pt
+			c = findColorItem(pt)
+			c.selected = true
+			pUpdate()
+		})
 }
 
  </script>
