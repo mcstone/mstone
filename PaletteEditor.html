@@ -145,8 +145,8 @@ $(document).ready(function() {
 	$("#hue").slider({
       orientation: "horizontal",
       range: "min",
-      max: 360,
-	  step: 1,
+      max: 359,
+	  step: 0.5,
       slide: slideHSVSliders,
 		stop: slideHSVSliders,
       change: changeHSVSliders
@@ -164,7 +164,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 100,
-	  step: 1,
+	  step: 0.5,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -173,7 +173,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 140,
-	  step: 1,
+	  step: 0.5,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -181,8 +181,8 @@ $(document).ready(function() {
 	$("#cieH").slider({
       orientation: "horizontal",
       range: "min",
-      max: 360,
-	  step: 1,
+      max: 359,
+	  step: 0.5,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -230,8 +230,8 @@ displayColors = function() {
 	}
 	hex2tip = function(hex) {
 		var c = chroma(hex)
-		var lab = c.lab()
-		var tip = hex+ ".."+formatTriple(lab,3)
+		var lch = c.lch()
+		var tip = formatTriple(lch,3)
 		return tip
 	}
 	
