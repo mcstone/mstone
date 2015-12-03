@@ -21,26 +21,32 @@
 	.vContainer {
 		margin-left: 20px;
 	}
+	
+	.sliderLabel {
+		width: 15px;
+		align-item: center;
+	}
 	#hue, #sat, #val {
-		width: 200px;
+		width: 360px;
 		margin: 10px;
 		display: inline-block;
 	}
-	#th-slider {
-		width: 150px;
-		margin-left: 10px;
-		display: inline-block
+	#cieL,#cieC,#cieH {
+		width: 360px;
+		margin: 10px;
+		display: inline-block;
 	}
 	#swatch {
-		width: 100px;
-		height: 100px;
+		width: 120px;
+		height: 120px;
 		margin-left: 10px;
 	}
-	#th-slider .ui-slider-range {background: #b7b7b7;}
 	#hue .ui-slider-range { background: #b7b7b7; }
 	#sat .ui-slider-range { background: #b7b7b7; }
 	#val .ui-slider-range { background: #b7b7b7; }
-
+	#cieL .ui-slider-range { background: #b7b7b7; }
+	#cieC .ui-slider-range { background: #b7b7b7; }
+	#cieH .ui-slider-range { background: #b7b7b7; }
 	</style>  	
 
 <script type="text/javascript" charset="utf-8">
@@ -56,15 +62,14 @@ state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACE
 
 formatTriple = function(t,p) {
 	s = ""
-	s = s+t[0].toPrecision(p)+", "
-	s = s+t[1].toPrecision(p)+", "
-	s = s+t[2].toPrecision(p)
+	s = s+Math.round(t[0]).toPrecision(p)+", "
+	s = s+Math.round(t[1]).toPrecision(p)+", "
+	s = s+Math.round(t[2]).toPrecision(p)
 	return s
 }
-
-
 initDisplay = function() {
-	pUpdate()
+	//updateAllSliders()
+	updateColor()
 	displayColors("#plots")	
 }
 
@@ -72,37 +77,68 @@ updateDisplay = function() {
 	displayColors("#plots")
 }
 
-function readSliders() {
+function slideHSVSliders() {
     var hue= $( "#hue" ).slider( "value" )
     var sat = $( "#sat" ).slider( "value" )
     var val = $( "#val" ).slider( "value" )
 	state.pColor = chroma.hsv(hue,sat,val)
-	pUpdate()
+	updateColor("hsvSlider")
   }
-//UX has updated state.pColor. Now propogate the changes
-pUpdate = function() {
-	var hex = state.pColor.hex()
-	var hsv = state.pColor.hsv()
-	hsv[0] = Math.round(hsv[0])
-	hsv[1] = Math.round((hsv[1]*100))/100
-	hsv[2] = Math.round((hsv[2]*100))/100
-   $(".change-color").css("background-color", hex) //patch
-   $("#color-text").val(hex)
-   $("#hsv-text").val(formatTriple(hsv))
-   	state.luminance = state.pColor.luminance()
-   $("#lum-text").val(state.luminance.toPrecision(3))
-   if (state.selectedPt != null) {	//this is an svg object
-	 var cIndex = parseInt(state.selectedPt.attr('cIndex'))
-	 state.colors[cIndex].color = state.pColor
-	 updateDisplay()  //does a full replot 
-   }
+function changeHSVSliders() {
+	console.log("changed LCH Slider")
+}	
+function slideLCHSliders() {
+    var L= $( "#cieL" ).slider( "value" )
+    var C = $( "#cieC" ).slider( "value" )
+    var H = $( "#cieH" ).slider( "value" )
+	state.pColor = chroma.lch(L,C,H)
+	updateColor("lchSlider")
   }
-updateSliders = function() {
+function changeLCHSliders() {
+	console.log("changed LCH Slider")
+}
+updateHSVSliders = function() {
 	var hsv = state.pColor.hsv()
 	$("#hue").slider("option","value",hsv[0])
 	$("#sat").slider("option","value",hsv[1])
 	$("#val").slider("option","value",hsv[2])
 }
+updateLCHSliders = function() {
+	var lch = state.pColor.lch()
+	$("#cieL").slider("option","value",lch[0])
+	$("#cieC").slider("option","value",lch[1])
+	$("#cieH").slider("option","value",lch[2])
+}
+updateAllSliders = function() {
+	updateLCHSliders()
+	updateHSVSliders()
+}
+//UX has updated state.pColor. Now propogate the changes
+updateColor = function(type) {
+	var hex = state.pColor.hex()
+	var hsv = state.pColor.hsv()
+	var lch = state.pColor.lch()
+	/*hsv[0] = Math.round(hsv[0])
+	hsv[1] = Math.round((hsv[1]*100))/100
+	hsv[2] = Math.round((hsv[2]*100))/100*/
+	//text and patch can be updated in all cases, no loops
+   $("#hex-text").val(hex)
+   $("#hsv-text").val(formatTriple(hsv))
+   $('#lch-text').val(formatTriple(lch))
+   	state.luminance = state.pColor.luminance()
+   $("#lum-text").val(state.luminance.toPrecision(3))
+   $(".change-color").css("background-color", hex) //patch
+   updateAllSliders()
+  /* if (type == "hsvSlider") {updateLCHSliders()}
+	if (type == "lchSlider") {updateHSVSliders()}*/
+
+   if (state.selectedPt != null) {	//this is an svg object
+	 var cIndex = parseInt(state.selectedPt.attr('cIndex'))
+	 state.colors[cIndex].color = state.pColor
+	 updateDisplay()  //does a full replot 
+	}
+  }
+
 $(document).ready(function() {
 	state.colors = createColors(state.hex)
 	state.pColor = chroma.hsv(270,0.7,0.7)
@@ -110,27 +146,52 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 360,
-      value: 270,
 	  step: 1,
-      slide: readSliders,
-      change: readSliders
+      slide: slideHSVSliders,
+		stop: slideHSVSliders,
+      change: changeHSVSliders
     });
 	$( "#sat,#val" ).slider({
       orientation: "horizontal",
       range: "min",
       max: 1,
-      value: 0.7,
 	  step: 0.001,
-      slide: readSliders,
-      change: readSliders
+      slide: slideHSVSliders,
+		stop: slideHSVSliders,
+      change: changeHSVSliders
     })
-
-	$("#color-text").keypress(function(event) {
+	$( "#cieL" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 100,
+	  step: 1,
+      slide: slideLCHSliders,
+		stop: slideLCHSliders,
+      change: changeLCHSliders
+    })
+	$( "#cieC" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 140,
+	  step: 1,
+      slide: slideLCHSliders,
+		stop: slideLCHSliders,
+      change: changeLCHSliders
+    })
+	$("#cieH").slider({
+      orientation: "horizontal",
+      range: "min",
+      max: 360,
+	  step: 1,
+      slide: slideLCHSliders,
+		stop: slideLCHSliders,
+      change: changeLCHSliders
+    });
+		$("#hex-text").keypress(function(event) {
 		if (event.keyCode == 13) {
-            var v= $("#color-text").val()
+            var v= $("#hex-text").val()
 			state.pColor = chroma(v)
-			updateSliders()
-			pUpdate()
+			updateColor("text")
 		}
 	})
 	initDisplay()
@@ -243,8 +304,7 @@ addActions = function(svgPt) {
 			state.selectedPt = pt
 			c = findColorItem(pt)
 			c.selected = true
-			updateSliders()
-			pUpdate()
+			updateColor("point")
 		})
 }
 
@@ -254,19 +314,47 @@ addActions = function(svgPt) {
 <div style = "margin: 20px">
 <h2>Start of a palette editor</h2>
 <div class='hContainer' id='controls'>
+<!-- HSV sliders -->
 	<div class = "vContainer">
-	<div id="hue"></div>
-	<div id="sat"></div>
-	<div id="val"></div>
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>H: </div> 
+			<div id="hue"></div>
+		</div>
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>S: </div> 
+			<div id="sat"></div>
+		</div>
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>V: </div> 
+			<div id="val"></div>
+		</div>
 	</div>
 	<div id="swatch" class="change-color"></div>
+<!-- LCh sliders -->
+	<div class = "vContainer">
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>L: </div> 
+			<div id="cieL"></div>
+		</div>
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>C: </div> 
+			<div id="cieC"></div>
+		</div>
+		<div class = 'hContainer'>
+			<div class='sliderLabel'>H: </div> 
+			<div id="cieH"></div>
+		</div>
+	</div>
 	<div class = "vContainer" >
 	<div class = "control-group">
 		<div style="width: 40px;">Hex: </div>
-		<input type="text" class = "smallText" id="color-text" name="color-text" style = "width: 60px;"/></div>
+		<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
 	<div class = "control-group">
 		<div style="width: 40px;">HSV: </div>
 		<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
+		<div class = "control-group">
+		<div style="width: 40px;">LCH: </div>
+		<input type="text" class = "smallText" id="lch-text" name="lch-text" style = "width: 100px;"/></div>
 	<div class="control-group"> 
 		<div style="width: 40px;">Lum:</div>
 		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>

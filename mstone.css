@@ -35,6 +35,7 @@ body {
 .hContainer {
 	display: flex;
 	flex-flow: row;
+	 align-items: center;
 }
 .vContainer {
 	display: flex;
