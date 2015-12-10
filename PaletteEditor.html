@@ -48,6 +48,9 @@
 	#cieC .ui-slider-range { background: #b7b7b7; }
 	#cieH .ui-slider-range { background: #b7b7b7; }
 	#spinner .ui-spinner-input {width: 10px;}
+	#palette-selector ui-selector-menu {width: 200px;}
+
+
 	</style>  	
 
 <script type="text/javascript" charset="utf-8">
@@ -59,7 +62,7 @@ state.colors = []
 state.pColor = chroma('#000000')	//actually set in the .ready function
 state.selectedPt = null
 
-state.hex = ['#1C642B','#3E6385','#6B6F5D','#8BA552','#61A7A5','#66BEC6','#87ACEC','#93A87A','#303F32','#415A27','#477E17','#554CBC','#629F5A','#658A21','#793AA2','#836B1F','#890E01','#0879B2','#4881BC','#5693EF','#7385B9','#7655CE','#17487A','#59562C','#013600','#213848','#353028','#713713','#919468','#A29CBB','#A133B1','#A857AA','#A9713C','#A86392','#AD9042','#B52E38','#BDA983','#C7B3C1','#C67036','#DDB590','#F46829','#FC1F05']
+state.hex = []	//set via initColors in colorEditorUtils
 
 formatTriple = function(t,p) {
 	s = ""
@@ -68,14 +71,18 @@ formatTriple = function(t,p) {
 	s = s+Math.round(t[2]).toPrecision(p)
 	return s
 }
-initDisplay = function() {
-	//updateAllSliders()
-	updateColor()
-	displayColors("#plots")	
+changePalette = function() {
+	initColors(state,$("#select-palette").val())
+	state.selectedPt = null
+	displayColors()
+}
+initDisplay = function() { 
+	changePalette()
+	updateColorPatch()
 }
 
 updateDisplay = function() {
-	displayColors("#plots")
+	displayColors()
 }
 
 function slideHSVSliders() {
@@ -83,20 +90,20 @@ function slideHSVSliders() {
     var sat = $( "#sat" ).slider( "value" )
     var val = $( "#val" ).slider( "value" )
 	state.pColor = chroma.hsv(hue,sat,val)
-	updateColor("hsvSlider")
+	updateColorPatch("hsvSlider")
   }
 function changeHSVSliders() {
-	console.log("changed LCH Slider")
+	//console.log("changed LCH Slider")
 }	
 function slideLCHSliders() {
     var L= $( "#cieL" ).slider( "value" )
     var C = $( "#cieC" ).slider( "value" )
     var H = $( "#cieH" ).slider( "value" )
 	state.pColor = chroma.lch(L,C,H)
-	updateColor("lchSlider")
+	updateColorPatch("lchSlider")
   }
 function changeLCHSliders() {
-	console.log("changed LCH Slider")
+	//console.log("changed LCH Slider")
 }
 updateHSVSliders = function() {
 	var hsv = state.pColor.hsv()
@@ -115,7 +122,7 @@ updateAllSliders = function() {
 	updateHSVSliders()
 }
 //UX has updated state.pColor. Now propogate the changes
-updateColor = function(type) {
+updateColorPatch = function(type) {
 	var hex = state.pColor.hex()
 	var hsv = state.pColor.hsv()
 	var lch = state.pColor.lch()
@@ -141,7 +148,6 @@ updateColor = function(type) {
   }
 
 $(document).ready(function() {
-	state.colors = createColors(state.hex)
 	state.pColor = chroma.hsv(270,0.7,0.7)
 	$("#hue").slider({
       orientation: "horizontal",
@@ -192,10 +198,15 @@ $(document).ready(function() {
 		if (event.keyCode == 13) {
             var v= $("#hex-text").val()
 			state.pColor = chroma(v)
-			updateColor("text")
+			updateColorPatch("text")
 		}
 	})
-//	$( "#spinner" ).spinner();
+
+	$( "#select-palette" ).selectmenu({
+  		change: function( event, ui ) {
+			changePalette()
+		}
+	});
 	initDisplay()
   });
 	
@@ -306,7 +317,7 @@ addActions = function(svgPt) {
 			state.selectedPt = pt
 			c = findColorItem(pt)
 			c.selected = true
-			updateColor("point")
+			updateColorPatch("point")
 		})
 }
 
@@ -314,9 +325,22 @@ addActions = function(svgPt) {
 </head>
 <body>
 <div style = "margin: 20px">
-<h2>Start of a palette editor</h2>
+
+<div id ="palettes" >
+	<select id="select-palette" style = "width: 200px;">
+		<option>Clear palette</option>
+		<option  selected="selected">Tableau 10</option>
+		<option>Tableau 20</option>
+		<option>Tableau Light</option>
+		<option>Colorblind</option>
+		<option>Gray 5</option>
+		<option>Affect All</option>
+		<option>Cristy All</option>
+	</select>	
+</div>
 <div class='hContainer' id='controls'>
 <!-- HSV sliders -->
+	<div class = 'vContainer'>
 	<div class = "vContainer">
 		<div class = 'hContainer'>
 			<div class='sliderLabel'>H: </div> 
@@ -331,7 +355,8 @@ addActions = function(svgPt) {
 			<div id="val"></div>
 		</div>
 	</div>
-	<div id="swatch" class="change-color"></div>
+	
+	
 <!-- LCh sliders -->
 	<div class = "vContainer">
 		<div class = 'hContainer'>
@@ -347,6 +372,8 @@ addActions = function(svgPt) {
 			<div id="cieH"></div>
 		</div>
 	</div>
+	</div>
+	<div id="swatch" class="change-color"></div>
 	<div class = "vContainer" >
 	<div class = "control-group">
 		<div style="width: 40px;">Hex: </div>
@@ -361,11 +388,13 @@ addActions = function(svgPt) {
 		<div style="width: 40px;">Lum:</div>
 		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
 	</div>
+	
 </div>
 </div>
 <div class="hContainer" id = 'plots'>
 	<div id = "abPlot" style="margin: 5px; width=300px"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
+</div>
 </div>
 </body>
 </html>
