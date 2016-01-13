@@ -133,9 +133,9 @@ updateColorPatch = function(type) {
 	var hex = state.pColor.hex()
 	var hsv = state.pColor.hsv()
 	var lch = state.pColor.lch()
-	/*hsv[0] = Math.round(hsv[0])
+	hsv[0] = Math.round(hsv[0])
 	hsv[1] = Math.round((hsv[1]*100))/100
-	hsv[2] = Math.round((hsv[2]*100))/100*/
+	hsv[2] = Math.round((hsv[2]*100))/100
 	//text and patch can be updated in all cases, no loops
    $("#hex-text").val(hex)
    $("#hsv-text").val(formatTriple(hsv))
@@ -215,12 +215,12 @@ $(document).ready(function() {
 			changePalette()
 		}
 	});
-	$('#xml').click(function(){
+	/*$('#xml').click(function(){
 		var paletteName = $('#pname-text').val()
 		var xml = paletteToXML(state.colors, paletteName)
 		$.get('write',{file: state.path+paletteName+".xml", data: xml},function(data){console.log(data)})
 		
-		})
+		})*/
 	
 	$('#reset').click(function(){
 		clearSelection()
@@ -257,15 +257,43 @@ $(document).ready(function() {
 	
 	$('#readHex').click(function(){
 		var hexString = $('#hexList-text').val()
-		var hexVals = parseHexList(hexString)
-		var pName = makeUnique($('#pname-text').val())
-		var newPalette = createPalette(hexVals, pName)
+		var hexVals = parseHexString(hexString)
+		if (hexVals.hex == null ){
+			alert("Hex format error.\n Use #vvvvvv, #vvvvv, ... or \"name\" #vvvvvv, ...")
+		}
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
 		addPalette(newPalette)
 		addToMenu(pName)
+		}
 	})
 	$('#writeHex').click(function(){
-		var hexString = createHexString(state.colors)
+		var pName = $("#select-palette").val()
+		var hexString = createHexString(state.colors,pName)
 		$('#hexList-text').val(hexString)
+	})
+	$('#writeXML').click(function(){
+		var xml = paletteToXML(state.colors,state.palette.pName)
+		$('#hexList-text').val(xml)
+	})
+	$('#readXML').click(function(){
+		var xmlString = $('#hexList-text').val()
+		var hexVals = parseXML(xmlString)
+		if (hexVals.hex == null ){
+			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
+		}
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
+		addPalette(newPalette)
+		addToMenu(pName)
+		}
+		
 	})
 	$('#addColor').click(function(){
 		clearSelection()
@@ -277,6 +305,7 @@ $(document).ready(function() {
 		clearSelection()
 		displayColors()
 	})
+	$("input[type=radio]").attr('disabled', true);
 	initDisplay()
   });
 	
@@ -459,7 +488,8 @@ myOnClick = function(svgPt) {
 	if (c == state.selectedPt) { //just deselect the point
 		clearSelection()
 		displayColors()
-	} else { 
+	} 
+	else { 
 		clearSelection()
 		state.selectedPt = c;	//select a new one
 		state.selectedPt.selected = true;
@@ -484,8 +514,9 @@ addActions = function(svgPt) {
  </script>
 </head>
 <body>
-<div style = "margin: 15px">
+
 <!--
+<div style = "margin: 15px">
 <div id ="global-controls" class="control-group" style="margin:10px 0px 20px 3px;">
 	<button type="button" id='read'>Read All</button>
 	<button type="button" id='save'>Save All</button>
@@ -493,6 +524,8 @@ addActions = function(svgPt) {
 	<input type="text" class = "smallText" name="path-text" id="path-text" style = "width: 200px; border: 1px solid #cccccc;">
 	
 </div> -->
+<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start;">
+	<div class ='vContainer' id="all_but_text">
 <div id ="palette-controls" >
 	<div class = "control-group" >
 		 <div style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"> Current Palette: </div>
@@ -514,11 +547,7 @@ addActions = function(svgPt) {
 		<!--<button type="button" id='xml'>Write XML</button> -->
 		<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc;">
 	</div>
-	<div class = "control-group" style = "margin-left: 5px;">
-		<button type="button" id='readHex'>Read Hex</button>
-		<button type="button" id='writeHex'>Write Hex</button>
-		<input type="text" class = "smallText" name="hexList-text" id="hexList-text" style = "width: 300px; border: 1px solid #cccccc;">
-	</div>
+
 </div>
 <div class='hContainer' id='color-controls'>
 <!-- HSV sliders -->
@@ -554,13 +583,12 @@ addActions = function(svgPt) {
 			<div id="cieH"></div>
 		</div>
 	</div>
+</div>
 
-
-	<div class = "vContainer">
+	<div class = "hContainer">
 		<button type="button" id='addColor'  style = "margin: 10px;">Add Patch Color</button>
 		<button type="button" id='deleteColor' style = "margin: 10px;">Delete Selected Color</button>
-	</div>
-	<div class = "vContainer" >
+	
 	<div class = "control-group">
 		<div style="width: 40px;">Hex: </div>
 		<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
@@ -574,14 +602,32 @@ addActions = function(svgPt) {
 		<div style="width: 40px;">Lum:</div>
 		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
 	</div>
+		
+		
+</div>
 	
-</div>
-</div>
+
 <div class="hContainer" id = 'plots'>
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 	<div id = "pExamples" style="margin: 5px"></div>
+	
 </div>
+</div>
+<div class = "vContainer" >
+			<div class = "control-group" style = "margin-left: 5px;">
+			<button type="button" id='readHex'>Read Hex</button>
+			<button type="button" id='writeHex'>Write Hex</button>
+			<button type="button" id='readXML'>Read XML</button>
+			<button type="button" id='writeXML'>Write XML</button>
+		</div>
+			<form id='scope' style = "color: gray;">
+			<input type="radio" name='scope' value='current_palette' checked>Current Palette</input>
+			<input type="radio" name='scope' value='all_palettes'>All Palettes</input>
+			</form>
+<textarea id="hexList-text" rows="50" cols="25" style = "color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
+</div>
+
 </div>
 </body>
 </html>
