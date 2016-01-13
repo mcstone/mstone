@@ -423,44 +423,54 @@ function displayColors() {
 		addActions(svgPt)
 		
 	}
-	//create some examples. Start with a simple palette layout
+	//create some examples
 	var pSize = 40
 	var gap = 8
-	if (state.colors.length > 20) {drawArray(svg_examples, 24,4)}
+	var arrayBox
+	if (state.colors.length > 28) {drawArray(svg_examples, 24,4)}
 	else {
-		step = pSize+gap
+		var step = pSize+gap
+		var boxW = step*4
+		var boxH= Math.round(step*state.colors.length/4)+step/2
 		arrayBox = svg_examples.append("svg")
-			.attr("width",step*4)
-			.attr("height", step*5)
+			.attr("width",boxW)
+			.attr("height",boxH)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox,pSize,gap)
+			drawArray(arrayBox,pSize,pSize,gap)
 		arrayBox = svg_examples.append("svg")
-			.attr("width",step*4)
-			.attr("height", step*5)
-			.attr("x", 30+step*4)
+			.attr("width",boxW)
+			.attr("height", boxH)
+			.attr("x", 30+boxW)
 			.attr("y", 10)
-			drawArray(arrayBox,12,step-12)
+			drawArray(arrayBox,12, 12, step-12)
+		//now some bands of colors
+		arrayBox = svg_examples.append("svg")
+			.attr("width",boxW)
+			.attr("height", pSize*state.colors.length)
+			.attr("x", 10)
+			.attr("y", 30+boxH)
+			drawArray(arrayBox,boxW,pSize,0)
 		
 	}
 	
 }
 
-drawArray = function(svg, pSize, gap) {
-	var w = pSize
-	var step = pSize+gap
-	var rowLen = Math.floor(svg.attr("width")/step)
+drawArray = function(svg, pW,pH, gap) {
+	var stepX = pW+gap
+	var stepY = pH+gap
+	var rowLen = Math.floor(svg.attr("width")/stepX)
 	for (i = 0; i<state.colors.length; i++) {
 		var d = state.colors[i]
 		var lab = d.color.lab()
 		var hex = d.color.hex()
 		var bColor = hex
 		if (d.selected==true) {bColor = "#000000"}
-		var x = step*(i%rowLen)
-		var y = step*Math.floor(i/rowLen)
+		var x = stepX*(i%rowLen)
+		var y = stepY*Math.floor(i/rowLen)
 		svgPt = svg.append("rect")
-		.attr("width",w)
-		.attr("height", w)
+		.attr("width",pW)
+		.attr("height", pH)
 		.attr("x", x)
 		.attr("y", y)
 		.attr("fill",hex)
