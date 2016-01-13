@@ -264,8 +264,9 @@ $(document).ready(function() {
 		addToMenu(pName)
 	})
 	$('#writeHex').click(function(){
+		var pName = $("#select-palette").val()
 		var hexString = createHexString(state.colors)
-		$('#hexList-text').val(hexString)
+		$('#hexList-text').val('\"'+pName + '\" '+hexString)
 	})
 	$('#addColor').click(function(){
 		clearSelection()
@@ -484,8 +485,9 @@ addActions = function(svgPt) {
  </script>
 </head>
 <body>
-<div style = "margin: 15px">
+
 <!--
+<div style = "margin: 15px">
 <div id ="global-controls" class="control-group" style="margin:10px 0px 20px 3px;">
 	<button type="button" id='read'>Read All</button>
 	<button type="button" id='save'>Save All</button>
@@ -493,6 +495,8 @@ addActions = function(svgPt) {
 	<input type="text" class = "smallText" name="path-text" id="path-text" style = "width: 200px; border: 1px solid #cccccc;">
 	
 </div> -->
+<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start;">
+	<div class ='vContainer' id="all_but_text">
 <div id ="palette-controls" >
 	<div class = "control-group" >
 		 <div style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"> Current Palette: </div>
@@ -514,11 +518,7 @@ addActions = function(svgPt) {
 		<!--<button type="button" id='xml'>Write XML</button> -->
 		<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc;">
 	</div>
-	<div class = "control-group" style = "margin-left: 5px;">
-		<button type="button" id='readHex'>Read Hex</button>
-		<button type="button" id='writeHex'>Write Hex</button>
-		<input type="text" class = "smallText" name="hexList-text" id="hexList-text" style = "width: 300px; border: 1px solid #cccccc;">
-	</div>
+
 </div>
 <div class='hContainer' id='color-controls'>
 <!-- HSV sliders -->
@@ -554,13 +554,12 @@ addActions = function(svgPt) {
 			<div id="cieH"></div>
 		</div>
 	</div>
+</div>
 
-
-	<div class = "vContainer">
+	<div class = "hContainer">
 		<button type="button" id='addColor'  style = "margin: 10px;">Add Patch Color</button>
 		<button type="button" id='deleteColor' style = "margin: 10px;">Delete Selected Color</button>
-	</div>
-	<div class = "vContainer" >
+	
 	<div class = "control-group">
 		<div style="width: 40px;">Hex: </div>
 		<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
@@ -574,14 +573,31 @@ addActions = function(svgPt) {
 		<div style="width: 40px;">Lum:</div>
 		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
 	</div>
+		
+		
+</div>
 	
-</div>
-</div>
+
 <div class="hContainer" id = 'plots'>
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 	<div id = "pExamples" style="margin: 5px"></div>
+	
 </div>
+</div>
+<div class = "vContainer" >
+			<div class = "control-group" style = "margin-left: 5px;">
+			<button type="button" id='readHex'>Read Hex</button>
+			<button type="button" id='writeHex'>Write Hex</button>
+			<button type="button" id='writeXML'>Write XML</button>
+		</div>
+			<form id='scope'>
+			<input type="radio" name='scope' value='current_palette' checked>Current Palette</input>
+			<input type="radio" name='scope' value='all_palettes'>All Palettes</input>
+			</form>
+<textarea id="hexList-text" rows="50" cols="25" style = "border: 1px solid #cccccc;">Read/write values</textarea>
+</div>
+
 </div>
 </body>
 </html>
