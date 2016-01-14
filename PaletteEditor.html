@@ -19,7 +19,7 @@
 		margin-bottom: 5px;
 	}
 	.vContainer {
-		margin-left: 20px;
+		margin-left: 10px;
 	}
 	
 	.sliderLabel {
@@ -49,24 +49,25 @@
 	#cieC .ui-slider-range { background: #b7b7b7; }
 	#cieH .ui-slider-range { background: #b7b7b7; }
 	#spinner .ui-spinner-input {width: 10px;}
-	#palette-selector ui-selector-menu {
-		width: 200px; padding: 0px;
-
-	}
 
 
 	</style>  	
 
 <script type="text/javascript" charset="utf-8">
 
-//This initializes the foreground colors
+//state keeps all the state for the client. It is initialized in the ready function.
+//there is a list of paletteItem, which contain list of colorItem (defined in colorEditorUtils.js)
+//the active palette is just a pointer into the palettes list, similarly the active colors
+//the $(document).ready() function does the initializations.
 
 state = {}
-state.colors = []
-state.pColor = chroma('#000000')	//actually set in the .ready function
-state.selectedPt = null
+state.pColor = chroma('#000000')	//the current patch color, init in ready function
+state.palettes = [] //list of palettes in this instance. Palette object defined in utils
+state.palette = {}	//the active palette. This could be just an index
+state.colors =[]	//the colors being edited. Pointer into the current palette
+state.selectedPt = null  //currently selected point
+state.path = "../../data/stone/"
 
-state.hex = []	//set via initColors in colorEditorUtils
 
 formatTriple = function(t,p) {
 	s = ""
@@ -77,9 +78,10 @@ formatTriple = function(t,p) {
 }
 changePalette = function() {
 	name = $("#select-palette").val() 
-	initColors(state,name)
-	state.selectedPt = null
-	displayColors()
+	clearSelection()
+	setPalette(state,name)
+	$("#pname-text").val(name)
+	updateDisplay()
 }
 initDisplay = function() { 
 	changePalette()
@@ -131,9 +133,9 @@ updateColorPatch = function(type) {
 	var hex = state.pColor.hex()
 	var hsv = state.pColor.hsv()
 	var lch = state.pColor.lch()
-	/*hsv[0] = Math.round(hsv[0])
+	hsv[0] = Math.round(hsv[0])
 	hsv[1] = Math.round((hsv[1]*100))/100
-	hsv[2] = Math.round((hsv[2]*100))/100*/
+	hsv[2] = Math.round((hsv[2]*100))/100
 	//text and patch can be updated in all cases, no loops
    $("#hex-text").val(hex)
    $("#hsv-text").val(formatTriple(hsv))
@@ -143,9 +145,8 @@ updateColorPatch = function(type) {
    $(".change-color").css("background-color", hex) //patch
    updateAllSliders()
  
-   if (state.selectedPt != null) {	//this is an svg object
-	 var cIndex = parseInt(state.selectedPt.attr('cIndex'))
-	 state.colors[cIndex].color = state.pColor
+   if (state.selectedPt!=null) {	//the selected color
+	 state.selectedPt.color = state.pColor 
 	 updateDisplay()  //does a full replot 
 	}
 
@@ -153,6 +154,9 @@ updateColorPatch = function(type) {
 
 $(document).ready(function() {
 	state.pColor = chroma.hsv(270,0.7,0.7)
+	initPalettes(state) //by default first palette is the active one
+	$('#pname-text').val(state.palette.pName)
+	$('#path-text').val(state.path)
 	$("#hue").slider({
       orientation: "horizontal",
       range: "min",
@@ -198,7 +202,7 @@ $(document).ready(function() {
 		stop: slideLCHSliders,
       change: changeLCHSliders
     });
-		$("#hex-text").keypress(function(event) {
+	$("#hex-text").keypress(function(event) {
 		if (event.keyCode == 13) {
             var v= $("#hex-text").val()
 			state.pColor = chroma(v)
@@ -211,12 +215,125 @@ $(document).ready(function() {
 			changePalette()
 		}
 	});
+	/*$('#xml').click(function(){
+		var paletteName = $('#pname-text').val()
+		var xml = paletteToXML(state.colors, paletteName)
+		$.get('write',{file: state.path+paletteName+".xml", data: xml},function(data){console.log(data)})
+		
+		})*/
+	
+	$('#reset').click(function(){
+		clearSelection()
+		state.palette.eColors = copyColors(state.palette.oColors,state.palette.pName)
+		state.colors = state.palette.eColors
+		updateDisplay() 
+		})
+	$('#copy').click(function(){
+		clearSelection()
+		var newName = makeUnique($('#pname-text').val())
+		var newPalette = copyPalette(state.palette, newName)
+		addPalette(newPalette)
+		addToMenu(newName) 	//also changes to new palette
+		})
+	$('#rename').click(function(){
+		clearSelection()
+		var oldName = $("#select-palette").val()
+		var newName = makeUnique($('#pname-text').val())
+		var palette = state.palettes[findPalette(state.palettes,oldName)]
+		if (palette == null) {console.log(oldName+" not found")}
+		else {
+			palette.pName = newName
+			var options = $("#select-palette option")
+			for (var i=0; i<options.length; i++) {
+				if (options[i].text == oldName) {
+					options[i].text = newName
+					options[i].value =newName
+					break
+				}
+			}
+			$( "#select-palette" ).selectmenu( "refresh" )
+		}
+		})
+	
+	$('#readHex').click(function(){
+		var hexString = $('#hexList-text').val()
+		var hexVals = parseHexString(hexString)
+		if (hexVals.hex == null ){
+			alert("Hex format error.\n Use #vvvvvv, #vvvvv, ... or \"name\" #vvvvvv, ...")
+		}
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
+		addPalette(newPalette)
+		addToMenu(pName)
+		}
+	})
+	$('#writeHex').click(function(){
+		var pName = $("#select-palette").val()
+		var hexString = createHexString(state.colors,pName)
+		$('#hexList-text').val(hexString)
+	})
+	$('#writeXML').click(function(){
+		var xml = paletteToXML(state.colors,state.palette.pName)
+		$('#hexList-text').val(xml)
+	})
+	$('#readXML').click(function(){
+		var xmlString = $('#hexList-text').val()
+		var hexVals = parseXML(xmlString)
+		if (hexVals.hex == null ){
+			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
+		}
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
+		addPalette(newPalette)
+		addToMenu(pName)
+		}
+		
+	})
+	$('#addColor').click(function(){
+		clearSelection()
+		state.selectedPt = addToPalette(state.palette, state.pColor.hex(), true)
+		displayColors()
+	})
+	$('#deleteColor').click(function(){
+		deleteFromPalette(state.colors,state.selectedPt)	//done in place with pointers
+		clearSelection()
+		displayColors()
+	})
+	$("input[type=radio]").attr('disabled', true);
 	initDisplay()
   });
 	
+function addToMenu(newName) {
+	$("#select-palette option").removeAttr('selected') //remove the old selection
+	var qName = '"'+newName+'"'
+	$('#select-palette').append('<option value=' +qName+ 'selected="selected">' +newName+ '</option>')
+	$('#select-palette').val(newName)
+	$( "#select-palette" ).selectmenu( "refresh" )
+	changePalette()
+}
+function addPalette(newPalette) {
+	state.palettes[state.palettes.length] = newPalette //add to the palettes array
+}
+function makeUnique(newName){
+	var i = 0;
+	while (i<state.palettes.length) {
+		if (newName == state.palettes[i].pName) {
+			newName = newName+'(cp)'
+			i = 0
+		}
+		else {i++}
+	}
+		
+	return newName
+}
 
-
-displayColors = function() {
+function displayColors() {
 	
 	d3.select('#plots').selectAll("svg").remove();
 	//create the tooltip
@@ -286,8 +403,8 @@ displayColors = function() {
 //a,b points
 		var svgPt = svg_ab.append("circle")
 		.attr("r", pSize*scale)
-		.attr("cx", xOrg+Math.round((abSize/300)*lab[1]))
-		.attr("cy", yOrg-Math.round((abSize/300)*lab[2]))
+		.attr("cx", xOrg+Math.round((abSize/230)*lab[1]))
+		.attr("cy", yOrg-Math.round((abSize/230)*lab[2]))
 		.attr("fill",hex)
 		.attr("tip",tip)
 		.attr('cIndex',i)
@@ -299,52 +416,67 @@ displayColors = function() {
 		.attr("width",lW*scale)
 		.attr("height", pH)
 		.attr("x", (lWidth-lW*scale)/2)
-		.attr("y", abSize-Math.round((abSize/100)*lab[0]))
+		.attr("y", abSize-5-Math.round((abSize/105)*lab[0]))
 		.attr("fill",hex)
 		.attr("tip",tip)
 		.attr('cIndex',i)
 		addActions(svgPt)
 		
 	}
-	//create some examples. Start with a simple palette layout
+	//create some examples
 	var pSize = 40
 	var gap = 8
-	if (state.colors.length > 20) {drawArray(svg_examples, 24,4)}
+	var arrayBox
+	if (state.colors.length > 28) {drawArray(svg_examples, 24,4)}
 	else {
-		step = pSize+gap
+		var step = pSize+gap
+		var boxW = step*4
+		var boxH= Math.round(step*state.colors.length/4)+step/2
 		arrayBox = svg_examples.append("svg")
-			.attr("width",step*4)
-			.attr("height", step*5)
+			.attr("width",boxW)
+			.attr("height",boxH)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox,pSize,gap)
+			drawArray(arrayBox,pSize,pSize,gap)
 		arrayBox = svg_examples.append("svg")
-			.attr("width",step*4)
-			.attr("height", step*5)
-			.attr("x", 30+step*4)
+			.attr("width",boxW)
+			.attr("height", boxH)
+			.attr("x", 30+boxW)
 			.attr("y", 10)
-			drawArray(arrayBox,12,step-12)
+			drawArray(arrayBox,12, 12, step-12)
+		//now some bands of colors
+		arrayBox = svg_examples.append("svg")
+			.attr("width",boxW)
+			.attr("height", pSize*state.colors.length)
+			.attr("x", 10)
+			.attr("y", 30+boxH)
+			drawArray(arrayBox,boxW,pSize,0)
 		
 	}
 	
 }
 
-drawArray = function(svg, pSize, gap) {
-	var w = pSize
-	var step = pSize+gap
-	var rowLen = Math.floor(svg.attr("width")/step)
+drawArray = function(svg, pW,pH, gap) {
+	var stepX = pW+gap
+	var stepY = pH+gap
+	var rowLen = Math.floor(svg.attr("width")/stepX)
 	for (i = 0; i<state.colors.length; i++) {
 		var d = state.colors[i]
 		var lab = d.color.lab()
 		var hex = d.color.hex()
-		var x = step*(i%rowLen)
-		var y = step*Math.floor(i/rowLen)
+		var bColor = hex
+		if (d.selected==true) {bColor = "#000000"}
+		var x = stepX*(i%rowLen)
+		var y = stepY*Math.floor(i/rowLen)
 		svgPt = svg.append("rect")
-		.attr("width",w)
-		.attr("height", w)
+		.attr("width",pW)
+		.attr("height", pH)
 		.attr("x", x)
 		.attr("y", y)
 		.attr("fill",hex)
+		.style("stroke",bColor)
+		.attr('cIndex',i)
+		addActions(svgPt)
 	}
 }
 
@@ -352,25 +484,28 @@ findColorItem = function(svgPt) {
 	var cIndex = parseInt(svgPt.attr('cIndex'))
 	return state.colors[cIndex]
 }
+clearSelection = function() {
+	if (state.selectedPt != null) {
+	state.selectedPt.selected = false
+	state.selectedPt = null
+	}
+}
 
+	
+//state.selected is a pointer to a colorItem
 myOnClick = function(svgPt) {
 	var c = findColorItem(svgPt)
-		if (c.selected==true) {
-			c.selected=false
-			state.selectedPt = null
-		}
-		else {	
-			state.pColor = chroma(svgPt.attr("fill"))
-			if (state.selectedPt != null) {
-				c = findColorItem(state.selectedPt)
-				c.selected = false
-			}
-			state.selectedPt = svgPt
-			c = findColorItem(svgPt)
-			c.selected = true
-			updateColorPatch("point")
-		}
-	updateDisplay()  //does a full replot
+	if (c == state.selectedPt) { //just deselect the point
+		clearSelection()
+		displayColors()
+	} 
+	else { 
+		clearSelection()
+		state.selectedPt = c;	//select a new one
+		state.selectedPt.selected = true;
+		state.pColor = state.selectedPt.color;
+		updateColorPatch("point") 	//will also redisplay the colors
+	}
 }
 
 addActions = function(svgPt) {
@@ -389,21 +524,42 @@ addActions = function(svgPt) {
  </script>
 </head>
 <body>
-<div style = "margin: 15px">
 
-<div id ="palettes" >
-	<select id="select-palette" style = "width: 200px;">
-		<option>Clear palette</option>
-		<option selected="selected"> Tableau 10</option>
-		<option >Tableau 20</option>
-		<option>Tableau Light</option>
-		<option>Colorblind</option>
-		<option>Gray 5</option>
-		<option>Affect All</option>
-		<option>Cristy All</option>
-	</select>	
+<!--
+<div style = "margin: 15px">
+<div id ="global-controls" class="control-group" style="margin:10px 0px 20px 3px;">
+	<button type="button" id='read'>Read All</button>
+	<button type="button" id='save'>Save All</button>
+	<button type="button" id='workspace'>Workspace</button>
+	<input type="text" class = "smallText" name="path-text" id="path-text" style = "width: 200px; border: 1px solid #cccccc;">
+	
+</div> -->
+<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start;">
+	<div class ='vContainer' id="all_but_text">
+<div id ="palette-controls" >
+	<div class = "control-group" >
+		 <div style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"> Current Palette: </div>
+	<select id="select-palette" style = "width: 160px;">
+		<option value= 'New Palette'>New Palette</option>
+		<option value ='Tableau 10' selected="selected"> Tableau 10</option>
+		<option value ='Tableau 20'>Tableau 20</option>
+		<option value ='Tableau Light'>Tableau Light</option>
+		<option value ='Colorblind'>Colorblind</option>
+		<option value ='Vizable'>Vizable</option>
+		<option value ='T10 Mod2'>T10 Mod2</option>
+		<option value ='Cristy All'>Cristy All</option>
+	</select>
+	</div>
+	<div class = "control-group" style = "margin-left: 5px;">
+		<button type="button" id='reset'>Reset</button>
+		<button type="button" id='copy'>Copy</button>
+		<button type="button" id='rename'>Rename</button>
+		<!--<button type="button" id='xml'>Write XML</button> -->
+		<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc;">
+	</div>
+
 </div>
-<div class='hContainer' id='controls'>
+<div class='hContainer' id='color-controls'>
 <!-- HSV sliders -->
 
 	<div class = "vContainer">
@@ -423,7 +579,7 @@ addActions = function(svgPt) {
 	
 	<div id="swatch" class="change-color"></div>
 <!-- LCh sliders -->
-	<div class = "vContainer">
+	<div class = "vContainer" style = "margin-left: 20px;">
 		<div class = 'hContainer'>
 			<div class='sliderLabel'>L: </div> 
 			<div id="cieL"></div>
@@ -437,9 +593,12 @@ addActions = function(svgPt) {
 			<div id="cieH"></div>
 		</div>
 	</div>
+</div>
 
-
-	<div class = "vContainer" >
+	<div class = "hContainer">
+		<button type="button" id='addColor'  style = "margin: 10px;">Add Patch Color</button>
+		<button type="button" id='deleteColor' style = "margin: 10px;">Delete Selected Color</button>
+	
 	<div class = "control-group">
 		<div style="width: 40px;">Hex: </div>
 		<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
@@ -453,14 +612,32 @@ addActions = function(svgPt) {
 		<div style="width: 40px;">Lum:</div>
 		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
 	</div>
+		
+		
+</div>
+	
+
+<div class="hContainer" id = 'plots'>
+	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
+	<div id = "LPlot" style="margin: 5px"></div>
+	<div id = "pExamples" style="margin: 5px"></div>
 	
 </div>
 </div>
-<div class="hContainer" id = 'plots'>
-	<div id = "abPlot" style="margin: 5px"></div>
-	<div id = "LPlot" style="margin: 5px"></div>
-	<div id = "pExamples" style="margin: 5px"></div>
+<div class = "vContainer" >
+			<div class = "control-group" style = "margin-left: 5px;">
+			<button type="button" id='readHex'>Read Hex</button>
+			<button type="button" id='writeHex'>Write Hex</button>
+			<button type="button" id='readXML'>Read XML</button>
+			<button type="button" id='writeXML'>Write XML</button>
+		</div>
+			<form id='scope' style = "color: gray;">
+			<input type="radio" name='scope' value='current_palette' checked>Current Palette</input>
+			<input type="radio" name='scope' value='all_palettes'>All Palettes</input>
+			</form>
+<textarea id="hexList-text" rows="50" cols="25" style = "color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
 </div>
+
 </div>
 </body>
 </html>
