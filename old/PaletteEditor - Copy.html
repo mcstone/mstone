@@ -13,9 +13,6 @@
 	<script type="text/javascript"  src="lib/colorEditorUtils.js"></script>
 </head>
 <style>
-	#delete {
-		margin-left: 15px;
-	}
 	.control-group {
 		display: inline-flex;
 		margin-right: 15px;
@@ -24,21 +21,7 @@
 	.vContainer {
 		margin-left: 10px;
 	}
-	.myHeader {
-		font-size: 1.2em;
-		color: gray;
-		margin-right: 0.2em;
-		padding-top: 2px;
-		padding-bottom: 5px;
-	}
-	.pExamples {
-		border: 1px solid lightgray;
-		display: flex;
-		flex-flow: row;
-		align-items: flex-start;
-		margin: 5px;
-		padding: 5px;
-	}
+	
 	.sliderLabel {
 		width: 15px;
 		align-item: center;
@@ -272,32 +255,45 @@ $(document).ready(function() {
 		}
 		})
 	
-	$('#write').click(function(){
-		var type = $('input:radio[name=file_type]:checked').val();
-		var pText = ''
-		if (type=='hex') {pText = createHexString(state.colors,state.palette.pName)}
-		else {pText = paletteToXML(state.colors,state.palette.pName)}
-		$('#io-text').val(pText)
-	})
-	$('#read').click(function(){
-		var pText = $('#io-text').val()
-		var type = $('input:radio[name=file_type]:checked').val();
-		var pVals = []
-		if (type=='hex') {pVals = parseHexString(pText)}
-		else {pVals = parseXML(pText)}
-		/*if (hexVals.hex == null ){
-			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
+	$('#readHex').click(function(){
+		var hexString = $('#hexList-text').val()
+		var hexVals = parseHexString(hexString)
+		if (hexVals.hex == null ){
 			alert("Hex format error.\n Use #vvvvvv, #vvvvv, ... or \"name\" #vvvvvv, ...")
 		}
-		else { */
-		for (var i=0; i<pVals.length; i++) { //array of {pName, hVals}, pName may be null
-			var pName = 'new palette'
-			if (pVals[i].pName !=null){pName = pVals[i].pName}
-			pName = makeUnique(pName)
-			var newPalette = createPalette(pVals[i].hex, pName)
-			addPalette(newPalette)
-			addToMenu(pName)
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
+		addPalette(newPalette)
+		addToMenu(pName)
 		}
+	})
+	$('#writeHex').click(function(){
+		var pName = $("#select-palette").val()
+		var hexString = createHexString(state.colors,pName)
+		$('#hexList-text').val(hexString)
+	})
+	$('#writeXML').click(function(){
+		var xml = paletteToXML(state.colors,state.palette.pName)
+		$('#hexList-text').val(xml)
+	})
+	$('#readXML').click(function(){
+		var xmlString = $('#hexList-text').val()
+		var hexVals = parseXML(xmlString)
+		if (hexVals.hex == null ){
+			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
+		}
+		else {
+		var pName = 'new palette'
+		if (hexVals.pName !=null){pName = hexVals.pName}
+		pName = makeUnique(pName)
+		var newPalette = createPalette(hexVals.hex, pName)
+		addPalette(newPalette)
+		addToMenu(pName)
+		}
+		
 	})
 	$('#addColor').click(function(){
 		clearSelection()
@@ -309,6 +305,7 @@ $(document).ready(function() {
 		clearSelection()
 		displayColors()
 	})
+	$("input[type=radio]").attr('disabled', true);
 	initDisplay()
   });
 	
@@ -320,7 +317,6 @@ function addToMenu(newName) {
 	$( "#select-palette" ).selectmenu( "refresh" )
 	changePalette()
 }
-
 function addPalette(newPalette) {
 	state.palettes[state.palettes.length] = newPalette //add to the palettes array
 }
@@ -354,7 +350,7 @@ function displayColors() {
 	//For point plotting, various constants 
 	var abSize = 600;
 	var lWidth = 100;
-	
+	var eWidth = 400;
 	var pSize = 9;
 	var pW = pSize*3
 	var pH = pSize/3
@@ -383,7 +379,11 @@ function displayColors() {
 		.append("svg")
 		.attr("width", lWidth).attr("height",abSize)
 		.style("border", "1px solid lightgray")
-	
+	var svg_examples = d3.select("#pExamples")
+		.append("svg")
+		.attr("width", eWidth).attr("height",abSize)
+		.style("border", "1px solid lightgray")
+		
 	svg_ab.append("line").attr("x1", 0).attr("y1", yOrg)
 		.attr("x2",abSize).attr("y2",yOrg)
 		.style({stroke: "lightgray", "stroke-width": "1px"})
@@ -423,49 +423,35 @@ function displayColors() {
 		addActions(svgPt)
 		
 	}
-	//create some examples. Use flex boxes for layout
-	
-		
+	//create some examples
 	var pSize = 40
 	var gap = 8
 	var arrayBox
-	//cleanup the previous display
-	d3.select("#pExamples").selectAll("div").remove()
-	//d3.select("#rightCol").selectAll("div").remove()
-	if (state.colors.length > 28) {
-		arrayBox = d3.select('#pExamples').append('div').append('svg')
-			.attr("width",500)
-			.attr("height",abSize)
-			.attr("x", 10)
-			.attr("y", 10)
-		drawArray(arrayBox, 24, 24,4)
-	}
+	if (state.colors.length > 28) {drawArray(svg_examples, 24,4)}
 	else {
 		var step = pSize+gap
-		var boxH = step*4
-		var boxW= Math.round(step*state.colors.length/4)+step/2
-		$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
-		arrayBox = d3.select("#leftCol").append("div").append("svg")
+		var boxW = step*4
+		var boxH= Math.round(step*state.colors.length/4)+step/2
+		arrayBox = svg_examples.append("svg")
 			.attr("width",boxW)
 			.attr("height",boxH)
 			.attr("x", 10)
 			.attr("y", 10)
 			drawArray(arrayBox,pSize,pSize,gap)
-		arrayBox = d3.select('#leftCol').append('div').append('svg')
+		arrayBox = svg_examples.append("svg")
 			.attr("width",boxW)
 			.attr("height", boxH)
-			.attr("x", 10)
+			.attr("x", 30+boxW)
 			.attr("y", 10)
 			drawArray(arrayBox,12, 12, step-12)
-			
-		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
 		//now some bands of colors
-		arrayBox = d3.select('#rightCol').append('div').append("svg")
+		arrayBox = svg_examples.append("svg")
 			.attr("width",boxW)
 			.attr("height", pSize*state.colors.length)
 			.attr("x", 10)
-			.attr("y", 10)
+			.attr("y", 30+boxH)
 			drawArray(arrayBox,boxW,pSize,0)
+		
 	}
 	
 }
@@ -474,17 +460,14 @@ drawArray = function(svg, pW,pH, gap) {
 	var stepX = pW+gap
 	var stepY = pH+gap
 	var rowLen = Math.floor(svg.attr("width")/stepX)
-	var colLen = Math.floor(svg.attr("height")/stepY)
 	for (i = 0; i<state.colors.length; i++) {
 		var d = state.colors[i]
 		var lab = d.color.lab()
 		var hex = d.color.hex()
 		var bColor = hex
 		if (d.selected==true) {bColor = "#000000"}
-/*		var x = stepX*(i%rowLen)
-		var y = stepY*Math.floor(i/rowLen) */
-		var y = stepY*(i%colLen)
-		var x = stepY*Math.floor(i/colLen)
+		var x = stepX*(i%rowLen)
+		var y = stepY*Math.floor(i/rowLen)
 		svgPt = svg.append("rect")
 		.attr("width",pW)
 		.attr("height", pH)
@@ -550,48 +533,11 @@ addActions = function(svgPt) {
 	<button type="button" id='workspace'>Workspace</button>
 	<input type="text" class = "smallText" name="path-text" id="path-text" style = "width: 200px; border: 1px solid #cccccc;">
 	
-</div> style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"-->
-<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start; font-family: sans-serif;">
-	<div class = "vContainer" id='palettes-outer' >
-	<div class = 'myHeader' >Palette Controls</div>
-		<div class = "control-group" style='margin-top: 9px'>
-			<select id="select-palette" style = "width: 160px;">
-				<option value= 'New Palette'>New Palette</option>
-				<option value ='Tableau 10' selected="selected"> Tableau 10</option>
-				<option value ='Tableau 20'>Tableau 20</option>
-				<option value ='Tableau Light'>Tableau Light</option>
-				<option value ='Colorblind'>Colorblind</option>
-				<option value ='Vizable'>Vizable</option>
-				<option value ='T10 Mod2'>T10 Mod2</option>
-				<option value ='Cristy All'>Cristy All</option>
-			</select>
-			<div class = "control-group" style='margin-left: 5px' >
-			<button type="button" id='reset'>Reset</button>
-			<button type="button" id='delete'>Delete</button>
-			</div>
-		</div>
-		<div class = "control-group" >
-			<button type="button" id='copy'>Copy</button>
-			<button type="button" id='rename'>Rename</button>
-			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc; margin-left=5px;">
-		</div>
-		<div class = "control-group" style="margin-right: 10px; margin-bottom: 10px;" >
-			<button type="button" id='read'>Read</button>
-			<button type="button" id='write'>Write</button>
-			<button type="button" id='write_all'>Write All</button>
-		<form id='file_type' >
-			<input type="radio" name='file_type' value='hex' checked>Hex</input>
-			<input type="radio" name='file_type' value='xml'>XML</input>
-		</form>
-	</div>
-	<textarea id="io-text" rows="50" cols="25" style = "color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
+</div> -->
+<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start;">
+	<div class ='vContainer' id="all_but_text">
 
-</div>
-	<div class ='vContainer' id="edit_color">
-		<div class = 'myHeader' >Color Controls</div>
-		
-	
-<div class='hContainer' id='color_sliders'>
+<div class='hContainer' id='color-controls'>
 <!-- HSV sliders -->
 
 	<div class = "vContainer">
@@ -625,36 +571,74 @@ addActions = function(svgPt) {
 			<div id="cieH"></div>
 		</div>
 	</div>
-	<div class="hContainer">
-	<div class = "vContainer" id='color_buttons'>
-			<button type="button" id='addColor'  style = "margin: 10px;">Add Color</button>
-			<button type="button" id='deleteColor' style = "margin: 10px;">Delete Color</button>
-		</div>
-	<div class = "vContainer" id='color_text'>
-			<div class = "control-group">
-				<div style="width: 40px;">Hex: </div>
-				<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
-			<div class = "control-group">
-				<div style="width: 40px;">HSV: </div>
-				<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
-				<div class = "control-group">
-				<div style="width: 40px;">LCH: </div>
-				<input type="text" class = "smallText" id="lch-text" name="lch-text" style = "width: 100px;"/></div>
-			<div class="control-group"> 
-				<div style="width: 40px;">Lum:</div>
-				<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
-			</div>		
-	</div>
-	</div>
 </div>
 
-<div class="hContainer" id = 'plots' style='align-items: flex-start;'>
+	<div class = "hContainer">
+		<button type="button" id='addColor'  style = "margin: 10px;">Add Patch Color</button>
+		<button type="button" id='deleteColor' style = "margin: 10px;">Delete Selected Color</button>
+	
+	<div class = "control-group">
+		<div style="width: 40px;">Hex: </div>
+		<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/></div>
+	<div class = "control-group">
+		<div style="width: 40px;">HSV: </div>
+		<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/></div>
+		<div class = "control-group">
+		<div style="width: 40px;">LCH: </div>
+		<input type="text" class = "smallText" id="lch-text" name="lch-text" style = "width: 100px;"/></div>
+	<div class="control-group"> 
+		<div style="width: 40px;">Lum:</div>
+		<input type="text" id="lum-text" name="lum-text" class = "smallText" style = "width: 60px;"/>
+	</div>
+		
+		
+</div>
+	
+
+<div class="hContainer" id = 'plots'>
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
-	<div id = "pExamples" class='pExamples'></div>
+	<div id = "pExamples" style="margin: 5px"></div>
+	
+</div>
+</div>
+<div class = "vContainer" >
+	<div id ="palette-controls" class= 'vContainer' >
+	<div class = "control-group" >
+		<div style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"> Current Palette: </div>
+		<select id="select-palette" style = "width: 160px;">
+			<option value= 'New Palette'>New Palette</option>
+			<option value ='Tableau 10' selected="selected"> Tableau 10</option>
+			<option value ='Tableau 20'>Tableau 20</option>
+			<option value ='Tableau Light'>Tableau Light</option>
+			<option value ='Colorblind'>Colorblind</option>
+			<option value ='Vizable'>Vizable</option>
+			<option value ='T10 Mod2'>T10 Mod2</option>
+			<option value ='Cristy All'>Cristy All</option>
+		</select>
+	</div>
+	<div class = "control-group" style = "margin-left: 5px;">
+		<button type="button" id='reset'>Reset</button>
+		<button type="button" id='copy'>Copy</button>
+		<button type="button" id='rename'>Rename</button>
+		<!--<button type="button" id='xml'>Write XML</button> -->
+		<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc;">
+	</div>
 
 </div>
+			<div class = "control-group" style = "margin-left: 5px;">
+			<button type="button" id='readHex'>Read Hex</button>
+			<button type="button" id='writeHex'>Write Hex</button>
+			<button type="button" id='readXML'>Read XML</button>
+			<button type="button" id='writeXML'>Write XML</button>
+		</div>
+			<form id='scope' style = "color: gray;">
+			<input type="radio" name='scope' value='current_palette' checked>Current Palette</input>
+			<input type="radio" name='scope' value='all_palettes'>All Palettes</input>
+			</form>
+<textarea id="hexList-text" rows="50" cols="25" style = "color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
 </div>
+
 </div>
 </body>
 </html>
