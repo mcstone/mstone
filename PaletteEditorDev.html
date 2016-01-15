@@ -172,6 +172,7 @@ updateColorPatch = function(type) {
 $(document).ready(function() {
 	state.pColor = chroma.hsv(270,0.7,0.7)
 	initPalettes(state) //by default first palette is the active one
+	buildSelectMenu()	//we're going to try just rebuilding this each time it changes
 	$('#pname-text').val(state.palette.pName)
 	$('#path-text').val(state.path)
 	$("#hue").slider({
@@ -232,13 +233,14 @@ $(document).ready(function() {
 			changePalette()
 		}
 	});
-	/*$('#xml').click(function(){
-		var paletteName = $('#pname-text').val()
-		var xml = paletteToXML(state.colors, paletteName)
-		$.get('write',{file: state.path+paletteName+".xml", data: xml},function(data){console.log(data)})
-		
-		})*/
 	
+	$('#delete').click(function(){
+		var index = findPalette(state.palettes,state.palette.pName)	//the current palette
+		state.palettes.splice(index,1) //delete the palette
+		if (index==state.palettes.length) {index = state.palettes.length -1}
+		state.palette = state.palettes[index]  //in the normal case, points to the one after
+		updatePaletteControls()
+		})
 	$('#reset').click(function(){
 		clearSelection()
 		state.palette.eColors = copyColors(state.palette.oColors,state.palette.pName)
@@ -250,26 +252,14 @@ $(document).ready(function() {
 		var newName = makeUnique($('#pname-text').val())
 		var newPalette = copyPalette(state.palette, newName)
 		addPalette(newPalette)
-		addToMenu(newName) 	//also changes to new palette
+		updatePaletteControls()
 		})
 	$('#rename').click(function(){
 		clearSelection()
 		var oldName = $("#select-palette").val()
 		var newName = makeUnique($('#pname-text').val())
 		var palette = state.palettes[findPalette(state.palettes,oldName)]
-		if (palette == null) {console.log(oldName+" not found")}
-		else {
-			palette.pName = newName
-			var options = $("#select-palette option")
-			for (var i=0; i<options.length; i++) {
-				if (options[i].text == oldName) {
-					options[i].text = newName
-					options[i].value =newName
-					break
-				}
-			}
-			$( "#select-palette" ).selectmenu( "refresh" )
-		}
+		updatePaletteControls()
 		})
 	
 	$('#write').click(function(){
@@ -296,8 +286,8 @@ $(document).ready(function() {
 			pName = makeUnique(pName)
 			var newPalette = createPalette(pVals[i].hex, pName)
 			addPalette(newPalette)
-			addToMenu(pName)
 		}
+		updatePaletteControls()
 	})
 	$('#addColor').click(function(){
 		clearSelection()
@@ -311,6 +301,24 @@ $(document).ready(function() {
 	})
 	initDisplay()
   });
+
+function buildSelectMenu() {
+	$("#select-palette option").remove()
+	for (var p=0; p<state.palettes.length; p++) {
+		var pName = state.palettes[p].pName
+		var option = '<option value=' +'\"'+pName +'\" '
+		if (pName == state.palette.pName) {option = option+'selected="selected"'}
+		option = option+'> '+pName+ '</option>'
+		$('#select-palette').append(option)
+		$('#select-palette').val(state.palette.pName)	//the selected palette
+	}
+}
+function updatePaletteControls() {
+	buildSelectMenu()
+	$( "#select-palette" ).selectmenu( "refresh" )
+	changePalette()
+}
+	
 	
 function addToMenu(newName) {
 	$("#select-palette option").removeAttr('selected') //remove the old selection
@@ -323,6 +331,7 @@ function addToMenu(newName) {
 
 function addPalette(newPalette) {
 	state.palettes[state.palettes.length] = newPalette //add to the palettes array
+	state.palette = newPalette	//it's a pointer
 }
 function makeUnique(newName){
 	var i = 0;
