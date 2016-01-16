@@ -38,6 +38,8 @@
 		align-items: flex-start;
 		margin: 5px;
 		padding: 5px;
+		font-family: sans-serif;
+		font-size: 0.8em;
 	}
 	.sliderLabel {
 		width: 15px;
@@ -220,6 +222,16 @@ $(document).ready(function() {
 		stop: slideLCHSliders,
       change: changeLCHSliders
     });
+	
+	$('#show-text').click(function(){
+		updateDisplay()
+	})
+	$("#text-alpha").val('FF')
+	$("#text-alpha").keypress(function(event) {
+		if (event.keyCode == 13) {
+            updateDisplay()
+		}
+	})
 	$("#hex-text").keypress(function(event) {
 		if (event.keyCode == 13) {
             var v= $("#hex-text").val()
@@ -267,6 +279,27 @@ $(document).ready(function() {
 		var pText = ''
 		if (type=='hex') {pText = createHexString(state.colors,state.palette.pName)}
 		else {pText = paletteToXML(state.colors,state.palette.pName)}
+		$('#io-text').val(pText)
+	})
+	$('#write-all').click(function(){
+		var type = $('input:radio[name=file_type]:checked').val();
+		var pText = ''
+		var colors = []
+		var pName = ''
+		if (type=='hex') {
+			for (var p=0; p<state.palettes.length; p++) {
+				colors = state.palettes[p].eColors
+				pName = state.palettes[p].pName
+				pText = pText+createHexString(colors,pName)+'/\n'
+			}
+		}
+		else {
+			for (var p=0; p<state.palettes.length; p++) {
+				colors = state.palettes[p].eColors
+				pName = state.palettes[p].pName
+				pText = pText+paletteToXML(colors,pName)+'\n'
+			}
+		}
 		$('#io-text').val(pText)
 	})
 	$('#read').click(function(){
@@ -435,19 +468,20 @@ function displayColors() {
 	//create some examples. Use flex boxes for layout
 	
 		
-	var pSize = 40
-	var gap = 8
+	var pSize = 32
+	var gap = 10
 	var arrayBox
 	//cleanup the previous display
 	d3.select("#pExamples").selectAll("div").remove()
 	//d3.select("#rightCol").selectAll("div").remove()
+	
 	if (state.colors.length > 28) {
 		arrayBox = d3.select('#pExamples').append('div').append('svg')
 			.attr("width",500)
 			.attr("height",abSize)
 			.attr("x", 10)
 			.attr("y", 10)
-		drawArray(arrayBox, 24, 24,4)
+		drawArray(arrayBox, 24, 24,4, createRectMark)
 	}
 	else {
 		var step = pSize+gap
@@ -459,27 +493,103 @@ function displayColors() {
 			.attr("height",boxH)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox,pSize,pSize,gap)
+			drawArray(arrayBox,pSize,pSize,gap, createRectMark)
 		arrayBox = d3.select('#leftCol').append('div').append('svg')
 			.attr("width",boxW)
 			.attr("height", boxH)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox,12, 12, step-12)
-			
-		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
-		//now some bands of colors
-		arrayBox = d3.select('#rightCol').append('div').append("svg")
+			drawArray(arrayBox,14, 14, step-14, createRectMark)
+		arrayBox = d3.select('#leftCol').append('div').append('svg')
 			.attr("width",boxW)
-			.attr("height", pSize*state.colors.length)
+			.attr("height", boxH)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox,boxW,pSize,0)
+			drawArray(arrayBox,11, 11, step-11, createCircleMark)
+		arrayBox = d3.select('#leftCol').append('div').append('svg')
+			.attr("width",240)
+			.attr("height", 120)
+			.attr("x", 10)
+			.attr("y", 10)
+			drawArray(arrayBox, 50, 20, 10 ,createTextMark)	
+		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
+		//now some bands of colors
+		var bW = 200
+		var bH = 40
+		arrayBox = d3.select('#rightCol').append('div').append("svg")
+			.attr("width",bW+0.08*bW) //for the selection bump right
+			.attr("height", 50*state.colors.length)
+			.attr("x", 10)
+			.attr("y", 10)
+			drawArray(arrayBox,bW,bH,0, createRectMark)
+		//now overlay text
+		if ($('#show-text').prop('checked')==true) {
+			var tString = $('#text-alpha').val()
+			var opacity = parseInt(tString,16)/255.0
+			if (opacity != 0) {
+				for (i = 0; i<state.colors.length; i++) {
+					arrayBox.append('text').text("$12345678.90")
+					.attr('x',10)
+					.attr('y',i*bH+bH/2)
+					.attr('width',bW/2)
+					.attr('height',bH)
+					.attr('fill','black')
+					.attr('opacity',opacity)
+					arrayBox.append('text').text("$12345678.90")
+					.attr('x',10+bW/2)
+					.attr('y',i*bH+bH/2)
+					.attr('width',bW/2)
+					.attr('height',bH)
+					.attr('fill','white')
+					.attr('opacity',opacity)
+
+				}
+			}
+		}
 	}
 	
 }
-
-drawArray = function(svg, pW,pH, gap) {
+function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
+	var bColor = hex
+	var offsetY = 0
+	var offsetX = 0
+	if (isSelected==true) {
+		if (gap>w) {offsetY = w/2}	//small squares, big gap
+		if (gap==0) {offsetX = 0.1*w}  //the hBars
+		else {offsetY = gap/3}  //big squares
+	}
+	return svg.append("rect")
+		.attr("width",w)
+		.attr("height", h)
+		.attr("x", x+offsetX)
+		.attr("y", y+offsetY)
+		.attr("fill",hex)
+		.style("stroke",bColor)
+}
+function createCircleMark(svg,hex,x,y,w,h,isSelected) {
+	var r = w/2
+	var offset = 0
+	if (isSelected==true){offset = 2*w/3}
+	return svg.append("circle")
+		.attr("r",r)
+		.attr("height", h)
+		.attr("cx", x+w/2)
+		.attr("cy", y+h/2+offset)
+		.attr("fill",'white')
+		.attr("stroke-width",2)
+		.style("stroke",hex)
+}
+function createTextMark(svg,hex,x,y,w,h,isSelected,gap) {
+	var offset = 0
+	if (isSelected==true){offset = gap/2}
+	return svg.append("text")
+		.attr("x", x)
+		.attr("y", y+h/2+offset)
+		.text(hex)
+		.attr("fill",hex)
+}
+//createMark is a function(svg,x,y,w,h,isSelected), returns svg point (rect, circle, text)
+drawArray = function(svg, pW,pH, gap, createMark) {  
 	var stepX = pW+gap
 	var stepY = pH+gap
 	var rowLen = Math.floor(svg.attr("width")/stepX)
@@ -489,19 +599,9 @@ drawArray = function(svg, pW,pH, gap) {
 		var lab = d.color.lab()
 		var hex = d.color.hex()
 		var bColor = hex
-		if (d.selected==true) {bColor = "#000000"}
-/*		var x = stepX*(i%rowLen)
-		var y = stepY*Math.floor(i/rowLen) */
-		var y = stepY*(i%colLen)
-		var x = stepY*Math.floor(i/colLen)
-		svgPt = svg.append("rect")
-		.attr("width",pW)
-		.attr("height", pH)
-		.attr("x", x)
-		.attr("y", y)
-		.attr("fill",hex)
-		.style("stroke",bColor)
-		.attr('cIndex',i)
+		var y = stepY*(i%colLen)+gap/2
+		var x = stepX*Math.floor(i/colLen)+gap/2
+		svgPt = createMark(svg,hex,x,y,pW,pH,d.selected,gap).attr('cIndex',i)
 		addActions(svgPt)
 	}
 }
@@ -565,14 +665,6 @@ addActions = function(svgPt) {
 	<div class = 'myHeader' >Palette Controls</div>
 		<div class = "control-group" style='margin-top: 9px'>
 			<select id="select-palette" style = "width: 160px;">
-				<option value= 'New Palette'>New Palette</option>
-				<option value ='Tableau 10' selected="selected"> Tableau 10</option>
-				<option value ='Tableau 20'>Tableau 20</option>
-				<option value ='Tableau Light'>Tableau Light</option>
-				<option value ='Colorblind'>Colorblind</option>
-				<option value ='Vizable'>Vizable</option>
-				<option value ='T10 Mod2'>T10 Mod2</option>
-				<option value ='Cristy All'>Cristy All</option>
 			</select>
 			<div class = "control-group" style='margin-left: 5px' >
 			<button type="button" id='reset'>Reset</button>
@@ -587,7 +679,7 @@ addActions = function(svgPt) {
 		<div class = "control-group" style="margin-right: 10px; margin-bottom: 10px;" >
 			<button type="button" id='read'>Read</button>
 			<button type="button" id='write'>Write</button>
-			<button type="button" id='write_all'>Write All</button>
+			<button type="button" id='write-all'>Write All</button>
 		<form id='file_type' >
 			<input type="radio" name='file_type' value='hex' checked>Hex</input>
 			<input type="radio" name='file_type' value='xml'>XML</input>
@@ -661,6 +753,18 @@ addActions = function(svgPt) {
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 	<div id = "pExamples" class='pExamples'></div>
+	<div id = "example-controls" class ='vContainer'>
+		<div class = 'control-group'>
+			<div style="width: 100px;">Overlay text </div>
+			<input type='checkbox' name='show-text' id='show-text' checked></input>
+		</div>
+		<div class='control-group'>
+			<div style="width: 100px;">Alpha (in hex)</div>
+			<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
+			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>	
+		</div>
+	</div>
+</div>
 
 </div>
 </div>
