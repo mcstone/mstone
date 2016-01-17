@@ -18,6 +18,7 @@
 	}
 	.control-group {
 		display: inline-flex;
+        font-size: 80%;
 		margin-right: 15px;
 		margin-bottom: 5px;
 	}
@@ -109,6 +110,7 @@ initDisplay = function() {
 
 updateDisplay = function() {
 	displayColors()
+    
 }
 
 function slideHSVSliders() {
@@ -224,6 +226,39 @@ $(document).ready(function() {
     });
 	
 	$('#show-text').click(function(){
+		updateDisplay()
+	})
+    $('#show-marks').click(function(){
+		updateDisplay()
+	})
+    $('#moveUp').click(function(){
+        if (state.selectedPt != null) {
+            var index = state.colors.indexOf(state.selectedPt)
+            var item     //arguably, this is state.
+            if (index==0) { //first element, wrap to end
+                item =state.colors.shift()
+                state.colors.push(item)
+            } else {
+                item = state.colors[index]
+                state.colors[index] = state.colors[index-1]
+                state.colors[index-1] = item
+            }
+            updateDisplay()
+        } 
+	})
+    $('#moveDown').click(function(){
+        if (state.selectedPt != null) {
+            var index = state.colors.indexOf(state.selectedPt)
+            var item     //arguably, this is state.
+            if (index+1 == state.colors.length) { //last element, wrap to front
+                item =state.colors.pop()
+                state.colors.unshift(item)
+            } else {
+                item = state.colors[index]
+                state.colors[index] = state.colors[index+1]
+                state.colors[index+1] = item
+            }
+        } 
 		updateDisplay()
 	})
 	$("#text-alpha").val('FF')
@@ -394,10 +429,10 @@ function displayColors() {
 	.text("a simple tooltip")
 	
 	//For point plotting, various constants 
-	var abSize = 600;
+	var abSize = 385;
 	var lWidth = 100;
 	
-	var pSize = 9;
+	var pSize = 8;
 	var pW = pSize*3
 	var pH = pSize/3
 	
@@ -465,9 +500,10 @@ function displayColors() {
 		addActions(svgPt)
 		
 	}
-	//create some examples. Use flex boxes for layout
-	
-		
+    displayExamples()   //some day refresh might do the two separately
+}
+function displayExamples() {  
+	//create some examples. Use flex boxes for layout	
 	var pSize = 32
 	var gap = 10
 	var arrayBox
@@ -486,7 +522,8 @@ function displayColors() {
 	else {
 		var step = pSize+gap
 		var boxH = step*4
-		var boxW= Math.round(step*state.colors.length/4)+step/2
+		var boxW= step*5
+        if ($('#show-marks').prop('checked')==true) {
 		$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
 		arrayBox = d3.select("#leftCol").append("div").append("svg")
 			.attr("width",boxW)
@@ -512,12 +549,13 @@ function displayColors() {
 			.attr("x", 10)
 			.attr("y", 10)
 			drawArray(arrayBox, 50, 20, 10 ,createTextMark)	
+        }
 		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
 		//now some bands of colors
 		var bW = 200
 		var bH = 40
 		arrayBox = d3.select('#rightCol').append('div').append("svg")
-			.attr("width",bW+0.08*bW) //for the selection bump right
+			.attr("width",bW+10) //for the selection bump right
 			.attr("height", 50*state.colors.length)
 			.attr("x", 10)
 			.attr("y", 10)
@@ -555,8 +593,8 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 	var offsetX = 0
 	if (isSelected==true) {
 		if (gap>w) {offsetY = w/2}	//small squares, big gap
-		if (gap==0) {offsetX = 0.1*w}  //the hBars
-		else {offsetY = gap/3}  //big squares
+		if (gap==0) {offsetX = 10}  //the hBars
+		else {offsetY = gap/2}  //big squares
 	}
 	return svg.append("rect")
 		.attr("width",w)
@@ -660,11 +698,11 @@ addActions = function(svgPt) {
 	<input type="text" class = "smallText" name="path-text" id="path-text" style = "width: 200px; border: 1px solid #cccccc;">
 	
 </div> style = "font-family: sans-serif; margin-left: 0.1em; margin-right: 0.2em; padding-top: 2px;"-->
-<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start; font-family: sans-serif;">
+<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start; font-family: sans-serif; ">
 	<div class = "vContainer" id='palettes-outer' >
 	<div class = 'myHeader' >Palette Controls</div>
 		<div class = "control-group" style='margin-top: 9px'>
-			<select id="select-palette" style = "width: 160px;">
+			<select id="select-palette" style = "width: 120px;">
 			</select>
 			<div class = "control-group" style='margin-left: 5px' >
 			<button type="button" id='reset'>Reset</button>
@@ -674,9 +712,9 @@ addActions = function(svgPt) {
 		<div class = "control-group" >
 			<button type="button" id='copy'>Copy</button>
 			<button type="button" id='rename'>Rename</button>
-			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 150px; border: 1px solid #cccccc; margin-left=5px;">
+			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 120px; border: 1px solid #cccccc; margin-left=5px;">
 		</div>
-		<div class = "control-group" style="margin-right: 10px; margin-bottom: 10px;" >
+		<div class = "control-group" style="margin-right: 0px; margin-bottom: 5px;" >
 			<button type="button" id='read'>Read</button>
 			<button type="button" id='write'>Write</button>
 			<button type="button" id='write-all'>Write All</button>
@@ -685,7 +723,7 @@ addActions = function(svgPt) {
 			<input type="radio" name='file_type' value='xml'>XML</input>
 		</form>
 	</div>
-	<textarea id="io-text" rows="50" cols="25" style = "color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
+	<textarea id="io-text" rows="50" cols=10  style = "width=80%; color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
 
 </div>
 	<div class ='vContainer' id="edit_color">
@@ -753,16 +791,29 @@ addActions = function(svgPt) {
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 	<div id = "pExamples" class='pExamples'></div>
-	<div id = "example-controls" class ='vContainer'>
+	<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
+        <div class='control-group'>
+            <div style="margin-right: 5px;">Reorder</div>
+            <button type="button" id='moveUp'>Up</button>
+            <button type="button" id='moveDown'>Down</button>
+        </div>
+        <div class = 'control-group'>
+			<div style="margin-right: 5px;">Marks Arrays </div>
+			<input type='checkbox' name='show-marks' id='show-marks' checked></input>
+		</div>
 		<div class = 'control-group'>
-			<div style="width: 100px;">Overlay text </div>
+			<div style="margin-right: 5px;">Overlay text </div>
 			<input type='checkbox' name='show-text' id='show-text' checked></input>
 		</div>
 		<div class='control-group'>
-			<div style="width: 100px;">Alpha (in hex)</div>
+			<div style="margin-right: 5px;">Alpha (in hex)</div>
 			<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
-			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>	
+			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>
+
 		</div>
+        
+        
+            
 	</div>
 </div>
 
