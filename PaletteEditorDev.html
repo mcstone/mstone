@@ -26,11 +26,16 @@
 		margin-left: 10px;
 	}
 	.myHeader {
-		font-size: 1.2em;
+		font-size: 1.1em;
 		color: gray;
 		margin-right: 0.2em;
 		padding-top: 2px;
 		padding-bottom: 5px;
+	}
+	.pLabel {
+		color: gray;
+		margin-right: 5px;
+		padding-top: 10px;
 	}
 	.pExamples {
 		border: 1px solid lightgray;
@@ -85,7 +90,7 @@ state.pColor = chroma('#000000')	//the current patch color, init in ready functi
 state.palettes = [] //list of palettes in this instance. Palette object defined in utils
 state.palette = {}	//the active palette. This could be just an index
 state.colors =[]	//the colors being edited. Pointer into the current palette
-state.selectedPt = null  //currently selected point
+state.selectedPt = null  //currently selected point. A colorItem
 state.path = "../../data/stone/"
 
 
@@ -225,48 +230,9 @@ $(document).ready(function() {
       change: changeLCHSliders
     });
 	
-	$('#show-text').click(function(){
-		updateDisplay()
-	})
-    $('#show-marks').click(function(){
-		updateDisplay()
-	})
-    $('#moveUp').click(function(){
-        if (state.selectedPt != null) {
-            var index = state.colors.indexOf(state.selectedPt)
-            var item     //arguably, this is state.
-            if (index==0) { //first element, wrap to end
-                item =state.colors.shift()
-                state.colors.push(item)
-            } else {
-                item = state.colors[index]
-                state.colors[index] = state.colors[index-1]
-                state.colors[index-1] = item
-            }
-            updateDisplay()
-        } 
-	})
-    $('#moveDown').click(function(){
-        if (state.selectedPt != null) {
-            var index = state.colors.indexOf(state.selectedPt)
-            var item     //arguably, this is state.
-            if (index+1 == state.colors.length) { //last element, wrap to front
-                item =state.colors.pop()
-                state.colors.unshift(item)
-            } else {
-                item = state.colors[index]
-                state.colors[index] = state.colors[index+1]
-                state.colors[index+1] = item
-            }
-        } 
-		updateDisplay()
-	})
-	$("#text-alpha").val('FF')
-	$("#text-alpha").keypress(function(event) {
-		if (event.keyCode == 13) {
-            updateDisplay()
-		}
-	})
+	
+   
+	
 	$("#hex-text").keypress(function(event) {
 		if (event.keyCode == 13) {
             var v= $("#hex-text").val()
@@ -357,6 +323,7 @@ $(document).ready(function() {
 		}
 		updatePaletteControls()
 	})
+	//color editing buttons
 	$('#addColor').click(function(){
 		clearSelection()
 		state.selectedPt = addToPalette(state.palette, state.pColor.hex(), true)
@@ -366,6 +333,56 @@ $(document).ready(function() {
 		deleteFromPalette(state.colors,state.selectedPt)	//done in place with pointers
 		clearSelection()
 		displayColors()
+	})
+	 $('#moveUp').click(function(){
+        if (state.selectedPt != null) {
+            var index = state.colors.indexOf(state.selectedPt)
+            var item     //arguably, this is state.
+            if (index==0) { //first element, wrap to end
+                item =state.colors.shift()
+                state.colors.push(item)
+            } else {
+                item = state.colors[index]
+                state.colors[index] = state.colors[index-1]
+                state.colors[index-1] = item
+            }
+            updateDisplay()
+        } 
+	})
+    $('#moveDown').click(function(){
+        if (state.selectedPt != null) {
+            var index = state.colors.indexOf(state.selectedPt)
+            var item     //arguably, this is state.
+            if (index+1 == state.colors.length) { //last element, wrap to front
+                item =state.colors.pop()
+                state.colors.unshift(item)
+            } else {
+                item = state.colors[index]
+                state.colors[index] = state.colors[index+1]
+                state.colors[index+1] = item
+            }
+        } 
+		updateDisplay()
+	})
+	//replaces the colorspace plots with a palette overview
+	$('#all-palettes').click(function(){	
+		updateDisplay()
+	})
+	//controls for the examples
+	$('#show-marks').click(function(){
+		updateDisplay()
+	})
+	$('#show-bars').click(function(){
+		updateDisplay()
+	})
+	$('#show-text').click(function(){
+		updateDisplay()
+	})
+	$("#text-alpha").val('FF')
+	$("#text-alpha").keypress(function(event) {
+		if (event.keyCode == 13) {
+            updateDisplay()
+		}
 	})
 	initDisplay()
   });
@@ -417,6 +434,7 @@ function makeUnique(newName){
 function displayColors() {
 	
 	d3.select('#plots').selectAll("svg").remove();
+	d3.select("#pSpace").selectAll("div").remove()
 	//create the tooltip
 	var tooltip = d3.select("body")
 	.append("div")
@@ -427,7 +445,17 @@ function displayColors() {
 	.style("background-color",'white')
 	.style("margin","2px")
 	.text("a simple tooltip")
-	
+	//now we need to either plot the color space, or an overview of all the palettes
+	if ($('#all-palettes').prop('checked')==true) {
+		displayAllPalettes()
+	}
+	else {
+		displayColorspace()
+	}
+	displayExamples()
+}
+
+function displayColorspace() {
 	//For point plotting, various constants 
 	var abSize = 385;
 	var lWidth = 100;
@@ -450,7 +478,6 @@ function displayColors() {
 		var tip = formatTriple(lch,3)
 		return tip
 	}
-	
 //create the svg frames. Will eventually add axes, etc. here
 	var svg_ab = d3.select("#abPlot")
 		.append("svg")
@@ -497,11 +524,66 @@ function displayColors() {
 		.attr("fill",hex)
 		.attr("tip",tip)
 		.attr('cIndex',i)
-		addActions(svgPt)
-		
+		addActions(svgPt)	
 	}
-    displayExamples()   //some day refresh might do the two separately
 }
+function displayAllPalettes() {
+	var pHeight = 32;
+	var pGap = 8;
+	var pW = 24
+	var pH = 32
+	var mGap = 5
+	var xStep = pW+mGap
+	hex2tip = function(hex) {
+		var c = chroma(hex)
+		var lch = c.lch()
+		var tip = formatTriple(lch,3)
+		return tip
+	}
+	
+	for (var i =0; i<state.palettes.length; i++) {
+		var p = state.palettes[i]
+		var pID	= "p"+i.toString()
+		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
+		cGroup.append('div').attr('class','pLable').text(p.pName).style("width","80px")
+		.style('margin-top', '12px')
+		if (p==state.palette) {
+			cGroup.style("color",'black')
+		} else {
+			cGroup.style('color','gray')
+		}
+		var pBox = cGroup.append('div').append('svg')
+			.attr("width",21*xStep)
+			.attr("height",pHeight+pGap)
+		
+		for (var c =0;c<p.eColors.length;c++) {
+			var color = p.eColors[c]
+			var offset = 0
+			if (color == state.selectedPt) {offset = pGap/2}
+			var patch = pBox.append("rect")
+				.attr("width",pW)
+				.attr("height", pH)
+				.attr("x", 10+c*xStep)
+				.attr("y", pGap/2+offset)
+				.attr("fill",color.color.hex())
+				.attr('cIndex',c)
+				.attr('pIndex',i)
+
+			patch.on('click', function() { 
+				var svgPt = d3.select(this)
+				var pIndex = parseInt(svgPt.attr('pIndex'))
+				var palette = state.palettes[pIndex]
+				if (palette != state.palette) {
+					$("#select-palette").val(state.palettes[pIndex].pName)
+					$( "#select-palette" ).selectmenu( "refresh" )
+					changePalette()
+				}
+				myOnClick(svgPt)
+			})
+		}
+	}
+}
+
 function displayExamples() {  
 	//create some examples. Use flex boxes for layout	
 	var pSize = 32
@@ -509,7 +591,6 @@ function displayExamples() {
 	var arrayBox
 	//cleanup the previous display
 	d3.select("#pExamples").selectAll("div").remove()
-	//d3.select("#rightCol").selectAll("div").remove()
 	
 	if (state.colors.length > 28) {
 		arrayBox = d3.select('#pExamples').append('div').append('svg')
@@ -552,35 +633,36 @@ function displayExamples() {
         }
 		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
 		//now some bands of colors
-		var bW = 200
-		var bH = 40
-		arrayBox = d3.select('#rightCol').append('div').append("svg")
-			.attr("width",bW+10) //for the selection bump right
-			.attr("height", 50*state.colors.length)
-			.attr("x", 10)
-			.attr("y", 10)
-			drawArray(arrayBox,bW,bH,0, createRectMark)
-		//now overlay text
-		if ($('#show-text').prop('checked')==true) {
-			var tString = $('#text-alpha').val()
-			var opacity = parseInt(tString,16)/255.0
-			if (opacity != 0) {
-				for (i = 0; i<state.colors.length; i++) {
-					arrayBox.append('text').text("$12345678.90")
-					.attr('x',10)
-					.attr('y',i*bH+bH/2)
-					.attr('width',bW/2)
-					.attr('height',bH)
-					.attr('fill','black')
-					.attr('opacity',opacity)
-					arrayBox.append('text').text("$12345678.90")
-					.attr('x',10+bW/2)
-					.attr('y',i*bH+bH/2)
-					.attr('width',bW/2)
-					.attr('height',bH)
-					.attr('fill','white')
-					.attr('opacity',opacity)
-
+		if ($('#show-bars').prop('checked')==true) {
+			var bW = 200
+			var bH = 40
+			arrayBox = d3.select('#rightCol').append('div').append("svg")
+				.attr("width",bW+10) //for the selection bump right
+				.attr("height", 50*state.colors.length)
+				.attr("x", 10)
+				.attr("y", 10)
+				drawArray(arrayBox,bW,bH,0, createRectMark)
+			//now overlay text
+			if ($('#show-text').prop('checked')==true) {
+				var tString = $('#text-alpha').val()
+				var opacity = parseInt(tString,16)/255.0
+				if (opacity != 0) {
+					for (i = 0; i<state.colors.length; i++) {
+						arrayBox.append('text').text("$12345678.90")
+						.attr('x',10)
+						.attr('y',i*bH+bH/2)
+						.attr('width',bW/2)
+						.attr('height',bH)
+						.attr('fill','black')
+						.attr('opacity',opacity)
+						arrayBox.append('text').text("$12345678.90")
+						.attr('x',10+bW/2)
+						.attr('y',i*bH+bH/2)
+						.attr('width',bW/2)
+						.attr('height',bH)
+						.attr('fill','white')
+						.attr('opacity',opacity)
+					}
 				}
 			}
 		}
@@ -602,7 +684,6 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 		.attr("x", x+offsetX)
 		.attr("y", y+offsetY)
 		.attr("fill",hex)
-		.style("stroke",bColor)
 }
 function createCircleMark(svg,hex,x,y,w,h,isSelected) {
 	var r = w/2
@@ -639,7 +720,9 @@ drawArray = function(svg, pW,pH, gap, createMark) {
 		var bColor = hex
 		var y = stepY*(i%colLen)+gap/2
 		var x = stepX*Math.floor(i/colLen)+gap/2
-		svgPt = createMark(svg,hex,x,y,pW,pH,d.selected,gap).attr('cIndex',i)
+		svgPt = createMark(svg,hex,x,y,pW,pH,d.selected,gap)
+			.attr('cIndex',i)
+
 		addActions(svgPt)
 	}
 }
@@ -723,7 +806,7 @@ addActions = function(svgPt) {
 			<input type="radio" name='file_type' value='xml'>XML</input>
 		</form>
 	</div>
-	<textarea id="io-text" rows="50" cols=10  style = "width=80%; color: dimgray; border: 1px solid #cccccc;">Read/write values</textarea>
+	<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 250px;">Read/write values</textarea>
 
 </div>
 	<div class ='vContainer' id="edit_color">
@@ -766,8 +849,13 @@ addActions = function(svgPt) {
 	</div>
 	<div class="hContainer">
 	<div class = "vContainer" id='color_buttons'>
-			<button type="button" id='addColor'  style = "margin: 10px;">Add Color</button>
-			<button type="button" id='deleteColor' style = "margin: 10px;">Delete Color</button>
+			<button type="button" id='addColor'  style = "margin: 5px;">Add Color</button>
+			<button type="button" id='deleteColor' style = "margin: 5px;">Delete Color</button>
+		<div class='control-group'style = "margin: 5px;">
+            <div style="margin-right: 5px;">Reorder</div>
+            <button type="button" id='moveUp'>Up</button>
+            <button type="button" id='moveDown'>Down</button>
+        </div>
 		</div>
 	<div class = "vContainer" id='color_text'>
 			<div class = "control-group">
@@ -788,24 +876,29 @@ addActions = function(svgPt) {
 </div>
 
 <div class="hContainer" id = 'plots' style='align-items: flex-start;'>
+	<div id = 'pSpace' class='vContainer' style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
 	<div id = "LPlot" style="margin: 5px"></div>
 	<div id = "pExamples" class='pExamples'></div>
 	<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
-        <div class='control-group'>
-            <div style="margin-right: 5px;">Reorder</div>
-            <button type="button" id='moveUp'>Up</button>
-            <button type="button" id='moveDown'>Down</button>
-        </div>
+        <div class = 'myHeader'style="margin-left: -2px;">Layout Controls</div>
+		<div class = 'control-group'>
+			<div style="margin-right: 5px;">All Palettes </div>
+			<input type='checkbox' name='all-palettes' id='all-palettes'></input>
+		</div>
         <div class = 'control-group'>
 			<div style="margin-right: 5px;">Marks Arrays </div>
 			<input type='checkbox' name='show-marks' id='show-marks' checked></input>
 		</div>
-		<div class = 'control-group'>
+	<div class = 'control-group'>
+			<div style="margin-right: 5px;">Wide Bars </div>
+			<input type='checkbox' name='show-bars' id='show-bars' checked></input>
+		</div>
+		<div class = 'control-group' style="margin-left: 5px;">
 			<div style="margin-right: 5px;">Overlay text </div>
 			<input type='checkbox' name='show-text' id='show-text' checked></input>
 		</div>
-		<div class='control-group'>
+		<div class='control-group' style="margin-left: 5px;">
 			<div style="margin-right: 5px;">Alpha (in hex)</div>
 			<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
 			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>
