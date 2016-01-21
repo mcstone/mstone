@@ -270,6 +270,7 @@ $(document).ready(function() {
 	$('#rename').click(function(){
 		clearSelection()
 		var oldName = $("#select-palette").val()
+		var newName = $('#pname-text').val()
 		state.palette =  state.palettes[findPalette(state.palettes,oldName)]
 		state.palette.pName = newName
 		updatePaletteControls()
