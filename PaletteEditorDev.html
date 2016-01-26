@@ -310,11 +310,7 @@ $(document).ready(function() {
 		var pVals = []
 		if (type=='hex') {pVals = parseHexString(pText)}
 		else {pVals = parseXML(pText)}
-		/*if (hexVals.hex == null ){
-			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
-			alert("Hex format error.\n Use #vvvvvv, #vvvvv, ... or \"name\" #vvvvvv, ...")
-		}
-		else { */
+		
 		for (var i=0; i<pVals.length; i++) { //array of {pName, hVals}, pName may be null
 			var pName = 'new palette'
 			if (pVals[i].pName !=null){pName = pVals[i].pName}

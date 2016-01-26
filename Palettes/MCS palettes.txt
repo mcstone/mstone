@@ -27,3 +27,28 @@ T20 mod 5  #1783b4, #63b9ec, #eb7e1e, #eec519, #baa512, #847b3d, #63913b, #86c74
 T20 mod 5(cp)  #1783b4, #4bbcf6, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e2979b, #837aa7, #b4a6d2, #97695c, #c78457, #767d68, #bbc2bb, #8b7f26, #c0ab18, #30a799, #6dcca4, #bd76a4, #bd91af, #939d97/
 T20 mod 6  #1783b4, #75bce4, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e2979b, #837aa7, #b4a6d2, #886a51, #c78457, #8f9483, #bbc2bb, #798b26, #c0b818, #30a799, #6dcca4, #bd76a4, #c395b5, #939d97/
 T20 mod 6(cp)  #1783b4, #75bce4, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e2979b, #837aa7, #b4a6d2, #886a51, #c78457, #889999, #bbc2bb, #798b26, #c0b818, #30a799, #6dcca4, #bd76a4, #c395b5/
+
+
+Here they are:
+
+                { TS("color.interpolated.positive"), PE(TS("tableau-green")) },
+                { TS("color.interpolated.negative"), PE(TS("tableau-red")) },
+                { TS("color.interpolated.diverging"), PE(TS("tableau-red-green")) },
+
+                { TS("color.interpolated.positive.light"), PE(TS("tableau-green-light")) },
+                { TS("color.interpolated.negative.light"), PE(TS("tableau-red-light")) },
+                { TS("color.interpolated.diverging.light"), PE(TS("tableau-red-green-light")) },
+
+                { TS("color.interpolated.positive.area"), PE(TS("area-green")) },
+                { TS("color.interpolated.negative.area"), PE(TS("area-red")) },
+                { TS("color.interpolated.diverging.area"), PE(TS("area-red-green")) },
+
+                { TS("color.palette.small"), PE(TS("tableau-10")) },
+                { TS("color.palette.large"), PE(TS("tableau-20")) },
+                { TS("color.palette.ordinal"), PE(TS("tableau-blue")) },
+                { TS("color.palette.multiordinals"), PE(TS("multiordinal_blue;multiordinal_orange;")
+                TS("multiordinal_green;multiordinal_red;multiordinal_purple;multiordinal_brown;")
+                TS("multiordinal_pink;multiordinal_gray;multiordinal_gold;multiordinal_teal")) },
+
+Best,
+-Shahaf
