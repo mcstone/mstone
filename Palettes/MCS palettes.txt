@@ -28,27 +28,31 @@ T20 mod 5(cp)  #1783b4, #4bbcf6, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e
 T20 mod 6  #1783b4, #75bce4, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e2979b, #837aa7, #b4a6d2, #886a51, #c78457, #8f9483, #bbc2bb, #798b26, #c0b818, #30a799, #6dcca4, #bd76a4, #c395b5, #939d97/
 T20 mod 6(cp)  #1783b4, #75bce4, #eb7e1e, #eec519, #359c45, #86c74a, #c65040, #e2979b, #837aa7, #b4a6d2, #886a51, #c78457, #889999, #bbc2bb, #798b26, #c0b818, #30a799, #6dcca4, #bd76a4, #c395b5/
 
+cm reorder 
+#1f77b4, #ff7f0e, #2ca02c, #17becf, #bcbd22, #9467bd, #e377c2, #d62728, #8c564b, #7f7f7f/
+cm 01  
+#1a6699, #f27421, #588f40, #1a9cad, #91a63b, #6f4aa3, #c658a7, #cc202d, #713f31, #727272/
+cm 02 
+#2a6792, #f27421, #588f40, #439ab5, #b6b835, #9c446e, #d86085, #cf423c, #6b3b3b, #5c626b/
+cm 3 
+#206189, #ff7311, #588f40, #439ab5, #b6b835, #9c446e, #ef778b, #cf423c, #5e3838, #536369/
+cm 04 
+#2a6792, #f27421, #588f40, #329bb6, #b6b835, #8f3664, #d86085, #cf423c, #653b38, #5c626b/
+cm05 
+#3e6080, #f58852, #378879, #78bdbb, #9fc66a, #dfc14e, #837194, #f16e7f, #9f4e4f, #8b93a0/
+cm05a 
+#3e6080, #f58852, #378879, #78bdbb, #9fc668, #dfc14e, #837194, #f16e7f, #bb4e4e, #8b8c90/
+cm06 
+#176e94, #f58852, #1a825c, #62bcb8, #b6b835, #705b84, #af648a, #e6635a, #8b4647, #9097a0/
+cm07 
+#176e94, #ff7311, #1a825c, #15b0bc, #c2b93d, #705b84, #c16085, #cc202d, #6b4242, #8c9290/
+cm08
+#4587a8, #f58852, #1a825c, #78bdbb, #e9c969, #816c8a, #ef778b, #c93f3f, #8b564b, #aeb2b7/
 
-Here they are:
+(based on vizable)
+cm09
+#176e94, #ff7311, #7bc44e, #893883, #2eb9cd, #fcb025, #3c8d7d, #cd4c8d, d02224, #8b93a0/
+cm10
+#176e94, #f58852, #85c560, #705b84, #62bcb8, #f9b546, #1a825c, #af648a, #cf423c, #9097a0
 
-                { TS("color.interpolated.positive"), PE(TS("tableau-green")) },
-                { TS("color.interpolated.negative"), PE(TS("tableau-red")) },
-                { TS("color.interpolated.diverging"), PE(TS("tableau-red-green")) },
-
-                { TS("color.interpolated.positive.light"), PE(TS("tableau-green-light")) },
-                { TS("color.interpolated.negative.light"), PE(TS("tableau-red-light")) },
-                { TS("color.interpolated.diverging.light"), PE(TS("tableau-red-green-light")) },
-
-                { TS("color.interpolated.positive.area"), PE(TS("area-green")) },
-                { TS("color.interpolated.negative.area"), PE(TS("area-red")) },
-                { TS("color.interpolated.diverging.area"), PE(TS("area-red-green")) },
-
-                { TS("color.palette.small"), PE(TS("tableau-10")) },
-                { TS("color.palette.large"), PE(TS("tableau-20")) },
-                { TS("color.palette.ordinal"), PE(TS("tableau-blue")) },
-                { TS("color.palette.multiordinals"), PE(TS("multiordinal_blue;multiordinal_orange;")
-                TS("multiordinal_green;multiordinal_red;multiordinal_purple;multiordinal_brown;")
-                TS("multiordinal_pink;multiordinal_gray;multiordinal_gold;multiordinal_teal")) },
-
-Best,
--Shahaf
+carin #6388B4, #FFAE34, #FC544F, #55AD89/

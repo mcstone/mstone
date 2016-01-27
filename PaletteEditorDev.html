@@ -605,7 +605,7 @@ function displayExamples() {
 		var boxH = step*4
 		var boxW= step*5
         if ($('#show-marks').prop('checked')==true) {
-		$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
+				$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
 		arrayBox = d3.select("#leftCol").append("div").append("svg")
 			.attr("width",boxW)
 			.attr("height",boxH)
@@ -624,12 +624,14 @@ function displayExamples() {
 			.attr("x", 10)
 			.attr("y", 10)
 			drawArray(arrayBox,11, 11, step-11, createCircleMark)
+		boxW = 170
+		if (state.colors.length>12){boxW = 280}
 		arrayBox = d3.select('#leftCol').append('div').append('svg')
-			.attr("width",240)
+			.attr("width",boxW)
 			.attr("height", 120)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox, 50, 20, 10 ,createTextMark)	
+			drawArray(arrayBox, 45, 20, 10 ,createTextMark)	
         }
 		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
 		//now some bands of colors
@@ -675,7 +677,7 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 	var offsetY = 0
 	var offsetX = 0
 	if (isSelected==true) {
-		if (gap>w) {offsetY = w/2}	//small squares, big gap
+		if (gap>w) {offsetY = w/3}	//small squares, big gap
 		if (gap==0) {offsetX = 10}  //the hBars
 		else {offsetY = gap/2}  //big squares
 	}
@@ -689,7 +691,7 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 function createCircleMark(svg,hex,x,y,w,h,isSelected) {
 	var r = w/2
 	var offset = 0
-	if (isSelected==true){offset = 2*w/3}
+	if (isSelected==true){offset = w/3}
 	return svg.append("circle")
 		.attr("r",r)
 		.attr("height", h)
