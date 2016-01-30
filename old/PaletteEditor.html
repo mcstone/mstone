@@ -455,6 +455,12 @@ function displayColors() {
 	}
 	displayExamples()
 }
+hex2tip = function(hex) {
+	var c = chroma(hex)
+	var lch = c.lch()
+	var tip = formatTriple(lch,3)+" "+hex
+	return tip
+}
 
 function displayColorspace() {
 	//For point plotting, various constants 
@@ -473,12 +479,7 @@ function displayColorspace() {
 		var y = yOrg-Math.round((abSize/300)*b)
 		return a,b
 	}
-	hex2tip = function(hex) {
-		var c = chroma(hex)
-		var lch = c.lch()
-		var tip = formatTriple(lch,3)
-		return tip
-	}
+	
 //create the svg frames. Will eventually add axes, etc. here
 	var svg_ab = d3.select("#abPlot")
 		.append("svg")
@@ -535,19 +536,29 @@ function displayAllPalettes() {
 	var pH = 32
 	var mGap = 5
 	var xStep = pW+mGap
-	hex2tip = function(hex) {
-		var c = chroma(hex)
-		var lch = c.lch()
-		var tip = formatTriple(lch,3)
-		return tip
+	
+	onClick = function(){ 
+		var svgPt = d3.select(this)
+		var pIndex = parseInt(svgPt.attr('pIndex'))
+		var palette = state.palettes[pIndex]
+		if (palette != state.palette) {
+			$("#select-palette").val(state.palettes[pIndex].pName)
+			$( "#select-palette" ).selectmenu( "refresh" )
+			changePalette()
+		}
+		if (svgPt.attr("class") != 'pLable') {myOnClick(svgPt)} //it's a graphic
 	}
 	
 	for (var i =0; i<state.palettes.length; i++) {
 		var p = state.palettes[i]
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
-		cGroup.append('div').attr('class','pLable').text(p.pName).style("width","80px")
-		.style('margin-top', '12px')
+		cGroup.append('div').attr('class','pLable').text(p.pName)
+			.style("width","80px")
+			.style('margin-top', '12px')
+			.attr('pIndex',i)
+			.on('click',onClick)
+		
 		if (p==state.palette) {
 			cGroup.style("color",'black')
 		} else {
@@ -561,26 +572,18 @@ function displayAllPalettes() {
 			var color = p.eColors[c]
 			var offset = 0
 			if (color == state.selectedPt) {offset = pGap/2}
+			var hex = color.color.hex()
 			var patch = pBox.append("rect")
 				.attr("width",pW)
 				.attr("height", pH)
 				.attr("x", 10+c*xStep)
 				.attr("y", pGap/2+offset)
-				.attr("fill",color.color.hex())
+				.attr("fill",hex)
 				.attr('cIndex',c)
 				.attr('pIndex',i)
-
-			patch.on('click', function() { 
-				var svgPt = d3.select(this)
-				var pIndex = parseInt(svgPt.attr('pIndex'))
-				var palette = state.palettes[pIndex]
-				if (palette != state.palette) {
-					$("#select-palette").val(state.palettes[pIndex].pName)
-					$( "#select-palette" ).selectmenu( "refresh" )
-					changePalette()
-				}
-				myOnClick(svgPt)
-			})
+				.attr("tip",hex2tip(hex))
+			patch.on('click',onClick)
+			addTooltip(patch)
 		}
 	}
 }
@@ -663,6 +666,7 @@ function displayExamples() {
 						.attr('height',bH)
 						.attr('fill','white')
 						.attr('opacity',opacity)
+					
 					}
 				}
 			}
@@ -723,8 +727,10 @@ drawArray = function(svg, pW,pH, gap, createMark) {
 		var x = stepX*Math.floor(i/colLen)+gap/2
 		svgPt = createMark(svg,hex,x,y,pW,pH,d.selected,gap)
 			.attr('cIndex',i)
+			.attr("tip",hex2tip(hex))
 
 		addActions(svgPt)
+		addTooltip(svgPt)
 	}
 }
 
@@ -739,7 +745,8 @@ clearSelection = function() {
 	}
 }
 
-	
+
+		
 //state.selected is a pointer to a colorItem
 myOnClick = function(svgPt) {
 	var c = findColorItem(svgPt)
@@ -755,18 +762,21 @@ myOnClick = function(svgPt) {
 		updateColorPatch("point") 	//will also redisplay the colors
 	}
 }
+function addTooltip(item) {
+	var tooltip = d3.select('#tooltip')
+	item.on("mouseover", function(){
+		tooltip.text(d3.select(this).attr("tip"))
+		return tooltip.style("visibility", "visible")})
+	.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+	.on("mouseout", function(){return tooltip.style("visibility", "hidden")})	
+}
 
 addActions = function(svgPt) {
-	var tooltip = d3.select('#tooltip')
-	svgPt.on("mouseover", function(){
-			tooltip.text(d3.select(this).attr("tip"))
-			return tooltip.style("visibility", "visible")})
-		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-		.on("mouseout", function(){return tooltip.style("visibility", "hidden")})
-		.on('click', function() { 
-			var pt = d3.select(this)
-			myOnClick(pt)
-		})
+	addTooltip(svgPt)
+	svgPt.on('click', function() { 
+		var pt = d3.select(this)
+		myOnClick(pt)
+	})
 }
 
  </script>

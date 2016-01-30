@@ -310,7 +310,11 @@ $(document).ready(function() {
 		var pVals = []
 		if (type=='hex') {pVals = parseHexString(pText)}
 		else {pVals = parseXML(pText)}
-		
+		/*if (hexVals.hex == null ){
+			alert("XML Format error.\n First, needs to be valid XML \n Each color item needs to be <color>#vvvvvv<\color>\n  It will also try to find a <color-palette> item and use its name='name' for the palette name/n Intent is to use the preferences.tps format, though just the colors will work" )
+			alert("Hex format error.\n Use #vvvvvv, #vvvvv, ... or \"name\" #vvvvvv, ...")
+		}
+		else { */
 		for (var i=0; i<pVals.length; i++) { //array of {pName, hVals}, pName may be null
 			var pName = 'new palette'
 			if (pVals[i].pName !=null){pName = pVals[i].pName}
@@ -375,19 +379,9 @@ $(document).ready(function() {
 	$('#show-text').click(function(){
 		updateDisplay()
 	})
-	$("#text-alpha").val('100')
+	$("#text-alpha").val('FF')
 	$("#text-alpha").keypress(function(event) {
 		if (event.keyCode == 13) {
-			var v = Math.round(255*parseFloat(this.value)/100.0)	//0..100 to 0..255
-			$("#text-alpha-hex").val(v.toString(16))
-            updateDisplay()
-		}
-	})
-	$("#text-alpha-hex").val('FF')
-	$("#text-alpha-hex").keypress(function(event) {
-		if (event.keyCode == 13) {
-			var v = Math.round(100*parseInt(this.value,16)/255.0)	//00..ff to 0..100
-			$("#text-alpha").val(v.toString())
             updateDisplay()
 		}
 	})
@@ -461,12 +455,6 @@ function displayColors() {
 	}
 	displayExamples()
 }
-hex2tip = function(hex) {
-	var c = chroma(hex)
-	var lch = c.lch()
-	var tip = formatTriple(lch,3)+" "+hex
-	return tip
-}
 
 function displayColorspace() {
 	//For point plotting, various constants 
@@ -485,7 +473,12 @@ function displayColorspace() {
 		var y = yOrg-Math.round((abSize/300)*b)
 		return a,b
 	}
-	
+	hex2tip = function(hex) {
+		var c = chroma(hex)
+		var lch = c.lch()
+		var tip = formatTriple(lch,3)
+		return tip
+	}
 //create the svg frames. Will eventually add axes, etc. here
 	var svg_ab = d3.select("#abPlot")
 		.append("svg")
@@ -542,29 +535,19 @@ function displayAllPalettes() {
 	var pH = 32
 	var mGap = 5
 	var xStep = pW+mGap
-	
-	onClick = function(){ 
-		var svgPt = d3.select(this)
-		var pIndex = parseInt(svgPt.attr('pIndex'))
-		var palette = state.palettes[pIndex]
-		if (palette != state.palette) {
-			$("#select-palette").val(state.palettes[pIndex].pName)
-			$( "#select-palette" ).selectmenu( "refresh" )
-			changePalette()
-		}
-		if (svgPt.attr("class") != 'pLable') {myOnClick(svgPt)} //it's a graphic
+	hex2tip = function(hex) {
+		var c = chroma(hex)
+		var lch = c.lch()
+		var tip = formatTriple(lch,3)
+		return tip
 	}
 	
 	for (var i =0; i<state.palettes.length; i++) {
 		var p = state.palettes[i]
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
-		cGroup.append('div').attr('class','pLable').text(p.pName)
-			.style("width","80px")
-			.style('margin-top', '12px')
-			.attr('pIndex',i)
-			.on('click',onClick)
-		
+		cGroup.append('div').attr('class','pLable').text(p.pName).style("width","80px")
+		.style('margin-top', '12px')
 		if (p==state.palette) {
 			cGroup.style("color",'black')
 		} else {
@@ -578,18 +561,26 @@ function displayAllPalettes() {
 			var color = p.eColors[c]
 			var offset = 0
 			if (color == state.selectedPt) {offset = pGap/2}
-			var hex = color.color.hex()
 			var patch = pBox.append("rect")
 				.attr("width",pW)
 				.attr("height", pH)
 				.attr("x", 10+c*xStep)
 				.attr("y", pGap/2+offset)
-				.attr("fill",hex)
+				.attr("fill",color.color.hex())
 				.attr('cIndex',c)
 				.attr('pIndex',i)
-				.attr("tip",hex2tip(hex))
-			patch.on('click',onClick)
-			addTooltip(patch)
+
+			patch.on('click', function() { 
+				var svgPt = d3.select(this)
+				var pIndex = parseInt(svgPt.attr('pIndex'))
+				var palette = state.palettes[pIndex]
+				if (palette != state.palette) {
+					$("#select-palette").val(state.palettes[pIndex].pName)
+					$( "#select-palette" ).selectmenu( "refresh" )
+					changePalette()
+				}
+				myOnClick(svgPt)
+			})
 		}
 	}
 }
@@ -615,7 +606,7 @@ function displayExamples() {
 		var boxH = step*4
 		var boxW= step*5
         if ($('#show-marks').prop('checked')==true) {
-				$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
+		$("#pExamples").append("<div class='vContainer' id='leftCol'></div>")
 		arrayBox = d3.select("#leftCol").append("div").append("svg")
 			.attr("width",boxW)
 			.attr("height",boxH)
@@ -634,14 +625,12 @@ function displayExamples() {
 			.attr("x", 10)
 			.attr("y", 10)
 			drawArray(arrayBox,11, 11, step-11, createCircleMark)
-		boxW = 170
-		if (state.colors.length>12){boxW = 280}
 		arrayBox = d3.select('#leftCol').append('div').append('svg')
-			.attr("width",boxW)
+			.attr("width",240)
 			.attr("height", 120)
 			.attr("x", 10)
 			.attr("y", 10)
-			drawArray(arrayBox, 45, 20, 10 ,createTextMark)	
+			drawArray(arrayBox, 50, 20, 10 ,createTextMark)	
         }
 		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
 		//now some bands of colors
@@ -657,7 +646,7 @@ function displayExamples() {
 			//now overlay text
 			if ($('#show-text').prop('checked')==true) {
 				var tString = $('#text-alpha').val()
-				var opacity = parseInt(tString)/100.0
+				var opacity = parseInt(tString,16)/255.0
 				if (opacity != 0) {
 					for (i = 0; i<state.colors.length; i++) {
 						arrayBox.append('text').text("$12345678.90")
@@ -674,7 +663,6 @@ function displayExamples() {
 						.attr('height',bH)
 						.attr('fill','white')
 						.attr('opacity',opacity)
-					
 					}
 				}
 			}
@@ -687,7 +675,7 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 	var offsetY = 0
 	var offsetX = 0
 	if (isSelected==true) {
-		if (gap>w) {offsetY = w/3}	//small squares, big gap
+		if (gap>w) {offsetY = w/2}	//small squares, big gap
 		if (gap==0) {offsetX = 10}  //the hBars
 		else {offsetY = gap/2}  //big squares
 	}
@@ -701,7 +689,7 @@ function createRectMark(svg,hex,x,y,w,h,isSelected,gap) {
 function createCircleMark(svg,hex,x,y,w,h,isSelected) {
 	var r = w/2
 	var offset = 0
-	if (isSelected==true){offset = w/3}
+	if (isSelected==true){offset = 2*w/3}
 	return svg.append("circle")
 		.attr("r",r)
 		.attr("height", h)
@@ -735,10 +723,8 @@ drawArray = function(svg, pW,pH, gap, createMark) {
 		var x = stepX*Math.floor(i/colLen)+gap/2
 		svgPt = createMark(svg,hex,x,y,pW,pH,d.selected,gap)
 			.attr('cIndex',i)
-			.attr("tip",hex2tip(hex))
 
 		addActions(svgPt)
-		addTooltip(svgPt)
 	}
 }
 
@@ -753,8 +739,7 @@ clearSelection = function() {
 	}
 }
 
-
-		
+	
 //state.selected is a pointer to a colorItem
 myOnClick = function(svgPt) {
 	var c = findColorItem(svgPt)
@@ -770,21 +755,18 @@ myOnClick = function(svgPt) {
 		updateColorPatch("point") 	//will also redisplay the colors
 	}
 }
-function addTooltip(item) {
-	var tooltip = d3.select('#tooltip')
-	item.on("mouseover", function(){
-		tooltip.text(d3.select(this).attr("tip"))
-		return tooltip.style("visibility", "visible")})
-	.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
-	.on("mouseout", function(){return tooltip.style("visibility", "hidden")})	
-}
 
 addActions = function(svgPt) {
-	addTooltip(svgPt)
-	svgPt.on('click', function() { 
-		var pt = d3.select(this)
-		myOnClick(pt)
-	})
+	var tooltip = d3.select('#tooltip')
+	svgPt.on("mouseover", function(){
+			tooltip.text(d3.select(this).attr("tip"))
+			return tooltip.style("visibility", "visible")})
+		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px")})
+		.on("mouseout", function(){return tooltip.style("visibility", "hidden")})
+		.on('click', function() { 
+			var pt = d3.select(this)
+			myOnClick(pt)
+		})
 }
 
  </script>
@@ -918,11 +900,9 @@ addActions = function(svgPt) {
 			<input type='checkbox' name='show-text' id='show-text' checked></input>
 		</div>
 		<div class='control-group' style="margin-left: 5px;">
-			<div style="margin-right: 5px;">Alpha </div>
+			<div style="margin-right: 5px;">Alpha (in hex)</div>
 			<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
-			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>%
-			<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 
-			style = "width: 30px; border: 1px solid #cccccc; margin-left=8px;"/>(hex)
+			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>
 
 		</div>
         
