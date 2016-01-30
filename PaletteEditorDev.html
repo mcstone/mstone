@@ -375,9 +375,19 @@ $(document).ready(function() {
 	$('#show-text').click(function(){
 		updateDisplay()
 	})
-	$("#text-alpha").val('FF')
+	$("#text-alpha").val('100')
 	$("#text-alpha").keypress(function(event) {
 		if (event.keyCode == 13) {
+			var v = Math.round(255*parseFloat(this.value)/100.0)	//0..100 to 0..255
+			$("#text-alpha-hex").val(v.toString(16))
+            updateDisplay()
+		}
+	})
+	$("#text-alpha-hex").val('FF')
+	$("#text-alpha-hex").keypress(function(event) {
+		if (event.keyCode == 13) {
+			var v = Math.round(100*parseInt(this.value,16)/255.0)	//00..ff to 0..100
+			$("#text-alpha").val(v.toString())
             updateDisplay()
 		}
 	})
@@ -647,7 +657,7 @@ function displayExamples() {
 			//now overlay text
 			if ($('#show-text').prop('checked')==true) {
 				var tString = $('#text-alpha').val()
-				var opacity = parseInt(tString,16)/255.0
+				var opacity = parseInt(tString)/100.0
 				if (opacity != 0) {
 					for (i = 0; i<state.colors.length; i++) {
 						arrayBox.append('text').text("$12345678.90")
@@ -908,9 +918,11 @@ addActions = function(svgPt) {
 			<input type='checkbox' name='show-text' id='show-text' checked></input>
 		</div>
 		<div class='control-group' style="margin-left: 5px;">
-			<div style="margin-right: 5px;">Alpha (in hex)</div>
+			<div style="margin-right: 5px;">Alpha </div>
 			<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
-			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>
+			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>%
+			<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 
+			style = "width: 30px; border: 1px solid #cccccc; margin-left=8px;"/>(hex)
 
 		</div>
         
