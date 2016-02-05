@@ -53,4 +53,9 @@ T20 mod3  #207cab, #ec7e13, #ddb702, #549c56, #4bbdaf, #c65040, #e696b0, #867eac
 T20 mod4  #227baa, #e6790c, #ddb702, #549c56, #4bbdaf, #c65040, #e696b0, #867eac, #a0a797, #886a51, #89bcda, #828712, #ffb077, #2fa093, #85ce59, #bb6198, #b3aecf, #686d60, #baa671, #bbcbc2/
 T20 mod5  #6388b4, #8dbbf0, #f2821a, #fab87f, #619b3d, #98d67a, #af8a00, #ddb700, #119b88, #5ecdbf, #c65040, #e696a0, #927056, #bda974, #e377c2, #f8bedb, #686d60, #a0a797, #7775b9, #b5b0de/
 T20 mod6  #6388b4, #7cb4e6, #f2821a, #ffb077, #469c4d, #84c55b, #af8a00, #ddb700, #0a9791, #56c7b9, #c65040, #e696a0, #7168a4, #b5b0d8, #676c5f, #a0a797, #957359, #baa671, #fac1dd, #ffd32d, #c2c9b9/
-T20 mod7  #6388b4, #8dbbf0, #f2821a, #fab87f, #619b3d, #98d67a, #b38d03, #ddb700, #119b88, #5ecdbf, #bf493a, #e899a2, #927056, #bda974, #7775b9, #b1abd9, #676c5f, #a7ae9d, #df7bc1, #f8bedb
+T20 mod7  #6388b4, #8dbbf0, #f2821a, #fab87f, #619b3d, #98d67a, #b38d03, #ddb700, #119b88, #5ecdbf, #bf493a, #e899a2, #927056, #bda974, #7775b9, #b1abd9, #676c5f, #a7ae9d, #df7bc1, #f8bedb/
+
+T20 mod7  #6388b4, #8dbbf0, #f2821a, #fab87f, #619b3d, #98d67a, #af8a00, #ddb700, #119b88, #5ecdbf, #c65040, #e696a0, #927056, #bda974, #e377c2, #f8bedb, #686d60, #a0a797, #7775b9, #b5b0de/
+T10 mod7  #6388b4, #f3831b, #619b3d, #ddb700, #20a290, #bf493a, #e899a2, #7d73b2, #a7ae9d, #927056/
+T10 light mod7  #8dbbf0, #fab87f, #98d67a, #ddb70e, #61d0c2, #e8999c, #bba76b, #f8bedb, #a49fd7, #a7ae9d/
+T20 mcs  #6388b4, #8dbbf0, #f3831b, #fab87f, #619b3d, #98d67a, #af8a00, #ddb70e, #20a290, #61d0c2, #bf493a, #e8999c, #7d73b2, #a49fd7, #686d60, #a7ae9d, #927056, #bba76b, #e377c2, #f8bedb/
