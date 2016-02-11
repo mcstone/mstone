@@ -90,6 +90,7 @@ state.pColor = chroma('#000000')	//the current patch color, init in ready functi
 state.palettes = [] //list of palettes in this instance. Palette object defined in utils
 state.palette = {}	//the active palette. This could be just an index
 state.colors =[]	//the colors being edited. Pointer into the current palette
+state.pOrder =[]	//a place to hold the original palette order when sorting
 state.selectedPt = null  //currently selected point. A colorItem
 state.path = "../../data/stone/"
 
@@ -391,6 +392,28 @@ $(document).ready(function() {
             updateDisplay()
 		}
 	})
+	$( "#sort-type" ).click(function(){
+		var type = $('input:radio[name=sort-type]:checked').val();
+		if (state.pOrder.length > 0) {//we have a saved pOrder
+			if (type=='pOrder') { //going back to pOrder
+				state.colors = state.pOrder
+				state.pOrder =[]
+			}
+			else { //do a sort
+				sortColors(state.colors,type)
+			}
+		}
+		else { //no saved pOrder, save it then sort
+			state.pOrder = state.colors.slice()	//shallow copy
+			sortColors(state.colors,type)
+		}
+		updateDisplay()
+	});
+	$('#setOrder').click(function(){
+		if (state.pOrder.length > 0) {
+			state.pOrder = state.colors
+		}
+	})
 	initDisplay()
   });
 
@@ -442,6 +465,7 @@ function displayColors() {
 	
 	d3.select('#plots').selectAll("svg").remove();
 	d3.select("#pSpace").selectAll("div").remove()
+	d3.select("#tooltip").selectAll("div").remove()
 	//create the tooltip
 	var tooltip = d3.select("body")
 	.append("div")
@@ -923,14 +947,20 @@ addActions = function(svgPt) {
 			style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>%
 			<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 
 			style = "width: 30px; border: 1px solid #cccccc; margin-left=8px;"/>(hex)
-
 		</div>
-        
-        
-            
-	</div>
-</div>
 
+
+		<div class = 'myHeader'style="margin-left: -2px;">Sort Controls</div>
+		<form id='sort-type' >
+			<input type="radio" name='sort-type' value='pOrder' checked>palette order</input>
+		<br>
+			<input type="radio" name='sort-type' value='LHC'>L</input>
+			<input type="radio" name='sort-type' value='HCL'>H</input>
+			<input type="radio" name='sort-type' value='CHL'>C</input>
+		
+		</form>
+		<button type="button" id='setOrder'  style = "margin: 5px;">Make Sort Palette Order</button>
+	</div>
 </div>
 </div>
 </div>
