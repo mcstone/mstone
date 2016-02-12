@@ -3,7 +3,10 @@ affectExp #3b3b3b, #920000, #713713, #005e5c, #465e20, #853d84, #6e47bc, #cf2616
 affectExp PD #3b3b3b, #920000, #713713, #005e5c, #465e20, #853d84, #6e47bc, #cf2616, #0878b0, #6d6eb9, #a857aa, #fc1a00, #478f8d, #5a922d, #c67036, #f64389, #989898, #9796bb, #f27c13, #23bf0c, #24beb9, #87acec, #a5b34b, #40c9ff, #d4b5bb, #ddb1c7, #f8b010, #a2ccc0, #91d2f5, #eac793, #ccd61b, #add9a1, #f3d02d, #d4d4d4, #ded9bb, #f4e5d4, #9B4B32
 #4D1C0A, #1B4C79, #335671, #292F58/
 
-affect color exp1 v2  #3c3c3c, #d4d4d4, #899390, #6e746a, #f1d9ca, #aad2e0, #ddd8ba, #a2ccc0, #335671, #9796bb, #dfb0c7, #116160, #478f8d, #845145, #8ad2f1, #30355f, #83b3e3, #1b4c79, #eac793, #69301d, #add9a1, #51692b, #0073aa, #32bff2, #00beb9, #6d6eb9, #863e85, #a5b34b, #a857aa, #0572cd, #5a922d, #423fa8, #920000, #b7de55, #f9468c, #ffab1c, #f3d027, #c91e11, #ff8000, #23bf0c, #f80f19
+affect color exp1 v2  #30355f, #3c3c3c, #69301d, #920000, #1b4c79, #423fa8, #335671, #116160, #863e85, #845145, #51692b, #c91e11, #0073aa, #0572cd, #6e746a, #6d6eb9, #a857aa, #f80f19, #478f8d, #5a922d, #f9468c, #899390, #9796bb, #ff8000, #23bf0c, #00beb9, #a5b34b, #83b3e3, #32bff2, #ffab1c, #dfb0c7, #a2ccc0, #8ad2f1, #aad2e0, #eac793, #add9a1, #b7de55, #f3d027, #d4d4d4, #ddd8ba, #f1d9ca
+
+
+///
 
 affect color  #236ab1, #7794c8, #a31910, #793d18, #008a82, #556e23, #873483, #754da6, #cf2616, #8c77b8, #9b629a, #ed321d, #5b9330, #ae5a1c, #f64389, #8d8d8d, #ab91b4, #5fbf47, #02cadc, #a0acc7, #b3ad58, #00c0eb, #e3b3b6, #ff9dbe, #a2ccc0, #85d3eb, #836a32, #e4c361, #b4d8a8, #fccf30, #d6d6d6, #dedabc, #abd1db, #f0c1a8, #fe998d, #90dc94, #c3437c, #f77771, #1e4494, #585f5f, #a2a5ad, #ffc562, #ff9413
 affect color 2  #1e4494, #793d18, #a31910, #873483, #535a5a, #725922, #754da6, #556e23, #236ab1, #cf2616, #ae5a1c, #c3437c, #9b629a, #008a82, #f33723, #579610, #f64389, #8d8d8d, #5a98cd, #ab91b4, #f77771, #a2a5ad, #5fbf47, #b3ad58, #a0acc7, #ff9413, #00c0eb, #fe998d, #60c3e7, #ff9dbe, #e3b3b6, #a2ccc0, #e4c361, #90dc94, #abd1db, #f0c1a8, #b4d8a8, #fccf30, #d6d6d6, #dedabc, #f8d983
