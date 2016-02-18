@@ -11,6 +11,7 @@
 	<script type="text/javascript"  src="lib/chroma.js"></script>
 	<script type="text/javascript"  src="lib/d3.v3.js"></script>
 	<script type="text/javascript"  src="lib/colorEditorUtils.js"></script>
+	<script type="text/javascript"  src="lib/myclusters.js"></script>
 </head>
 <style>
 	#delete {
@@ -93,6 +94,7 @@ state.colors =[]	//the colors being edited. Pointer into the current palette
 state.pOrder =[]	//a place to hold the original palette order when sorting
 state.selectedPt = null  //currently selected point. A colorItem
 state.path = "../../data/stone/"
+state.clusterMaker = myclusters.exports;
 
 
 formatTriple = function(t,p) {
@@ -105,6 +107,7 @@ formatTriple = function(t,p) {
 changePalette = function() {
 	name = $("#select-palette").val() 
 	clearSelection()
+	clearSort()
 	setPalette(state,name)
 	$("#pname-text").val(name)
 	updateDisplay()
@@ -394,21 +397,18 @@ $(document).ready(function() {
 	})
 	$( "#sort-type" ).click(function(){
 		var type = $('input:radio[name=sort-type]:checked').val();
-		if (state.pOrder.length > 0) {//we have a saved pOrder
-			if (type=='pOrder') { //going back to pOrder
-				state.colors = state.pOrder
-				state.pOrder =[]
-			}
-			else { //do a sort
-				sortColors(state.colors,type)
-			}
+		if (type=='pOrder') { 
+			clearSort()
 		}
-		else { //no saved pOrder, save it then sort
-			state.pOrder = state.colors.slice()	//shallow copy
+		else { 
+			if (state.pOrder.length == 0) {//we we need to save the pOrder
+				state.pOrder = state.colors.slice()	//shallow copy
+			}
 			sortColors(state.colors,type)
 		}
 		updateDisplay()
 	});
+	
 	$('#setOrder').click(function(){
 		if (state.pOrder.length > 0) {
 			state.pOrder = state.colors
@@ -433,7 +433,15 @@ function updatePaletteControls() {
 	$( "#select-palette" ).selectmenu( "refresh" )
 	changePalette()
 }
+function clearSort() {
+	clearSelection()
+	if (state.pOrder.length > 0) {//we have a saved pOrder
+		state.colors = state.pOrder
+		state.pOrder =[]
+	}
+	$('input:radio[name=sort-type][value =pOrder]').prop('checked',true)
 	
+}	
 	
 function addToMenu(newName) {
 	$("#select-palette option").removeAttr('selected') //remove the old selection
@@ -567,7 +575,7 @@ function displayAllPalettes() {
 	var mGap = 5
 	var xStep = pW+mGap
 	
-	onClick = function(){ 
+	onPatchClick = function(){ 
 		var svgPt = d3.select(this)
 		var pIndex = parseInt(svgPt.attr('pIndex'))
 		var palette = state.palettes[pIndex]
@@ -576,7 +584,18 @@ function displayAllPalettes() {
 			$( "#select-palette" ).selectmenu( "refresh" )
 			changePalette()
 		}
-		if (svgPt.attr("class") != 'pLable') {myOnClick(svgPt)} //it's a graphic
+		myOnClick(svgPt) //it's a graphic
+	}
+	onLabelClick = function(){ 
+		var svgPt = d3.select(this)
+		var pIndex = parseInt(svgPt.attr('pIndex'))
+		var palette = state.palettes[pIndex]
+		if (palette != state.palette) {
+			$("#select-palette").val(state.palettes[pIndex].pName)
+			$( "#select-palette" ).selectmenu( "refresh" )
+			changePalette()
+		}
+
 	}
 	
 	for (var i =0; i<state.palettes.length; i++) {
@@ -587,7 +606,7 @@ function displayAllPalettes() {
 			.style("width","80px")
 			.style('margin-top', '12px')
 			.attr('pIndex',i)
-			.on('click',onClick)
+			.on('click',onLabelClick)
 		
 		if (p==state.palette) {
 			cGroup.style("color",'black')
@@ -612,7 +631,7 @@ function displayAllPalettes() {
 				.attr('cIndex',c)
 				.attr('pIndex',i)
 				.attr("tip",hex2tip(hex))
-			patch.on('click',onClick)
+			patch.on('click',onPatchClick)
 			addTooltip(patch)
 		}
 	}
@@ -952,14 +971,31 @@ addActions = function(svgPt) {
 
 		<div class = 'myHeader'style="margin-left: -2px;">Sort Controls</div>
 		<form id='sort-type' >
-			<input type="radio" name='sort-type' value='pOrder' checked>palette order</input>
-		<br>
-			<input type="radio" name='sort-type' value='LHC'>L</input>
-			<input type="radio" name='sort-type' value='HCL'>H</input>
-			<input type="radio" name='sort-type' value='CHL'>C</input>
-		
+		<div class = "control-group">
+			<div style="width: 50px;">Sort by: </div> 
+				<input type="radio" name='sort-type' value='L'>L</input>
+				<input type="radio" name='sort-type' value='C'>H</input>
+				<input type="radio" name='sort-type' value='H'>C</input>
+				<input type="radio" name='sort-type' id='none' value='pOrder' checked>none</input>
+			</div>
 		</form>
-		<button type="button" id='setOrder'  style = "margin: 5px;">Make Sort Palette Order</button>
+<!--		<form id='cluster-type' >
+			<div class = "control-group">
+			<div style="width: 70px;">Cluster by: </div> 
+				<input type="radio" name='cluster-type' value='L'>L</input>
+				<input type="radio" name='cluster-type' value='C'>H</input>
+				<input type="radio" name='cluster-type' value='H'>C</input>
+				<input type="radio" name='cluster-type' value='pOrder' checked>none</input>
+			</div> -->
+		</form> 
+		<button type="button" id='setOrder'  style = "margin: 5px;">Change Palette Order</button>
+<div class = 'merge-controls'>
+	<div class = 'myHeader'style="margin-left: -2px;">Combine Palettes</div>
+		<div class = 'control-group'>
+			<div style="margin-right: 5px;">Multi-select: </div>
+			<input type='checkbox' name='multi-select' id='multi-select'></input>
+		</div>
+		<button type="button" id='setOrder'  style = "margin: 5px;">Combine</button>
 	</div>
 </div>
 </div>
