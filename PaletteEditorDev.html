@@ -233,9 +233,7 @@ $(document).ready(function() {
 		stop: slideLCHSliders,
       change: changeLCHSliders
     });
-	
-	
-   
+
 	
 	$("#hex-text").keypress(function(event) {
 		if (event.keyCode == 13) {
@@ -245,7 +243,7 @@ $(document).ready(function() {
 		}
 	})
 
-	$( "#select-palette" ).selectmenu({
+   $( "#select-palette" ).selectmenu({
   		change: function( event, ui ) {
 			changePalette()
 		}
@@ -284,7 +282,11 @@ $(document).ready(function() {
 		var type = $('input:radio[name=file_type]:checked').val();
 		var pText = ''
 		if (type=='hex') {pText = createHexString(state.colors,state.palette.pName)}
-		else {pText = paletteToXML(state.colors,state.palette.pName)}
+		else if (type=='xml'){
+			var xmlType = $('#select-pType').val()
+			pText = paletteToXML(state.colors,state.palette.pName,xmlType)
+		}
+		else {}
 		$('#io-text').val(pText)
 	})
 	$('#write-all').click(function(){
@@ -863,11 +865,24 @@ addActions = function(svgPt) {
 			<button type="button" id='read'>Read</button>
 			<button type="button" id='write'>Write</button>
 			<button type="button" id='write-all'>Write All</button>
-		<form id='file_type' >
-			<input type="radio" name='file_type' value='hex' checked>Hex</input>
-			<input type="radio" name='file_type' value='xml'>XML</input>
-		</form>
-	</div>
+			<form id='file_type' >
+				<input type="radio" name='file_type' value='hex' checked>Hex</input>
+				<input type="radio" name='file_type' value='xml'>XML</input>
+			</form>
+		</div>
+		<div class = "control-group" >
+
+		<div style="width: 80px;">Palette Type:</div>
+		<select id="select-pType" style = "width: 150px; margin-left: 10px">
+			<option value='marks.regular' selected>Categorical</option>
+			<option value='marks.ordered-sequential'>Ordered Sequential</option>
+			<option value='marks.ordered-diverging'>Ordered Diverging</option>
+			<option value='formatting.dark'>Formatting dark</option>
+			<option value='formatting.light'>Formatting light</option>
+			<option value='formatting.gray'>Formatting gray</option>
+			</select>
+		</div>
+	
 	<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 250px;">Read/write values</textarea>
 
 </div>
