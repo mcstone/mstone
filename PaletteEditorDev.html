@@ -302,10 +302,11 @@ $(document).ready(function() {
 			}
 		}
 		else {
+			var xmlType = $('#select-pType').val()
 			for (var p=0; p<state.palettes.length; p++) {
 				colors = state.palettes[p].eColors
 				pName = state.palettes[p].pName
-				pText = pText+paletteToXML(colors,pName)+'\n'
+				pText = pText+paletteToXML(colors,pName,xmlType)+'\n'
 			}
 		}
 		$('#io-text').val(pText)
