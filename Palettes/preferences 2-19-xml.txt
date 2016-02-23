@@ -111,6 +111,18 @@
 <color>#686d60</color>
 </color-palette>
 
+<color-palette name="Superfishel stone" type = "regular">
+<color>#6388b4</color>
+<color>#ffae34</color>
+<color>#ef6f6a</color>
+<color>#8cc2ca</color>
+<color>#55ad89</color>
+<color>#c3bc3f</color>
+<color>#bb7693</color>
+<color>#baa094</color>
+<color>#a9b5ae</color>
+<color>#767676</color>
+</color-palette>
 
 <color-palette name="T10-cm01-mcs" type = "regular">
 <color>#4587a8</color>
@@ -184,20 +196,6 @@
 <color>#b3c0c9</color>
 </color-palette>
 
-
-<color-palette name="Superfishel stone" type = "regular">
-<color>#6388b4</color>
-<color>#ffae34</color>
-<color>#ef6f6a</color>
-<color>#8cc2ca</color>
-<color>#55ad89</color>
-<color>#c3bc3f</color>
-<color>#bb7693</color>
-<color>#baa094</color>
-<color>#a9b5ae</color>
-<color>#767676</color>
-</color-palette>
-
 <color-palette name="tableau-traffic-light-v2" type = "regular">
 <color>#bd1227</color>
 <color>#eaae0d</color>
@@ -259,6 +257,21 @@
 <color>#91b8ad</color>
 <color>#82853c</color>
 <color>#c0bf56</color>
+</color-palette>
+
+<color-palette name="green_orange_cyan_yellow_12-v3" type = "regular">
+<color>#4da7b6</color>
+<color>#aeced3</color>
+<color>#f6802d</color>
+<color>#f7a575</color>
+<color>#43a44d</color>
+<color>#94cd84</color>
+<color>#c5a706</color>
+<color>#f2cf36</color>
+<color>#914c29</color>
+<color>#ac8162</color>
+<color>#0e8d70</color>
+<color>#77bfaa</color>
 </color-palette>
 
 
@@ -355,8 +368,46 @@
 <color>#ffc86e</color>
 </color-palette>
 
+<color-palette name="area-red-v2" type = "ordered-sequential">
+<color>#c00029</color>
+<color>#d7152e</color>
+<color>#ea2630</color>
+<color>#f53f2e</color>
+<color>#fa5a2e</color>
+<color>#fc7334</color>
+<color>#fe8d4b</color>
+<color>#fba464</color>
+<color>#feb97a</color>
+<color>#ffc895</color>
+</color-palette>
 
+<color-palette name="area-brown-v2" type = "ordered-sequential">
+<color>#aa3015</color>
+<color>#be3819</color>
+<color>#c84729</color>
+<color>#cc5836</color>
+<color>#d56839</color>
+<color>#d6793b</color>
+<color>#de8c4a</color>
+<color>#e39b46</color>
+<color>#eba93b</color>
+<color>#f7b439</color>
+<color>#fcc256</color>
+<color>#fbcf75</color>
+</color-palette>
 
+<color-palette name="area-green-v2" type = "ordered-sequential">
+<color>#2d7f29</color>
+<color>#328c34</color>
+<color>#429735</color>
+<color>#54a247</color>
+<color>#65ae51</color>
+<color>#76bc5b</color>
+<color>#8bc761</color>
+<color>#96d262</color>
+<color>#a6db71</color>
+<color>#b5e676</color>
+</color-palette>
 
 
 
