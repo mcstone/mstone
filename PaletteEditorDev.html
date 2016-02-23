@@ -129,7 +129,7 @@ function slideHSVSliders() {
     var sat = $( "#sat" ).slider( "value" )
     var val = $( "#val" ).slider( "value" )
 	state.pColor = chroma.hsv(hue,sat,val)
-	updateColorPatch("hsvSlider")
+	updateColorPatch()
   }
 function changeHSVSliders() {
 	//console.log("changed LCH Slider")
@@ -139,7 +139,7 @@ function slideLCHSliders() {
     var C = $( "#cieC" ).slider( "value" )
     var H = $( "#cieH" ).slider( "value" )
 	state.pColor = chroma.lch(L,C,H)
-	updateColorPatch("lchSlider")
+	updateColorPatch()
   }
 function changeLCHSliders() {
 	//console.log("changed LCH Slider")
@@ -161,7 +161,7 @@ updateAllSliders = function() {
 	updateHSVSliders()
 }
 //UX has updated state.pColor. Now propogate the changes
-updateColorPatch = function(type) {
+updateColorPatch = function() {
 	var hex = state.pColor.hex()
 	var hsv = state.pColor.hsv()
 	var lch = state.pColor.lch()
@@ -183,6 +183,11 @@ updateColorPatch = function(type) {
 	}
 
   }
+function updatePaletteControls() {
+	buildSelectMenu()
+	$( "#select-palette" ).selectmenu( "refresh" )
+	changePalette()
+}
 
 $(document).ready(function() {
 	state.pColor = chroma.hsv(270,0.7,0.7)
@@ -241,7 +246,7 @@ $(document).ready(function() {
 		if (event.keyCode == 13) {
             var v= $("#hex-text").val()
 			state.pColor = chroma(v)
-			updateColorPatch("text")
+			updateColorPatch()
 		}
 	})
 
@@ -433,29 +438,7 @@ function buildSelectMenu() {
 		$('#select-palette').val(state.palette.pName)	//the selected palette
 	}
 }
-function updatePaletteControls() {
-	buildSelectMenu()
-	$( "#select-palette" ).selectmenu( "refresh" )
-	changePalette()
-}
-function clearSort() {
-	clearSelection()
-	if (state.pOrder.length > 0) {//we have a saved pOrder
-		state.colors = state.pOrder
-		state.pOrder =[]
-	}
-	$('input:radio[name=sort-type][value =pOrder]').prop('checked',true)
-	
-}	
-	
-function addToMenu(newName) {
-	$("#select-palette option").removeAttr('selected') //remove the old selection
-	var qName = '"'+newName+'"'
-	$('#select-palette').append('<option value=' +qName+ 'selected="selected">' +newName+ '</option>')
-	$('#select-palette').val(newName)
-	$( "#select-palette" ).selectmenu( "refresh" )
-	changePalette()
-}
+
 
 function addPalette(newPalette) {
 	state.palettes[state.palettes.length] = newPalette //add to the palettes array
@@ -473,6 +456,17 @@ function makeUnique(newName){
 		
 	return newName
 }
+	
+function clearSort() {
+	clearSelection()
+	if (state.pOrder.length > 0) {//we have a saved pOrder
+		state.colors = state.pOrder
+		state.pOrder =[]
+	}
+	$('input:radio[name=sort-type][value =pOrder]').prop('checked',true)
+	
+}	
+	
 
 
  </script>
@@ -618,34 +612,41 @@ function makeUnique(newName){
 				<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 
 				style = "width: 30px; border: 1px solid #cccccc; margin-left=8px;"/>(hex)
 			</div>
-
-			<div class = 'myHeader'style="margin-left: -2px;">Sort Controls</div>
-			<form id='sort-type' >
-			<div class = "control-group">
-				<div style="width: 50px;">Sort by: </div> 
-					<input type="radio" name='sort-type' value='L'>L</input>
-					<input type="radio" name='sort-type' value='C'>H</input>
-					<input type="radio" name='sort-type' value='H'>C</input>
-					<input type="radio" name='sort-type' id='none' value='pOrder' checked>none</input>
-				</div>
-			</form>
-	<!--		<form id='cluster-type' >
+			<div name='sort-controls'>
+				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Sort Controls</div>
+				<form id='sort-type' >
 				<div class = "control-group">
-				<div style="width: 70px;">Cluster by: </div> 
-					<input type="radio" name='cluster-type' value='L'>L</input>
-					<input type="radio" name='cluster-type' value='C'>H</input>
-					<input type="radio" name='cluster-type' value='H'>C</input>
-					<input type="radio" name='cluster-type' value='pOrder' checked>none</input>
-				</div> 
-				</form> -->
-			<button type="button" id='setOrder'  style = "margin: 5px;">Change Palette Order</button>
-			<div class = 'merge-controls'>
-				<div class = 'myHeader'style="margin-left: -2px;">Combine Palettes</div>
-				<div class = 'control-group'>
-					<div style="margin-right: 5px;">Multi-select: </div>
-					<input type='checkbox' name='multi-select' id='multi-select'></input>
-				</div>
-				<button type="button" id='setOrder'  style = "margin: 5px;">Combine</button>
+					<div style="width: 50px;">Sort by: </div> 
+						<input type="radio" name='sort-type' value='L'>L</input>
+						<input type="radio" name='sort-type' value='C'>H</input>
+						<input type="radio" name='sort-type' value='H'>C</input>
+						<input type="radio" name='sort-type' id='none' value='pOrder' checked>none</input>
+					</div>
+				</form>
+
+				<button type="button" id='setOrder'  style = "margin: 5px;">Change Palette Order</button>
+
+			</div>
+			<div name='ramp-controls'>
+				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
+				<form id='interp-space' >
+					<div class='control-group' style="margin-left: 5px;">
+						<button type="button" id='button-doInterp' >Steps</button> 
+						<input type="text" class = "smallText" id="text-nSteps" value = '5' name="text-nSteps" 
+					style = "width: 30px; border: 1px solid #cccccc;"/>
+					
+					</div>
+					<div class = "control-group">
+						<div style="width: 60px;">Interpolate in: </div> 
+						<input type="radio" name='interp-space' checked>LCH</input>
+						<input type="radio" name='interp-space' >LAB</input>
+					</div>
+				</form>
+				
+				<button type="button" id='button-cLightness'  style = "margin: 5px;">Correct Lightness</button> <br>
+				<button type="button" id='reverseOrder'  style = "margin: 5px;">Reverse Order</button><br>
+				<button type="button" id='button-sInterpolated'  style = "margin: 5px;">Save Interpolated</button> <br>
+									
 			</div>
 		</div>
 	</div>
@@ -653,5 +654,21 @@ function makeUnique(newName){
 </div>
 </body>
 </html>
-
+<!--		<form id='cluster-type' >
+			<div class = "control-group">
+			<div style="width: 70px;">Cluster by: </div> 
+				<input type="radio" name='cluster-type' value='L'>L</input>
+				<input type="radio" name='cluster-type' value='C'>H</input>
+				<input type="radio" name='cluster-type' value='H'>C</input>
+				<input type="radio" name='cluster-type' value='pOrder' checked>none</input>
+			</div> 
+			</form> -->
+<!--		<div class = 'merge-controls'>
+				<div class = 'myHeader'style="margin-left: -2px;">Combine Palettes</div>
+				<div class = 'control-group'>
+					<div style="margin-right: 5px;">Multi-select: </div>
+					<input type='checkbox' name='multi-select' id='multi-select'></input>
+				</div>
+				<button type="button" id='setOrder'  style = "margin: 5px;">Combine</button>
+			</div> -->
 <!-- Created by Maureen Stone</a>.-->
