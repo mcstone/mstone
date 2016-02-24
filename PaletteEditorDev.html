@@ -629,21 +629,22 @@ function clearSort() {
 			</div>
 			<div name='ramp-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
+				<div class = "control-group" style="margin-left: 5px;">
+					
+					<div style="width: 80px;">Display steps: </div> 
+					<input type="text" class = "smallText" id="text-nSteps" value = '17' name="text-nSteps" style = "width: 30px; border: 1px solid #cccccc;"/>
+					<button type="button" id='button-generate' style = "margin: 0px,5px,0px,5px;" >Generate</button> 
+					</div>
 				<form id='interp-space' >
 					<div class='control-group' style="margin-left: 5px;">
-						<button type="button" id='button-doInterp' >Steps</button> 
-						<input type="text" class = "smallText" id="text-nSteps" value = '5' name="text-nSteps" 
-					style = "width: 30px; border: 1px solid #cccccc;"/>
-					
-					</div>
-					<div class = "control-group">
-						<div style="width: 60px;">Interpolate in: </div> 
+						
+						<div style="width: 80px;">Interpolate in: </div> 
 						<input type="radio" name='interp-space' checked>LCH</input>
 						<input type="radio" name='interp-space' >LAB</input>
+						
 					</div>
 				</form>
-				
-				<button type="button" id='button-cLightness'  style = "margin: 5px;">Correct Lightness</button> <br>
+				<button type="button" id='button-cLightness'  style = "margin: 5px;">Correct Lightness</button> 
 				<button type="button" id='reverseOrder'  style = "margin: 5px;">Reverse Order</button><br>
 				<button type="button" id='button-sInterpolated'  style = "margin: 5px;">Save Interpolated</button> <br>
 									
