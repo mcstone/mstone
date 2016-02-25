@@ -112,16 +112,28 @@ changePalette = function() {
 	clearSort()
 	setPalette(state,name)
 	$("#pname-text").val(name)
-	updateDisplay()
+	updatePlots()
 }
 initDisplay = function() { 
 	changePalette()
 	updateColorPatch()
 }
 
-updateDisplay = function() {
-	displayColors()
-    
+//this plots all the displays that aren't the controls
+//we have LAB plots and the examples.
+//We have a display for concisely showing all the palettes
+
+updatePlots = function() {
+	//cleanup the previous display
+	d3.select("#pExamples").selectAll("div").remove()	//the examples
+	d3.select('#plots').selectAll("svg").remove(); //the LAB Plots
+	d3.select("#pSpace").selectAll("div").remove()	//all Palettes
+	if ($('#all-palettes').prop('checked')==true) {		
+		displayAllPalettes()	//uses the eColor from each palette. uses global state
+	} else {
+		displayColorspace()	//have thought of making this an option rather than an either/or
+	}
+	displayExamples()	//currently has its own logic for deciding what examples to show.
 }
 
 function slideHSVSliders() {
@@ -179,7 +191,7 @@ updateColorPatch = function() {
  
    if (state.selectedPt!=null) {	//the selected color
 	 state.selectedPt.color = state.pColor 
-	 updateDisplay()  //does a full replot 
+	 updatePlots()  //does a full replot 
 	}
 
   }
@@ -193,6 +205,17 @@ $(document).ready(function() {
 	state.pColor = chroma.hsv(270,0.7,0.7)
 	initPalettes(state) //by default first palette is the active one
 	buildSelectMenu()	//we're going to try just rebuilding this each time it changes
+	//create the tooltip div
+	var tooltip = d3.select("body")
+		.append("div")
+		.attr("id", "tooltip")
+		.style("position", "absolute")
+		.style("z-index", "10")
+		.style("visibility", "hidden")
+		.style("background-color",'white')
+		.style("margin","2px")
+		.text("a simple tooltip")
+	
 	$('#pname-text').val(state.palette.pName)
 	$('#path-text').val(state.path)
 	$("#hue").slider({
@@ -267,7 +290,7 @@ $(document).ready(function() {
 		clearSelection()
 		state.palette.eColors = copyColors(state.palette.oColors,state.palette.pName)
 		state.colors = state.palette.eColors
-		updateDisplay() 
+		updatePlots() 
 		})
 	$('#copy').click(function(){
 		clearSelection()
@@ -309,11 +332,11 @@ $(document).ready(function() {
 			}
 		}
 		else {
-			var xmlType = $('#select-pType').val()
+			var pType = $('#select-pType').val()
 			for (var p=0; p<state.palettes.length; p++) {
 				colors = state.palettes[p].eColors
 				pName = state.palettes[p].pName
-				pText = pText+paletteToXML(colors,pName,xmlType)+'\n'
+				pText = pText+paletteToXML(colors,pName,pType)+'\n'
 			}
 		}
 		$('#io-text').val(pText)
@@ -325,11 +348,13 @@ $(document).ready(function() {
 		if (type=='hex') {pVals = parseHexString(pText)}
 		else {pVals = parseXML(pText)}
 		
-		for (var i=0; i<pVals.length; i++) { //array of {pName, hVals}, pName may be null
+		for (var i=0; i<pVals.length; i++) { //array of {pName, pType hVals}, pName may be null
 			var pName = 'new palette'
+			var pType = $('#select-pType').val()	//set from menu
 			if (pVals[i].pName !=null){pName = pVals[i].pName}
+			if (pVals[i].pType !=null){pType = pVals[i].pType}
 			pName = makeUnique(pName)
-			var newPalette = createPalette(pVals[i].hex, pName)
+			var newPalette = createPalette(pVals[i].hex, pName, pType)
 			addPalette(newPalette)
 		}
 		updatePaletteControls()
@@ -338,12 +363,12 @@ $(document).ready(function() {
 	$('#addColor').click(function(){
 		clearSelection()
 		state.selectedPt = addToPalette(state.palette, state.pColor.hex(), true)
-		displayColors()
+		updatePlots(state)
 	})
 	$('#deleteColor').click(function(){
 		deleteFromPalette(state.colors,state.selectedPt)	//done in place with pointers
 		clearSelection()
-		displayColors()
+		updatePlots()
 	})
 	 $('#moveUp').click(function(){
         if (state.selectedPt != null) {
@@ -357,7 +382,7 @@ $(document).ready(function() {
                 state.colors[index] = state.colors[index-1]
                 state.colors[index-1] = item
             }
-            updateDisplay()
+            updatePlots()
         } 
 	})
     $('#moveDown').click(function(){
@@ -373,28 +398,28 @@ $(document).ready(function() {
                 state.colors[index+1] = item
             }
         } 
-		updateDisplay()
+		updatePlots()
 	})
 	//replaces the colorspace plots with a palette overview
 	$('#all-palettes').click(function(){	
-		updateDisplay()
+		updatePlots()
 	})
 	//controls for the examples
 	$('#show-marks').click(function(){
-		updateDisplay()
+		updatePlots()
 	})
 	$('#show-bars').click(function(){
-		updateDisplay()
+		updatePlots()
 	})
 	$('#show-text').click(function(){
-		updateDisplay()
+		updatePlots()
 	})
 	$("#text-alpha").val('100')
 	$("#text-alpha").keypress(function(event) {
 		if (event.keyCode == 13) {
 			var v = Math.round(255*parseFloat(this.value)/100.0)	//0..100 to 0..255
 			$("#text-alpha-hex").val(v.toString(16))
-            updateDisplay()
+            updatePlots()
 		}
 	})
 	$("#text-alpha-hex").val('FF')
@@ -402,7 +427,7 @@ $(document).ready(function() {
 		if (event.keyCode == 13) {
 			var v = Math.round(100*parseInt(this.value,16)/255.0)	//00..ff to 0..100
 			$("#text-alpha").val(v.toString())
-            updateDisplay()
+            updatePlots()
 		}
 	})
 	$( "#sort-type" ).click(function(){
@@ -416,7 +441,7 @@ $(document).ready(function() {
 			}
 			sortColors(state.colors,type)
 		}
-		updateDisplay()
+		updatePlots()
 	});
 	
 	$('#setOrder').click(function(){
@@ -631,7 +656,7 @@ function clearSort() {
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
 				<div class = "control-group" style="margin-left: 5px;">
 					
-					<div style="width: 80px;">Display steps: </div> 
+					<div style="width: 80px;">Create steps: </div> 
 					<input type="text" class = "smallText" id="text-nSteps" value = '17' name="text-nSteps" style = "width: 30px; border: 1px solid #cccccc;"/>
 					<button type="button" id='button-generate' style = "margin: 0px,5px,0px,5px;" >Generate</button> 
 					</div>
@@ -642,6 +667,14 @@ function clearSort() {
 						<input type="radio" name='interp-space' checked>LCH</input>
 						<input type="radio" name='interp-space' >LAB</input>
 						
+					</div>
+				</form>
+				<form id='seq-display' >
+					<div class='control-group' style="margin-left: 5px;">
+						<div style="width: 85px;">Display values: </div> 
+						<input type="radio" name='seq-display' >Input</input>
+						<input type="radio" name='seq-display' >Interpolated</input>
+						<input type="radio" name='seq-display' checked >Both</input>
 					</div>
 				</form>
 				<button type="button" id='button-cLightness'  style = "margin: 5px;">Correct Lightness</button> 
