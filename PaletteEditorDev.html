@@ -123,18 +123,6 @@ initDisplay = function() {
 //we have LAB plots and the examples.
 //We have a display for concisely showing all the palettes
 
-updatePlots = function() {
-	//cleanup the previous display
-	d3.select("#pExamples").selectAll("div").remove()	//the examples
-	d3.select('#plots').selectAll("svg").remove(); //the LAB Plots
-	d3.select("#pSpace").selectAll("div").remove()	//all Palettes
-	if ($('#all-palettes').prop('checked')==true) {		
-		displayAllPalettes()	//uses the eColor from each palette. uses global state
-	} else {
-		displayColorspace()	//have thought of making this an option rather than an either/or
-	}
-	displayExamples()	//currently has its own logic for deciding what examples to show.
-}
 
 function slideHSVSliders() {
     var hue= $( "#hue" ).slider( "value" )
@@ -449,6 +437,7 @@ $(document).ready(function() {
 			state.pOrder = state.colors
 		}
 	})
+	$('#ramp-controls').hide()
 	initDisplay()
   });
 
@@ -535,7 +524,7 @@ function clearSort() {
 				<option value='formatting.gray'>Formatting gray</option>
 				</select>
 		</div>
-		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 250px;">Read/write values</textarea>
+		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 250px;">Palette type controls only the XML written. (more functionality soon)</textarea>
 	</div>
 
 	<div class ='vContainer' id="edit_color">
@@ -652,7 +641,7 @@ function clearSort() {
 				<button type="button" id='setOrder'  style = "margin: 5px;">Change Palette Order</button>
 
 			</div>
-			<div name='ramp-controls'>
+			<div id='ramp-controls' name='ramp-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
 				<div class = "control-group" style="margin-left: 5px;">
 					
