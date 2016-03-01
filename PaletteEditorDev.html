@@ -455,6 +455,7 @@ $(document).ready(function() {
 		if (state.gColors.length>0) {
 			state.palette.eColors = state.gColors
 		}
+		$('input:radio[name=seq-display][value =input]').prop('checked',true)
 		updatePlots()
 	})
 	
@@ -508,9 +509,14 @@ function makeUnique(newName){
 }
 	
 function clearSort() {
-	clearSelection()
+	//clearSelection()
+	if ($('#reverse-order').prop('checked')==true){
+		state.colors.reverse()
+		$('#reverse-order').prop('checked',false)
+	}
 	if (state.pOrder.length > 0) {//we have a saved pOrder
 		state.colors = state.pOrder
+		state.palette.eColors = state.pOrder	//Not sure exactly why this is necessary
 		state.pOrder =[]
 	}
 	$('input:radio[name=sort-type][value =pOrder]').prop('checked',true)

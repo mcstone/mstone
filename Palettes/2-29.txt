@@ -1,0 +1,21 @@
+	Traffic Light - v3
+	Green Orange Cyan Yellow - v2
+	Cyclic - v2
+	Gray-m01-ms
+	Red - v3
+	Greens - v4
+	Blue - v3
+	Orange - v3
+	Gray - v2
+	Red Glod 
+	
+Work on:
+	Color Blind: Change the dark blue and check the grays
+	Blue Teal: Teal not right
+	Green Yellow: Combination of green - v3 and green yellow
+	Purple Pink Gray: I like the colors, but they seem to pastel for the tone that has been set by the other palettes
+Not sure:
+	Blue Red Brown - v2
+
+
+blue choices  #277db9, #1f77b4, #1370ae, #186aa5
