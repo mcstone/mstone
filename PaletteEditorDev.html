@@ -53,6 +53,11 @@
 		width: 15px;
 		align-item: center;
 	}
+	.smallText-rm {
+		margin-right: 5px;
+		width: 32px; 
+		border: 1px solid #eeeeee;
+	}
 	#hue, #sat, #val {
 		width: 360px;
 		margin: 5px;
@@ -163,14 +168,14 @@ updateAllSliders = function() {
 //UX has updated state.pColor. Now propogate the changes
 updateColorPatch = function() {
 	var hex = state.pColor.hex()
-	var hsv = state.pColor.hsv()
+	var lab = state.pColor.lab()
 	var lch = state.pColor.lch()
-	hsv[0] = Math.round(hsv[0])
-	hsv[1] = Math.round((hsv[1]*100))/100
-	hsv[2] = Math.round((hsv[2]*100))/100
+	//hsv[0] = Math.round(hsv[0])
+	//hsv[1] = Math.round((hsv[1]*100))/100
+	//hsv[2] = Math.round((hsv[2]*100))/100
 	//text and patch can be updated in all cases, no loops
    $("#hex-text").val(hex)
-   $("#hsv-text").val(formatTriple(hsv))
+   $("#lab-text").val(formatTriple(lab))
    $('#lch-text').val(formatTriple(lch))
    	state.luminance = state.pColor.luminance()
    $("#lum-text").val(state.luminance.toPrecision(3))
@@ -210,7 +215,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 359,
-	  step: 0.5,
+	  step: 0.1,
       slide: slideHSVSliders,
 		stop: slideHSVSliders,
       change: changeHSVSliders
@@ -228,7 +233,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 100,
-	  step: 0.1,
+	  step: 0.01,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -237,7 +242,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 140,
-	  step: 0.1,
+	  step: 0.01,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -246,7 +251,7 @@ $(document).ready(function() {
       orientation: "horizontal",
       range: "min",
       max: 359,
-	  step: 0.1,
+	  step: 0.01,
       slide: slideLCHSliders,
 		stop: slideLCHSliders,
       change: changeLCHSliders
@@ -623,8 +628,8 @@ function clearSort() {
 						<input type="text" class = "smallText" id="hex-text" name="hex-text" style = "width: 60px;"/>
 					</div>
 					<div class = "control-group">
-						<div style="width: 40px;">HSV: </div>
-						<input type="text" class = "smallText" id="hsv-text" name="hsv-text" style = "width: 100px;"/>
+						<div style="width: 40px;">LAB: </div>
+						<input type="text" class = "smallText" id="lab-text" name="lab-text" style = "width: 100px;"/>
 					</div>
 					<div class = "control-group">
 						<div style="width: 40px;">LCH: </div>
@@ -719,6 +724,19 @@ function clearSort() {
 				
 				<button type="button" id='button-toInput'  style = "margin: 5px;">Copy to  Input</button> <br>
 									
+			</div>
+			<div id='plot-controls' name='plot-controls'>
+				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Plot Controls</div>
+				<div class = "control-group" style="margin-left: 5px;">
+					<div style="width: 32px;">aMin: </div> 
+					<input type="text" class = "smallText-rm" id="text-aMin" value = '-100' name="text-aMin" />
+					<div style="width: 32px;">aMax: </div> 
+					<input type="text" class = "smallText-rm" id="text-aMax" value = '100' name="text-aMax" />
+					<div style="width: 32px;">bMin: </div> 
+					<input type="text" class = "smallText-rm" id="text-bMin" value = '-100' name="text-bMin" />
+					<div style="width: 32px; ">bMax: </div> 
+					<input type="text" class = "smallText-rm" id="text-bMax" value = '100' name="text-bMax" />
+				</div>	
 			</div>
 		</div>
 	</div>
