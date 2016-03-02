@@ -55,7 +55,7 @@
 	}
 	.smallText-rm {
 		margin-right: 5px;
-		width: 32px; 
+		width: 60px; 
 		border: 1px solid #eeeeee;
 	}
 	#hue, #sat, #val {
@@ -463,8 +463,16 @@ $(document).ready(function() {
 		$('input:radio[name=seq-display][value =input]').prop('checked',true)
 		updatePlots()
 	})
+	$('#button-updatePlots').click(function(){
+		var aVals =  parseList($("#text-aVals").val(),false)
+		var bVals =  parseList($("#text-bVals").val(),false)
+		var lVals = []
+		lVals[0] = parseList($("#text-LMin").val(),false)[0]
+		lVals[1] = parseList($("#text-LMax").val(),false)[0]
+		setPlotSpec(aVals, bVals,lVals)
+		updatePlots()
 	
-	//$('#ramp-controls').hide()
+	})
 	initDisplay()
   });
 	
@@ -728,18 +736,23 @@ function clearSort() {
 			<div id='plot-controls' name='plot-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Plot Controls</div>
 				<div class = "control-group" style="margin-left: 5px;">
-					<div style="width: 32px;">aMin: </div> 
-					<input type="text" class = "smallText-rm" id="text-aMin" value = '-100' name="text-aMin" />
-					<div style="width: 32px;">aMax: </div> 
-					<input type="text" class = "smallText-rm" id="text-aMax" value = '100' name="text-aMax" />
-					<div style="width: 32px;">bMin: </div> 
-					<input type="text" class = "smallText-rm" id="text-bMin" value = '-100' name="text-bMin" />
-					<div style="width: 32px; ">bMax: </div> 
-					<input type="text" class = "smallText-rm" id="text-bMax" value = '100' name="text-bMax" />
-				</div>	
+					<div style="width: 80px;">a* (min,max): </div> 
+					<input type="text" class = "smallText-rm" id="text-aVals" value = '-100, 100' />
+					<div style="width: 80px;">b* (min,max): </div> 
+					<input type="text" class = "smallText-rm" id="text-bVals" value = '-100, 100' />
+				</div>
+				<br>
+				<div class = "control-group" style="margin-left: 5px;">
+					<div style="width: 50px;">L* Min: </div> 
+					<input type="text" class = "smallText-rm" id="text-LMin" value = '0' />
+					<div style="width: 50px; ">L* Max: </div> 
+					<input type="text" class = "smallText-rm" id="text-LMax" value = '100' />
+					
+				</div>
+				<button type="button" id='button-updatePlots'  style = "margin: 5px;">Update Plots</button> <br>
+			
 			</div>
 		</div>
-	</div>
 	</div>
 </div>
 </body>

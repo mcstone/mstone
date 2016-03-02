@@ -56,7 +56,7 @@
 <color>#e27a8b</color>
 </color-palette>
 
-<color-palette name="tableau-blue-teal v3" type = "ordered-sequential">
+<color-palette name="tableau-blue-teal v2" type = "ordered-sequential">
 <color>#8fe4e2</color>
 <color>#68d2e1</color>
 <color>#50c0de</color>
@@ -66,4 +66,61 @@
 <color>#1875b6</color>
 <color>#1c63a7</color>
 <color>#215196</color>
+</color-palette>
+---------------------------------------------
+<color-palette name="tableau-blue-teal" type = "ordered-sequential">
+<color>#97d9d5</color>
+<color>#74cad1</color>
+<color>#4bbbd0</color>
+<color>#2aa9cc</color>
+<color>#0198c7</color>
+<color>#0086bd</color>
+<color>#0075b1</color>
+<color>#1163a4</color>
+<color>#215196</color>
+</color-palette>
+
+<color-palette name="blue_red_brown_12-v2" type = "regular">
+<color>#1272ae</color>
+<color>#9bb9dd</color>
+<color>#ef3333</color>
+<color>#f39282</color>
+<color>#905d4b</color>
+<color>#debcad</color>
+<color>#54a8d6</color>
+<color>#abd8f5</color>
+<color>#b2771f</color>
+<color>#efc38e</color>
+<color>#bf1932</color>
+<color>#e27a8b</color>
+</color-palette>
+
+
+<color-palette name="tableau-color-blind-v2" type = "regular">
+<color>#2570a1</color>
+<color>#ff800e</color>
+<color>#b2b2b2</color>
+<color>#595959</color>
+<color>#5f9ed1</color>
+<color>#c46205</color>
+<color>#8c8c8c</color>
+<color>#9dc3e7</color>
+<color>#ffb154</color>
+<color>#cfcfcf</color>
+</color-palette>
+
+
+<color-palette name="purple_pink_gray_12-v2" type = "regular">
+<color>#8a6dd0</color>
+<color>#b2a0e3</color>
+<color>#dc64bf</color>
+<color>#f0b6e3</color>
+<color>#44625b</color>
+<color>#abb9bf</color>
+<color>#975486</color>
+<color>#ca8aad</color>
+<color>#ae69d1</color>
+<color>#ddaef1</color>
+<color>#657883</color>
+<color>#c8d2d4</color>
 </color-palette>

@@ -218,9 +218,8 @@
 <color>#606371</color>
 </color-palette>
 
-
-<color-palette name="tableau-color-blind-v3" type = "regular">
-<color>#186aa5</color>
+<color-palette name="tableau-color-blind-v2" type = "regular">
+<color>#2570a1</color>
 <color>#ff800e</color>
 <color>#b2b2b2</color>
 <color>#595959</color>
@@ -232,17 +231,17 @@
 <color>#cfcfcf</color>
 </color-palette>
 
-<color-palette name="purple_pink_gray_12-v3" type = "regular">
-<color>#8a6dca</color>
-<color>#b2a0df</color>
-<color>#d36cba</color>
+<color-palette name="purple_pink_gray_12-v2" type = "regular">
+<color>#8a6dd0</color>
+<color>#b2a0e3</color>
+<color>#dc64bf</color>
 <color>#f0b6e3</color>
 <color>#44625b</color>
 <color>#abb9bf</color>
 <color>#975486</color>
 <color>#ca8aad</color>
-<color>#ac6bcd</color>
-<color>#dbaeec</color>
+<color>#ae69d1</color>
+<color>#ddaef1</color>
 <color>#657883</color>
 <color>#c8d2d4</color>
 </color-palette>
@@ -263,9 +262,9 @@
 </color-palette>
 
 
-<color-palette name="blue_red_brown_12-v3" type = "regular">
-<color>#0d6aaa</color>
-<color>#9ab9d4</color>
+<color-palette name="blue_red_brown_12-v2" type = "regular">
+<color>#1272ae</color>
+<color>#9bb9dd</color>
 <color>#ef3333</color>
 <color>#f39282</color>
 <color>#905d4b</color>
@@ -277,6 +276,7 @@
 <color>#bf1932</color>
 <color>#e27a8b</color>
 </color-palette>
+
 
 <color-palette name="tableau-cyclic-v2" type = "ordered-sequential">
 <color>#844fa4</color>
@@ -417,19 +417,19 @@
 <color>#c90543</color>
 </color-palette>
 
-<color-palette name="tableau-blue-teal v2" type = "ordered-sequential">
-<color>#8fe4e2</color>
-<color>#68d2e1</color>
-<color>#50c0de</color>
-<color>#3aaed7</color>
-<color>#279bcd</color>
-<color>#1b88c2</color>
-<color>#1875b6</color>
-<color>#1c63a7</color>
+
+
+<color-palette name="tableau-blue-teal" type = "ordered-sequential">
+<color>#97d9d5</color>
+<color>#74cad1</color>
+<color>#4bbbd0</color>
+<color>#2aa9cc</color>
+<color>#0198c7</color>
+<color>#0086bd</color>
+<color>#0075b1</color>
+<color>#1163a4</color>
 <color>#215196</color>
 </color-palette>
-
-
 
 <color-palette name="tableau-blue-teal v2" type = "ordered-sequential">
 <color>#86e5e2</color>
