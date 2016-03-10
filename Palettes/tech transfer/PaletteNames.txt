@@ -1,0 +1,88 @@
+    [ IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL,     "Blue-Green Sequential" ]
+    [ IDS_PALETTE_MAP_BROWN_SEQUENTIAL,          "Brown Sequential" ]
+    [ IDS_PALETTE_MAP_PURPLE_SEQUENTIAL,         "Purple Sequential" ]
+    [ IDS_PALETTE_MAP_GREY_SEQUENTIAL,           "Grey Sequential" ]
+    [ IDS_PALETTE_MAP_ORANGE_BLUE_DIVERGING,     "Orange-Blue Diverging" ]
+    [ IDS_PALETTE_MAP_LIGHT_RED_GREEN_DIVERGING, "Light Red-Green Diverging" ]
+    [ IDS_PALETTE_MAP_TEMPERATURE_DIVERGING,     "Temperature Diverging" ]
+
+    !
+    ! Tableau 2.0 color palettes
+    !
+    [ IDS_PALETTE_COLORBLIND,            "Color Blind 10" ]
+    [ IDS_PALETTE_REDLIGHT,              "Red Light" ]
+    [ IDS_PALETTE_GREENLIGHT,            "Green Light" ]
+    [ IDS_PALETTE_BLUELIGHT,             "Blue Light" ]
+    [ IDS_PALETTE_ORANGELIGHT,           "Orange Light" ]
+    [ IDS_PALETTE_ORANGEBLUE,            "Orange-Blue Diverging" ]
+    [ IDS_PALETTE_REDGREENLIGHT,         "Red-Green Light Diverging" ]
+    [ IDS_PALETTE_ORANGEBLUELIGHT,       "Orange-Blue Light Diverging" ]
+
+    !
+    ! Tableau 4.0 color palettes
+    !
+    [ IDS_PALETTE_REDWHITEBLACK,           "Red-White-Black Diverging" ]
+    [ IDS_PALETTE_REDWHITEGREEN,           "Red-White-Green Diverging" ]
+    [ IDS_PALETTE_ORANGEWHITEBLUE,         "Orange-White-Blue Diverging" ]
+    [ IDS_PALETTE_REDWHITEGREENLIGHT,      "Red-White-Green Light Diverging" ]
+    [ IDS_PALETTE_REDWHITEBLACKLIGHT,      "Red-White-Black Light Diverging" ]
+    [ IDS_PALETTE_ORANGEWHITEBLUELIGHT,    "Orange-White-Blue Light Diverging" ]
+    [ IDS_PALETTE_GRAY5,                   "Gray 5" ]
+    [ IDS_PALETTE_TRAFFICLIGHT,            "Traffic Light" ]
+
+    !
+    ! Tableau 5.1 color palettes
+    !
+    [ IDS_PALETTE_PURPLEPINKGRAY6,         "Purple-Gray 6" ]
+    [ IDS_PALETTE_BLUEREDBROWN6,           "Blue-Red 6" ]
+    [ IDS_PALETTE_GREENORANGECYANYELLOW6,  "Green-Orange 6" ]
+    [ IDS_PALETTE_PURPLEPINKGRAY12,        "Purple-Gray 12" ]
+    [ IDS_PALETTE_BLUEREDBROWN12,          "Blue-Red 12" ]
+    [ IDS_PALETTE_GREENORANGECYANYELLOW12, "Green-Orange 12" ]
+
+    [ IDS_PALETTE_BAND_STOPLIGHT_SEQUENTIAL,  "Stoplight" ]
+    [ IDS_PALETTE_BAND_TINT88_SEQUENTIAL,     "Blue Yellow Light" ]
+    [ IDS_PALETTE_BAND_TAN_GREEN_SEQUENTIAL,  "Tan Green" ]
+    [ IDS_PALETTE_BAND_BLUE75_SEQUENTIAL,     "Blue" ]
+    [ IDS_PALETTE_BAND_BLUE80_SEQUENTIAL,     "Blue Light" ]
+    [ IDS_PALETTE_BAND_GOLD75_SEQUENTIAL,     "Gold" ]
+    [ IDS_PALETTE_BAND_GOLD80_SEQUENTIAL,     "Gold Light" ]
+    [ IDS_PALETTE_BAND_GREEN75_SEQUENTIAL,    "Green" ]
+    [ IDS_PALETTE_BAND_GREEN80_SEQUENTIAL,    "Green Light" ]
+    [ IDS_PALETTE_BAND_TAN75_SEQUENTIAL,      "Tan" ]
+    [ IDS_PALETTE_BAND_TAN80_SEQUENTIAL,      "Tan Light" ]
+    [ IDS_PALETTE_BAND_TEAL75_SEQUENTIAL,     "Teal" ]
+    [ IDS_PALETTE_BAND_TEAL80_SEQUENTIAL,     "Teal Light" ]
+    [ IDS_PALETTE_BAND_GRAY65_SEQUENTIAL,     "Gray Dark" ]
+    [ IDS_PALETTE_BAND_GRAY75_SEQUENTIAL,     "Gray" ]
+    [ IDS_PALETTE_BAND_GRAY80_SEQUENTIAL,     "Gray Light" ]
+    [ IDS_PALETTE_BAND_GRAY85_SEQUENTIAL,     "Gray Very Light" ]
+    [ IDS_PALETTE_BAND_GRAY88_SEQUENTIAL,     "Gray Ultra Light" ]
+
+    !
+    ! Tableau 8.0 color palettes
+    !
+    [ IDS_PALETTE_AREA_GREEN,     "Area Green" ]
+    [ IDS_PALETTE_AREA_RED,       "Area Red" ]
+    [ IDS_PALETTE_AREA_RED_GREEN, "Area Red-Green Diverging" ]
+    [ IDS_PALETTE_AREA_BROWN,     "Area Brown" ]
+
+    !
+    ! Tableau 8.1 color palettes
+    !
+    [ IDS_PALETTE_BOXPLOT_GRAY60_SEQUENTIAL,     "Light Gray" ]
+    [ IDS_PALETTE_BOXPLOT_GRAY50_SEQUENTIAL,     "Gray" ]
+    [ IDS_PALETTE_BOXPLOT_GRAY40_SEQUENTIAL,     "Dark Gray" ]
+    [ IDS_PALETTE_BOXPLOT_GRAY30_SEQUENTIAL,     "Very Dark Gray" ]
+    [ IDS_PALETTE_BOXPLOT_BROWN_SEQUENTIAL,      "Brown" ]
+    [ IDS_PALETTE_BOXPLOT_RED_SEQUENTIAL,        "Red" ]
+    [ IDS_PALETTE_BOXPLOT_ORANGE_SEQUENTIAL,     "Orange" ]
+    [ IDS_PALETTE_BOXPLOT_YELLOW_SEQUENTIAL,     "Yellow" ]
+    [ IDS_PALETTE_BOXPLOT_LTGREEN_SEQUENTIAL,    "Light Green" ]
+    [ IDS_PALETTE_BOXPLOT_GREEN_SEQUENTIAL,      "Green" ]
+    [ IDS_PALETTE_BOXPLOT_FOREST_SEQUENTIAL,     "Forest Green" ]
+    [ IDS_PALETTE_BOXPLOT_TEAL_SEQUENTIAL,       "Teal Green" ]
+    [ IDS_PALETTE_BOXPLOT_BRIGHTBLUE_SEQUENTIAL, "Bright Blue" ]
+    [ IDS_PALETTE_BOXPLOT_BLUE_SEQUENTIAL,       "Blue" ]
+    [ IDS_PALETTE_BOXPLOT_GRAYBLUE_SEQUENTIAL,   "Gray Blue" ]
+    [ IDS_PALETTE_BOXPLOT_PURPLE_SEQUENTIAL,     "Purple" ]

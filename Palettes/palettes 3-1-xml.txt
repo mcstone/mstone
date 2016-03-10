@@ -125,6 +125,19 @@
 <color>#585f6d</color>
 </color-palette>
 
+<color-palette name="t10 14 v2" type = "regular">
+<color>#2475ae</color>
+<color>#f08318</color>
+<color>#1f9baa</color>
+<color>#e0b732</color>
+<color>#509247</color>
+<color>#b9303e</color>
+<color>#cead9e</color>
+<color>#7c73b3</color>
+<color>#eb88a9</color>
+<color>#585f6d</color>
+</color-palette>
+
 <color-palette name="t10 14 v3" type = "regular">
 <color>#2475ae</color>
 <color>#f08318</color>
@@ -184,16 +197,5 @@
 <color>#ada5dd</color>
 </color-palette>
 
-<color-palette name="t10 14 v2" type = "regular">
-<color>#2475ae</color>
-<color>#f08318</color>
-<color>#1f9baa</color>
-<color>#e0b732</color>
-<color>#509247</color>
-<color>#b9303e</color>
-<color>#cead9e</color>
-<color>#7c73b3</color>
-<color>#eb88a9</color>
-<color>#585f6d</color>
-</color-palette>
+
 

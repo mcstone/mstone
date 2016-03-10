@@ -1,0 +1,1369 @@
+
+            // tableau-10
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-10")), PaletteRegular, IDS_PALETTE_TABLEAU10);
+            pal->SetColors({
+                ColorObjectFromRGB(0x1F77B4),
+                ColorObjectFromRGB(0xFF7F0E),
+                ColorObjectFromRGB(0x2CA02C),
+                ColorObjectFromRGB(0xD62728),
+                ColorObjectFromRGB(0x9467BD),
+                ColorObjectFromRGB(0x8C564B),
+                ColorObjectFromRGB(0xE377C2),
+                ColorObjectFromRGB(0x7F7F7F),
+                ColorObjectFromRGB(0xBCBD22),
+                ColorObjectFromRGB(0x17BECF)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-10-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-10-light")), PaletteRegular, IDS_PALETTE_TABLEAU10LIGHT);
+            pal->SetColors({
+                ColorObjectFromRGB(0xAEC7E8),
+                ColorObjectFromRGB(0xFFBB78),
+                ColorObjectFromRGB(0x98DF8A),
+                ColorObjectFromRGB(0xFF9896),
+                ColorObjectFromRGB(0xC5B0D5),
+                ColorObjectFromRGB(0xC49C94),
+                ColorObjectFromRGB(0xF7B6D2),
+                ColorObjectFromRGB(0xC7C7C7),
+                ColorObjectFromRGB(0xDBDB8D),
+                ColorObjectFromRGB(0x9EDAE5)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-10-medium
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-10-medium")), PaletteRegular, IDS_PALETTE_TABLEAU10MEDIUM);
+            pal->SetColors({
+                ColorObjectFromRGB(0x729ECE),
+                ColorObjectFromRGB(0xFF9E4A),
+                ColorObjectFromRGB(0x67BF5C),
+                ColorObjectFromRGB(0xED665D),
+                ColorObjectFromRGB(0xAD8BC9),
+                ColorObjectFromRGB(0xA8786E),
+                ColorObjectFromRGB(0xED97CA),
+                ColorObjectFromRGB(0xA2A2A2),
+                ColorObjectFromRGB(0xCDCC5D),
+                ColorObjectFromRGB(0x6DCCDA)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-20
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-20")), PaletteRegular, IDS_PALETTE_TABLEAU20);
+            pal->SetColors({
+                ColorObjectFromRGB(0x1F77B4),
+                ColorObjectFromRGB(0xAEC7E8),
+                ColorObjectFromRGB(0xFF7F0E),
+                ColorObjectFromRGB(0xFFBB78),
+                ColorObjectFromRGB(0x2CA02C),
+                ColorObjectFromRGB(0x98DF8A),
+                ColorObjectFromRGB(0xD62728),
+                ColorObjectFromRGB(0xFF9896),
+                ColorObjectFromRGB(0x9467BD),
+                ColorObjectFromRGB(0xC5B0D5),
+                ColorObjectFromRGB(0x8C564B),
+                ColorObjectFromRGB(0xC49C94),
+                ColorObjectFromRGB(0xE377C2),
+                ColorObjectFromRGB(0xF7B6D2),
+                ColorObjectFromRGB(0x7F7F7F),
+                ColorObjectFromRGB(0xC7C7C7),
+                ColorObjectFromRGB(0xBCBD22),
+                ColorObjectFromRGB(0xDBDB8D),
+                ColorObjectFromRGB(0x17BECF),
+                ColorObjectFromRGB(0x9EDAE5)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-gray5
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-gray5")), PaletteRegular, IDS_PALETTE_GRAY5, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x60636a),
+                ColorObjectFromRGB(0xa5acaf),
+                ColorObjectFromRGB(0x414451),
+                ColorObjectFromRGB(0x8f8782),
+                ColorObjectFromRGB(0xcfcfcf)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-color-blind
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-color-blind")), PaletteRegular, IDS_PALETTE_COLORBLIND);
+            pal->SetColors({
+                ColorObjectFromRGB(0x006ba4),
+                ColorObjectFromRGB(0xff800e),
+                ColorObjectFromRGB(0xababab),
+                ColorObjectFromRGB(0x595959),
+                ColorObjectFromRGB(0x5f9ed1),
+                ColorObjectFromRGB(0xc85200),
+                ColorObjectFromRGB(0x898989),
+                ColorObjectFromRGB(0xa2c8ec),
+                ColorObjectFromRGB(0xffbc79),
+                ColorObjectFromRGB(0xcfcfcf)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-traffic-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-traffic-light")), PaletteRegular, IDS_PALETTE_TRAFFICLIGHT);
+            pal->SetColors({
+                ColorObjectFromRGB(0xb10318),
+                ColorObjectFromRGB(0xdba13a),
+                ColorObjectFromRGB(0x309343),
+                ColorObjectFromRGB(0xd82526),
+                ColorObjectFromRGB(0xffc156),
+                ColorObjectFromRGB(0x69b764),
+                ColorObjectFromRGB(0xf26c64),
+                ColorObjectFromRGB(0xffdd71),
+                ColorObjectFromRGB(0x9fcd99)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+
+            // purple_pink_gray_6
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("purple_pink_gray_6")), PaletteRegular, IDS_PALETTE_PURPLEPINKGRAY6);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7b66d2),
+                ColorObjectFromRGB(0xdc5fbd),
+                ColorObjectFromRGB(0x94917b),
+                ColorObjectFromRGB(0x995688),
+                ColorObjectFromRGB(0xd098ee),
+                ColorObjectFromRGB(0xd7d5c5)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // purple_pink_gray_12
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("purple_pink_gray_12")), PaletteRegular, IDS_PALETTE_PURPLEPINKGRAY12);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7b66d2),
+                ColorObjectFromRGB(0xa699e8),
+                ColorObjectFromRGB(0xdc5fbd),
+                ColorObjectFromRGB(0xffc0da),
+                ColorObjectFromRGB(0x5f5a41),
+                ColorObjectFromRGB(0xb4b19b),
+                ColorObjectFromRGB(0x995688),
+                ColorObjectFromRGB(0xd898ba),
+                ColorObjectFromRGB(0xab6ad5),
+                ColorObjectFromRGB(0xd098ee),
+                ColorObjectFromRGB(0x8b7c6e),
+                ColorObjectFromRGB(0xdbd4c5)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // blue_red_brown_6
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue_red_brown_6")), PaletteRegular, IDS_PALETTE_BLUEREDBROWN6);
+            pal->SetColors({
+                ColorObjectFromRGB(0x2c69b0),
+                ColorObjectFromRGB(0xf02720),
+                ColorObjectFromRGB(0xac613c),
+                ColorObjectFromRGB(0x6ba3d6),
+                ColorObjectFromRGB(0xea6b73),
+                ColorObjectFromRGB(0xe9c39b)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // blue_red_brown_12
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue_red_brown_12")), PaletteRegular, IDS_PALETTE_BLUEREDBROWN12);
+            pal->SetColors({
+                ColorObjectFromRGB(0x2c69b0),
+                ColorObjectFromRGB(0xb5c8e2),
+                ColorObjectFromRGB(0xf02720),
+                ColorObjectFromRGB(0xffb6b0),
+                ColorObjectFromRGB(0xac613c),
+                ColorObjectFromRGB(0xe9c39b),
+                ColorObjectFromRGB(0x6ba3d6),
+                ColorObjectFromRGB(0xb5dffd),
+                ColorObjectFromRGB(0xac8763),
+                ColorObjectFromRGB(0xddc9b4),
+                ColorObjectFromRGB(0xbd0a36),
+                ColorObjectFromRGB(0xf4737a)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // green_orange_cyan_yellow_6
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_orange_cyan_yellow_6")), PaletteRegular, IDS_PALETTE_GREENORANGECYANYELLOW6);
+            pal->SetColors({
+                ColorObjectFromRGB(0x32a251),
+                ColorObjectFromRGB(0xff7f0f),
+                ColorObjectFromRGB(0x3cb7cc),
+                ColorObjectFromRGB(0xffd94a),
+                ColorObjectFromRGB(0x39737c),
+                ColorObjectFromRGB(0xb85a0d)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // green_orange_cyan_yellow_12
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_orange_cyan_yellow_12")), PaletteRegular, IDS_PALETTE_GREENORANGECYANYELLOW12);
+            pal->SetColors({
+                ColorObjectFromRGB(0x32a251),
+                ColorObjectFromRGB(0xacd98d),
+                ColorObjectFromRGB(0xff7f0f),
+                ColorObjectFromRGB(0xffb977),
+                ColorObjectFromRGB(0x3cb7cc),
+                ColorObjectFromRGB(0x98d9e4),
+                ColorObjectFromRGB(0xb85a0d),
+                ColorObjectFromRGB(0xffd94a),
+                ColorObjectFromRGB(0x39737c),
+                ColorObjectFromRGB(0x86b4a9),
+                ColorObjectFromRGB(0x82853b),
+                ColorObjectFromRGB(0xccc94d)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-cyclic
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-cyclic")), PaletteOrderedLinear, IDS_PALETTE_CYCLIC, PaletteFlagNotQuantitative | PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x1F83B4),
+                ColorObjectFromRGB(0x12A2A8),
+                ColorObjectFromRGB(0x2CA030),
+                ColorObjectFromRGB(0x78A641),
+                ColorObjectFromRGB(0xBCBD22),
+                ColorObjectFromRGB(0xFFBF50),
+                ColorObjectFromRGB(0xFFAA0E),
+                ColorObjectFromRGB(0xFF7F0E),
+                ColorObjectFromRGB(0xD63A3A),
+                ColorObjectFromRGB(0xC7519C),
+                ColorObjectFromRGB(0xBA43B4),
+                ColorObjectFromRGB(0x8A60B0),
+                ColorObjectFromRGB(0x6F63BB)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red")), PaletteOrderedLinear, IDS_PALETTE_RED, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xEAC0BD),
+                ColorObjectFromRGB(0xF89A90),
+                ColorObjectFromRGB(0xF57667),
+                ColorObjectFromRGB(0xE35745),
+                ColorObjectFromRGB(0xD8392C),
+                ColorObjectFromRGB(0xCF1719),
+                ColorObjectFromRGB(0xC21417),
+                ColorObjectFromRGB(0xB10C1D),
+                ColorObjectFromRGB(0x9C0824)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-green")), PaletteOrderedLinear, IDS_PALETTE_GREEN, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xBCCFB4),
+                ColorObjectFromRGB(0x94BB83),
+                ColorObjectFromRGB(0x69A761),
+                ColorObjectFromRGB(0x339444),
+                ColorObjectFromRGB(0x27823B),
+                ColorObjectFromRGB(0x1A7232),
+                ColorObjectFromRGB(0x09622A)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-blue")), PaletteOrderedLinear, IDS_PALETTE_BLUE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xB4D4DA),
+                ColorObjectFromRGB(0x7BC8E2),
+                ColorObjectFromRGB(0x67ADD4),
+                ColorObjectFromRGB(0x3A87B7),
+                ColorObjectFromRGB(0x1C73B1),
+                ColorObjectFromRGB(0x1C5998),
+                ColorObjectFromRGB(0x26456E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange")), PaletteOrderedLinear, IDS_PALETTE_ORANGE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF0C294),
+                ColorObjectFromRGB(0xFDAB67),
+                ColorObjectFromRGB(0xFD8938),
+                ColorObjectFromRGB(0xF06511),
+                ColorObjectFromRGB(0xD74401),
+                ColorObjectFromRGB(0xA33202),
+                ColorObjectFromRGB(0x7B3014)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-gray
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-gray")), PaletteOrderedLinear, IDS_PALETTE_GRAY, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xC3C3C3),
+                ColorObjectFromRGB(0xB2B2B2),
+                ColorObjectFromRGB(0xA2A2A2),
+                ColorObjectFromRGB(0x929292),
+                ColorObjectFromRGB(0x838383),
+                ColorObjectFromRGB(0x747474),
+                ColorObjectFromRGB(0x666666),
+                ColorObjectFromRGB(0x585858),
+                ColorObjectFromRGB(0x4B4B4B),
+                ColorObjectFromRGB(0x3F3F3F),
+                ColorObjectFromRGB(0x333333),
+                ColorObjectFromRGB(0x282828),
+                ColorObjectFromRGB(0x1E1E1E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-light")), PaletteOrderedLinear, IDS_PALETTE_REDLIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xEBDDDD),
+                ColorObjectFromRGB(0xF0D5D5),
+                ColorObjectFromRGB(0xF5CCCE),
+                ColorObjectFromRGB(0xF9C4C6),
+                ColorObjectFromRGB(0xFDBBBE),
+                ColorObjectFromRGB(0xFFB2B6)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-green-light")), PaletteOrderedLinear, IDS_PALETTE_GREENLIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xDEE5DB),
+                ColorObjectFromRGB(0xD7E6D1),
+                ColorObjectFromRGB(0xCFE6C6),
+                ColorObjectFromRGB(0xC7E6BC),
+                ColorObjectFromRGB(0xBFE6B1),
+                ColorObjectFromRGB(0xB7E6A7)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-blue-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-blue-light")), PaletteOrderedLinear, IDS_PALETTE_BLUELIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xE0E3E8),
+                ColorObjectFromRGB(0xDBE1EA),
+                ColorObjectFromRGB(0xD5DFEC),
+                ColorObjectFromRGB(0xD0DCEF),
+                ColorObjectFromRGB(0xCADAF1),
+                ColorObjectFromRGB(0xC4D8F3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange-light")), PaletteOrderedLinear, IDS_PALETTE_ORANGELIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xEBE1D9),
+                ColorObjectFromRGB(0xF0DDCD),
+                ColorObjectFromRGB(0xF5D9C2),
+                ColorObjectFromRGB(0xF9D4B6),
+                ColorObjectFromRGB(0xFDD0AA),
+                ColorObjectFromRGB(0xFFCC9E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-blue")), PaletteOrderedDiverging, IDS_PALETTE_REDBLUE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9C0824),
+                ColorObjectFromRGB(0xBD1316),
+                ColorObjectFromRGB(0xD11719),
+                ColorObjectFromRGB(0xDF513F),
+                ColorObjectFromRGB(0xFC8375),
+                ColorObjectFromRGB(0xCACACA),
+                ColorObjectFromRGB(0x67ADD4),
+                ColorObjectFromRGB(0x3A87B7),
+                ColorObjectFromRGB(0x1C73B1),
+                ColorObjectFromRGB(0x1C5998),
+                ColorObjectFromRGB(0x26456E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-green")), PaletteOrderedDiverging, IDS_PALETTE_REDGREEN, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9C0824),
+                ColorObjectFromRGB(0xBD1316),
+                ColorObjectFromRGB(0xD11719),
+                ColorObjectFromRGB(0xDF513F),
+                ColorObjectFromRGB(0xFC8375),
+                ColorObjectFromRGB(0xCACACA),
+                ColorObjectFromRGB(0xA2C18F),
+                ColorObjectFromRGB(0x69A761),
+                ColorObjectFromRGB(0x2F8E41),
+                ColorObjectFromRGB(0x1E7735),
+                ColorObjectFromRGB(0x09622A),
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-white-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-white-green")), PaletteOrderedDiverging, IDS_PALETTE_REDWHITEGREEN, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9C0824),
+                ColorObjectFromRGB(0xB41F27),
+                ColorObjectFromRGB(0xCC312B),
+                ColorObjectFromRGB(0xE86753),
+                ColorObjectFromRGB(0xFCB4A5),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xB9D7B7),
+                ColorObjectFromRGB(0x74AF72),
+                ColorObjectFromRGB(0x428F49),
+                ColorObjectFromRGB(0x297839),
+                ColorObjectFromRGB(0x09622A)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+
+            // tableau-red-black
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-black")), PaletteOrderedDiverging, IDS_PALETTE_REDBLACK, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9C0824),
+                ColorObjectFromRGB(0xBD1316),
+                ColorObjectFromRGB(0xD11719),
+                ColorObjectFromRGB(0xDF513F),
+                ColorObjectFromRGB(0xFC8375),
+                ColorObjectFromRGB(0xCACACA),
+                ColorObjectFromRGB(0x9B9B9B),
+                ColorObjectFromRGB(0x777777),
+                ColorObjectFromRGB(0x565656),
+                ColorObjectFromRGB(0x383838),
+                ColorObjectFromRGB(0x1E1E1E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-white-black
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-white-black")), PaletteOrderedDiverging, IDS_PALETTE_REDWHITEBLACK, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9C0824),
+                ColorObjectFromRGB(0xB41F27),
+                ColorObjectFromRGB(0xCC312B),
+                ColorObjectFromRGB(0xE86753),
+                ColorObjectFromRGB(0xFCB4A5),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xBFBFBF),
+                ColorObjectFromRGB(0x838383),
+                ColorObjectFromRGB(0x575757),
+                ColorObjectFromRGB(0x393939),
+                ColorObjectFromRGB(0x1E1E1E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-green-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-green-blue")), PaletteOrderedDiverging, IDS_PALETTE_GREENBLUE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x09622A),
+                ColorObjectFromRGB(0x1E7735),
+                ColorObjectFromRGB(0x2F8E41),
+                ColorObjectFromRGB(0x69A761),
+                ColorObjectFromRGB(0xA2C18F),
+                ColorObjectFromRGB(0xCACACA),
+                ColorObjectFromRGB(0x67ADD4),
+                ColorObjectFromRGB(0x3A87B7),
+                ColorObjectFromRGB(0x1C73B1),
+                ColorObjectFromRGB(0x1C5998),
+                ColorObjectFromRGB(0x26456E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange-blue")), PaletteOrderedDiverging, IDS_PALETTE_ORANGEBLUE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7B3014),
+                ColorObjectFromRGB(0xA33202),
+                ColorObjectFromRGB(0xD74401),
+                ColorObjectFromRGB(0xF06511),
+                ColorObjectFromRGB(0xFD8938),
+                ColorObjectFromRGB(0xFDAB67),
+                ColorObjectFromRGB(0xCACACA),
+                ColorObjectFromRGB(0x7BC8E2),
+                ColorObjectFromRGB(0x67ADD4),
+                ColorObjectFromRGB(0x3A87B7),
+                ColorObjectFromRGB(0x1C73B1),
+                ColorObjectFromRGB(0x1C5998),
+                ColorObjectFromRGB(0x26456E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange-white-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange-white-blue")), PaletteOrderedDiverging, IDS_PALETTE_ORANGEWHITEBLUE, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7B3014),
+                ColorObjectFromRGB(0xA84415),
+                ColorObjectFromRGB(0xD85A13),
+                ColorObjectFromRGB(0xFB8547),
+                ColorObjectFromRGB(0xFFC2A1),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xB7CDE2),
+                ColorObjectFromRGB(0x6A9EC5),
+                ColorObjectFromRGB(0x3679A8),
+                ColorObjectFromRGB(0x2E5F8A),
+                ColorObjectFromRGB(0x26456E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-green-light")), PaletteOrderedDiverging, IDS_PALETTE_REDGREENLIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFFB2B6),
+                ColorObjectFromRGB(0xFCBDC0),
+                ColorObjectFromRGB(0xF8C7C9),
+                ColorObjectFromRGB(0xF2D1D2),
+                ColorObjectFromRGB(0xECDBDC),
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xDDE6D9),
+                ColorObjectFromRGB(0xD4E6CC),
+                ColorObjectFromRGB(0xCAE6C0),
+                ColorObjectFromRGB(0xC1E6B4),
+                ColorObjectFromRGB(0xB7E6A7)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-white-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-white-green-light")), PaletteOrderedDiverging, IDS_PALETTE_REDWHITEGREENLIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFFB2B6),
+                ColorObjectFromRGB(0xFFC2C5),
+                ColorObjectFromRGB(0xFFD1D3),
+                ColorObjectFromRGB(0xFFE0E1),
+                ColorObjectFromRGB(0xFFF0F0),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xF1FAED),
+                ColorObjectFromRGB(0xE3F5DB),
+                ColorObjectFromRGB(0xD5F0CA),
+                ColorObjectFromRGB(0xC6EBB8),
+                ColorObjectFromRGB(0xB7E6A7)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-red-white-black-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-red-white-black-light")), PaletteOrderedDiverging, IDS_PALETTE_REDWHITEBLACKLIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFFB2B6),
+                ColorObjectFromRGB(0xFFC2C5),
+                ColorObjectFromRGB(0xFFD1D3),
+                ColorObjectFromRGB(0xFFE0E1),
+                ColorObjectFromRGB(0xFFF0F0),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xF3F3F3),
+                ColorObjectFromRGB(0xE8E8E8),
+                ColorObjectFromRGB(0xDDDDDD),
+                ColorObjectFromRGB(0xD1D1D1),
+                ColorObjectFromRGB(0xC6C6C6)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange-blue-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange-blue-light")), PaletteOrderedDiverging, IDS_PALETTE_ORANGEBLUELIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFFCC9E),
+                ColorObjectFromRGB(0xFCD1AD),
+                ColorObjectFromRGB(0xF8D6BB),
+                ColorObjectFromRGB(0xF2DBC9),
+                ColorObjectFromRGB(0xECE0D7),
+                ColorObjectFromRGB(0xE5E5E5),
+                ColorObjectFromRGB(0xDFE3E8),
+                ColorObjectFromRGB(0xD8E0EB),
+                ColorObjectFromRGB(0xD2DDEE),
+                ColorObjectFromRGB(0xCBDBF1),
+                ColorObjectFromRGB(0xC4D8F3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-orange-white-blue-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-orange-white-blue-light")), PaletteOrderedDiverging, IDS_PALETTE_ORANGEWHITEBLUELIGHT, PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFFCC9E),
+                ColorObjectFromRGB(0xFFD6B1),
+                ColorObjectFromRGB(0xFFE0C5),
+                ColorObjectFromRGB(0xFFEAD8),
+                ColorObjectFromRGB(0xFFF5EB),
+                ColorObjectFromRGB(0xFFFFFF),
+                ColorObjectFromRGB(0xF3F7FD),
+                ColorObjectFromRGB(0xE8EFFA),
+                ColorObjectFromRGB(0xDCE8F8),
+                ColorObjectFromRGB(0xD0E0F6),
+                ColorObjectFromRGB(0xC4D8F3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-red
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red")), PaletteOrderedLinear, IDS_PALETTE_AREA_RED, PaletteFlagNotReferenceBand | PaletteFlagNotCategorical | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xf5cac7),
+                ColorObjectFromRGB(0xfbb3ab),
+                ColorObjectFromRGB(0xfd9c8f),
+                ColorObjectFromRGB(0xfe8b7a),
+                ColorObjectFromRGB(0xfd7864),
+                ColorObjectFromRGB(0xf46b55),
+                ColorObjectFromRGB(0xea5e45),
+                ColorObjectFromRGB(0xe04e35),
+                ColorObjectFromRGB(0xd43e25),
+                ColorObjectFromRGB(0xc92b14),
+                ColorObjectFromRGB(0xbd1100)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-green")), PaletteOrderedLinear, IDS_PALETTE_AREA_GREEN, PaletteFlagNotReferenceBand | PaletteFlagNotCategorical | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xdbe8b4),
+                ColorObjectFromRGB(0xc3e394),
+                ColorObjectFromRGB(0xacdc7a),
+                ColorObjectFromRGB(0x9ad26d),
+                ColorObjectFromRGB(0x8ac765),
+                ColorObjectFromRGB(0x7abc5f),
+                ColorObjectFromRGB(0x6cae59),
+                ColorObjectFromRGB(0x60a24d),
+                ColorObjectFromRGB(0x569735),
+                ColorObjectFromRGB(0x4a8c1c),
+                ColorObjectFromRGB(0x3c8200)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-brown
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-brown")), PaletteOrderedLinear, IDS_PALETTE_AREA_BROWN, PaletteFlagNotReferenceBand | PaletteFlagNotCategorical | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xf3e0c2),
+                ColorObjectFromRGB(0xf6d29c),
+                ColorObjectFromRGB(0xf7c577),
+                ColorObjectFromRGB(0xf0b763),
+                ColorObjectFromRGB(0xe4aa63),
+                ColorObjectFromRGB(0xd89c63),
+                ColorObjectFromRGB(0xcc8f63),
+                ColorObjectFromRGB(0xc08262),
+                ColorObjectFromRGB(0xbb7359),
+                ColorObjectFromRGB(0xbb6348),
+                ColorObjectFromRGB(0xbb5137)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-red-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red-green")), PaletteOrderedDiverging, IDS_PALETTE_AREA_RED_GREEN, PaletteFlagNotReferenceBand | PaletteFlagNotCategorical | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            pal->SetColors({
+                ColorObjectFromRGB(0xbd1100),
+                ColorObjectFromRGB(0xc82912),
+                ColorObjectFromRGB(0xd23a21),
+                ColorObjectFromRGB(0xdc4930),
+                ColorObjectFromRGB(0xe6583e),
+                ColorObjectFromRGB(0xef654d),
+                ColorObjectFromRGB(0xf7705b),
+                ColorObjectFromRGB(0xfd7e6b),
+                ColorObjectFromRGB(0xfe8e7e),
+                ColorObjectFromRGB(0xfca294),
+                ColorObjectFromRGB(0xe9dabe),
+                ColorObjectFromRGB(0xc7e298),
+                ColorObjectFromRGB(0xb1de7f),
+                ColorObjectFromRGB(0xa0d571),
+                ColorObjectFromRGB(0x90cb68),
+                ColorObjectFromRGB(0x82c162),
+                ColorObjectFromRGB(0x75b65d),
+                ColorObjectFromRGB(0x69aa56),
+                ColorObjectFromRGB(0x5ea049),
+                ColorObjectFromRGB(0x559633),
+                ColorObjectFromRGB(0x4a8c1c)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // Reference Distribution fills, a.k.a Bullet Graphs
+            PaletteFlags bandFlags = (PaletteFlags)(PaletteFlagNotQuantitative | PaletteFlagNotCategorical | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+
+            // rf_stoplight_lt
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("rf_stoplight_lt")), PaletteOrderedLinear, IDS_PALETTE_BAND_STOPLIGHT_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xff9f80),
+                ColorObjectFromRGB(0xffd65e),
+                ColorObjectFromRGB(0xd1fea8)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tint88")), PaletteOrderedLinear, IDS_PALETTE_BAND_TINT88_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd0e1d7),
+                ColorObjectFromRGB(0xd9f4ad),
+                ColorObjectFromRGB(0xfff3ad)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tan-green")), PaletteOrderedLinear, IDS_PALETTE_BAND_TAN_GREEN_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd9c3a7),
+                ColorObjectFromRGB(0xfcd892),
+                ColorObjectFromRGB(0xb9cdaa)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue75")), PaletteOrderedLinear, IDS_PALETTE_BAND_BLUE75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xa7bbce),
+                ColorObjectFromRGB(0xc2d7eb),
+                ColorObjectFromRGB(0xe5f2ff)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue80")), PaletteOrderedLinear, IDS_PALETTE_BAND_BLUE80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xb4c9dc),
+                ColorObjectFromRGB(0xcadff3),
+                ColorObjectFromRGB(0xe7f5ff)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gold75")), PaletteOrderedLinear, IDS_PALETTE_BAND_GOLD75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd9b467),
+                ColorObjectFromRGB(0xf3d08a),
+                ColorObjectFromRGB(0xffefbb)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gold80")), PaletteOrderedLinear, IDS_PALETTE_BAND_GOLD80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xe8c174),
+                ColorObjectFromRGB(0xfcd892),
+                ColorObjectFromRGB(0xfff2bd)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green75")), PaletteOrderedLinear, IDS_PALETTE_BAND_GREEN75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xa8bc9a),
+                ColorObjectFromRGB(0xc4dbb8),
+                ColorObjectFromRGB(0xe5f7d3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green80")), PaletteOrderedLinear, IDS_PALETTE_BAND_GREEN80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xb9cdaa),
+                ColorObjectFromRGB(0xcde4c0),
+                ColorObjectFromRGB(0xe8f9d6)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tan75")), PaletteOrderedLinear, IDS_PALETTE_BAND_TAN75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xcab69a),
+                ColorObjectFromRGB(0xe7d1b3),
+                ColorObjectFromRGB(0xfdefd8)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tan80")), PaletteOrderedLinear, IDS_PALETTE_BAND_TAN80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd9c3a7),
+                ColorObjectFromRGB(0xf0dabb),
+                ColorObjectFromRGB(0xfff2db)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("teal75")), PaletteOrderedLinear, IDS_PALETTE_BAND_TEAL75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x8fc1ca),
+                ColorObjectFromRGB(0xb5dbe1),
+                ColorObjectFromRGB(0xd9f6fc)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("teal80")), PaletteOrderedLinear, IDS_PALETTE_BAND_TEAL80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9dcfd8),
+                ColorObjectFromRGB(0xbee4ea),
+                ColorObjectFromRGB(0xdcf9ff)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("rf_gray65")), PaletteOrderedLinear, IDS_PALETTE_BAND_GRAY65_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9e9e9e),
+                ColorObjectFromRGB(0xc6c6c6),
+                ColorObjectFromRGB(0xf1f1f1)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("rf_gray75")), PaletteOrderedLinear, IDS_PALETTE_BAND_GRAY75_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xb9b9b9),
+                ColorObjectFromRGB(0xd4d4d4),
+                ColorObjectFromRGB(0xf1f1f1)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gray80")), PaletteOrderedLinear, IDS_PALETTE_BAND_GRAY80_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xc6c6c6),
+                ColorObjectFromRGB(0xdbdbdb),
+                ColorObjectFromRGB(0xf1f1f1)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gray85")), PaletteOrderedLinear, IDS_PALETTE_BAND_GRAY85_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd4d4d4),
+                ColorObjectFromRGB(0xe2e2e2),
+                ColorObjectFromRGB(0xf3f3f3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gray88")), PaletteOrderedLinear, IDS_PALETTE_BAND_GRAY88_SEQUENTIAL, bandFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xdddddd),
+                ColorObjectFromRGB(0xebebeb),
+                ColorObjectFromRGB(0xf6f6f6)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // Reference boxplot fills -- these all have only two colors, and are used for two-tone boxplot styles
+            PaletteFlags boxplotFlags = (PaletteFlags)(PaletteFlagNotQuantitative | PaletteFlagNotCategorical | PaletteFlagNotReferenceBand | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_gray60")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GRAY60_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9a9999),
+                ColorObjectFromRGB(0xd3d3d3)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_gray50")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GRAY50_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x838383),
+                ColorObjectFromRGB(0xbfbfbf)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_gray40")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GRAY40_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x575757),
+                ColorObjectFromRGB(0x9c9c9c)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_gray30")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GRAY30_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x393939),
+                ColorObjectFromRGB(0x767676)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_brown")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_BROWN_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xa58162),
+                ColorObjectFromRGB(0xe3c8ac)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_red")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_RED_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xba1e21),
+                ColorObjectFromRGB(0xea9394)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_orange")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_ORANGE_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xe8672c),
+                ColorObjectFromRGB(0xfeb370)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_yellow")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_YELLOW_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xeda33a),
+                ColorObjectFromRGB(0xfadc82)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_ltgreen")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_LTGREEN_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x87ba79),
+                ColorObjectFromRGB(0xc9e5ab)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_green")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GREEN_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x109568),
+                ColorObjectFromRGB(0x7ddca0)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_forest")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_FOREST_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x3d9d8a),
+                ColorObjectFromRGB(0x97d3c6),
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_teal")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_TEAL_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x419091),
+                ColorObjectFromRGB(0x8ad9dd),
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_brightblue")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_BRIGHTBLUE_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x109eb7),
+                ColorObjectFromRGB(0x84dfee)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_blue")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_BLUE_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x5697bc),
+                ColorObjectFromRGB(0xa8d4f0)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_grayblue")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_GRAYBLUE_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7381a0),
+                ColorObjectFromRGB(0xb6c6ea)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("bp_purple")), PaletteOrderedLinear, IDS_PALETTE_BOXPLOT_PURPLE_SEQUENTIAL, boxplotFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x675f8d),
+                ColorObjectFromRGB(0xc9c3e1)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // Previously Filled Map Palettes
+            // These were used for data layers, now they have been replaced by their dark and light counterparts
+            // But they should still show up in some places
+            PaletteFlags oldMapFlags = (PaletteFlags)(PaletteFlagNotCategorical | PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark);
+            // tableau-map-blue-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-blue-green")), PaletteOrderedLinear, IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xFEFFD9),
+                ColorObjectFromRGB(0xEDF8B3),
+                ColorObjectFromRGB(0xC4EAB1),
+                ColorObjectFromRGB(0x7DCDBB),
+                ColorObjectFromRGB(0x41B7C4)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-brown
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-brown")), PaletteOrderedLinear, IDS_PALETTE_MAP_BROWN_SEQUENTIAL, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF7E4C6),
+                ColorObjectFromRGB(0xFEDBA8),
+                ColorObjectFromRGB(0xF6BE63),
+                ColorObjectFromRGB(0xBA7B62),
+                ColorObjectFromRGB(0xBB5137)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-purple
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-purple")), PaletteOrderedLinear, IDS_PALETTE_MAP_PURPLE_SEQUENTIAL, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xefedf5),
+                ColorObjectFromRGB(0xdadaeb),
+                ColorObjectFromRGB(0xbbbddc),
+                ColorObjectFromRGB(0x9e9ac8),
+                ColorObjectFromRGB(0x807dba)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-grey
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-grey")), PaletteOrderedLinear, IDS_PALETTE_MAP_GREY_SEQUENTIAL, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xf0f0f0),
+                ColorObjectFromRGB(0xd9d9d9),
+                ColorObjectFromRGB(0xbdbdbd),
+                ColorObjectFromRGB(0x969696),
+                ColorObjectFromRGB(0x737373)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-orange-blue
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-orange-blue")), PaletteOrderedDiverging, IDS_PALETTE_MAP_ORANGE_BLUE_DIVERGING, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE0AD30),
+                ColorObjectFromRGB(0xF0D198),
+                ColorObjectFromRGB(0xE4E4E2),
+                ColorObjectFromRGB(0xACBCCC),
+                ColorObjectFromRGB(0x7492AA),
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-light-red-green
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-light-red-green")), PaletteOrderedDiverging, IDS_PALETTE_MAP_LIGHT_RED_GREEN_DIVERGING, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xEDA389),
+                ColorObjectFromRGB(0xEED8BE),
+                ColorObjectFromRGB(0xCDE1D3),
+                ColorObjectFromRGB(0x8FAF9A),
+                ColorObjectFromRGB(0x5C8B70)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-temperature
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-temperatur")), PaletteOrderedDiverging, IDS_PALETTE_MAP_TEMPERATURE_DIVERGING, oldMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x529985),
+                ColorObjectFromRGB(0x79A163),
+                ColorObjectFromRGB(0xDBCF47),
+                ColorObjectFromRGB(0xF4BC4E),
+                ColorObjectFromRGB(0xC26B51)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+
+            // Palettes for use with Normal and Light maps
+            // All these palettes must have names ending in "-light"
+            PaletteFlags lightMapFlags = (PaletteFlags)(PaletteFlagNotQuantitative | PaletteFlagNotCategorical | PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapDark);
+            // area-red-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red-light")), PaletteOrderedLinear, IDS_PALETTE_AREA_RED, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF2D8D6),
+                ColorObjectFromRGB(0xF5CAC5),
+                ColorObjectFromRGB(0xF7BCB5),
+                ColorObjectFromRGB(0xF7B2A8),
+                ColorObjectFromRGB(0xF7A79B),
+                ColorObjectFromRGB(0xF19F92),
+                ColorObjectFromRGB(0xEB9788),
+                ColorObjectFromRGB(0xE58E7F),
+                ColorObjectFromRGB(0xDE8475),
+                ColorObjectFromRGB(0xD7796B),
+                ColorObjectFromRGB(0xD0695F)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-green-light")), PaletteOrderedLinear, IDS_PALETTE_AREA_GREEN, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE2EACB),
+                ColorObjectFromRGB(0xD4E7B8),
+                ColorObjectFromRGB(0xC6E3A8),
+                ColorObjectFromRGB(0xBBDDA0),
+                ColorObjectFromRGB(0xB2D69B),
+                ColorObjectFromRGB(0xA8D098),
+                ColorObjectFromRGB(0xA0C794),
+                ColorObjectFromRGB(0x98C08D),
+                ColorObjectFromRGB(0x92B97F),
+                ColorObjectFromRGB(0x8BB370),
+                ColorObjectFromRGB(0x83AD5F)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-brown-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-brown-light")), PaletteOrderedLinear, IDS_PALETTE_AREA_BROWN, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF1E5D3),
+                ColorObjectFromRGB(0xF2DDBC),
+                ColorObjectFromRGB(0xF3D5A6),
+                ColorObjectFromRGB(0xEFCD9A),
+                ColorObjectFromRGB(0xE8C59A),
+                ColorObjectFromRGB(0xE0BC9A),
+                ColorObjectFromRGB(0xD9B59A),
+                ColorObjectFromRGB(0xD2AD9A),
+                ColorObjectFromRGB(0xCFA494),
+                ColorObjectFromRGB(0xCF9A8A),
+                ColorObjectFromRGB(0xCF8F80)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-red-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red-green-light")), PaletteOrderedDiverging, IDS_PALETTE_AREA_RED_GREEN, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xD0695F),
+                ColorObjectFromRGB(0xD7776A),
+                ColorObjectFromRGB(0xDD8273),
+                ColorObjectFromRGB(0xE38B7C),
+                ColorObjectFromRGB(0xE99484),
+                ColorObjectFromRGB(0xEE9B8D),
+                ColorObjectFromRGB(0xF3A295),
+                ColorObjectFromRGB(0xF7AA9F),
+                ColorObjectFromRGB(0xF7B4AA),
+                ColorObjectFromRGB(0xF6C0B8),
+                ColorObjectFromRGB(0xEBE2D1),
+                ColorObjectFromRGB(0xD6E6BA),
+                ColorObjectFromRGB(0xC9E4AB),
+                ColorObjectFromRGB(0xBFDFA3),
+                ColorObjectFromRGB(0xB5D99D),
+                ColorObjectFromRGB(0xADD39A),
+                ColorObjectFromRGB(0xA5CC97),
+                ColorObjectFromRGB(0x9EC592),
+                ColorObjectFromRGB(0x97BF8B),
+                ColorObjectFromRGB(0x92B97D),
+                ColorObjectFromRGB(0x8BB370)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-blue-green-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-blue-green-light")), PaletteOrderedLinear, IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF7F8E1),
+                ColorObjectFromRGB(0xEDF4CA),
+                ColorObjectFromRGB(0xD4EBC9),
+                ColorObjectFromRGB(0xAADACF),
+                ColorObjectFromRGB(0x86CDD4)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-brown-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-brown-light")), PaletteOrderedLinear, IDS_PALETTE_MAP_BROWN_SEQUENTIAL, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xF3E8D6),
+                ColorObjectFromRGB(0xF7E2C4),
+                ColorObjectFromRGB(0xF2D19A),
+                ColorObjectFromRGB(0xCEA99A),
+                ColorObjectFromRGB(0xCF8F80)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-purple-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-purple-light")), PaletteOrderedLinear, IDS_PALETTE_MAP_PURPLE_SEQUENTIAL, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xEEEDF2),
+                ColorObjectFromRGB(0xE2E2EC),
+                ColorObjectFromRGB(0xCFD0E3),
+                ColorObjectFromRGB(0xBEBBD7),
+                ColorObjectFromRGB(0xACAACE)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-grey-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-grey-light")), PaletteOrderedLinear, IDS_PALETTE_MAP_GREY_SEQUENTIAL, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xEFEFEF),
+                ColorObjectFromRGB(0xE1E1E1),
+                ColorObjectFromRGB(0xD0D0D0),
+                ColorObjectFromRGB(0xB9B9B9),
+                ColorObjectFromRGB(0xA4A4A4)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-orange-blue-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-orange-blue-light")), PaletteOrderedDiverging, IDS_PALETTE_MAP_ORANGE_BLUE_DIVERGING, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0xE5C77C),
+                ColorObjectFromRGB(0xEFDCBA),
+                ColorObjectFromRGB(0xE8E8E6),
+                ColorObjectFromRGB(0xC6D0D9),
+                ColorObjectFromRGB(0xA4B6C5)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-temperature-light
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-temperatur-light")), PaletteOrderedDiverging, IDS_PALETTE_MAP_TEMPERATURE_DIVERGING, lightMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x90BBAF),
+                ColorObjectFromRGB(0xA7BF9A),
+                ColorObjectFromRGB(0xE2DB89),
+                ColorObjectFromRGB(0xF1D08E),
+                ColorObjectFromRGB(0xD39F8F)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // Palettes for use with Dark maps
+            // All these palettes must have names ending in "-dark"
+            PaletteFlags darkMapFlags = (PaletteFlags)(PaletteFlagNotQuantitative | PaletteFlagNotCategorical | PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight);
+            // area-red-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red-dark")), PaletteOrderedLinear, IDS_PALETTE_AREA_RED, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7B6564),
+                ColorObjectFromRGB(0x7F4A42),
+                ColorObjectFromRGB(0x7A362B),
+                ColorObjectFromRGB(0x6D2317),
+                ColorObjectFromRGB(0x5F0900)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-green-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-green-dark")), PaletteOrderedLinear, IDS_PALETTE_AREA_GREEN, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x6E745A),
+                ColorObjectFromRGB(0x526C3A),
+                ColorObjectFromRGB(0x3D5E30),
+                ColorObjectFromRGB(0x2E4E21),
+                ColorObjectFromRGB(0x1E4100)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-brown-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-brown-dark")), PaletteOrderedLinear, IDS_PALETTE_AREA_BROWN, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7A7061),
+                ColorObjectFromRGB(0x7A5F37),
+                ColorObjectFromRGB(0x6C4E32),
+                ColorObjectFromRGB(0x5F3D2F),
+                ColorObjectFromRGB(0x5E291C)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // area-red-green-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("area-red-green-dark")), PaletteOrderedDiverging, IDS_PALETTE_AREA_RED_GREEN, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x5E0800),
+                ColorObjectFromRGB(0x756D5F),
+                ColorObjectFromRGB(0x25460E)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-blue-green-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-blue-green-dark")), PaletteOrderedLinear, IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7F806D),
+                ColorObjectFromRGB(0x777C5A),
+                ColorObjectFromRGB(0x627559),
+                ColorObjectFromRGB(0x3F675E),
+                ColorObjectFromRGB(0x215C62)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-brown-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-brown-dark")), PaletteOrderedLinear, IDS_PALETTE_MAP_BROWN_SEQUENTIAL, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7C7263),
+                ColorObjectFromRGB(0x7F6E54),
+                ColorObjectFromRGB(0x7B5F32),
+                ColorObjectFromRGB(0x5D3E31),
+                ColorObjectFromRGB(0x5E291C)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-purple-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-purple-dark")), PaletteOrderedLinear, IDS_PALETTE_MAP_PURPLE_SEQUENTIAL, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x78777B),
+                ColorObjectFromRGB(0x6D6D76),
+                ColorObjectFromRGB(0x5E5F6E),
+                ColorObjectFromRGB(0x4F4D64),
+                ColorObjectFromRGB(0x403F5D)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-grey-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-grey-dark")), PaletteOrderedLinear, IDS_PALETTE_MAP_GREY_SEQUENTIAL, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x787878),
+                ColorObjectFromRGB(0x6D6D6D),
+                ColorObjectFromRGB(0x5F5F5F),
+                ColorObjectFromRGB(0x4B4B4B),
+                ColorObjectFromRGB(0x3A3A3A)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-orange-blue-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-orange-blue-dark")), PaletteOrderedDiverging, IDS_PALETTE_MAP_ORANGE_BLUE_DIVERGING, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x705718),
+                ColorObjectFromRGB(0x78694C),
+                ColorObjectFromRGB(0x727271),
+                ColorObjectFromRGB(0x565E66),
+                ColorObjectFromRGB(0x3A4955)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            // tableau-map-temperature-dark
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-map-temperatur-dark")), PaletteOrderedDiverging, IDS_PALETTE_MAP_TEMPERATURE_DIVERGING, darkMapFlags);
+            pal->SetColors({
+                ColorObjectFromRGB(0x294D43),
+                ColorObjectFromRGB(0x6E6824),
+                ColorObjectFromRGB(0x613629)
+            });
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+
+
+            // For multiple dimensions on color
+            // We don't want these showing up anywhere in the UI; they're applied automatically when multiple
+            // dimensions are used on color.
+            const int multiDimensionFlags =
+                PaletteFlagNotQuantitative | PaletteFlagNotCategorical | PaletteFlagNotReferenceBand | PaletteFlagNotBoxplot | PaletteFlagNotFilledMapLight | PaletteFlagNotFilledMapDark;
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_blue")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x1f77b4),
+                ColorObjectFromRGB(0x4f8ac1),
+                ColorObjectFromRGB(0x729ece),
+                ColorObjectFromRGB(0x90b2db),
+                ColorObjectFromRGB(0xaec7e8)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_orange")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xff7f0e),
+                ColorObjectFromRGB(0xff8f31),
+                ColorObjectFromRGB(0xff9e4a),
+                ColorObjectFromRGB(0xffac61),
+                ColorObjectFromRGB(0xffbb78)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_green")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x2ca02c),
+                ColorObjectFromRGB(0x4cb045),
+                ColorObjectFromRGB(0x67bf5c),
+                ColorObjectFromRGB(0x80cf73),
+                ColorObjectFromRGB(0x98df8a)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_red")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd62728),
+                ColorObjectFromRGB(0xe24a42),
+                ColorObjectFromRGB(0xed665d),
+                ColorObjectFromRGB(0xf77f79),
+                ColorObjectFromRGB(0xff9896)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_purple")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9467bd),
+                ColorObjectFromRGB(0xa179c3),
+                ColorObjectFromRGB(0xad8bc9),
+                ColorObjectFromRGB(0xb99ecf),
+                ColorObjectFromRGB(0xc5b0d5)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_brown")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x8c564b),
+                ColorObjectFromRGB(0x9a675c),
+                ColorObjectFromRGB(0xa8786e),
+                ColorObjectFromRGB(0xb68a81),
+                ColorObjectFromRGB(0xc49c94)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_pink")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xe377c2),
+                ColorObjectFromRGB(0xe887c6),
+                ColorObjectFromRGB(0xed97ca),
+                ColorObjectFromRGB(0xf2a7ce),
+                ColorObjectFromRGB(0xf7b6d2)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gray")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7f7f7f),
+                ColorObjectFromRGB(0x909090),
+                ColorObjectFromRGB(0xa2a2a2),
+                ColorObjectFromRGB(0xb4b4b4),
+                ColorObjectFromRGB(0xc7c7c7)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gold")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xbcbd22),
+                ColorObjectFromRGB(0xc5c443),
+                ColorObjectFromRGB(0xcdcc5d),
+                ColorObjectFromRGB(0xd4d376),
+                ColorObjectFromRGB(0xdbdb8d)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_teal")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x17becf),
+                ColorObjectFromRGB(0x4ec5d4),
+                ColorObjectFromRGB(0x6dccda),
+                ColorObjectFromRGB(0x87d3df),
+                ColorObjectFromRGB(0x9edae5)
+            });

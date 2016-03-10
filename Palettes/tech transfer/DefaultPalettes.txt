@@ -1,0 +1,12 @@
+                    { DefaultPaletteType::SmallNominal, ColorPaletteID("tableau-color-blind") },
+                    { DefaultPaletteType::LargeNominal, ColorPaletteID("tableau-traffic-light") },
+                    { DefaultPaletteType::Ordinal, ColorPaletteID("tableau-red-black") },
+                    { DefaultPaletteType::QuantitativePositive, ColorPaletteID("tableau-blue") },
+                    { DefaultPaletteType::QuantitativeNegative, ColorPaletteID("tableau-green") },
+                    { DefaultPaletteType::QuantitativeDiverging, ColorPaletteID("tableau-red-black") },
+                    { DefaultPaletteType::QuantitativePositiveLight, ColorPaletteID("tableau-orange-light") },
+                    { DefaultPaletteType::QuantitativeNegativeLight, ColorPaletteID("tableau-blue-light") },
+                    { DefaultPaletteType::QuantitativeDivergingLight, ColorPaletteID("tableau-orange-blue-light") },
+                    { DefaultPaletteType::QuantitativePositiveArea, ColorPaletteID("area-brown") },
+                    { DefaultPaletteType::QuantitativeNegativeArea, ColorPaletteID("area-green") },
+                    { DefaultPaletteType::QuantitativeDivergingArea, ColorPaletteID("tableau-red-green") }
