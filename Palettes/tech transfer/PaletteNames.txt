@@ -1,4 +1,32 @@
-    [ IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL,     "Blue-Green Sequential" ]
+
+    !
+    ! Color palettes
+    !
+
+    [ IDS_CAT_COLOR_SELECT,              "&Select Color Palette:" ]
+
+    [ IDS_PALETTE_AUTOMATIC,             "Automatic" ]
+    [ IDS_PALETTE_BLUE,                  "Blue" ]
+    [ IDS_PALETTE_CUSTOMDIVERGING,       "Custom Diverging" ]
+    [ IDS_PALETTE_CUSTOMSEQUENTIAL,      "Custom Sequential" ]
+    [ IDS_PALETTE_CYCLIC,                "Cyclic" ]
+    [ IDS_PALETTE_GRAY,                  "Gray" ]
+    [ IDS_PALETTE_GREEN,                 "Green" ]
+    [ IDS_PALETTE_GREENBLUE,             "Green-Blue Diverging" ]
+    [ IDS_PALETTE_ORANGE,                "Orange" ]
+    [ IDS_PALETTE_RED,                   "Red" ]
+    [ IDS_PALETTE_REDBLACK,              "Red-Black Diverging" ]
+    [ IDS_PALETTE_REDBLUE,               "Red-Blue Diverging" ]
+    [ IDS_PALETTE_REDGREEN,              "Red-Green Diverging" ]
+
+
+    ! Color palette names
+    [ IDS_PALETTE_TABLEAU10,         "Tableau 10" ]
+    [ IDS_PALETTE_TABLEAU10LIGHT,    "Tableau 10 Light" ]
+    [ IDS_PALETTE_TABLEAU20,         "Tableau 20" ]
+    [ IDS_PALETTE_TABLEAU10MEDIUM,   "Tableau 10 Medium" ]    
+
+[ IDS_PALETTE_MAP_BLUE_GREEN_SEQUENTIAL,     "Blue-Green Sequential" ]
     [ IDS_PALETTE_MAP_BROWN_SEQUENTIAL,          "Brown Sequential" ]
     [ IDS_PALETTE_MAP_PURPLE_SEQUENTIAL,         "Purple Sequential" ]
     [ IDS_PALETTE_MAP_GREY_SEQUENTIAL,           "Grey Sequential" ]

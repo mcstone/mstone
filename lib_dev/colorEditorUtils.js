@@ -1,12 +1,5 @@
 //javascript color palette utilities
-var tableau10= ['#1F77B4','#FF7F0E','#2CA02C','#D62728','#9467BD','#8C564B','#E377C2','#7F7F7F','#BCBD22','#17BECF']
-
-var tableauLight= ['#AEC7E8','#FFBB78','#98DF8A','#FF9896','#C5B0D5','#C49C94','#F7B6D2','#C7C7C7','#DBDB8D','#9EDAE5']
-
-var tableauMedium= ['#729ECE','#FF9E4A','#67BF5C','#ED665D','#AD8BC9','#A8786E','#ED97CA','#A2A2A2','#CDCC5D','#6DCCDA']
-
-var tableau20= ['#1F77B4','#AEC7E8','#FF7F0E','#FFBB78','#2CA02C','#98DF8A','#D62728','#FF9896','#9467BD','#C5B0D5', '#8C564B','#C49C94','#E377C2','#F7B6D2','#7F7F7F','#C7C7C7','#BCBD22','#DBDB8D','#17BECF','#9EDAE5']
-
+//needs colorEditorData.js, chroma.js
 
 function colorItem(color, selected, palette, name, notes) {
 	this.color = color
@@ -23,25 +16,9 @@ function paletteItem(pName,pType, original, edited) {
 	this.gColors = []	//generated colors for sequentials
 	this.version = 0
 }
-function hexFromName(name) {
-	var hex
-	switch(name) {
-		case "Tableau 10": hex=tableau10; break;
-		case "Tableau 20": hex=tableau20; break;
-		case "Colorblind": hex=colorblind; break;
-		case "Tableau Light": hex=tableauLight; break;
-		case "Gray 5": hex=gray5; break;
-		case "Affect": hex=affect; break;
-		case "Cristy All": hex=cristy_all; break;
-		case "New Palette": hex = []; break;
-		case "Vizable": hex = vizable; break;
-		default: hex = [];
-	}
-	return hex
-}
 
 function initPalettes(state) {
-	var pNames = ["New Palette","Tableau 10","Tableau 20"]
+	var pNames = ["New Palette","Tableau 10","Tableau 20","Tableau Light", "T10 Mod2"]
 	state.palettes = []
 	for (var i=0;i<pNames.length;i++) {
 		var hex = hexFromName(pNames[i])

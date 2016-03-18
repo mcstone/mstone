@@ -1,0 +1,42 @@
+[ IDS_PALETTE_BLUE,                  "Blue" ]
+[ IDS_PALETTE_GRAY,                  "Gray" ]
+[ IDS_PALETTE_GREEN,                 "Green" ]
+[ IDS_PALETTE_ORANGE,                "Orange" ]
+[ IDS_PALETTE_RED,                   "Red" ]
+
+[ IDS_PALETTE_GREENBLUE,             "Green-Blue Diverging" ]
+[ IDS_PALETTE_ORANGEBLUE,            "Orange-Blue Diverging" ]
+[ IDS_PALETTE_REDBLACK,              "Red-Black Diverging" ]
+[ IDS_PALETTE_REDBLUE,               "Red-Blue Diverging" ]
+[ IDS_PALETTE_REDGREEN,              "Red-Green Diverging" ]
+
+[ IDS_PALETTE_REDWHITEBLACK,           "Red-White-Black Diverging" ]
+[ IDS_PALETTE_REDWHITEGREEN,           "Red-White-Green Diverging" ]
+[ IDS_PALETTE_ORANGEWHITEBLUE,         "Orange-White-Blue Diverging" ]
+[ IDS_PALETTE_REDWHITEGREENLIGHT,      "Red-White-Green Light Diverging" ]
+[ IDS_PALETTE_REDWHITEBLACKLIGHT,      "Red-White-Black Light Diverging" ]
+[ IDS_PALETTE_ORANGEWHITEBLUELIGHT,    "Orange-White-Blue Light Diverging" ]
+
+[ IDS_PALETTE_AREA_GREEN,     "Area Green" ]
+[ IDS_PALETTE_AREA_RED,       "Area Red" ]
+[ IDS_PALETTE_AREA_BROWN,     "Area Brown" ]
+[ IDS_PALETTE_AREA_RED_GREEN, "Area Red-Green Diverging" ]
+
+
+[ IDS_PALETTE_CYCLIC,                "Color Cycle" ]
+
+[ IDS_PALETTE_TABLEAU10,         "Tableau 10" ]
+[ IDS_PALETTE_TABLEAU10LIGHT,    "Tableau 10 Light" ]
+[ IDS_PALETTE_TABLEAU20,         "Tableau 20" ]
+[ IDS_PALETTE_TABLEAU10DARK,   "Tableau 10 Dark" ] 
+
+[ IDS_PALETTE_COLORBLIND,         "Color Blind Safe" ]
+[ IDS_PALETTE_GRAY5,                   "Seattle Winter" ]
+[ IDS_PALETTE_TRAFFICLIGHT,            "Traffic Light" ]
+[ IDS_PALETTE_SUPERFISHEL_STONE,            "SuperFishel Stone" ]
+[ IDS_PALETTE_MILLER_STONE,            "Miller Stone" ]
+[ IDS_PALETTE_PURPLE_GRAYS,            "Purple Grays" ]
+[ IDS_PALETTE_TROPICOLOR,            "Tropicolor" ]
+[ IDS_PALETTE_FRENCH_SISTERS,            "French Sisters" ]
+
+
