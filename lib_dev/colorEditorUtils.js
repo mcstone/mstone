@@ -10,7 +10,7 @@ function colorItem(color, selected, palette, name, notes) {
  }
 function paletteItem(pName,pType, original, edited) {
 	this.pName = pName
-	this.pType = pType	//regular, sequential, formatting
+	this.pType = pType	//regular, sequential, diverging, formatting
 	this.oColors = original
 	this.eColors = edited
 	this.gColors = []	//generated colors for sequentials
@@ -18,14 +18,25 @@ function paletteItem(pName,pType, original, edited) {
 }
 
 function initPalettes(state) {
-	var pNames = ["New Palette","Tableau 10","Tableau 20","Tableau Light", "T10 Mod2"]
 	state.palettes = []
-	for (var i=0;i<pNames.length;i++) {
-		var hex = hexFromName(pNames[i])
-		state.palettes[i] = createPalette(hex, pNames[i])
+	var selName = ''
+	for (var i=0;i<allPalettes.length;i++) {
+		var pVals =parseXML(allPalettes[i])[0]
+		state.palettes[i] = createPalette(pVals.hex,pVals.pName,pVals.pType)
+		selName = pVals.pName
 	}
-	setPalette(state,pNames[1])	 
+	setPalette(state,selName)	 
 }
+
+function createPalette(hex,pName,pType) {
+	var colors = []
+	for (var i=0; i< hex.length; i++) {
+		colors[i] = new colorItem(chroma(hex[i]),false,pName,hex)
+	}
+	var p =  new paletteItem(pName, pType, colors, copyColors(colors,pName))
+	return p
+}
+
 function findPalette(palettes,pName) {
 	for(var i=0;i<palettes.length;i++) {
 		if (palettes[i].pName == pName) {return i}  //we're going to use pointers
@@ -33,7 +44,7 @@ function findPalette(palettes,pName) {
 }
 function addToPalette(palette, hex, selected) {
 	var index = palette.eColors.length
-	palette.eColors[index] = new colorItem(chroma(hex),selected,palette.pName,'regular')
+	palette.eColors[index] = new colorItem(chroma(hex),selected,palette.pName,hex)
 	return palette.eColors[index]
 }
 function deleteFromPalette(palette,point) {
@@ -188,6 +199,47 @@ function paletteToXML(colors, pName, pType) {
 	}
 	return xml
 }
+function paletteToCode(colors,pName,pType) {
+	var ptp = pType.split('.')	//picks a basic type
+	var code = ''
+	if (ptp[0]=='formatting'){code = paletteToFormattingXML(colors,ptp[1])}
+	//pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-color-blind")), PaletteRegular, IDS_PALETTE_COLORBLIND);
+	else {
+		var id = pNameToCodeID(pName)
+		code = '\/\/ '+pName+'\n'
+		code = code+ 'pal = make_unique<TableauColorPalette>(ColorPaletteID(TS('+'\"'+pName+'\"'+')), ' + xmlToCodeType(ptp[0]) +', '+id+');\n'
+		code = code+'pal->SetColors({\n'
+		for (var i=0;i<colors.length;i++) {
+			code = code +'    ColorObjectFromRGB('+colorToCodeHex(colors[i]) +'),\n'
+		}
+		code = code +'});\n'
+		code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n'
+	}
+	return code
+	
+}
+function pNameToCode(pName){
+	var id = pNameToCodeID(pName)
+	var code = '[ '
+	code = code +id+',    '+'\"'+pName+'\"  ]'
+	return code
+}
+
+function pNameToCodeID(pName){
+	return'IDS_PALETTE_'+pName.toUpperCase()
+}
+function xmlToCodeType (xmlType){
+	var codeType = "PaletteRegular"
+	switch(xmlType) {
+		case "ordered-sequential": codeType = "PaletteOrderedSequential"; break;
+		case "ordered-diverging":  codeType = "PaletteOrderedDiverging"; break;
+	}
+	return codeType
+}
+function colorToCodeHex(color){
+	var hex = color.color.hex().substring(1).toUpperCase()	//split off the #
+	return '0x'+hex
+}
 function paletteToFormattingXML(colors, pType) {
 	//pType = light, dark, gray
 	var numStrings =['first','second','third','fourth','fifth', 'sixth', 'seventh', 'eighth', 'ninth']
@@ -238,14 +290,7 @@ function paletteToFormattingXML(colors, pType) {
 	}				
 	return xml
 }
-function createPalette(hex,pName,pType) {
-	var colors = []
-	for (var i=0; i< hex.length; i++) {
-		colors[i] = new colorItem(chroma(hex[i]),false,pName,'regular')
-	}
-	var p =  new paletteItem(pName, pType, colors, copyColors(colors,pName))
-	return p
-}
+
 function copyColors(cArray, pName) { //deep copy of an array of color items
 	var colors = []
 	for (var i=0; i<cArray.length; i++) {

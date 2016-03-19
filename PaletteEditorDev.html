@@ -10,8 +10,9 @@
 	<link href="mstone.css" rel="stylesheet">
 	<script type="text/javascript"  src="lib/chroma.js"></script>
 	<script type="text/javascript"  src="lib/d3.v3.js"></script>
-	<script type="text/javascript"  src="lib/colorEditorUtils.js"></script>
-	<script type="text/javascript"  src="lib/colorEditorDisplay.js"></script>
+	<script type="text/javascript"  src="lib_dev/colorEditorData.js"></script>
+	<script type="text/javascript"  src="lib_dev/colorEditorUtils.js"></script>
+	<script type="text/javascript"  src="lib_dev/colorEditorDisplay.js"></script>
 	<script type="text/javascript"  src="lib/myclusters.js"></script>
 </head>
 <style>
@@ -310,6 +311,10 @@ $(document).ready(function() {
 			var xmlType = $('#select-pType').val()
 			pText = paletteToXML(state.colors,state.palette.pName,xmlType)
 		}
+		else if (type=='code') {
+			pText = paletteToCode(state.colors,state.palette.pName,state.palette.pType)
+			pText = pText+pNameToCode(state.palette.pName)+'\n'
+		}
 		else {}
 		$('#io-text').val(pText)
 	})
@@ -325,7 +330,17 @@ $(document).ready(function() {
 				pText = pText+createHexString(colors,pName)+'/\n'
 			}
 		}
-		else {
+		if (type=='code') {
+			for (var p=0; p<state.palettes.length; p++) {
+				colors = state.palettes[p].eColors
+				pName = state.palettes[p].pName
+				var pType = state.palettes[p].pType
+				pText = pText+paletteToCode(colors,pName, pType)+'\n'
+			}
+			for (var p=0; p<state.palettes.length; p++) {
+				pText = pText+pNameToCode(state.palettes[p].pName)+'\n'
+			}
+		}else {
 			var pType = $('#select-pType').val()
 			for (var p=0; p<state.palettes.length; p++) {
 				colors = state.palettes[p].eColors
@@ -566,6 +581,8 @@ function clearSort() {
 			<form id='file_type' >
 				<input type="radio" name='file_type' value='hex' checked>Hex</input>
 				<input type="radio" name='file_type' value='xml'>XML</input>
+				<input type="radio" name='file_type' value='code'>code</input>
+		
 			</form>
 		</div>
 		<div class = "control-group" >
