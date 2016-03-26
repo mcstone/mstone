@@ -1,0 +1,51 @@
+
+formatting lights  #efebe8, #f5f1f0, #f9f8f7, #f0eae8, #f5f0ef, #faf5f4, #f5eddc, #faf4e7, #fefaf1, #e9ebe0, #f0f1e8, #f7f7f0, #ebebeb, #f2f2f2, #f9f9f9, #dfe7e8, #e9f0f1, #f2f9f9, #f3ebf3, #f7f1f6, #fbf7fb, #e2e6f0, #e9edf5, #f0f3fa, #e6ecf0, #eef1f3, #f2f6f7, #ddebf0, #e7f1f5, #f0f7fa, #dfedeb, #e9f3f2, #f3faf9, #e8edda, #eff3e3, #f7faf0, #f5ead7, #f6eee3, #faf5f0, #f9e9e0, #f9eee8, #f9f3ef
+
+formatting darks #4e79a7, #7ca7cd, #aad7f4, #f28e2b, #f9a447, #ffba61, #57a76a, #71bc73, #8cd17d, #bd9e34, #d7b54b, #f1ce63, #3f959f, #6bb1b6, #92cecc, #e15759, #ef807d, #faa8a3, #9c755f, #bd9885, #debcad, #d37295, #e598b1, #f6bcce, #79706e, #98908d, #b9b1ad, #a57197, #c18cb2, #dda9cd, #59504e, #98908c, #dcd4d0, #49525e, #889296, #d5d5d5
+
+
+Pink
+#f9f3ef, #f9eee8, #f9e9e0, 
+
+Tan
+#faf5f0, #f6eee3, #f5ead7,
+
+Green
+#f7faf0, #eff3e3, #e8edda,
+
+Aqua
+#f3faf9, #e9f3f2, #dfedeb,
+
+Blue
+#f0f7fa, #e7f1f5, #ddebf0,
+
+Cool gray
+#f2f6f7, #eef1f3, #e6ecf0,
+
+Slate
+#f0f3fa, #e9edf5, #e2e6f0,
+
+Violet
+#f8f5fa, #efe9f1, #ede4f0,
+
+Blue gray
+#f2f9f9, #e9f0f1, #dfe7e8,
+
+True gray
+#f9f9f9, #f2f2f2, #ebebeb,
+
+Gray green
+#f7f7f0, #f0f1e8, #e9ebe0,
+
+Yellow tan
+#fffbf2, #faf4e7, #f5eddc,
+
+Warm gray
+#faf5f4, #f5f0ef, #f0eae8,
+
+Pearl gray
+#f9f8f7, #f5f1f0, #efebe8,
+
+
+
+#1B1B1B, #353535, #555555, #686868, #898989, #F7F7F7, #F0F0F0, #D7D7D7, #C0C0C0, #ACACAC 

@@ -1,0 +1,6 @@
+tableau_light_10_0 #b9b1ad, #dda9cd, #faa8a3, #8cd17d, #debcad, #92cecc, #ffba61, #f6bcce, #aad7f4, #f1ce63/
+tableau_dark_10_0  #79706e, #4e79a7, #9c755f, #a57197, #e15759, #3f959f, #d37295, #57a76a, #bd9e34, #f28e2b/
+//adjusting the above to be more unform in L and more similar in lightness order
+tableau_light_10_0(cp)  #b9b1ad, #92bad7, #d9af99, #d8aed1, #faa8a3, #90ccca, #fbbfd1, #9adb8c, #ffba61, #f6d267/
+tableau_dark_10_0(cp)  #766d6c, #4e79a7, #99745d, #a57197, #e15759, #4197a1, #d37295, #57a76a, #f28e2b, #d2b047/
+new 20  #e15759, #faa8a3, #766d6c, #b9b1ad, #99745d, #d9af99, #f28e2b, #ffba61, #d2b047, #f6d267, #57a76a, #9adb8c, #4197a1, #90ccca, #4e79a7, #92bad7, #a57197, #d8aed1, #d37295, #fbbfd1

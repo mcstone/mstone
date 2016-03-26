@@ -1,0 +1,159 @@
+
+                // ----------------------------------------------------------------------------------------
+                // Formatting Color Swatches Section
+                // ----------------------------------------------------------------------------------------
+
+                // ------- Preset Black And White
+                { TS("swatch.firstcol.firstrow"), PE(TS("#000000")) },
+                { TS("swatch.secondcol.firstrow"), PE(TS("#FFFFFF")) },
+
+                // ------- Preset Grays
+                { TS("swatch.firstcol.secondrow"), PE(TS("#1B1B1B")) },
+                { TS("swatch.firstcol.thirdrow"), PE(TS("#353535")) },
+                { TS("swatch.firstcol.fourthrow"), PE(TS("#555555")) }, // Default text color for Clean theme
+                { TS("swatch.firstcol.fifthrow"), PE(TS("#686868")) },
+                { TS("swatch.firstcol.sixthrow"), PE(TS("#898989")) },
+
+                { TS("swatch.secondcol.secondrow"), PE(TS("#F7F7F7")) }, // Ultra light gray added to complement other ultra lights (for banding)
+                { TS("swatch.secondcol.thirdrow"), PE(TS("#F0F0F0")) }, // Default header bgd color and default pane band color for Modern theme
+                { TS("swatch.secondcol.fourthrow"), PE(TS("#D7D7D7")) }, // Default header band color and default zero line color for Modern theme
+                { TS("swatch.secondcol.fifthrow"), PE(TS("#C0C0C0")) },
+                { TS("swatch.secondcol.sixthrow"), PE(TS("#ACACAC")) },
+
+                // ------- Preset lights - top section
+                // B -Pinks
+                { TS("swatch.light.thirdcol.firstrow"), PE(TS("#EBD1D1")) },
+                { TS("swatch.light.thirdcol.secondrow"), PE(TS("#F2E6E6")) },
+                { TS("swatch.light.thirdcol.thirdrow"), PE(TS("#FAF2F2")) },
+
+                // D- Taupes (C- Flesh was deleted - TS("#EBD2BE"), TS("#F7E2D0"), TS("#FCF1E8"))
+                { TS("swatch.light.fourthcol.firstrow"), PE(TS("#E3D7C3")) },
+                { TS("swatch.light.fourthcol.secondrow"), PE(TS("#F3E6D3")) },
+                { TS("swatch.light.fourthcol.thirdrow"), PE(TS("#FCF4E8")) },
+
+                // E - Oranges
+                { TS("swatch.light.fifthcol.firstrow"), PE(TS("#F0D9B6")) },
+                { TS("swatch.light.fifthcol.secondrow"), PE(TS("#FAE7C8")) },
+                { TS("swatch.light.fifthcol.thirdrow"), PE(TS("#FBF2E2")) },
+
+                // G - Yellows (F - Gold was deleted - TS("#FFD48F"), TS("#FFE9C4"), TS("#FFF3DE"))
+                { TS("swatch.light.sixthcol.firstrow"), PE(TS("#FFE791")) },
+                { TS("swatch.light.sixthcol.secondrow"), PE(TS("#FFF2BF")) },
+                { TS("swatch.light.sixthcol.thirdrow"), PE(TS("#FFF8DE")) },
+
+                // H - Ochres
+                { TS("swatch.light.seventhcol.firstrow"), PE(TS("#E0D490")) },
+                { TS("swatch.light.seventhcol.secondrow"), PE(TS("#F5EAAB")) },
+                { TS("swatch.light.seventhcol.thirdrow"), PE(TS("#FFF8D6")) },
+
+                // I - Eau De Niles
+                { TS("swatch.light.eighthcol.firstrow"), PE(TS("#DAE5C1")) },
+                { TS("swatch.light.eighthcol.secondrow"), PE(TS("#EAEDD3")) },
+                { TS("swatch.light.eighthcol.thirdrow"), PE(TS("#F0FAE8")) },
+
+                // J - Olives
+                { TS("swatch.light.ninthcol.firstrow"), PE(TS("#CDE5BC")) },
+                { TS("swatch.light.ninthcol.secondrow"), PE(TS("#DBF0CC")) },
+                { TS("swatch.light.ninthcol.thirdrow"), PE(TS("#EAF7E1")) },
+
+                // ------- Preset Light - bottom section
+                // L - Turquoises (K - Green was deleted - TS("#B5EAD7"), TS("#D3F2E7"), TS("#F0FCF8"))
+                { TS("swatch.light.thirdcol.fourthrow"), PE(TS("#B5EAD7")) },
+                { TS("swatch.light.thirdcol.fifthrow"), PE(TS("#D3F2E7")) },
+                { TS("swatch.light.thirdcol.sixthrow"), PE(TS("#F0FCF8")) },
+
+                // N - Ocean Blues (M - Sky Blues was deleted - TS("#BAE9E9"), TS("#CEF0F0"), TS("#E1F5F5"))
+                { TS("swatch.light.fourthcol.fourthrow"), PE(TS("#BEE2E8")) },
+                { TS("swatch.light.fourthcol.fifthrow"), PE(TS("#D6F2F7")) },
+                { TS("swatch.light.fourthcol.sixthrow"), PE(TS("#EEFCFF")) },
+
+                // Q - Carolina Blues (O - Deep Blue was deleted - TS("#AED7F5"), TS("#CCEAFF"), TS("#E7F5FF"))
+                { TS("swatch.light.fifthcol.fourthrow"), PE(TS("#B7D2F2")) },
+                { TS("swatch.light.fifthcol.fifthrow"), PE(TS("#D7E9FF")) },
+                { TS("swatch.light.fifthcol.sixthrow"), PE(TS("#EBF4FF")) },
+
+                // P - Blue Gray
+                { TS("swatch.light.sixthcol.fourthrow"), PE(TS("#C1D6E5")) },
+                { TS("swatch.light.sixthcol.fifthrow"), PE(TS("#D5E8F5")) },
+                { TS("swatch.light.sixthcol.sixthrow"), PE(TS("#EBF7FF")) },
+
+                // R - Indigo
+                { TS("swatch.light.seventhcol.fourthrow"), PE(TS("#C3CDEB")) },
+                { TS("swatch.light.seventhcol.fifthrow"), PE(TS("#E1E8FA")) },
+                { TS("swatch.light.seventhcol.sixthrow"), PE(TS("#F0F3FA")) },
+
+                // T - Lavender (S - Purple was deleted - TS("#D1D3E8"), TS("#E6E8F2"), TS("#F2F4FA"))
+                { TS("swatch.light.eighthcol.fourthrow"), PE(TS("#D3D1E8")) },
+                { TS("swatch.light.eighthcol.fifthrow"), PE(TS("#E5E4F6")) },
+                { TS("swatch.light.eighthcol.sixthrow"), PE(TS("#F3F2FA")) },
+
+                // A - Lilac
+                { TS("swatch.light.ninthcol.fourthrow"), PE(TS("#D8CEDF")) },
+                { TS("swatch.light.ninthcol.fifthrow"), PE(TS("#EEE6F2")) },
+                { TS("swatch.light.ninthcol.sixthrow"), PE(TS("#F4F0F5")) },
+
+                // ------- Preset Dark - top section
+                // D - Taupe
+                { TS("swatch.dark.thirdcol.firstrow"), PE(TS("#735C3A")) },
+                { TS("swatch.dark.thirdcol.secondrow"), PE(TS("#9C835F")) },
+                { TS("swatch.dark.thirdcol.thirdrow"), PE(TS("#C1A681")) },
+
+                // X - Red
+                { TS("swatch.dark.fourthcol.firstrow"), PE(TS("#820000")) },
+                { TS("swatch.dark.fourthcol.secondrow"), PE(TS("#B40F1E")) },
+                { TS("swatch.dark.fourthcol.thirdrow"), PE(TS("#D8504C")) },
+
+                // E - Oranges
+                { TS("swatch.dark.fifthcol.firstrow"), PE(TS("#9E4C00")) },
+                { TS("swatch.dark.fifthcol.secondrow"), PE(TS("#CC721E")) },
+                { TS("swatch.dark.fifthcol.thirdrow"), PE(TS("#F1923E")) },
+
+                // G - Yellows
+                { TS("swatch.dark.sixthcol.firstrow"), PE(TS("#906800")) },
+                { TS("swatch.dark.sixthcol.secondrow"), PE(TS("#B68900")) },
+                { TS("swatch.dark.sixthcol.thirdrow"), PE(TS("#DAA800")) },
+
+                // I - Eau De Nile
+                { TS("swatch.dark.seventhcol.firstrow"), PE(TS("#567332")) },
+                { TS("swatch.dark.seventhcol.secondrow"), PE(TS("#7C9B57")) },
+                { TS("swatch.dark.seventhcol.thirdrow"), PE(TS("#99B872")) },
+
+                // J - Olives
+                { TS("swatch.dark.eighthcol.firstrow"), PE(TS("#26794A")) },
+                { TS("swatch.dark.eighthcol.secondrow"), PE(TS("#4D9F6D")) },
+                { TS("swatch.dark.eighthcol.thirdrow"), PE(TS("#67B986")) },
+
+                // ------- Preset Dark - bottom section
+                // L - Turquoises
+                { TS("swatch.dark.thirdcol.fourthrow"), PE(TS("#437564")) },
+                { TS("swatch.dark.thirdcol.fifthrow"), PE(TS("#679A88")) },
+                { TS("swatch.dark.thirdcol.sixthrow"), PE(TS("#87BBA8")) },
+
+                // N - Ocean Blues
+                { TS("swatch.dark.fourthcol.fourthrow"), PE(TS("#3F6A6E")) },
+                { TS("swatch.dark.fourthcol.fifthrow"), PE(TS("#628E92")) },
+                { TS("swatch.dark.fourthcol.sixthrow"), PE(TS("#87B4B8")) },
+
+                // Q - Carolina Blues
+                { TS("swatch.dark.fifthcol.fourthrow"), PE(TS("#4F6E8D")) },
+                { TS("swatch.dark.fifthcol.fifthrow"), PE(TS("#6F95BF")) },
+                { TS("swatch.dark.fifthcol.sixthrow"), PE(TS("#8DB5E0")) },
+
+                // P - Blue Gray
+                { TS("swatch.dark.sixthcol.fourthrow"), PE(TS("#297A98")) },
+                { TS("swatch.dark.sixthcol.fifthrow"), PE(TS("#439AB9")) },
+                { TS("swatch.dark.sixthcol.sixthrow"), PE(TS("#62B6D5")) },
+
+                // R - Indigo
+                { TS("swatch.dark.seventhcol.fourthrow"), PE(TS("#404B73")) },
+                { TS("swatch.dark.seventhcol.fifthrow"), PE(TS("#7780A2")) },
+                { TS("swatch.dark.seventhcol.sixthrow"), PE(TS("#A4ACCC")) },
+
+                // T - Lavender
+                { TS("swatch.dark.eighthcol.fourthrow"), PE(TS("#605D7C")) },
+                { TS("swatch.dark.eighthcol.fifthrow"), PE(TS("#928DAF")) },
+                { TS("swatch.dark.eighthcol.sixthrow"), PE(TS("#ADA8CB")) },
+
+                // ----------------------------------------------------------------------------------------
+                // End of Formatting Color Swatches Section
+                // ----------------------------------------------------------------------------------------

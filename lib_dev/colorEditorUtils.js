@@ -80,18 +80,18 @@ function chromaToColors(cColors,pName) {  //cColors are hex values
 	return colors
 }
 function sortColors(colors,sType) {
-switch(sType) {
-		case "L": 
-			colors.sort(function(c1,c2){return byLCH(c1,c2,0)})
-			break;
-		case "C":
-			colors.sort(function(c1,c2){return byLCH(c1,c2,2)})
-			break;
-		case "H":
-			colors.sort(function(c1,c2){return byLCH(c1,c2,1)})
-			break;
-	}
-	return colors
+	switch(sType) {
+			case "L": 
+				colors.sort(function(c1,c2){return byLCH(c1,c2,0)})
+				break;
+			case "C":
+				colors.sort(function(c1,c2){return byLCH(c1,c2,2)})
+				break;
+			case "H":
+				colors.sort(function(c1,c2){return byLCH(c1,c2,1)})
+				break;
+		}
+		return colors
 }
 
 	
@@ -202,7 +202,9 @@ function paletteToXML(colors, pName, pType) {
 function paletteToCode(colors,pName,pType) {
 	var ptp = pType.split('.')	//picks a basic type
 	var code = ''
-	if (ptp[0]=='formatting'){code = paletteToFormattingXML(colors,ptp[1])}
+	if (ptp[0]=='formatting'){
+		code = paletteToFormattingCode(colors,ptp[1])
+	}
 	//pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau-color-blind")), PaletteRegular, IDS_PALETTE_COLORBLIND);
 	else {
 		var id = pNameToCodeID(pName)
@@ -214,6 +216,7 @@ function paletteToCode(colors,pName,pType) {
 		}
 		code = code +'});\n'
 		code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n'
+		code = code + pNameToCode(state.palette.pName)+'\n'
 	}
 	return code
 	
@@ -240,6 +243,62 @@ function colorToCodeHex(color){
 	var hex = color.color.hex().substring(1).toUpperCase()	//split off the #
 	return '0x'+hex
 }
+
+function paletteToFormattingCode(colors, pType) {
+	//pType = light, dark, gray
+	var numStrings =['first','second','third','fourth','fifth', 'sixth', 'seventh', 'eighth', 'ninth']
+	var code = ""
+	var codeHead = ''
+	var cLen = 3
+	var nCols = 2
+	var sCol = 0
+	switch (pType) {
+		case "light": {
+			codeHead = '{ TS("swatch.light.'
+			code = '// ------- Preset lights \n'
+			nCols = 9
+			cLen = 6
+			sCol = 2
+			break
+		}
+		case "dark": {
+			codeHead = '{ TS("swatch.dark.'
+			code = '// ------- Preset darks \n'
+			nCols = 8
+			cLen = 6
+			sCol = 2
+			break;
+		}
+		case 'gray': {
+			sCol = 0
+			nCols = 2
+			cLen = 5
+			code = '// ------- Preset Black And White\n'
+			code = code+'{ TS("swatch.firstcol.firstrow"), PE(TS("#000000")) },\n'
+			code = code+'{ TS("swatch.secondcol.firstrow"), PE(TS("#FFFFFF")) },\n\n'
+			code = code+'// ------- Preset Grays\n'
+			codeHead = '{ TS("swatch.' //gray doesn't include a type
+			break;	
+		}
+	}
+	//now we fill in the rows and columns
+	var cIndex = 0	//for the colors
+	for (var col =0; col< nCols; col++){
+		var gHack = 0;
+		if (pType=='gray') {gHack = 1}	//force black and white to be at top
+		var cHead = codeHead+numStrings[sCol]+'col.'
+		sCol = sCol+1
+		for (var row=0; row < cLen; row++){
+			if (cIndex>=colors.length){return code}  
+			code = code+cHead+numStrings[row+gHack]+'row"), PE(TS('
+			code = code+'\"'+colors[cIndex].color.hex().toUpperCase()+'\")) },\n'
+			cIndex = cIndex+1
+			if (cIndex>colors.length){return code}  //ick, but two breaks is ick also
+		}
+	}				
+	return code
+}
+
 function paletteToFormattingXML(colors, pType) {
 	//pType = light, dark, gray
 	var numStrings =['first','second','third','fourth','fifth', 'sixth', 'seventh', 'eighth', 'ninth']

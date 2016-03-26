@@ -313,7 +313,6 @@ $(document).ready(function() {
 		}
 		else if (type=='code') {
 			pText = paletteToCode(state.colors,state.palette.pName,state.palette.pType)
-			pText = pText+pNameToCode(state.palette.pName)+'\n'
 		}
 		else {}
 		$('#io-text').val(pText)
@@ -340,7 +339,7 @@ $(document).ready(function() {
 			for (var p=0; p<state.palettes.length; p++) {
 				pText = pText+pNameToCode(state.palettes[p].pName)+'\n'
 			}
-		}else {
+		} else {
 			var pType = $('#select-pType').val()
 			for (var p=0; p<state.palettes.length; p++) {
 				colors = state.palettes[p].eColors
@@ -459,6 +458,9 @@ $(document).ready(function() {
 	$('#setOrder').click(function(){
 		if (state.pOrder.length > 0) {
 			state.pOrder = state.colors
+		} 
+		if ($('#reverse-order').prop('checked')==true){
+			$('#reverse-order').prop('checked',false)
 		}
 	})
 	$('#seq-display').click(function(){
@@ -485,8 +487,20 @@ $(document).ready(function() {
 		lVals[0] = parseList($("#text-LMin").val(),false)[0]
 		lVals[1] = parseList($("#text-LMax").val(),false)[0]
 		setPlotSpec(aVals, bVals,lVals)
+		//change the L and C slider ranges
+		var cMax = Math.sqrt(aVals[0]*aVals[0]+bVals[0]*bVals[0])
+		$('#cieC').slider("option","max",cMax)
+		$('#cieL').slider("option","min",lVals[0])
+		$('#cieL').slider("option","max",lVals[1]) 
 		updatePlots()
 	
+	})
+	$('#button-resetPlots').click(function(){
+		$("#text-aVals").val("100")
+		$("#text-bVals").val("100")
+		$("#text-LMin").val("0")
+		$("#text-LMax").val("100")
+		$('#button-updatePlots').click()
 	})
 	initDisplay()
   });
@@ -517,7 +531,21 @@ function buildSelectMenu() {
 		$('#select-palette').val(state.palette.pName)	//the selected palette
 	}
 }
-
+function generateFGray() {  //assumes a T20 like palette
+	$('#copy').click()
+	var fColors = []
+	for (var i=0; i<state.colors.length;i+=2) {
+		var two = [state.colors[i],state.colors[i+1]]
+		var cColors = colorsToChroma(two)
+		var myScale = chroma.scale(cColors).mode("lab")
+		myScale.correctLightness()
+		var gColors = chromaToColors(myScale.colors(3),'generated')
+		fColors = fColors.concat(gColors)
+	}
+	state.colors = fColors
+	state.palette.eColors =fColors
+	state.palette.pType = 'formatting dark'
+}
 
 function addPalette(newPalette) {
 	state.palettes[state.palettes.length] = newPalette //add to the palettes array
@@ -753,10 +781,10 @@ function clearSort() {
 			<div id='plot-controls' name='plot-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Plot Controls</div>
 				<div class = "control-group" style="margin-left: 5px;">
-					<div style="width: 80px;">a* (min,max): </div> 
-					<input type="text" class = "smallText-rm" id="text-aVals" value = '-100, 100' />
-					<div style="width: 80px;">b* (min,max): </div> 
-					<input type="text" class = "smallText-rm" id="text-bVals" value = '-100, 100' />
+					<div style="width: 80px;">a* max: </div> 
+					<input type="text" class = "smallText-rm" id="text-aVals" value = '100' />
+					<div style="width: 80px;">b* max: </div> 
+					<input type="text" class = "smallText-rm" id="text-bVals" value = '100' />
 				</div>
 				<br>
 				<div class = "control-group" style="margin-left: 5px;">
@@ -767,6 +795,7 @@ function clearSort() {
 					
 				</div>
 				<button type="button" id='button-updatePlots'  style = "margin: 5px;">Update Plots</button> <br>
+				<button type="button" id='button-resetPlots'  style = "margin: 5px;">Reset Plots</button> <br>
 			
 			</div>
 		</div>
