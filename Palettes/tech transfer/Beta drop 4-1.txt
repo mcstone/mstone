@@ -1,0 +1,135 @@
+// formatting dark
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("formatting dark")), PaletteRegular, IDS_PALETTE_FORMATTING DARK);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0x78A1C7),
+    ColorObjectFromRGB(0xA0CBE8),
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0xFAA655),
+    ColorObjectFromRGB(0xFFBE7D),
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0x72B965),
+    ColorObjectFromRGB(0x8CD17D),
+    ColorObjectFromRGB(0xB6992D),
+    ColorObjectFromRGB(0xD3B349),
+    ColorObjectFromRGB(0xF1CE63),
+    ColorObjectFromRGB(0x499894),
+    ColorObjectFromRGB(0x68AAA5),
+    ColorObjectFromRGB(0x86BCB6),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xF17B7F),
+    ColorObjectFromRGB(0xFF9DA7),
+    ColorObjectFromRGB(0x79706E),
+    ColorObjectFromRGB(0x968E8B),
+    ColorObjectFromRGB(0xB4ACA8),
+    ColorObjectFromRGB(0xD37295),
+    ColorObjectFromRGB(0xE799B3),
+    ColorObjectFromRGB(0xFABFD2),
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xC28FB4),
+    ColorObjectFromRGB(0xD4A6C8),
+    ColorObjectFromRGB(0x9D7660),
+    ColorObjectFromRGB(0xB99582),
+    ColorObjectFromRGB(0xD7B5A6),
+    ColorObjectFromRGB(0x6AA3B2),
+    ColorObjectFromRGB(0x8CC4D3),
+    ColorObjectFromRGB(0xBBE4F2),
+    ColorObjectFromRGB(0x49525E),
+    ColorObjectFromRGB(0x767F8B),
+    ColorObjectFromRGB(0xEDC948),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_FORMATTING DARK,    "formatting dark"  ]
+
+formatting dark 
+private static readonly List<string> Presets1 = new List<string>(
+	("#4e79a7"), ("#78a1c7"), ("#a0cbe8"),  
+	("#59a14f"), ("#72b965"), ("#8cd17d"),  
+	("#499894"), ("#68aaa5"), ("#86bcb6"), 
+	("#79706e"), ("#968e8b"), ("#b4aca8"),  
+	("#b07aa1"), ("#c28fb4"), ("#d4a6c8"),  
+	("#6aa3b2"), ("#8cc4d3"), ("#bbe4f2));
+
+private static readonly List<string> Presets2 = new List<string>(
+	("#f28e2b"), ("#faa655"), ("#ffbe7d"),
+	("#b6992d"), ("#d3b349"), ("#f1ce63"),
+	("#e15759"), ("#f17b7f"), ("#ff9da7"),
+	("#d37295"), ("#e799b3"), ("#fabfd2"),
+	("#9d7660"), ("#b99582"), ("#d7b5a6"),
+	("#49525e"), ("#767f8b"), ("#edc948));
+	
+// tableau10_0_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau10_0_0")), PaletteRegular, IDS_PALETTE_TABLEAU10_0_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0xEDC948),
+    ColorObjectFromRGB(0x87BEB8),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xFF9DA7),
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xB4ACA8),
+    ColorObjectFromRGB(0x9C755F),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_TABLEAU10_0_0,    "tableau10_0_0"  ]
+
+	
+// tableau20_0_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau20_0_0")), PaletteRegular, IDS_PALETTE_TABLEAU20_0_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0xA0CBE8),
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0xFFBE7D),
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0x8CD17D),
+    ColorObjectFromRGB(0xB6992D),
+    ColorObjectFromRGB(0xF1CE63),
+    ColorObjectFromRGB(0x499894),
+    ColorObjectFromRGB(0x86BCB6),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xFF9DA7),
+    ColorObjectFromRGB(0x79706E),
+    ColorObjectFromRGB(0xB4ACA8),
+    ColorObjectFromRGB(0xD37295),
+    ColorObjectFromRGB(0xFABFD2),
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xD4A6C8),
+    ColorObjectFromRGB(0x9D7660),
+    ColorObjectFromRGB(0xD7B5A6),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_TABLEAU20_0_0,    "tableau20_0_0"  ]
+
+// orange_blue_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("orange_blue_10_0")), PaletteRegular, IDS_PALETTE_ORANGE_BLUE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB64A07),
+    ColorObjectFromRGB(0xC0540C),
+    ColorObjectFromRGB(0xCA5F10),
+    ColorObjectFromRGB(0xD36815),
+    ColorObjectFromRGB(0xDD721A),
+    ColorObjectFromRGB(0xE67D20),
+    ColorObjectFromRGB(0xEE8927),
+    ColorObjectFromRGB(0xF39537),
+    ColorObjectFromRGB(0xF5A34F),
+    ColorObjectFromRGB(0xF6B16A),
+    ColorObjectFromRGB(0xF5BE86),
+    ColorObjectFromRGB(0xEAD1B6),
+    ColorObjectFromRGB(0xBDC8CA),
+    ColorObjectFromRGB(0xA8BFCB),
+    ColorObjectFromRGB(0x96B4C9),
+    ColorObjectFromRGB(0x85A9C6),
+    ColorObjectFromRGB(0x779FC0),
+    ColorObjectFromRGB(0x6B94B9),
+    ColorObjectFromRGB(0x5F89B2),
+    ColorObjectFromRGB(0x557EAA),
+    ColorObjectFromRGB(0x4973A1),
+    ColorObjectFromRGB(0x3E6A96),
+    ColorObjectFromRGB(0x33608C),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE_BLUE_10_0,    "orange_blue_10_0"  ]
+

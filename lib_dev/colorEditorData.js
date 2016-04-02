@@ -14,6 +14,29 @@ allPalettes.push(`<color-palette name="tableau10_10_0" type = "regular">
 <color>#9c755f</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="tableau20_10_0_3" type = "regular">
+<color>#4e79a7</color>
+<color>#a8d5f2</color>
+<color>#f28e2b</color>
+<color>#ffbc7b</color>
+<color>#57a76a</color>
+<color>#97d788</color>
+<color>#b7992e</color>
+<color>#f1ce63</color>
+<color>#45949e</color>
+<color>#8dc5c3</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#a57197</color>
+<color>#d4a6c8</color>
+<color>#79706e</color>
+<color>#b8b0ad</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+<color>#e37da0</color>
+<color>#fabfd2</color>
+</color-palette>`)
+
 allPalettes.push(`<color-palette name="tableau20_10_0_0" type = "regular">
 <color>#4e79a7</color>
 <color>#aad7f4</color>
@@ -37,7 +60,7 @@ allPalettes.push(`<color-palette name="tableau20_10_0_0" type = "regular">
 <color>#dda9cd</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau20_10_0" type = "regular">
+allPalettes.push(`<color-palette name="tableau20_10_0_1" type = "regular">
 <color>#4e79a7</color>
 <color>#a6d3f0</color>
 <color>#f28e2b</color>
