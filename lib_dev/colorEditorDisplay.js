@@ -147,9 +147,10 @@ function displayAllPalettes() {
 	
 	for (var i =0; i<state.palettes.length; i++) {
 		var p = state.palettes[i]
+		if (p.visible == false){continue}
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
-		cGroup.append('div').attr('class','pLable').text(p.pName)
+		cGroup.append('div').attr('class','pLable').text(p.pName.replace('_',' '))
 			.style("width","90px")
 			.style('margin-top', '12px')
 			.attr('pIndex',i)
@@ -161,7 +162,7 @@ function displayAllPalettes() {
 			cGroup.style('color','gray')
 		}
 		var pBox = cGroup.append('div').append('svg')
-			.attr("width",21*xStep)
+			.attr("width",23*xStep)
 			.attr("height",pHeight+pGap)
 		
 		for (var c =0;c<p.eColors.length;c++) {

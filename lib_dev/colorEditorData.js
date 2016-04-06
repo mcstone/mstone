@@ -59,7 +59,7 @@ allPalettes.push(`<color-palette name="Seattle_grays" type = "regular">
 <color>#989ca3</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="blue_10" type = "ordered-sequential">
+allPalettes.push(`<color-palette name="blue_10_0" type = "ordered-sequential">
 <color>#aad7f4</color>
 <color>#9ac8e8</color>
 <color>#8ab7db</color>

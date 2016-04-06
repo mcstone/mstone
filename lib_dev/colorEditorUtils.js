@@ -8,13 +8,14 @@ function colorItem(color, selected, palette, name, notes) {
 	this.name = color.hex()
 	this.notes = notes
  }
-function paletteItem(pName,pType, original, edited) {
+function paletteItem(pName,pType, original, edited, visible) {
 	this.pName = pName
-	this.pType = pType	//regular, sequential, diverging, formatting
+	this.pType = pType	//regular, sequential, diverging, 3xformatting
 	this.oColors = original
 	this.eColors = edited
 	this.gColors = []	//generated colors for sequentials
-	this.version = 0
+	if (visible !=undefined){this.visible = visible}
+	else {this.visible = true}
 }
 
 function initPalettes(state) {
@@ -22,18 +23,20 @@ function initPalettes(state) {
 	var selName = ''
 	for (var i=0;i<allPalettes.length;i++) {
 		var pVals =parseXML(allPalettes[i])[0]
-		state.palettes[i] = createPalette(pVals.hex,pVals.pName,pVals.pType)
+		var visible = false
+		if (pVals.pType == "regular"){visible = true}
+		state.palettes[i] = createPalette(pVals.hex,pVals.pName,pVals.pType, visible)
 		selName = pVals.pName
 	}
 	setPalette(state,selName)	 
 }
 
-function createPalette(hex,pName,pType) {
+function createPalette(hex,pName,pType,visible) {
 	var colors = []
 	for (var i=0; i< hex.length; i++) {
 		colors[i] = new colorItem(chroma(hex[i]),false,pName,hex)
 	}
-	var p =  new paletteItem(pName, pType, colors, copyColors(colors,pName))
+	var p =  new paletteItem(pName, pType, colors, copyColors(colors,pName),visible)
 	return p
 }
 
