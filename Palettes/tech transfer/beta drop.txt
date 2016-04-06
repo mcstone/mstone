@@ -1,4 +1,4 @@
-<color-palette name="tableau10 beta1" type = "regular">
+<color-palette name="tableau10 beta2" type = "regular">
 <color>#4e79a7</color>
 <color>#f28e2b</color>
 <color>#59a14f</color>
@@ -11,7 +11,7 @@
 <color>#9c755f</color>
 </color-palette>
 
-<color-palette name="tableau20 beta 1" type = "regular">
+<color-palette name="tableau20 beta2" type = "regular">
 <color>#4e79a7</color>
 <color>#a0cbe8</color>
 <color>#f28e2b</color>
@@ -34,7 +34,7 @@
 <color>#d7b5a6</color>
 </color-palette>
 
-<color-palette name="orange-blue beta 1" type = "ordered-diverging">
+<color-palette name="orange-blue beta2" type = "ordered-diverging">
 <color>#b64a07</color>
 <color>#c0540c</color>
 <color>#ca5f10</color>
@@ -59,6 +59,46 @@
 <color>#3e6a96</color>
 <color>#33608c</color>
 </color-palette>
+
+<color-palette name="formatting dark beta2" type = "formatting-dark">
+<color>#4e79a7</color>
+<color>#78a1c7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#faa655</color>
+<color>#ffbe7d</color>
+<color>#59a14f</color>
+<color>#72b965</color>
+<color>#8cd17d</color>
+<color>#b6992d</color>
+<color>#d3b349</color>
+<color>#f1ce63</color>
+<color>#499894</color>
+<color>#68aaa5</color>
+<color>#86bcb6</color>
+<color>#e15759</color>
+<color>#f17b7f</color>
+<color>#ff9da7</color>
+<color>#79706e</color>
+<color>#968e8b</color>
+<color>#b4aca8</color>
+<color>#d37295</color>
+<color>#e799b3</color>
+<color>#fabfd2</color>
+<color>#b07aa1</color>
+<color>#c28fb4</color>
+<color>#d4a6c8</color>
+<color>#9d7660</color>
+<color>#b99582</color>
+<color>#d7b5a6</color>
+<color>#6aa3b2</color>
+<color>#8cc4d3</color>
+<color>#bbe4f2</color>
+<color>#49525e</color>
+<color>#767f8b</color>
+<color>#edc948</color>
+</color-palette>
+
 
 formatting dark  #4e79a7, #78a1c7, #a0cbe8, #f28e2b, #faa655, #ffbe7d, #59a14f, #72b965, #8cd17d, #b6992d, #d3b349, #f1ce63, #499894, #68aaa5, #86bcb6, #e15759, #f17b7f, #ff9da7, #79706e, #968e8b, #b4aca8, #d37295, #e799b3, #fabfd2, #b07aa1, #c28fb4, #d4a6c8, #9d7660, #b99582, #d7b5a6, #6aa3b2, #8cc4d3, #bbe4f2, #49525e, #767f8b, #edc948
 

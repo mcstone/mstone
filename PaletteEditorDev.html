@@ -152,8 +152,8 @@ function changeLCHSliders() {
 }
 updateHSVSliders = function() {
 	var hsv = state.pColor.hsv()
-	$("#hue").slider("option","value",hsv[0])
-	$("#sat").slider("option","value",hsv[1])
+	if (isNaN(hsv[0])==false){$("#hue").slider("option","value",hsv[0])}
+	if (hsv[2]>0){$("#sat").slider("option","value",hsv[1])}
 	$("#val").slider("option","value",hsv[2])
 }
 updateLCHSliders = function() {
@@ -209,7 +209,19 @@ $(document).ready(function() {
 		.style("background-color",'white')
 		.style("margin","2px")
 		.text("a simple tooltip")
-	
+	//blocking the back and del buttons, which would go to previous URL
+	$("body").on("keydown", function(event) {
+		//don't block for text input
+		if ($( document.activeElement ).is('textarea')){return true}
+		if ($( document.activeElement ).is('input')){return true}
+		var kcode = event.keyCode
+		if (kcode == 46 || kcode ==8) {
+           //console.log("got it")
+		   return false;
+		}
+		return true;
+	})
+	//$("#all-outer").on('mousedown', function() {console.log('whee');});
 	$('#pname-text').val(state.palette.pName)
 	$('#path-text').val(state.path)
 	$("#hue").slider({
@@ -585,7 +597,7 @@ function clearSort() {
 </head>
 <body>
 
-<div class='hContainer' id="all" style = "margin: 15px; align-items: flex-start; font-family: sans-serif; ">
+<div class='hContainer' id="all-outer" tabindex="0" style = "margin: 15px; align-items: flex-start; font-family: sans-serif; ">
 	
 	<div class = "vContainer" id='palettes-outer' >
 		<div class = 'myHeader' >Palette Controls</div>
