@@ -150,7 +150,7 @@ function displayAllPalettes() {
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
 		cGroup.append('div').attr('class','pLable').text(p.pName)
-			.style("width","80px")
+			.style("width","90px")
 			.style('margin-top', '12px')
 			.attr('pIndex',i)
 			.on('click',onLabelClick)

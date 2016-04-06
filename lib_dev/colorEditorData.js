@@ -71,55 +71,6 @@ allPalettes.push(`<color-palette name="blue_10" type = "ordered-sequential">
 <color>#33608c</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau10_classic" type = "regular">
-<color>#1f77b4</color>
-<color>#ff7f0e</color>
-<color>#2ca02c</color>
-<color>#d62728</color>
-<color>#9467bd</color>
-<color>#8c564b</color>
-<color>#e377c2</color>
-<color>#7f7f7f</color>
-<color>#bcbd22</color>
-<color>#17becf</color>
-</color-palette>`)
-
-allPalettes.push(`<color-palette name="tableau20_classic" type = "regular">
-<color>#1f77b4</color>
-<color>#aec7e8</color>
-<color>#ff7f0e</color>
-<color>#ffbb78</color>
-<color>#2ca02c</color>
-<color>#98df8a</color>
-<color>#d62728</color>
-<color>#ff9896</color>
-<color>#9467bd</color>
-<color>#c5b0d5</color>
-<color>#8c564b</color>
-<color>#c49c94</color>
-<color>#e377c2</color>
-<color>#f7b6d2</color>
-<color>#7f7f7f</color>
-<color>#c7c7c7</color>
-<color>#bcbd22</color>
-<color>#dbdb8d</color>
-<color>#17becf</color>
-<color>#9edae5</color>
-</color-palette>`)
-
-
-allPalettes.push(`<color-palette name="tableau_medium_classic" type = "regular">
-<color>#729ece</color>
-<color>#ff9e4a</color>
-<color>#67bf5c</color>
-<color>#ed665d</color>
-<color>#ad8bc9</color>
-<color>#a8786e</color>
-<color>#ed97ca</color>
-<color>#a2a2a2</color>
-<color>#cdcc5d</color>
-<color>#6dccda</color>
-</color-palette>`)
 
 
 allPalettes.push(`<color-palette name="blue_teal_10_0" type = "ordered-sequential">
@@ -326,5 +277,54 @@ allPalettes.push(`<color-palette name="red_black_10_0" type = "ordered-diverging
 <color>#545e69</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="tableau10_classic" type = "regular">
+<color>#1f77b4</color>
+<color>#ff7f0e</color>
+<color>#2ca02c</color>
+<color>#d62728</color>
+<color>#9467bd</color>
+<color>#8c564b</color>
+<color>#e377c2</color>
+<color>#7f7f7f</color>
+<color>#bcbd22</color>
+<color>#17becf</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="tableau20_classic" type = "regular">
+<color>#1f77b4</color>
+<color>#aec7e8</color>
+<color>#ff7f0e</color>
+<color>#ffbb78</color>
+<color>#2ca02c</color>
+<color>#98df8a</color>
+<color>#d62728</color>
+<color>#ff9896</color>
+<color>#9467bd</color>
+<color>#c5b0d5</color>
+<color>#8c564b</color>
+<color>#c49c94</color>
+<color>#e377c2</color>
+<color>#f7b6d2</color>
+<color>#7f7f7f</color>
+<color>#c7c7c7</color>
+<color>#bcbd22</color>
+<color>#dbdb8d</color>
+<color>#17becf</color>
+<color>#9edae5</color>
+</color-palette>`)
+
+
+allPalettes.push(`<color-palette name="tableau_medium_classic" type = "regular">
+<color>#729ece</color>
+<color>#ff9e4a</color>
+<color>#67bf5c</color>
+<color>#ed665d</color>
+<color>#ad8bc9</color>
+<color>#a8786e</color>
+<color>#ed97ca</color>
+<color>#a2a2a2</color>
+<color>#cdcc5d</color>
+<color>#6dccda</color>
+</color-palette>`)
 
 
