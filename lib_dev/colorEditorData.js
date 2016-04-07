@@ -1,6 +1,7 @@
 //palettes and strings
 var allPalettes = []
 
+
 allPalettes.push(`<color-palette name="tableau10 beta2" type = "regular">
 <color>#4e79a7</color>
 <color>#f28e2b</color>
@@ -327,4 +328,6 @@ allPalettes.push(`<color-palette name="tableau_medium_classic" type = "regular">
 <color>#6dccda</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="new palette" type = "none">
+</color-palette>`)
 

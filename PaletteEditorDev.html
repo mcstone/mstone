@@ -16,9 +16,7 @@
 	<script type="text/javascript"  src="lib/myclusters.js"></script>
 </head>
 <style>
-	#delete {
-		margin-left: 15px;
-	}
+	
 	.control-group {
 		display: inline-flex;
         font-size: 80%;
@@ -222,8 +220,13 @@ $(document).ready(function() {
 		}
 		return true;
 	})
-	//$("#all-outer").on('mousedown', function() {console.log('whee');});
 	$('#pname-text').val(state.palette.pName)
+	$("#pname-text").keypress(function(event) {
+		if (event.keyCode == 13) {
+            var v= $("#hex-text").val()
+			$('#rename').click()	
+		}
+	})
 	$('#path-text').val(state.path)
 	$("#hue").slider({
       orientation: "horizontal",
@@ -421,6 +424,23 @@ $(document).ready(function() {
         } 
 		updatePlots()
 	})
+	//filters for the types of palettes shown
+	$('#filter-regular').click(function(){
+		state.visibleTypes.regular = this.checked
+		filterPalettes()
+	})
+	$('#filter-sequential').click(function(){
+		state.visibleTypes.sequential = this.checked
+		filterPalettes()
+	})
+	$('#filter-diverging').click(function(){
+		state.visibleTypes.diverging = this.checked
+		filterPalettes()
+	})
+	$('#filter-formatting').click(function(){
+		state.visibleTypes.formatting = this.checked
+		filterPalettes()
+	})
 	//replaces the colorspace plots with a palette overview
 	$('#all-palettes').click(function(){	
 		updatePlots()
@@ -476,6 +496,9 @@ $(document).ready(function() {
 			$('#reverse-order').prop('checked',false)
 		}
 	})
+	$('#input-type').click(function(){
+		buildGradient()
+	})
 	$('#seq-display').click(function(){
 		buildGradient()
 	})
@@ -483,6 +506,7 @@ $(document).ready(function() {
 		buildGradient()
 	})
 	$('#button-generate').click(function(){
+		$('input:radio[name=seq-display][value =interpolated]').prop('checked',true)
 		buildGradient()
 	})
 	$('#button-toInput').click(function(){
@@ -533,19 +557,7 @@ function buildGradient() {
 		}
 	updatePlots()
 }
-function buildSelectMenu() {
-	$("#select-palette option").remove()
-	for (var p=0; p<state.palettes.length; p++) {
-		if (state.palettes[p].visible == false) {continue}
-		var pName = state.palettes[p].pName
-		var option = '<option value=' +'\"'+pName +'\" '
-		if (pName == state.palette.pName) {option = option+'selected="selected"'}
-		option = option+'> '+pName+ '</option>'
-		$('#select-palette').append(option)
-		$('#select-palette').val(state.palette.pName)	//the selected palette
-	}
-}
-function generateFGray() {  //assumes a T20 like palette
+function generateFDarks() {  //assumes a T20 like palette
 	$('#copy').click()
 	var fColors = []
 	for (var i=0; i<state.colors.length;i+=2) {
@@ -560,7 +572,23 @@ function generateFGray() {  //assumes a T20 like palette
 	state.palette.eColors =fColors
 	state.palette.pType = 'formatting dark'
 }
-
+function filterPalettes() {
+	applyPFilters()
+	buildSelectMenu()
+	updatePaletteControls()
+}	
+function buildSelectMenu() {
+	$("#select-palette option").remove()
+	for (var p=0; p<state.palettes.length; p++) {
+		if (state.palettes[p].visible == false) {continue}
+		var pName = state.palettes[p].pName
+		var option = '<option value=' +'\"'+pName +'\" '
+		if (pName == state.palette.pName) {option = option+'selected="selected"'}
+		option = option+'> '+pName+ '</option>'
+		$('#select-palette').append(option)
+		$('#select-palette').val(state.palette.pName)	//the selected palette
+	}
+}
 function addPalette(newPalette) {
 	state.palettes[state.palettes.length] = newPalette //add to the palettes array
 	state.palette = newPalette	//it's a pointer
@@ -604,17 +632,17 @@ function clearSort() {
 	<div class = "vContainer" id='palettes-outer' >
 		<div class = 'myHeader' >Palette Controls</div>
 		<div class = "control-group" style='margin-top: 9px'>
-			<select id="select-palette" style = "width: 120px;">
+			<select id="select-palette" style = "width: 160px;">
 			</select>
 			<div class = "control-group" style='margin-left: 5px' >
-			<button type="button" id='reset'>Reset</button>
+			<button type="button" id='copy'>Copy</button>
+			<button type="button" id='reset' style='margin-left: 15px;'>Reset</button>
 			<button type="button" id='delete'>Delete</button>
 			</div>
 		</div>
 		<div class = "control-group" >
-			<button type="button" id='copy'>Copy</button>
 			<button type="button" id='rename'>Rename</button>
-			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 120px; border: 1px solid #cccccc; margin-left=5px;">
+			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 160px; border: 1px solid #cccccc; margin-left=5px;">
 		</div>
 		<div class = "control-group" style="margin-right: 0px; margin-bottom: 5px;" >
 			<button type="button" id='read'>Read</button>
@@ -716,6 +744,19 @@ function clearSort() {
 		<div id = "LPlot" style="margin: 5px"></div>
 		<div id = "pExamples" class='pExamples'></div>
 		<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
+			<div class = 'myHeader'style="margin-left: -2px;">Palette Filters</div>
+			<div class = 'control-group'>
+				<div style="margin-left: 5px;">Regular</div>
+				<input type='checkbox' id='filter-regular' checked></input>
+				<div style="margin-left: 5px;">Formatting</div>
+				<input type='checkbox' id='filter-formatting'></input>
+			</div>
+			<div class = 'control-group'>
+				<div style="margin-left: 5px;">Sequential</div>
+				<input type='checkbox' id='filter-sequential'></input>
+				<div style="margin-left: 5px;">Diverging</div>
+				<input type='checkbox' id='filter-diverging'></input>
+			</div>
 			<div class = 'myHeader'style="margin-left: -2px;">Layout Controls</div>
 			<div class = 'control-group'>
 				<div style="margin-right: 5px;">All Palettes </div>
@@ -761,19 +802,17 @@ function clearSort() {
 			</div>
 			<div id='ramp-controls' name='ramp-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
+				
 				<div class = "control-group" style="margin-left: 5px;">
-					
 					<div style="width: 80px;">Create steps: </div> 
 					<input type="text" class = "smallText" id="text-nSteps" value = '5' name="text-nSteps" style = "width: 30px; border: 1px solid #cccccc;"/>
 					<button type="button" id='button-generate' style = "margin: 0px,5px,0px,5px;" >Generate</button> 
-					</div>
+				</div>
 				<form id='interp-space' >
 					<div class='control-group' style="margin-left: 5px;">
-						
 						<div style="width: 80px;">Interpolate in: </div> 
 						<input type="radio" name='interp-space' value='lch' checked>LCH</input>
 						<input type="radio" name='interp-space' value='lab' >LAB</input>
-						
 					</div>
 				</form>
 				<div class = 'control-group' style="margin-left: 5px;">
@@ -783,9 +822,9 @@ function clearSort() {
 				<form id='seq-display' >
 					<div class='control-group' style="margin-left: 5px;">
 						<div style="width: 85px;">Display values: </div> 
-						<input type="radio" name='seq-display' value='input' >Input</input>
+						<input type="radio" name='seq-display' value='input'checked >Input</input>
 						<input type="radio" name='seq-display' value='interpolated' >Interpolated</input>
-						<input type="radio" name='seq-display' value='both' checked >Both</input>
+						<input type="radio" name='seq-display' value='both'  >Both</input>
 					</div>
 				</form>
 				
@@ -817,7 +856,16 @@ function clearSort() {
 </div>
 </body>
 </html>
-<!--		<form id='cluster-type' >
+<!--		
+		<form id='input-type' >
+			<div class='control-group' style="margin-left: 5px;">
+				<div style="width: 65px;">Input type: </div> 
+				<input type="radio" name='input-type' value='single' checked>single</input>
+				<input type="radio" name='input-type' value='pairs' >pairs</input>
+				<input type="radio" name='input-type' value='split' >split</input>
+			</div>
+		</form>
+		<form id='cluster-type' >
 			<div class = "control-group">
 			<div style="width: 70px;">Cluster by: </div> 
 				<input type="radio" name='cluster-type' value='L'>L</input>
