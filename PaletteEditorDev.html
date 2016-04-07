@@ -644,6 +644,16 @@ function clearSort() {
 			<button type="button" id='rename'>Rename</button>
 			<input type="text" class = "smallText" name="pname-text" id="pname-text" style = "width: 160px; border: 1px solid #cccccc; margin-left=5px;">
 		</div>
+		<div class = 'control-group'>
+				<div style="margin-left: 5px;">Regular</div>
+				<input type='checkbox' id='filter-regular' checked></input>
+				<div style="margin-left: 5px;">Sequential</div>
+				<input type='checkbox' id='filter-sequential'></input>
+				<div style="margin-left: 5px;">Diverging</div>
+				<input type='checkbox' id='filter-diverging'></input>
+				<div style="margin-left: 5px;">Formatting</div>
+				<input type='checkbox' id='filter-formatting'></input>
+			</div>
 		<div class = "control-group" style="margin-right: 0px; margin-bottom: 5px;" >
 			<button type="button" id='read'>Read</button>
 			<button type="button" id='write'>Write</button>
@@ -744,19 +754,7 @@ function clearSort() {
 		<div id = "LPlot" style="margin: 5px"></div>
 		<div id = "pExamples" class='pExamples'></div>
 		<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
-			<div class = 'myHeader'style="margin-left: -2px;">Palette Filters</div>
-			<div class = 'control-group'>
-				<div style="margin-left: 5px;">Regular</div>
-				<input type='checkbox' id='filter-regular' checked></input>
-				<div style="margin-left: 5px;">Formatting</div>
-				<input type='checkbox' id='filter-formatting'></input>
-			</div>
-			<div class = 'control-group'>
-				<div style="margin-left: 5px;">Sequential</div>
-				<input type='checkbox' id='filter-sequential'></input>
-				<div style="margin-left: 5px;">Diverging</div>
-				<input type='checkbox' id='filter-diverging'></input>
-			</div>
+			
 			<div class = 'myHeader'style="margin-left: -2px;">Layout Controls</div>
 			<div class = 'control-group'>
 				<div style="margin-right: 5px;">All Palettes </div>
@@ -781,6 +779,7 @@ function clearSort() {
 				<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 
 				style = "width: 30px; border: 1px solid #cccccc; margin-left=8px;"/>(hex)
 			</div>
+			
 			<div name='sort-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Sort Controls</div>
 				<form id='sort-type' >
