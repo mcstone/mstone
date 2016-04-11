@@ -497,7 +497,7 @@ $(document).ready(function() {
 		}
 	})
 	$('#input-type').click(function(){
-		buildGradient()
+		
 	})
 	$('#seq-display').click(function(){
 		buildGradient()
@@ -541,14 +541,50 @@ $(document).ready(function() {
 	})
 	initDisplay()
   });
-	
+//array of colorItem, returns array of colorItem
+
 function buildGradient() {
-	var nSteps = parseInt($('#text-nSteps').val())
 	var iMode = $('input:radio[name=interp-space]:checked').val()
-	var cColors = colorsToChroma(state.palette.eColors)	//color item array to chroma color array
-	var	myScale = chroma.scale(cColors).mode(iMode)
-	if ($('#correct-lightness').prop('checked')==true) {myScale.correctLightness()}
-	state.gColors = chromaToColors(myScale.colors(nSteps),'generated')
+	var nSteps = parseInt($('#text-nSteps').val())
+	var type = $('input:radio[name=input-type]:checked').val();
+	var cLightness = ($('#correct-lightness').prop('checked')==true)
+	function interpolateColors (colors)	{ 
+		var cColors = colorsToChroma(colors)	//color item array to chroma color array
+		var	myScale = chroma.scale(cColors).mode(iMode)
+		if (cLightness==true) {myScale.correctLightness()}
+		return chromaToColors(myScale.colors(nSteps),'generated')
+	}
+	var iColors = []
+	var colors = state.palette.eColors
+	switch (type) {
+		case "single": 
+			iColors = interpolateColors(colors);
+			break;
+		case 'pairs': 
+			for (var i=0; i< colors.length;i+=2) {
+				var two = [colors[i],colors[i+1]]
+				iColors = iColors.concat(interpolateColors(two))
+			}
+			break;
+		case 'diverging': 
+			var isOdd = (colors.length%2 ==1)
+			var hLen = Math.floor(colors.length/2)
+			if (isOdd == false) { //no center color
+				var half = colors.slice(0,hLen)
+				iColors = iColors.concat(interpolateColors(half))
+				half = colors.slice(-hLen)
+				iColors = iColors.concat(interpolateColors(half))
+			}
+			else { //has a center color. Don't interpolate into it.
+				var half = colors.slice(0,hLen)
+				iColors = iColors.concat(interpolateColors(half))
+				iColors.push(colors[hLen]) //add the center back
+				half = colors.slice(-hLen)
+				iColors = iColors.concat(interpolateColors(half))
+			}
+			break;
+	}
+	state.gColors = iColors
 	var dType = $('input:radio[name=seq-display]:checked').val()
 		switch(dType) {
 			case 'interpolated': state.colors = state.gColors; break;
@@ -556,22 +592,9 @@ function buildGradient() {
 			default: state.colors = state.palette.eColors; break;
 		}
 	updatePlots()
+	
 }
-function generateFDarks() {  //assumes a T20 like palette
-	$('#copy').click()
-	var fColors = []
-	for (var i=0; i<state.colors.length;i+=2) {
-		var two = [state.colors[i],state.colors[i+1]]
-		var cColors = colorsToChroma(two)
-		var myScale = chroma.scale(cColors).mode("lab")
-		myScale.correctLightness()
-		var gColors = chromaToColors(myScale.colors(3),'generated')
-		fColors = fColors.concat(gColors)
-	}
-	state.colors = fColors
-	state.palette.eColors =fColors
-	state.palette.pType = 'formatting dark'
-}
+
 function filterPalettes() {
 	applyPFilters()
 	buildSelectMenu()
@@ -801,7 +824,14 @@ function clearSort() {
 			</div>
 			<div id='ramp-controls' name='ramp-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Ramp Controls</div>
-				
+				<form id='input-type' >
+					<div class='control-group' style="margin-left: 5px;">
+						<div style="width: 65px;">Input type: </div> 
+						<input type="radio" name='input-type' value='single' checked>single</input>
+						<input type="radio" name='input-type' value='pairs' >pairs</input>
+						<input type="radio" name='input-type' value='diverging' >diverging</input>
+					</div>
+				</form>
 				<div class = "control-group" style="margin-left: 5px;">
 					<div style="width: 80px;">Create steps: </div> 
 					<input type="text" class = "smallText" id="text-nSteps" value = '5' name="text-nSteps" style = "width: 30px; border: 1px solid #cccccc;"/>
@@ -856,14 +886,7 @@ function clearSort() {
 </body>
 </html>
 <!--		
-		<form id='input-type' >
-			<div class='control-group' style="margin-left: 5px;">
-				<div style="width: 65px;">Input type: </div> 
-				<input type="radio" name='input-type' value='single' checked>single</input>
-				<input type="radio" name='input-type' value='pairs' >pairs</input>
-				<input type="radio" name='input-type' value='split' >split</input>
-			</div>
-		</form>
+		
 		<form id='cluster-type' >
 			<div class = "control-group">
 			<div style="width: 70px;">Cluster by: </div> 

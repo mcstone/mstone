@@ -77,7 +77,13 @@ function findPalette(palettes,pName) {
 }
 function addToPalette(palette, hex, selected) {
 	var index = palette.eColors.length
-	palette.eColors[index] = new colorItem(chroma(hex),selected,palette.pName,hex)
+	var color = new colorItem(chroma(hex),selected,palette.pName,hex)
+	//if the color is a duplicate of the current selection
+	//insert it after the current selection
+	for (var i=0; i<index; i++) {
+		if (hex==palette.eColors[i].color.hex()) {index = i; break}
+	} 
+	palette.eColors.splice(index,0,color)
 	return palette.eColors[index]
 }
 function deleteFromPalette(palette,point) {
