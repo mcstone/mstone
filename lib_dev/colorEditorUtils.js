@@ -245,6 +245,23 @@ function paletteToXML(colors, pName, pType) {
 	}
 	return xml
 }
+//assume the interpolation is done. Now we need to write out the 10 palettes, each with nSteps of colors
+//call from the command line
+function writeMultiOrdinal(nSteps) { 
+	colors = state.colors
+	code = ''
+	cNames = ['blue','orange','green','gold','teal','red','gray','pink','purple','brown']
+	pNames = []
+	for (var i =0; i<10; i++){
+		var palette = colors.slice(i*nSteps,(i+1)*nSteps)
+		pNames.push('multiordinal_'+cNames[i]+'_10_0')
+		code=code+paletteToCode(palette,pNames[i],'multi')
+	}
+	for (var i =0; i<10; i++){
+		code = code+'ColorPaletteID(\"'+pNames[i]+'\"),\n'
+	}
+	$('#io-text').val(code)
+}
 function paletteToCode(colors,pName,pType) {
 	var ptp = pType.split('.')	//picks a basic type
 	var code = ''
@@ -261,8 +278,14 @@ function paletteToCode(colors,pName,pType) {
 			code = code +'    ColorObjectFromRGB('+colorToCodeHex(colors[i]) +'),\n'
 		}
 		code = code +'});\n'
-		code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n'
-		code = code + pNameToCode(state.palette.pName)+'\n'
+		if (pType =='multi') {
+			code = code + 'pal->SetFlags(multiDimensionFlags);\n'
+			code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n\n'
+		} else {
+			code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n'
+			code = code + pNameToCode(state.palette.pName)+'\n'
+		}
+		
 	}
 	return code
 	
@@ -282,6 +305,7 @@ function xmlToCodeType (xmlType){
 	switch(xmlType) {
 		case "ordered-sequential": codeType = "PaletteOrderedSequential"; break;
 		case "ordered-diverging":  codeType = "PaletteOrderedDiverging"; break;
+		case 'multi': codeType = "PaletteOrderedSequential"; break;
 	}
 	return codeType
 }

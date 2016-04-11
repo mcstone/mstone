@@ -1,0 +1,130 @@
+// multiordinal_blue_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_blue_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_BLUE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0x618DB7),
+    ColorObjectFromRGB(0x75A1C7),
+    ColorObjectFromRGB(0x8AB6D8),
+    ColorObjectFromRGB(0xA0CBE8),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_orange_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_orange_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_ORANGE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0xF69A41),
+    ColorObjectFromRGB(0xF9A655),
+    ColorObjectFromRGB(0xFCB269),
+    ColorObjectFromRGB(0xFFBE7D),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_green_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_green_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_GREEN_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0x66AD5A),
+    ColorObjectFromRGB(0x72B966),
+    ColorObjectFromRGB(0x7FC571),
+    ColorObjectFromRGB(0x8CD17D),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_gold_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gold_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_GOLD_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB6992D),
+    ColorObjectFromRGB(0xC5A63B),
+    ColorObjectFromRGB(0xD3B348),
+    ColorObjectFromRGB(0xE2C056),
+    ColorObjectFromRGB(0xF1CE63),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_teal_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_teal_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_TEAL_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x499894),
+    ColorObjectFromRGB(0x59A19C),
+    ColorObjectFromRGB(0x69AAA5),
+    ColorObjectFromRGB(0x77B3AD),
+    ColorObjectFromRGB(0x86BCB6),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_red_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_red_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_RED_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xE96969),
+    ColorObjectFromRGB(0xF17B79),
+    ColorObjectFromRGB(0xF88C89),
+    ColorObjectFromRGB(0xFF9D9A),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_gray_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gray_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_GRAY_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x79706E),
+    ColorObjectFromRGB(0x877F7C),
+    ColorObjectFromRGB(0x968D8A),
+    ColorObjectFromRGB(0xA59D99),
+    ColorObjectFromRGB(0xB4ACA8),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_pink_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_pink_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_PINK_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xD37295),
+    ColorObjectFromRGB(0xDD85A4),
+    ColorObjectFromRGB(0xE799B3),
+    ColorObjectFromRGB(0xF1ACC2),
+    ColorObjectFromRGB(0xFABFD2),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_purple_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_purple_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_PURPLE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xB985AB),
+    ColorObjectFromRGB(0xC290B4),
+    ColorObjectFromRGB(0xCB9BBE),
+    ColorObjectFromRGB(0xD4A6C8),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// multiordinal_brown_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_brown_10_0")), PaletteOrderedSequential, IDS_PALETTE_MULTIORDINAL_BROWN_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x9D7660),
+    ColorObjectFromRGB(0xAC8571),
+    ColorObjectFromRGB(0xBA9582),
+    ColorObjectFromRGB(0xC9A594),
+    ColorObjectFromRGB(0xD7B5A6),
+});
+pal->SetFlags(multiDimensionFlags);
+s_tableauPalettes.emplace_back(std::move(pal));
+
+ColorPaletteID("multiordinal_blue_10_0"),
+ColorPaletteID("multiordinal_orange_10_0"),
+ColorPaletteID("multiordinal_green_10_0"),
+ColorPaletteID("multiordinal_gold_10_0"),
+ColorPaletteID("multiordinal_teal_10_0"),
+ColorPaletteID("multiordinal_red_10_0"),
+ColorPaletteID("multiordinal_gray_10_0"),
+ColorPaletteID("multiordinal_pink_10_0"),
+ColorPaletteID("multiordinal_purple_10_0"),
+ColorPaletteID("multiordinal_brown_10_0"),

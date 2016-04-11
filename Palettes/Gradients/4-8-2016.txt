@@ -1,4 +1,4 @@
-<color-palette name="orange-blue beta2 update" type = "ordered-diverging">
+<color-palette name="orange-blue beta2 v2" type = "ordered-diverging">
 <color>#b64a07</color>
 <color>#c0540c</color>
 <color>#c95e10</color>

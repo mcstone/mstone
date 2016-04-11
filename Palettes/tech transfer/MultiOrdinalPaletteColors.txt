@@ -1,0 +1,109 @@
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_blue")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x1f77b4),
+                ColorObjectFromRGB(0x4f8ac1),
+                ColorObjectFromRGB(0x729ece),
+                ColorObjectFromRGB(0x90b2db),
+                ColorObjectFromRGB(0xaec7e8)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_orange")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xff7f0e),
+                ColorObjectFromRGB(0xff8f31),
+                ColorObjectFromRGB(0xff9e4a),
+                ColorObjectFromRGB(0xffac61),
+                ColorObjectFromRGB(0xffbb78)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_green")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x2ca02c),
+                ColorObjectFromRGB(0x4cb045),
+                ColorObjectFromRGB(0x67bf5c),
+                ColorObjectFromRGB(0x80cf73),
+                ColorObjectFromRGB(0x98df8a)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_red")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xd62728),
+                ColorObjectFromRGB(0xe24a42),
+                ColorObjectFromRGB(0xed665d),
+                ColorObjectFromRGB(0xf77f79),
+                ColorObjectFromRGB(0xff9896)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_purple")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x9467bd),
+                ColorObjectFromRGB(0xa179c3),
+                ColorObjectFromRGB(0xad8bc9),
+                ColorObjectFromRGB(0xb99ecf),
+                ColorObjectFromRGB(0xc5b0d5)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_brown")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x8c564b),
+                ColorObjectFromRGB(0x9a675c),
+                ColorObjectFromRGB(0xa8786e),
+                ColorObjectFromRGB(0xb68a81),
+                ColorObjectFromRGB(0xc49c94)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_pink")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xe377c2),
+                ColorObjectFromRGB(0xe887c6),
+                ColorObjectFromRGB(0xed97ca),
+                ColorObjectFromRGB(0xf2a7ce),
+                ColorObjectFromRGB(0xf7b6d2)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gray")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x7f7f7f),
+                ColorObjectFromRGB(0x909090),
+                ColorObjectFromRGB(0xa2a2a2),
+                ColorObjectFromRGB(0xb4b4b4),
+                ColorObjectFromRGB(0xc7c7c7)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_gold")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0xbcbd22),
+                ColorObjectFromRGB(0xc5c443),
+                ColorObjectFromRGB(0xcdcc5d),
+                ColorObjectFromRGB(0xd4d376),
+                ColorObjectFromRGB(0xdbdb8d)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));
+
+            pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("multiordinal_teal")), PaletteOrderedLinear, StringId_Invalid);
+            pal->SetColors({
+                ColorObjectFromRGB(0x17becf),
+                ColorObjectFromRGB(0x4ec5d4),
+                ColorObjectFromRGB(0x6dccda),
+                ColorObjectFromRGB(0x87d3df),
+                ColorObjectFromRGB(0x9edae5)
+            });
+            pal->SetFlags(multiDimensionFlags);
+            s_tableauPalettes.emplace_back(std::move(pal));

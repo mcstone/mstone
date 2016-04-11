@@ -15,6 +15,29 @@ allPalettes.push(`<color-palette name="tableau10 beta2" type = "regular">
 <color>#9c755f</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="tableau20 beta2 v2" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#ffbe7d</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#b6992d</color>
+<color>#f1ce63</color>
+<color>#499894</color>
+<color>#86bcb6</color>
+<color>#e15759</color>
+<color>#ff9d9a</color>
+<color>#79706e</color>
+<color>#b4aca8</color>
+<color>#d37295</color>
+<color>#fabfd2</color>
+<color>#b07aa1</color>
+<color>#d4a6c8</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+</color-palette>`)
+
 allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 <color>#4e79a7</color>
 <color>#a0cbe8</color>
