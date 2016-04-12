@@ -1,0 +1,25 @@
+<color-palette name="tableau10 blue-gray" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#a4b7af</color>
+<color>#edc948</color>
+<color>#81b7b5</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#be86ad</color>
+<color>#9a7561</color>
+</color-palette>
+
+<color-palette name="tableau10 stone-gray" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#b9b1ad</color>
+<color>#edc948</color>
+<color>#81b7b5</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#bc86ad</color>
+<color>#9c755f</color>
+</color-palette>
