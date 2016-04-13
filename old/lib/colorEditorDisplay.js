@@ -25,11 +25,11 @@ hex2tip = function(hex) {
 
 var plotSpec = {aMin: -100, aMax: 100, bMin:-100, bMax: 100, lMin: 0, lMax: 100, abSize: 385, lWidth: 100, lTop: 23, pSize: 8, selScale: 1.5}
 function setPlotSpec(aVals,bVals,lVals) {
-	//aVals and bVals might be pairs, or they might be single value
-	if (aVals.length == 2) {plotSpec.aMin = aVals[0]; plotSpec.aMax = aVals[1]}
-	else {plotSpec.aMin = -aVals[0], plotSpec.aMax = aVals[0]}
-	if (bVals.length == 2) {plotSpec.bMin = bVals[0]; plotSpec.bMax = bVals[1]}
-	else {plotSpec.bMin = -bVals[0]; plotSpec.bMax = bVals[0]}
+	//aVals and bVals might be pairs, or they might be single values
+	if (aVals.length == 2) {plotSpec.aMin = aVals[0], plotSpec.aMax = aVals[1]}
+	else if (aVals.length ==1){plotSpec.aMin = -aVals[0], plotSpec.aMax = aVals[0]}
+	if (bVals.length == 2) {plotSpec.bMin = bVals[0], plotSpec.bMax = bVals[1]}
+	else if (bVals.length ==1){plotSpec.bMin = -bVals[0], plotSpec.aMax = bVals[0]}
 	plotSpec.lMin = lVals[0]
 	plotSpec.lMax = lVals[1]
 }
@@ -147,11 +147,10 @@ function displayAllPalettes() {
 	
 	for (var i =0; i<state.palettes.length; i++) {
 		var p = state.palettes[i]
-		if (p.visible == false){continue}
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
-		cGroup.append('div').attr('class','pLable').text(p.pName.replace('_',' '))
-			.style("width","90px")
+		cGroup.append('div').attr('class','pLable').text(p.pName)
+			.style("width","80px")
 			.style('margin-top', '12px')
 			.attr('pIndex',i)
 			.on('click',onLabelClick)
@@ -162,7 +161,7 @@ function displayAllPalettes() {
 			cGroup.style('color','gray')
 		}
 		var pBox = cGroup.append('div').append('svg')
-			.attr("width",23*xStep)
+			.attr("width",21*xStep)
 			.attr("height",pHeight+pGap)
 		
 		for (var c =0;c<p.eColors.length;c++) {

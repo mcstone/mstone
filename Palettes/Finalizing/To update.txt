@@ -1,0 +1,107 @@
+Palettes to update for 10.0
+tableau-traffic-light #9fcd99,#ffdd71,#f26c64,#69b764,#ffc156,#d82526,#309343,#dba13a,#b10318/
+tableau-gray5 #cfcfcf,#8f8782,#414451,#a5acaf,#60636a/
+tableau-color-blind #cfcfcf,#ffbc79,#a2c8ec,#898989,#c85200,#5f9ed1,#595959,#ababab,#ff800e,#006ba4/
+purple_pink_gray_12 #dbd4c5,#8b7c6e,#d098ee,#ab6ad5,#d898ba,#995688,#b4b19b,#5f5a41,#ffc0da,#dc5fbd,#a699e8,#7b66d2/
+green_orange_cyan_yellow_12 #ccc94d,#82853b,#86b4a9,#39737c,#ffd94a,#b85a0d,#98d9e4,#3cb7cc,#ffb977,#ff7f0f,#acd98d,#32a251/
+blue_red_brown_12 #f4737a, #bd0a36,#ddc9b4,#ac8763,#b5dffd,#6ba3d6,#e9c39b,#ac613c,#ffb6b0,#f02720,#b5c8e2,#2c69b0/
+tableau-cyclic #6F63BB,#8A60B0,#BA43B4,#C7519C,#D63A3A,#FF7F0E,#FFAA0E,#FFBF50,#BCBD22,#78A641,#2CA030,#12A2A8,#1F83B4/
+
+//My quick updates. Only the Seattle grays (aka gray 5) are at all finalized
+
+<color-palette name="tableau-traffic-light-v3" type = "regular">
+<color>#b90f1a</color>
+<color>#f4a702</color>
+<color>#339446</color>
+<color>#e03531</color>
+<color>#fbc02c</color>
+<color>#53b05f</color>
+<color>#f75e44</color>
+<color>#ffda66</color>
+<color>#87c77b</color>
+</color-palette>
+
+<color-palette name="Seattle_grays" type = "regular">
+<color>#767f8b</color>
+<color>#b3b7b8</color>
+<color>#5c6068</color>
+<color>#d3d3d3</color>
+<color>#989ca3</color>
+</color-palette>
+
+<color-palette name="tableau-color-blind-v2" type = "regular">
+<color>#2570a1</color>
+<color>#ff800e</color>
+<color>#b2b2b2</color>
+<color>#595959</color>
+<color>#5f9ed1</color>
+<color>#c46205</color>
+<color>#8c8c8c</color>
+<color>#9dc3e7</color>
+<color>#ffb154</color>
+<color>#cfcfcf</color>
+</color-palette>
+
+<color-palette name="purple_pink_gray_12-v2" type = "regular">
+<color>#8a6dd0</color>
+<color>#b2a0e3</color>
+<color>#dc64bf</color>
+<color>#f0b6e3</color>
+<color>#44625b</color>
+<color>#abb9bf</color>
+<color>#975486</color>
+<color>#ca8aad</color>
+<color>#ae69d1</color>
+<color>#ddaef1</color>
+<color>#657883</color>
+<color>#c8d2d4</color>
+</color-palette>
+
+<color-palette name="green_orange_cyan_yellow_12-v2" type = "regular">
+<color>#38a755</color>
+<color>#a8d589</color>
+<color>#ff7f0f</color>
+<color>#ffb977</color>
+<color>#21bad3</color>
+<color>#9cdee9</color>
+<color>#b85a0d</color>
+<color>#f0c92c</color>
+<color>#347368</color>
+<color>#91b8ad</color>
+<color>#82853c</color>
+<color>#c0bf56</color>
+</color-palette>
+
+
+<color-palette name="blue_red_brown_12-v2" type = "regular">
+<color>#1272ae</color>
+<color>#9bb9dd</color>
+<color>#ef3333</color>
+<color>#f39282</color>
+<color>#905d4b</color>
+<color>#debcad</color>
+<color>#54a8d6</color>
+<color>#abd8f5</color>
+<color>#b2771f</color>
+<color>#efc38e</color>
+<color>#bf1932</color>
+<color>#e27a8b</color>
+</color-palette>
+
+<color-palette name="tableau-cyclic-v2" type = "ordered-sequential">
+<color>#844fa4</color>
+<color>#bb50b2</color>
+<color>#da458e</color>
+<color>#db2f4f</color>
+<color>#fa6244</color>
+<color>#ff7b19</color>
+<color>#ffaa0e</color>
+<color>#f9ce17</color>
+<color>#b8b91e</color>
+<color>#7ba940</color>
+<color>#289a4f</color>
+<color>#16ab8e</color>
+<color>#37b9cd</color>
+<color>#1d98d3</color>
+<color>#406bbf</color>
+</color-palette>
