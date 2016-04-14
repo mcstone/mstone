@@ -96,16 +96,30 @@
 <color>#dab6af</color>
 </color-palette>
 
+<color-palette name="Odd birds" type = "regular">
+<color>#e15759</color>
+<color>#fbaea6</color>
+<color>#8a6c89</color>
+<color>#b79eb2</color>
+<color>#6b6b6b</color>
+<color>#bab2ae</color>
+<color>#9f9d3f</color>
+<color>#cecb76</color>
+<color>#aa8780</color>
+<color>#dab6af</color>
+</color-palette>
+
+
 <color-palette name="data jewels" type = "regular">
-<color>#ed0034</color>
+<color>#eb1e2c</color>
 <color>#fd6f30</color>
 <color>#f9a729</color>
-<color>#fcde4a</color>
+<color>#f9d23c</color>
 <color>#5fbb68</color>
 <color>#64cdcc</color>
 <color>#91dcea</color>
 <color>#a4a4d5</color>
-<color>#c1cce2</color>
+<color>#bbc9e5</color>
 </color-palette>
 
 <color-palette name="Vizable" type = "regular">

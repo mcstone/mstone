@@ -1,0 +1,45 @@
+Disjoint updates
+<color-palette name="Blue-Red-Brown" type = "regular">
+<color>#466f9d</color>
+<color>#91b3d7</color>
+<color>#ed444a</color>
+<color>#feb5a2</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+<color>#3896c4</color>
+<color>#a0d4ee</color>
+<color>#ba7e45</color>
+<color>#e9b87f</color>
+<color>#c8133b</color>
+<color>#ea8783</color>
+</color-palette>
+
+<color-palette name="Green-Orange-Teal" type = "regular">
+<color>#4e9f50</color>
+<color>#87d180</color>
+<color>#ef8a0c</color>
+<color>#fcc66d</color>
+<color>#3ca8bc</color>
+<color>#98d9e4</color>
+<color>#94a323</color>
+<color>#c3ce3d</color>
+<color>#a08400</color>
+<color>#f7d42a</color>
+<color>#26897e</color>
+<color>#8dbfa8</color>
+</color-palette>
+
+<color-palette name="Purple-Pink-Gray" type = "regular">
+<color>#8074a8</color>
+<color>#c6c1f0</color>
+<color>#c46487</color>
+<color>#ffbed1</color>
+<color>#9c9290</color>
+<color>#c5bfbe</color>
+<color>#9b93c9</color>
+<color>#ddb5d5</color>
+<color>#7c7270</color>
+<color>#f498b6</color>
+<color>#b173a0</color>
+<color>#c799bc</color>
+</color-palette>

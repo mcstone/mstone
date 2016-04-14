@@ -491,6 +491,7 @@ $(document).ready(function() {
 	$('#setOrder').click(function(){
 		if (state.pOrder.length > 0) {
 			state.pOrder = state.colors
+			state.pOrder = []
 		} 
 		if ($('#reverse-order').prop('checked')==true){
 			$('#reverse-order').prop('checked',false)
@@ -513,6 +514,7 @@ $(document).ready(function() {
 		clearSelection()
 		if (state.gColors.length>0) {
 			state.palette.eColors = state.gColors
+			state.gColors = []
 		}
 		$('input:radio[name=seq-display][value =input]').prop('checked',true)
 		updatePlots()
