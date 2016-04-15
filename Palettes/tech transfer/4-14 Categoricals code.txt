@@ -1,0 +1,147 @@
+// Blue-Red-Brown_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Blue-Red-Brown_10_0")), PaletteRegular, IDS_PALETTE_BLUE-RED-BROWN_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x466F9D),
+    ColorObjectFromRGB(0x91B3D7),
+    ColorObjectFromRGB(0xED444A),
+    ColorObjectFromRGB(0xFEB5A2),
+    ColorObjectFromRGB(0x9D7660),
+    ColorObjectFromRGB(0xD7B5A6),
+    ColorObjectFromRGB(0x3896C4),
+    ColorObjectFromRGB(0xA0D4EE),
+    ColorObjectFromRGB(0xBA7E45),
+    ColorObjectFromRGB(0xE9B87F),
+    ColorObjectFromRGB(0xC8133B),
+    ColorObjectFromRGB(0xEA8783),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_BLUE-RED-BROWN_10_0,    "Blue-Red-Brown_10_0"  ]
+
+// Green-Orange-Teal_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Green-Orange-Teal_10_0")), PaletteRegular, IDS_PALETTE_GREEN-ORANGE-TEAL_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E9F50),
+    ColorObjectFromRGB(0x87D180),
+    ColorObjectFromRGB(0xEF8A0C),
+    ColorObjectFromRGB(0xFCC66D),
+    ColorObjectFromRGB(0x3CA8BC),
+    ColorObjectFromRGB(0x98D9E4),
+    ColorObjectFromRGB(0x94A323),
+    ColorObjectFromRGB(0xC3CE3D),
+    ColorObjectFromRGB(0xA08400),
+    ColorObjectFromRGB(0xF7D42A),
+    ColorObjectFromRGB(0x26897E),
+    ColorObjectFromRGB(0x8DBFA8),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GREEN-ORANGE-TEAL_10_0,    "Green-Orange-Teal_10_0"  ]
+
+// Purple-Pink-Gray_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Purple-Pink-Gray_10_0")), PaletteRegular, IDS_PALETTE_PURPLE-PINK-GRAY_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x8074A8),
+    ColorObjectFromRGB(0xC6C1F0),
+    ColorObjectFromRGB(0xC46487),
+    ColorObjectFromRGB(0xFFBED1),
+    ColorObjectFromRGB(0x9C9290),
+    ColorObjectFromRGB(0xC5BFBE),
+    ColorObjectFromRGB(0x9B93C9),
+    ColorObjectFromRGB(0xDDB5D5),
+    ColorObjectFromRGB(0x7C7270),
+    ColorObjectFromRGB(0xF498B6),
+    ColorObjectFromRGB(0xB173A0),
+    ColorObjectFromRGB(0xC799BC),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_PURPLE-PINK-GRAY_10_0,    "Purple-Pink-Gray_10_0"  ]
+
+// Miller Stone_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Miller Stone_10_0")), PaletteRegular, IDS_PALETTE_MILLER_STONE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xF47942),
+    ColorObjectFromRGB(0xFBB04E),
+    ColorObjectFromRGB(0xB9AA97),
+    ColorObjectFromRGB(0x7E756D),
+    ColorObjectFromRGB(0xBFBB60),
+    ColorObjectFromRGB(0x638B66),
+    ColorObjectFromRGB(0xA2CEAA),
+    ColorObjectFromRGB(0x849DB1),
+    ColorObjectFromRGB(0xD7CE9F),
+    ColorObjectFromRGB(0x4F6980),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_MILLER_STONE_10_0,    "Miller Stone_10_0"  ]
+
+// Jewel Bright_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Jewel Bright_10_0")), PaletteRegular, IDS_PALETTE_JEWEL_BRIGHT_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xEB1E2C),
+    ColorObjectFromRGB(0xFD6F30),
+    ColorObjectFromRGB(0xF9A729),
+    ColorObjectFromRGB(0xF9D23C),
+    ColorObjectFromRGB(0x5FBB68),
+    ColorObjectFromRGB(0x64CDCC),
+    ColorObjectFromRGB(0x91DCEA),
+    ColorObjectFromRGB(0xA4A4D5),
+    ColorObjectFromRGB(0xBBC9E5),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_JEWEL_BRIGHT_10_0,    "Jewel Bright_10_0"  ]
+
+// Nuriel Stone_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Nuriel Stone_10_0")), PaletteRegular, IDS_PALETTE_NURIEL_STONE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x8175AA),
+    ColorObjectFromRGB(0x6FB899),
+    ColorObjectFromRGB(0x31A1B3),
+    ColorObjectFromRGB(0xCCB22B),
+    ColorObjectFromRGB(0xA39FC9),
+    ColorObjectFromRGB(0x94D0C0),
+    ColorObjectFromRGB(0x959C9E),
+    ColorObjectFromRGB(0x027B8E),
+    ColorObjectFromRGB(0x9F8F12),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_NURIEL_STONE_10_0,    "Nuriel Stone_10_0"  ]
+
+// Spring_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Spring_10_0")), PaletteRegular, IDS_PALETTE_SPRING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x8FB202),
+    ColorObjectFromRGB(0xB9CA5D),
+    ColorObjectFromRGB(0xCF3E53),
+    ColorObjectFromRGB(0xF1788D),
+    ColorObjectFromRGB(0x00A2B3),
+    ColorObjectFromRGB(0x97CFD0),
+    ColorObjectFromRGB(0xF3A546),
+    ColorObjectFromRGB(0xF7C480),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_SPRING_10_0,    "Spring_10_0"  ]
+
+// Winter_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Winter_10_0")), PaletteRegular, IDS_PALETTE_WINTER_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x90728F),
+    ColorObjectFromRGB(0xB9A0B4),
+    ColorObjectFromRGB(0x9D9B3D),
+    ColorObjectFromRGB(0xCECB76),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xFF9888),
+    ColorObjectFromRGB(0x6B6B6B),
+    ColorObjectFromRGB(0xBAB2AE),
+    ColorObjectFromRGB(0xAA8780),
+    ColorObjectFromRGB(0xDAB6AF),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_WINTER_10_0,    "Winter_10_0"  ]
+
+[ IDS_PALETTE_BLUE-RED-BROWN_10_0,    "Blue-Red-Brown"  ]
+[ IDS_PALETTE_GREEN-ORANGE-TEAL_10_0,    "Green-Orange-Teal"  ]
+[ IDS_PALETTE_PURPLE-PINK-GRAY_10_0,    "Purple-Pink-Gray"  ]
+[ IDS_PALETTE_MILLER_STONE_10_0,    "Miller Stone"  ]
+[ IDS_PALETTE_JEWEL BRIGHT_10_0,    "Jewel Bright"  ]
+[ IDS_PALETTE_NURIEL_STONE_10_0,    "Nuriel Stone"  ]
+[ IDS_PALETTE_SPRING_10_0,    "Spring"  ]
+[ IDS_PALETTE_WINTER_10_0,    "Winter"  ]
+

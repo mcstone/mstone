@@ -1,0 +1,63 @@
+
+
+<color-palette name="Miller Stone" type = "regular">
+<color>#f47942</color>
+<color>#fbb04e</color>
+<color>#b9aa97</color>
+<color>#7e756d</color>
+<color>#bfbb60</color>
+<color>#638b66</color>
+<color>#a2ceaa</color>
+<color>#849db1</color>
+<color>#d7ce9f</color>
+<color>#4f6980</color>
+</color-palette>
+
+<color-palette name="Jewel Bright" type = "regular">
+<color>#eb1e2c</color>
+<color>#fd6f30</color>
+<color>#f9a729</color>
+<color>#f9d23c</color>
+<color>#5fbb68</color>
+<color>#64cdcc</color>
+<color>#91dcea</color>
+<color>#a4a4d5</color>
+<color>#bbc9e5</color>
+</color-palette>
+
+<color-palette name="Turquoise-Gold" type = "regular">
+<color>#8175aa</color>
+<color>#6fb899</color>
+<color>#31a1b3</color>
+<color>#ccb22b</color>
+<color>#a39fc9</color>
+<color>#94d0c0</color>
+<color>#959c9e</color>
+<color>#027b8e</color>
+<color>#9f8f12</color>
+</color-palette>
+
+
+<color-palette name="Spring" type = "regular">
+<color>#8fb202</color>
+<color>#b9ca5d</color>
+<color>#cf3e53</color>
+<color>#f1788d</color>
+<color>#00a2b3</color>
+<color>#97cfd0</color>
+<color>#f3a546</color>
+<color>#f7c480</color>
+</color-palette>
+
+<color-palette name="Winter" type = "regular">
+<color>#90728f</color>
+<color>#b9a0b4</color>
+<color>#9d9b3d</color>
+<color>#cecb76</color>
+<color>#e15759</color>
+<color>#ff9888</color>
+<color>#6b6b6b</color>
+<color>#bab2ae</color>
+<color>#aa8780</color>
+<color>#dab6af</color>
+</color-palette>

@@ -1,0 +1,65 @@
+
+--try this one first, it might even not tickle the bug about having a gray in the center (it's so nearly gray)
+
+// Orange-Blue Diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Orange-Blue Diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_ORANGE-BLUE DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB64A07),
+    ColorObjectFromRGB(0xC0540C),
+    ColorObjectFromRGB(0xC95E10),
+    ColorObjectFromRGB(0xD36815),
+    ColorObjectFromRGB(0xDD731A),
+    ColorObjectFromRGB(0xE67E20),
+    ColorObjectFromRGB(0xEF8929),
+    ColorObjectFromRGB(0xF3973A),
+    ColorObjectFromRGB(0xF5A452),
+    ColorObjectFromRGB(0xF6B16C),
+    ColorObjectFromRGB(0xF9BE81),
+    ColorObjectFromRGB(0xD9D7CF),
+    ColorObjectFromRGB(0xAEC8DB),
+    ColorObjectFromRGB(0x9CBED6),
+    ColorObjectFromRGB(0x90B4CE),
+    ColorObjectFromRGB(0x84A8C5),
+    ColorObjectFromRGB(0x759EC0),
+    ColorObjectFromRGB(0x6A93B9),
+    ColorObjectFromRGB(0x5F89B2),
+    ColorObjectFromRGB(0x547EA9),
+    ColorObjectFromRGB(0x4973A0),
+    ColorObjectFromRGB(0x3D6995),
+    ColorObjectFromRGB(0x33608C),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE-BLUE DIVERGING_10_0,    "Orange-Blue Diverging_10_0"  ]
+
+
+--this really has a gray in the center. It would be OK to use this if it saved work. 
+// Orange-Blue Diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("Orange-Blue Diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_ORANGE-BLUE DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB64A07),
+    ColorObjectFromRGB(0xC0540C),
+    ColorObjectFromRGB(0xC95E10),
+    ColorObjectFromRGB(0xD36915),
+    ColorObjectFromRGB(0xDD731A),
+    ColorObjectFromRGB(0xE67F20),
+    ColorObjectFromRGB(0xEF8829),
+    ColorObjectFromRGB(0xF39639),
+    ColorObjectFromRGB(0xF5A452),
+    ColorObjectFromRGB(0xF6B26D),
+    ColorObjectFromRGB(0xF9BE81),
+    ColorObjectFromRGB(0xD7D7D7),
+    ColorObjectFromRGB(0xAEC8DB),
+    ColorObjectFromRGB(0x9DBED6),
+    ColorObjectFromRGB(0x8FB4CE),
+    ColorObjectFromRGB(0x84A9C5),
+    ColorObjectFromRGB(0x759EC0),
+    ColorObjectFromRGB(0x6A94B9),
+    ColorObjectFromRGB(0x5E88B2),
+    ColorObjectFromRGB(0x537DA9),
+    ColorObjectFromRGB(0x4A74A0),
+    ColorObjectFromRGB(0x3E6996),
+    ColorObjectFromRGB(0x33608C),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE-BLUE DIVERGING_10_0,    "Orange-Blue Diverging_10_0"  ]
+
