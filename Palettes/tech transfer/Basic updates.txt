@@ -1,0 +1,26 @@
+<color-palette name="tableau10_classic new" type = "regular">
+<color>#2a7ebb</color>
+<color>#fc8417</color>
+<color>#8c564b</color>
+<color>#419b37</color>
+<color>#3dbec1</color>
+<color>#d22324</color>
+<color>#bbb828</color>
+<color>#a06db8</color>
+<color>#f173a0</color>
+<color>#6d7179</color>
+</color-palette>
+
+<color-palette name="tableau10_classic update" type = "regular">
+<color>#257bb8</color>
+<color>#fc8417</color>
+<color>#8c564b</color>
+<color>#419b37</color>
+<color>#3dbec1</color>
+<color>#d22324</color>
+<color>#ef71aa</color>
+<color>#bcbd22</color>
+<color>#a36aba</color>
+<color>#90949b</color>
+</color-palette>
+

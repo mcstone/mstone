@@ -1,0 +1,57 @@
+// traffic-light_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("traffic-light_10_0")), PaletteRegular, IDS_PALETTE_TRAFFIC-LIGHT_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB60A1C),
+    ColorObjectFromRGB(0xE39802),
+    ColorObjectFromRGB(0x309143),
+    ColorObjectFromRGB(0xE03531),
+    ColorObjectFromRGB(0xF0BD27),
+    ColorObjectFromRGB(0x51B364),
+    ColorObjectFromRGB(0xFF684C),
+    ColorObjectFromRGB(0xFFDA66),
+    ColorObjectFromRGB(0x8ACE7E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+
+
+// colorblind_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("colorblind_10_0")), PaletteRegular, IDS_PALETTE_COLORBLIND_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x1170AA),
+    ColorObjectFromRGB(0xFC7D0B),
+    ColorObjectFromRGB(0xA3ACB9),
+    ColorObjectFromRGB(0x57606C),
+    ColorObjectFromRGB(0x5FA2CE),
+    ColorObjectFromRGB(0xC85200),
+    ColorObjectFromRGB(0x7B848F),
+    ColorObjectFromRGB(0xA3CCE9),
+    ColorObjectFromRGB(0xFFBC79),
+    ColorObjectFromRGB(0xC8D0D9),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+
+// cyclic_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("cyclic_10_0")), PaletteRegular, IDS_PALETTE_CYCLIC_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x1BA3C6),
+    ColorObjectFromRGB(0x37C1BD),
+    ColorObjectFromRGB(0x1FAE81),
+    ColorObjectFromRGB(0x459F3B),
+    ColorObjectFromRGB(0xBCBD22),
+    ColorObjectFromRGB(0xF8B921),
+    ColorObjectFromRGB(0xF88113),
+    ColorObjectFromRGB(0xDF3028),
+    ColorObjectFromRGB(0xF43C63),
+    ColorObjectFromRGB(0xFE7CAA),
+    ColorObjectFromRGB(0xD669BE),
+    ColorObjectFromRGB(0x906FC4),
+    ColorObjectFromRGB(0x4F7CBA),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+
+
+
+
+[ IDS_PALETTE_TRAFFIC-LIGHT_10_0,    "Traffic Light"  ]
+[ IDS_PALETTE_COLORBLIND_10_0,    "Colorblind"  ]
+[ IDS_PALETTE_CYCLIC_10_0,    "Hue Circle"  ]
