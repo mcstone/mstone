@@ -1,0 +1,21 @@
+<color-palette name="blue_purple_orange_red v4" type = "ordered-diverging">
+<color>#33608c</color>
+<color>#58659b</color>
+<color>#8167a4</color>
+<color>#a668a4</color>
+<color>#c86a9c</color>
+<color>#e2708e</color>
+<color>#f17c85</color>
+<color>#fa8c87</color>
+<color>#ff9d8e</color>
+<color>#f3c165</color>
+<color>#fda05d</color>
+<color>#fa8f56</color>
+<color>#f47f50</color>
+<color>#ec6f4a</color>
+<color>#e35f48</color>
+<color>#d94f46</color>
+<color>#ce4044</color>
+<color>#c33040</color>
+<color>#b71d3e</color>
+</color-palette>

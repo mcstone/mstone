@@ -5,12 +5,14 @@ updatePlots = function() {
 	d3.select("#pExamples").selectAll("div").remove()	//the examples
 	d3.select('#plots').selectAll("svg").remove(); //the LAB Plots
 	d3.select("#pSpace").selectAll("div").remove()	//all Palettes
+	d3.select("#statSpace").selectAll("div").remove()	//stats
 	
 	if ($('#all-palettes').prop('checked')==true) {		
 		displayAllPalettes()	//uses the eColor from each palette. uses global state
 	} else {
 		displayColorspace()	//maybe should be an option rather than an either/or
 	}
+	displayStats()
 	displayExamples()	//has its own logic for deciding what examples to show.
 }
 
@@ -32,6 +34,20 @@ function setPlotSpec(aVals,bVals,lVals) {
 	else {plotSpec.bMin = -bVals[0]; plotSpec.bMax = bVals[0]}
 	plotSpec.lMin = lVals[0]
 	plotSpec.lMax = lVals[1]
+}
+function displayStats(){
+	var stats = computeStats(state.colors)	//for the current palette
+	var cGroup = d3.select('#statSpace')
+		.append('div')
+		.attr('class','statString')
+
+	myString ='range dE: '+stats.minE.toString()
+		+'-'+stats.maxE.toString()
+		+', '+(stats.maxE-stats.minE).toString()
+		+'   ave dE: '+stats.aveE.toString()
+		+'   ave totalE: '+stats.totalE.toString()
+		
+	cGroup = d3.select('#statSpace').append('div').attr('class','statString').append('text').text(myString)
 }
 function displayColorspace() {
 	var abSize = plotSpec.abSize
@@ -151,7 +167,7 @@ function displayAllPalettes() {
 		var pID	= "p"+i.toString()
 		var cGroup = d3.select('#pSpace').append('div').attr('class','control-group')
 		cGroup.append('div').attr('class','pLable').text(p.pName.replace('_',' '))
-			.style("width","90px")
+			.style("width","95px")
 			.style('margin-top', '12px')
 			.attr('pIndex',i)
 			.on('click',onLabelClick)
@@ -160,6 +176,14 @@ function displayAllPalettes() {
 			cGroup.style("color",'black')
 		} else {
 			cGroup.style('color','gray')
+		}
+		if ($('#show-stats').prop('checked')==true) {
+			var stats = computeStats(p.eColors)	
+			cGroup.append('div').attr('class','pLable')
+				.text(stats.totalE.toString())
+				.style("width","20px")
+				.style('margin-top', '12px')
+				.style('margin-left', '5px')
 		}
 		var pBox = cGroup.append('div').append('svg')
 			.attr("width",23*xStep)
@@ -233,17 +257,35 @@ function displayExamples() {
 				.attr("y", 10)
 				drawArray(arrayBox, 45, 20, 10 ,createTextMark)	
         }
-		$("#pExamples").append("<div class='vContainer' id='rightCol'></div>")
+		$("#pExamples").append("<div class='hContainer' id='rightCol'></div>")
 		//now some bands of colors
 		 {
 			var bW = 200
 			var bH = 40
+			
 			arrayBox = d3.select('#rightCol').append('div').append("svg")
 				.attr("width",bW+10) //for the selection bump right
-				.attr("height", 50*state.colors.length)
+				.attr("height", bH*state.colors.length)
 				.attr("x", 10)
 				.attr("y", 10)
 				drawArray(arrayBox,bW,bH,0, createRectMark)
+			if ($('#show-stats').prop('checked')==true) {
+				var stats = computeStats(state.colors)	//for the current palette
+				arrayBox = d3.select('#rightCol').append('div').append("svg")
+					.attr("height", bH*state.colors.length)
+					.attr('width', 35)
+					.attr('fill','gray')
+			
+
+				for (i = 0; i<stats.dE.length; i++) {
+					arrayBox.append('text').text(stats.dE[i].toString())
+					.attr('x',0)
+					.attr('y',(i+1)*bH+5)  //delta is between the two blocks
+				}
+				arrayBox.append('text').text(stats.totalE.toString())
+					.attr('x',0)
+					.attr('y',bH*state.colors.length)
+			}
 			//now overlay text
 			if ($('#show-text').prop('checked')==true) {
 				var tString = $('#text-alpha').val()

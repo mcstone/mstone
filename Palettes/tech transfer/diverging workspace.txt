@@ -1,0 +1,1 @@
+red-black diverging  #b81a3d, #c6273d, #d23c49, #dd4f54, #e96662, #f37f72, #f69582, #f8ab96, #fec3ac,  #d5d5d5, #c4c6c5, #b3b6b6, #a2a8a9, #90999c, #808b90, #717c84, #636e78, #56606b, #49525e

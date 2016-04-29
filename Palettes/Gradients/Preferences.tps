@@ -415,7 +415,7 @@
 <color>#33608c</color>
 </color-palette>
 
-<color-palette name="red-blue diverging" type = "ordered-diverging">
+<color-palette name="red-blue diverging v2" type = "ordered-diverging">
 <color>#bf3841</color>
 <color>#cf474c</color>
 <color>#de5559</color>
@@ -435,7 +435,7 @@
 <color>#33608c</color>
 </color-palette>
 
-<color-palette name="red-blue white diverging" type = "ordered-diverging">
+<color-palette name="red-blue-white diverging" type = "ordered-diverging">
 <color>#bf3841</color>
 <color>#d2494e</color>
 <color>#e15d5e</color>
@@ -455,6 +455,28 @@
 <color>#5681ae</color>
 <color>#46709e</color>
 <color>#33608c</color>
+</color-palette>
+
+<color-palette name="red-black-white diverging 10_0" type = "ordered-diverging">
+<color>#bf3841</color>
+<color>#d2494e</color>
+<color>#e15d5e</color>
+<color>#ed7271</color>
+<color>#f68986</color>
+<color>#fca09c</color>
+<color>#feb7b3</color>
+<color>#fcd0cd</color>
+<color>#fbe6e5</color>
+<color>#fffefd</color>
+<color>#ebebeb</color>
+<color>#d6d8d8</color>
+<color>#c2c5c6</color>
+<color>#abb2b5</color>
+<color>#959fa4</color>
+<color>#808b92</color>
+<color>#6c7881</color>
+<color>#5a656f</color>
+<color>#49525e</color>
 </color-palette>
 
 <color-palette name="green-blue-white diverging 10_0_0" type = "ordered-diverging">

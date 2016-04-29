@@ -33,6 +33,11 @@
 		padding-top: 2px;
 		padding-bottom: 5px;
 	}
+	.statString {
+		color: gray;
+		margin-right: 5px;
+		padding-top: 10px;
+	}
 	.pLabel {
 		color: gray;
 		margin-right: 5px;
@@ -338,31 +343,28 @@ $(document).ready(function() {
 		var pText = ''
 		var colors = []
 		var pName = ''
-		if (type=='hex') {
-			for (var p=0; p<state.palettes.length; p++) {
-				colors = state.palettes[p].eColors
-				pName = state.palettes[p].pName
-				pText = pText+createHexString(colors,pName)+'/\n'
+		var xmlType = ''
+		
+		for (var p=0; p<state.palettes.length; p++) {
+			if (state.palettes[p].visible == false){continue}
+			colors = state.palettes[p].eColors
+			pName = state.palettes[p].pName
+			pType = state.palettes[p].pType
+			xmlType = $('#select-pType').val()
+			switch (type) {
+				case 'hex': pText = pText+createHexString(colors,pName)+'/\n';break;
+				case 'xml': pText = pText+paletteToXML(colors,pName,xmlType)+'\n';break;
+				case 'code': pText = pText+paletteToCode(colors,pName, pType)+'\n';break;
 			}
 		}
 		if (type=='code') {
+			
 			for (var p=0; p<state.palettes.length; p++) {
-				colors = state.palettes[p].eColors
-				pName = state.palettes[p].pName
-				var pType = state.palettes[p].pType
-				pText = pText+paletteToCode(colors,pName, pType)+'\n'
-			}
-			for (var p=0; p<state.palettes.length; p++) {
+				if (p.visible == false){continue}
 				pText = pText+pNameToCode(state.palettes[p].pName)+'\n'
 			}
-		} else {
-			var pType = $('#select-pType').val()
-			for (var p=0; p<state.palettes.length; p++) {
-				colors = state.palettes[p].eColors
-				pName = state.palettes[p].pName
-				pText = pText+paletteToXML(colors,pName,pType)+'\n'
-			}
 		}
+		
 		$('#io-text').val(pText)
 	})
 	$('#read').click(function(){
@@ -453,6 +455,9 @@ $(document).ready(function() {
 		updatePlots()
 	})
 	$('#show-text').click(function(){
+		updatePlots()
+	})
+	$('#show-stats').click(function(){
 		updatePlots()
 	})
 	$("#text-alpha").val('100')
@@ -701,7 +706,7 @@ function clearSort() {
 				<option value='formatting.gray'>Formatting gray</option>
 				</select>
 		</div>
-		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 250px;">Palette type controls only the XML written. (more functionality soon)</textarea>
+		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 325px;">Palette type controls only the XML written. (more functionality soon)</textarea>
 	</div>
 
 	<div class ='vContainer' id="edit_color">
@@ -774,9 +779,15 @@ function clearSort() {
 		</div>
 
 	<div class="hContainer" id = 'plots' style='align-items: flex-start;'>
-		<div id = 'pSpace' class='vContainer' style="margin: 5px 5px 5px 0px;"></div>
-		<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
-		<div id = "LPlot" style="margin: 5px"></div>
+		
+		<div id = 'cSpace' class='vContainer' >
+			<div id = 'plotSpace' class='hContainer' >
+				<div id = "abPlot" style="margin: 5px 5px 5px 0px;"></div>
+				<div id = "LPlot" style="margin: 5px"></div>
+			</div>
+			<div id = "statSpace" style="margin_top: 5px"></div>
+			<div id = 'pSpace' class='vContainer' style="margin: 5px 5px 5px 0px;"></div>
+		</div>
 		<div id = "pExamples" class='pExamples'></div>
 		<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
 			
@@ -794,11 +805,14 @@ function clearSort() {
 				<input type='checkbox' name='show-bars' id='show-bars' checked></input>
 			</div>
 			<div class = 'control-group' style="margin-left: 5px;">
+				<div style="margin-right: 5px;">Show stats </div>
+				<input type='checkbox' name='show-stats' id='show-stats'  checked ></input>
+			</div>
+			
+			<div class='control-group' style="margin-left: 5px;">
 				<div style="margin-right: 5px;">Overlay text </div>
 				<input type='checkbox' name='show-text' id='show-text' ></input>
-			</div>
-			<div class='control-group' style="margin-left: 5px;">
-				<div style="margin-right: 5px;">Alpha </div>
+				<div style="margin-right: 5px; margin-left: 10px;">Alpha </div>
 				<input type="text" class = "smallText" id="text-alpha" name="text-alpha" 
 				style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>%
 				<input type="text" class = "smallText" id="text-alpha-hex" name="text-alpha-hex" 

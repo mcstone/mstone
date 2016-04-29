@@ -1,0 +1,64 @@
+<color-palette name="tableau10 beta2 v2" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#e2be00</color>
+<color>#7bbeb8</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#b07aa1</color>
+<color>#b4aca8</color>
+<color>#9c755f</color>
+</color-palette>
+
+<color-palette name="tableau10 beta2 v3" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#e2be00</color>
+<color>#7ebeb8</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#b07aa1</color>
+<color>#b4aca8</color>
+<color>#9c755f</color>
+</color-palette>
+
+<color-palette name="tableau10 beta2 v4" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#e2be00</color>
+<color>#7bbbb5</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#b07aa1</color>
+<color>#a59d9a</color>
+<color>#9c755f</color>
+</color-palette>
+
+<color-palette name="tableau10 beta2 v5" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#e2be00</color>
+<color>#7bbbb5</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#b07aa1</color>
+<color>#a59a96</color>
+<color>#9c755f</color>
+</color-palette>
+
+<color-palette name="tableau10 beta2 v6" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#59a14f</color>
+<color>#dab80b</color>
+<color>#7bbbb5</color>
+<color>#e15759</color>
+<color>#ff9da7</color>
+<color>#b07aa1</color>
+<color>#a89d99</color>
+<color>#9c755f</color>
+</color-palette>

@@ -15,29 +15,6 @@ allPalettes.push(`<color-palette name="tableau10 beta2" type = "regular">
 <color>#9c755f</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau20 beta2 v2" type = "regular">
-<color>#4e79a7</color>
-<color>#a0cbe8</color>
-<color>#f28e2b</color>
-<color>#ffbe7d</color>
-<color>#59a14f</color>
-<color>#8cd17d</color>
-<color>#b6992d</color>
-<color>#f1ce63</color>
-<color>#499894</color>
-<color>#86bcb6</color>
-<color>#e15759</color>
-<color>#ff9d9a</color>
-<color>#79706e</color>
-<color>#b4aca8</color>
-<color>#d37295</color>
-<color>#fabfd2</color>
-<color>#b07aa1</color>
-<color>#d4a6c8</color>
-<color>#9d7660</color>
-<color>#d7b5a6</color>
-</color-palette>`)
-
 allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 <color>#4e79a7</color>
 <color>#a0cbe8</color>
@@ -50,7 +27,7 @@ allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 <color>#499894</color>
 <color>#86bcb6</color>
 <color>#e15759</color>
-<color>#ff9da7</color>
+<color>#ff9d9a</color>
 <color>#79706e</color>
 <color>#b4aca8</color>
 <color>#d37295</color>
@@ -83,6 +60,138 @@ allPalettes.push(`<color-palette name="Seattle_grays" type = "regular">
 <color>#989ca3</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="Traffic Light 10.0" type = "regular">
+<color>#b60a1c</color>
+<color>#e39802</color>
+<color>#309143</color>
+<color>#e03531</color>
+<color>#f0bd27</color>
+<color>#51b364</color>
+<color>#ff684c</color>
+<color>#ffda66</color>
+<color>#8ace7e</color>
+</color-palette>`
+)
+allPalettes.push(`<color-palette name="Color Blind 10.0" type = "regular">
+<color>#1170aa</color>
+<color>#fc7d0b</color>
+<color>#a3acb9</color>
+<color>#57606c</color>
+<color>#5fa2ce</color>
+<color>#c85200</color>
+<color>#7b848f</color>
+<color>#a3cce9</color>
+<color>#ffbc79</color>
+<color>#c8d0d9</color>
+</color-palette>`
+)
+allPalettes.push(`<color-palette name="Winter" type = "regular">
+<color>#90728f</color>
+<color>#b9a0b4</color>
+<color>#9d9b3d</color>
+<color>#cecb76</color>
+<color>#e15759</color>
+<color>#ff9888</color>
+<color>#6b6b6b</color>
+<color>#bab2ae</color>
+<color>#aa8780</color>
+<color>#dab6af</color>
+</color-palette>`
+)
+allPalettes.push(`<color-palette name="Summer" type = "regular">
+<color>#8fb202</color>
+<color>#b9ca5d</color>
+<color>#cf3e53</color>
+<color>#f1788d</color>
+<color>#00a2b3</color>
+<color>#97cfd0</color>
+<color>#f3a546</color>
+<color>#f7c480</color>
+</color-palette>`
+)
+allPalettes.push(`<color-palette name="Miller Stone" type = "regular">
+<color>#f47942</color>
+<color>#fbb04e</color>
+<color>#b9aa97</color>
+<color>#7e756d</color>
+<color>#bfbb60</color>
+<color>#638b66</color>
+<color>#a2ceaa</color>
+<color>#849db1</color>
+<color>#d7ce9f</color>
+<color>#4f6980</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="Data Jewels" type = "regular">
+<color>#eb1e2c</color>
+<color>#fd6f30</color>
+<color>#f9a729</color>
+<color>#f9d23c</color>
+<color>#5fbb68</color>
+<color>#64cdcc</color>
+<color>#91dcea</color>
+<color>#a4a4d5</color>
+<color>#bbc9e5</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="Nuriel Stone" type = "regular">
+<color>#8175aa</color>
+<color>#6fb899</color>
+<color>#31a1b3</color>
+<color>#ccb22b</color>
+<color>#a39fc9</color>
+<color>#94d0c0</color>
+<color>#959c9e</color>
+<color>#027b8e</color>
+<color>#9f8f12</color>
+</color-palette>`)
+
+
+allPalettes.push(`<color-palette name="Blue-Red-Brown" type = "regular">
+<color>#466f9d</color>
+<color>#91b3d7</color>
+<color>#ed444a</color>
+<color>#feb5a2</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+<color>#3896c4</color>
+<color>#a0d4ee</color>
+<color>#ba7e45</color>
+<color>#e9b87f</color>
+<color>#c8133b</color>
+<color>#ea8783</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="Green-Orange-Teal" type = "regular">
+<color>#4e9f50</color>
+<color>#87d180</color>
+<color>#ef8a0c</color>
+<color>#fcc66d</color>
+<color>#3ca8bc</color>
+<color>#98d9e4</color>
+<color>#94a323</color>
+<color>#c3ce3d</color>
+<color>#a08400</color>
+<color>#f7d42a</color>
+<color>#26897e</color>
+<color>#8dbfa8</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="Purple-Pink-Gray" type = "regular">
+<color>#8074a8</color>
+<color>#c6c1f0</color>
+<color>#c46487</color>
+<color>#ffbed1</color>
+<color>#9c9290</color>
+<color>#c5bfbe</color>
+<color>#9b93c9</color>
+<color>#ddb5d5</color>
+<color>#7c7270</color>
+<color>#f498b6</color>
+<color>#b173a0</color>
+<color>#c799bc</color>
+</color-palette>`)
+/*
 allPalettes.push(`<color-palette name="blue_10_0" type = "ordered-sequential">
 <color>#aad7f4</color>
 <color>#9ac8e8</color>
@@ -241,22 +350,28 @@ allPalettes.push(`<color-palette name="orange-blue beta2" type = "ordered-diverg
 `)
 
 allPalettes.push(`<color-palette name="orange_blue_10_0" type = "ordered-diverging">
-<color>#af470b</color>
-<color>#bd5507</color>
-<color>#ca6401</color>
-<color>#d87311</color>
-<color>#e6821e</color>
-<color>#f3912b</color>
-<color>#f8a541</color>
-<color>#feb756</color>
-<color>#d5d2d0</color>
-<color>#9ac8e8</color>
-<color>#8ab7db</color>
-<color>#7ba9ce</color>
-<color>#6c99c2</color>
-<color>#5e8bb6</color>
-<color>#507ba9</color>
-<color>#426d9b</color>
+<color>#b64a07</color>
+<color>#c0540c</color>
+<color>#c95e10</color>
+<color>#d36815</color>
+<color>#dd731a</color>
+<color>#e67e20</color>
+<color>#ef8929</color>
+<color>#f3973a</color>
+<color>#f5a452</color>
+<color>#f6b16c</color>
+<color>#f9be81</color>
+<color>#d9d7cf</color>
+<color>#aec8db</color>
+<color>#9cbed6</color>
+<color>#90b4ce</color>
+<color>#84a8c5</color>
+<color>#759ec0</color>
+<color>#6a93b9</color>
+<color>#5f89b2</color>
+<color>#547ea9</color>
+<color>#4973a0</color>
+<color>#3d6995</color>
 <color>#33608c</color>
 </color-palette>
 `)
@@ -351,6 +466,9 @@ allPalettes.push(`<color-palette name="tableau_medium_classic" type = "regular">
 <color>#6dccda</color>
 </color-palette>`)
 
+*/
+
 allPalettes.push(`<color-palette name="new palette" type = "none">
 </color-palette>`)
+
 

@@ -802,64 +802,64 @@
           </encoding>
           <encoding attr='color' field='[none:cat 12a (copy):ok]' type='palette'>
             <map to='#1ba3c6'>
-              <bucket>19</bucket>
-            </map>
-            <map to='#21b087'>
-              <bucket>16</bucket>
-            </map>
-            <map to='#2cb5c0'>
-              <bucket>18</bucket>
-            </map>
-            <map to='#30bcad'>
-              <bucket>17</bucket>
-            </map>
-            <map to='#33a65c'>
-              <bucket>15</bucket>
-            </map>
-            <map to='#4f7cba'>
               <bucket>0</bucket>
             </map>
-            <map to='#57a337'>
-              <bucket>14</bucket>
-            </map>
-            <map to='#7873c0'>
-              <bucket>1</bucket>
-            </map>
-            <map to='#a26dc2'>
-              <bucket>2</bucket>
-            </map>
-            <map to='#a2b627'>
-              <bucket>13</bucket>
-            </map>
-            <map to='#ce69be'>
+            <map to='#21b087'>
               <bucket>3</bucket>
             </map>
-            <map to='#d5bb21'>
-              <bucket>12</bucket>
+            <map to='#2cb5c0'>
+              <bucket>1</bucket>
             </map>
-            <map to='#e03426'>
-              <bucket>8</bucket>
+            <map to='#30bcad'>
+              <bucket>2</bucket>
             </map>
-            <map to='#eb364a'>
-              <bucket>7</bucket>
-            </map>
-            <map to='#eb73b3'>
+            <map to='#33a65c'>
               <bucket>4</bucket>
             </map>
-            <map to='#f06719'>
-              <bucket>9</bucket>
+            <map to='#4f7cba'>
+              <bucket>19</bucket>
             </map>
-            <map to='#f64971'>
+            <map to='#57a337'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#7873c0'>
+              <bucket>18</bucket>
+            </map>
+            <map to='#a26dc2'>
+              <bucket>17</bucket>
+            </map>
+            <map to='#a2b627'>
               <bucket>6</bucket>
             </map>
-            <map to='#f89217'>
-              <bucket>10</bucket>
+            <map to='#ce69be'>
+              <bucket>16</bucket>
             </map>
-            <map to='#f8b620'>
+            <map to='#d5bb21'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#e03426'>
               <bucket>11</bucket>
             </map>
+            <map to='#eb364a'>
+              <bucket>12</bucket>
+            </map>
+            <map to='#eb73b3'>
+              <bucket>15</bucket>
+            </map>
+            <map to='#f06719'>
+              <bucket>10</bucket>
+            </map>
+            <map to='#f64971'>
+              <bucket>13</bucket>
+            </map>
+            <map to='#f89217'>
+              <bucket>9</bucket>
+            </map>
+            <map to='#f8b620'>
+              <bucket>8</bucket>
+            </map>
             <map to='#fc719e'>
-              <bucket>5</bucket>
+              <bucket>14</bucket>
             </map>
           </encoding>
         </style-rule>

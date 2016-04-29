@@ -1,0 +1,97 @@
+
+<color-palette name="red_10_0" type = "ordered-sequential">
+<color>#fec3ac</color>
+<color>#f8ab96</color>
+<color>#f69582</color>
+<color>#f37f72</color>
+<color>#e96662</color>
+<color>#dd4f54</color>
+<color>#d23c49</color>
+<color>#c6273d</color>
+<color>#b81a3d</color>
+</color-palette>
+
+<color-palette name="orange_10_0" type = "ordered-sequential">
+<color>#ffca70</color>
+<color>#feb756</color>
+<color>#f8a541</color>
+<color>#f3912b</color>
+<color>#e6821e</color>
+<color>#d87311</color>
+<color>#ca6401</color>
+<color>#bd5507</color>
+<color>#af470b</color>
+</color-palette>
+
+<color-palette name="orange_gold_10" type = "ordered-sequential">
+<color>#f4d04c</color>
+<color>#f1bc38</color>
+<color>#eea925</color>
+<color>#eb9315</color>
+<color>#e47f09</color>
+<color>#db6b03</color>
+<color>#cd5501</color>
+<color>#bf4300</color>
+<color>#af2f00</color>
+</color-palette>
+
+<color-palette name="blue_teal_10_0" type = "ordered-sequential">
+<color>#a3ded5</color>
+<color>#93cfcd</color>
+<color>#81bfc5</color>
+<color>#71aebd</color>
+<color>#619eb6</color>
+<color>#548fb1</color>
+<color>#4e7ca9</color>
+<color>#426e9b</color>
+<color>#33608c</color>
+</color-palette>
+
+<color-palette name="green_10_0" type = "ordered-sequential">
+<color>#b9dfad</color>
+<color>#9dd68e</color>
+<color>#85ca76</color>
+<color>#76bc68</color>
+<color>#66ae5b</color>
+<color>#589f4d</color>
+<color>#499140</color>
+<color>#3b8432</color>
+<color>#2d7624</color>
+</color-palette>
+
+<color-palette name="green_gold_10_0" type = "ordered-sequential">
+<color>#f1ce63</color>
+<color>#cec85e</color>
+<color>#acc15e</color>
+<color>#8cb861</color>
+<color>#6cae66</color>
+<color>#52a266</color>
+<color>#439458</color>
+<color>#33834a</color>
+<color>#22763f</color>
+</color-palette>
+
+<color-palette name="purple_10_0" type = "ordered-sequential">
+<color>#ebc6e2</color>
+<color>#e3b4d5</color>
+<color>#d4a4c4</color>
+<color>#c894b6</color>
+<color>#bb84a7</color>
+<color>#ab759c</color>
+<color>#966a96</color>
+<color>#885b89</color>
+<color>#7b4d79</color>
+</color-palette>
+
+<color-palette name="brown_10_0" type = "ordered-sequential">
+<color>#eedbbd</color>
+<color>#ebc68c</color>
+<color>#e8b06f</color>
+<color>#de9c57</color>
+<color>#d18954</color>
+<color>#c5744a</color>
+<color>#bd5e38</color>
+<color>#b04833</color>
+<color>#9f3632</color>
+</color-palette>
+
