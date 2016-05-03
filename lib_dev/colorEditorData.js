@@ -39,6 +39,7 @@ allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 </color-palette>`)
 
 
+
 allPalettes.push(`<color-palette name="superfishel_stone_10_0" type = "regular">
 <color>#6388b4</color>
 <color>#ffae34</color>
@@ -191,7 +192,7 @@ allPalettes.push(`<color-palette name="Purple-Pink-Gray" type = "regular">
 <color>#b173a0</color>
 <color>#c799bc</color>
 </color-palette>`)
-/*
+
 allPalettes.push(`<color-palette name="blue_10_0" type = "ordered-sequential">
 <color>#aad7f4</color>
 <color>#9ac8e8</color>
@@ -204,10 +205,45 @@ allPalettes.push(`<color-palette name="blue_10_0" type = "ordered-sequential">
 <color>#33608c</color>
 </color-palette>`)
 
+allPalettes.push(`<color-palette name="tableau10_classic" type = "regular">
+<color>#1f77b4</color>
+<color>#ff7f0e</color>
+<color>#2ca02c</color>
+<color>#d62728</color>
+<color>#9467bd</color>
+<color>#8c564b</color>
+<color>#e377c2</color>
+<color>#7f7f7f</color>
+<color>#bcbd22</color>
+<color>#17becf</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="tableau20_classic" type = "regular">
+<color>#1f77b4</color>
+<color>#aec7e8</color>
+<color>#ff7f0e</color>
+<color>#ffbb78</color>
+<color>#2ca02c</color>
+<color>#98df8a</color>
+<color>#d62728</color>
+<color>#ff9896</color>
+<color>#9467bd</color>
+<color>#c5b0d5</color>
+<color>#8c564b</color>
+<color>#c49c94</color>
+<color>#e377c2</color>
+<color>#f7b6d2</color>
+<color>#7f7f7f</color>
+<color>#c7c7c7</color>
+<color>#bcbd22</color>
+<color>#dbdb8d</color>
+<color>#17becf</color>
+<color>#9edae5</color>
+</color-palette>`)
 
 
 allPalettes.push(`<color-palette name="blue_teal_10_0" type = "ordered-sequential">
-<color>#abded5</color>
+<color>#a3ded5</color>
 <color>#93cfcd</color>
 <color>#81bfc5</color>
 <color>#71aebd</color>
@@ -231,29 +267,27 @@ allPalettes.push(`<color-palette name="orange_10_0" type = "ordered-sequential">
 </color-palette>`)
 
 allPalettes.push(`<color-palette name="orange_gold_10" type = "ordered-sequential">
-<color>#eeca46</color>
-<color>#eebe39</color>
-<color>#eeb22d</color>
-<color>#eda523</color>
-<color>#ec9818</color>
-<color>#ea8c10</color>
-<color>#e5800a</color>
-<color>#e17505</color>
-<color>#dc6903</color>
-<color>#d85c03</color>
-<color>#d24f04</color>
+<color>#f4d04c</color>
+<color>#f1bc38</color>
+<color>#eea925</color>
+<color>#eb9315</color>
+<color>#e47f09</color>
+<color>#db6b03</color>
+<color>#cd5501</color>
+<color>#bf4300</color>
+<color>#af2f00</color>
 </color-palette>`)
 
 allPalettes.push(`<color-palette name="green_10_0" type = "ordered-sequential">
-<color>#ace288</color>
-<color>#96d680</color>
-<color>#82ca7a</color>
-<color>#72bd74</color>
-<color>#63b16e</color>
-<color>#53a367</color>
-<color>#46965b</color>
-<color>#3a8b50</color>
-<color>#2c7e45</color>
+<color>#b9dfad</color>
+<color>#9dd68e</color>
+<color>#85ca76</color>
+<color>#76bc68</color>
+<color>#66ae5b</color>
+<color>#589f4d</color>
+<color>#499140</color>
+<color>#3b8432</color>
+<color>#2d7624</color>
 </color-palette>`)
 
 allPalettes.push(`<color-palette name="green_gold_10_0" type = "ordered-sequential">
@@ -263,21 +297,21 @@ allPalettes.push(`<color-palette name="green_gold_10_0" type = "ordered-sequenti
 <color>#8cb861</color>
 <color>#6cae66</color>
 <color>#52a266</color>
-<color>#46975b</color>
-<color>#3a8a50</color>
-<color>#2c7e45</color>
+<color>#439458</color>
+<color>#33834a</color>
+<color>#22763f</color>
 </color-palette>`)
 
 allPalettes.push(`<color-palette name="red_10_0" type = "ordered-sequential">
-<color>#ffc8c2</color>
-<color>#fcb4ae</color>
-<color>#f79f99</color>
-<color>#f18a84</color>
-<color>#ea7471</color>
-<color>#e1605f</color>
-<color>#d64a4f</color>
-<color>#c73843</color>
-<color>#b72236</color>
+<color>#fec3ac</color>
+<color>#f8ab96</color>
+<color>#f69582</color>
+<color>#f37f72</color>
+<color>#e96662</color>
+<color>#dd4f54</color>
+<color>#d23c49</color>
+<color>#c6273d</color>
+<color>#b81a3d</color>
 </color-palette>`)
 
 allPalettes.push(`<color-palette name="red_gold_10_0" type = "ordered-sequential">
@@ -322,34 +356,33 @@ allPalettes.push(`<color-palette name="gray_warm_10_0" type = "ordered-sequentia
 <color>#59504e</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="orange-blue beta2" type = "ordered-diverging">
-<color>#b64a07</color>
-<color>#c0540c</color>
-<color>#ca5f10</color>
-<color>#d36815</color>
-<color>#dd721a</color>
-<color>#e67d20</color>
-<color>#ee8927</color>
-<color>#f39537</color>
-<color>#f5a34f</color>
-<color>#f6b16a</color>
-<color>#f5be86</color>
-<color>#ead1b6</color>
-<color>#bdc8ca</color>
-<color>#a8bfcb</color>
-<color>#96b4c9</color>
-<color>#85a9c6</color>
-<color>#779fc0</color>
-<color>#6b94b9</color>
-<color>#5f89b2</color>
-<color>#557eaa</color>
-<color>#4973a1</color>
-<color>#3e6a96</color>
-<color>#33608c</color>
-</color-palette>
-`)
+allPalettes.push(`<color-palette name="purple_10_0" type = "ordered-sequential">
+<color>#ebc6e2</color>
+<color>#e3b4d5</color>
+<color>#d4a4c4</color>
+<color>#c894b6</color>
+<color>#bb84a7</color>
+<color>#ab759c</color>
+<color>#966a96</color>
+<color>#885b89</color>
+<color>#7b4d79</color>
+</color-palette>`)
 
-allPalettes.push(`<color-palette name="orange_blue_10_0" type = "ordered-diverging">
+allPalettes.push(`<color-palette name="brown_10_0" type = "ordered-sequential">
+<color>#eedbbd</color>
+<color>#ebc68c</color>
+<color>#e8b06f</color>
+<color>#de9c57</color>
+<color>#d18954</color>
+<color>#c5744a</color>
+<color>#bd5e38</color>
+<color>#b04833</color>
+<color>#9f3632</color>
+</color-palette>`)
+
+//diverging
+
+allPalettes.push(`<color-palette name="orange-blue_diverging_10_0" type = "ordered-diverging">
 <color>#b64a07</color>
 <color>#c0540c</color>
 <color>#c95e10</color>
@@ -376,7 +409,28 @@ allPalettes.push(`<color-palette name="orange_blue_10_0" type = "ordered-divergi
 </color-palette>
 `)
 
-allPalettes.push(`<color-palette name="red_green_10_0" type = "ordered-diverging">
+
+allPalettes.push(`<color-palette name="red_green_diverging_10_0" type = "ordered-diverging">
+<color>#b72236</color>
+<color>#c73843</color>
+<color>#d64a4f</color>
+<color>#e1605f</color>
+<color>#ea7471</color>
+<color>#f18a84</color>
+<color>#f79f99</color>
+<color>#fcb4ae</color>
+<color>#d4d4c9</color>
+<color>#9dd68e</color>
+<color>#85ca76</color>
+<color>#76bc68</color>
+<color>#66ae5b</color>
+<color>#589f4d</color>
+<color>#499140</color>
+<color>#3b8432</color>
+<color>#2d7624</color>
+</color-palette>`)
+
+allPalettes.push(`<color-palette name="red_green_gold _diverging_10_0" type = "ordered-diverging">
 <color>#c33041</color>
 <color>#d04344</color>
 <color>#dd5548</color>
@@ -384,17 +438,38 @@ allPalettes.push(`<color-palette name="red_green_10_0" type = "ordered-diverging
 <color>#f17a4b</color>
 <color>#f98c4d</color>
 <color>#fba150</color>
-<color>#f7b856</color>
-<color>#f1ce63</color>
-<color>#96d680</color>
-<color>#82ca7a</color>
-<color>#72bd74</color>
-<color>#63b16e</color>
-<color>#53a367</color>
-<color>#46965b</color>
-<color>#3a8b50</color>
-<color>#2c7e45</color>
+<color>#fbbb58</color>
+<color>#f4d166</color>
+<color>#cec85e</color>
+<color>#acc15e</color>
+<color>#8cb861</color>
+<color>#6cae66</color>
+<color>#52a266</color>
+<color>#439458</color>
+<color>#33834a</color>
+<color>#22763f</color>
 </color-palette>`)
+
+allPalettes.push(`<color-palette name="green_blue_diverging_10_0" type = "ordered-diverging">
+<color>#317928</color>
+<color>#3e8534</color>
+<color>#4a9140</color>
+<color>#579e4c</color>
+<color>#64aa58</color>
+<color>#71b764</color>
+<color>#7ec470</color>
+<color>#8cd17d</color>
+<color>#c5dad4</color>
+<color>#9ac8e8</color>
+<color>#8bb9dc</color>
+<color>#7ba9cf</color>
+<color>#6d9ac2</color>
+<color>#5f8bb6</color>
+<color>#507ca9</color>
+<color>#426e9b</color>
+<color>#33608c</color>
+</color-palette>`)
+
 
 allPalettes.push(`<color-palette name="red_black_10_0" type = "ordered-diverging">
 <color>#b72236</color>
@@ -416,57 +491,94 @@ allPalettes.push(`<color-palette name="red_black_10_0" type = "ordered-diverging
 <color>#545e69</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau10_classic" type = "regular">
-<color>#1f77b4</color>
-<color>#ff7f0e</color>
-<color>#2ca02c</color>
-<color>#d62728</color>
-<color>#9467bd</color>
-<color>#8c564b</color>
-<color>#e377c2</color>
-<color>#7f7f7f</color>
-<color>#bcbd22</color>
-<color>#17becf</color>
+//white centers
+allPalettes.push(`<color-palette name="red_blue_white_diverging_10_0" type = "ordered-diverging">
+<color>#bf3841</color>
+<color>#d2494e</color>
+<color>#e15d5e</color>
+<color>#ed7271</color>
+<color>#f68986</color>
+<color>#fca09c</color>
+<color>#feb7b3</color>
+<color>#fcd0cd</color>
+<color>#fbe6e5</color>
+<color>#fffefd</color>
+<color>#deecf6</color>
+<color>#b9dcf4</color>
+<color>#9ecbea</color>
+<color>#8ab8db</color>
+<color>#78a5cc</color>
+<color>#6694bd</color>
+<color>#5681ae</color>
+<color>#46709e</color>
+<color>#33608c</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau20_classic" type = "regular">
-<color>#1f77b4</color>
-<color>#aec7e8</color>
-<color>#ff7f0e</color>
-<color>#ffbb78</color>
-<color>#2ca02c</color>
-<color>#98df8a</color>
-<color>#d62728</color>
-<color>#ff9896</color>
-<color>#9467bd</color>
-<color>#c5b0d5</color>
-<color>#8c564b</color>
-<color>#c49c94</color>
-<color>#e377c2</color>
-<color>#f7b6d2</color>
-<color>#7f7f7f</color>
-<color>#c7c7c7</color>
-<color>#bcbd22</color>
-<color>#dbdb8d</color>
-<color>#17becf</color>
-<color>#9edae5</color>
+allPalettes.push(`<color-palette name="green_blue_white_diverging_10_0" type = "ordered-diverging">
+<color>#317928</color>
+<color>#418938</color>
+<color>#529847</color>
+<color>#62a856</color>
+<color>#73b965</color>
+<color>#84c875</color>
+<color>#a0d693</color>
+<color>#c0e2b8</color>
+<color>#daefd9</color>
+<color>#ffffff</color>
+<color>#d2ebfa</color>
+<color>#b0daf5</color>
+<color>#9bc9e8</color>
+<color>#88b6da</color>
+<color>#77a4ca</color>
+<color>#6693bc</color>
+<color>#5581ad</color>
+<color>#44709d</color>
+<color>#33608c</color>
 </color-palette>`)
 
-
-allPalettes.push(`<color-palette name="tableau_medium_classic" type = "regular">
-<color>#729ece</color>
-<color>#ff9e4a</color>
-<color>#67bf5c</color>
-<color>#ed665d</color>
-<color>#ad8bc9</color>
-<color>#a8786e</color>
-<color>#ed97ca</color>
-<color>#a2a2a2</color>
-<color>#cdcc5d</color>
-<color>#6dccda</color>
+allPalettes.push(`<color-palette name="red_black_white_diverging_10_0" type = "ordered-diverging">
+<color>#bf3841</color>
+<color>#d2494e</color>
+<color>#e15d5e</color>
+<color>#ed7271</color>
+<color>#f68986</color>
+<color>#fca09c</color>
+<color>#feb7b3</color>
+<color>#fcd0cd</color>
+<color>#fbe6e5</color>
+<color>#fffefd</color>
+<color>#ebebeb</color>
+<color>#d6d8d8</color>
+<color>#c2c5c6</color>
+<color>#abb2b5</color>
+<color>#959fa4</color>
+<color>#808b92</color>
+<color>#6c7881</color>
+<color>#5a656f</color>
+<color>#49525e</color>
 </color-palette>`)
 
-*/
+allPalettes.push(`<color-palette name="orange_blue_white_diverging_10_0" type = "ordered-diverging">
+<color>#b64a07</color>
+<color>#c75b0f</color>
+<color>#d76c17</color>
+<color>#e77f22</color>
+<color>#f29436</color>
+<color>#f6aa5d</color>
+<color>#f9be81</color>
+<color>#fdcea0</color>
+<color>#ffdfc0</color>
+<color>#ffffff</color>
+<color>#d2ebfa</color>
+<color>#b0daf5</color>
+<color>#9bc9e8</color>
+<color>#88b6da</color>
+<color>#77a4ca</color>
+<color>#6693bc</color>
+<color>#5581ad</color>
+<color>#44709d</color>
+<color>#33608c</color>
+</color-palette>`)
 
 allPalettes.push(`<color-palette name="new palette" type = "none">
 </color-palette>`)

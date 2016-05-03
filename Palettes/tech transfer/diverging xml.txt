@@ -98,6 +98,33 @@
 <color>#3b8432</color>
 <color>#2d7624</color>
 </color-palette>
+<color-palette name="orange-blue beta2 v2" type = "regular">
+<color>#b64a07</color>
+<color>#c0540c</color>
+<color>#c95e10</color>
+<color>#d36815</color>
+<color>#dd731a</color>
+<color>#e67e20</color>
+<color>#ef8929</color>
+<color>#f3973a</color>
+<color>#f5a452</color>
+<color>#f6b16c</color>
+<color>#f9be81</color>
+<color>#d9d7cf</color>
+<color>#aec8db</color>
+<color>#9cbed6</color>
+<color>#90b4ce</color>
+<color>#84a8c5</color>
+<color>#759ec0</color>
+<color>#6a93b9</color>
+<color>#5f89b2</color>
+<color>#547ea9</color>
+<color>#4973a0</color>
+<color>#3d6995</color>
+<color>#33608c</color>
+</color-palette>
+
+
 
 <color-palette name="red_green_gold _diverging_10_0" type = "ordered-diverging">
 <color>#c33041</color>

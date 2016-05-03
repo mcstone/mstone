@@ -1,0 +1,65 @@
+<color-palette name="tableau10 g-p-br" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#87beb8</color>
+<color>#59a14f</color>
+<color>#edc948</color>
+<color>#b07aa1</color>
+<color>#b4aca8</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+</color-palette>
+
+<color-palette name="tableau10 p-br-g" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#87beb8</color>
+<color>#59a14f</color>
+<color>#edc948</color>
+<color>#b07aa1</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+<color>#b4aca8</color>
+</color-palette>
+
+
+<color-palette name="tableau_10_0" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#76b7b2</color>
+<color>#59a14f</color>
+<color>#e8c443</color>
+<color>#b07aa1</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+<color>#bab0ac</color>
+</color-palette>
+
+<color-palette name="tableau_10_0 mgold" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#76b7b2</color>
+<color>#59a14f</color>
+<color>#eac645</color>
+<color>#b07aa1</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+<color>#bab0ac</color>
+</color-palette>
+
+<color-palette name="tableau10 p-br-g 2" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#78b9b4</color>
+<color>#59a14f</color>
+<color>#e8c443</color>
+<color>#b07aa1</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+<color>#bab0ac</color>
+</color-palette>

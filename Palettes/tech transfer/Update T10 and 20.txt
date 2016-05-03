@@ -1,0 +1,81 @@
+// tableau_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau_10_0")), PaletteRegular, IDS_PALETTE_TABLEAU_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0x76B7B2),
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0xE8C443),
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xFF9DA7),
+    ColorObjectFromRGB(0x9C755F),
+    ColorObjectFromRGB(0xBAB0AC),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_TABLEAU_10_0,    "tableau_10_0"  ]
+
+// tableau_20_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("tableau_20_10_0")), PaletteRegular, IDS_PALETTE_TABLEAU_20_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x4E79A7),
+    ColorObjectFromRGB(0xA0CBE8),
+    ColorObjectFromRGB(0xF28E2B),
+    ColorObjectFromRGB(0xFFBE7D),
+    ColorObjectFromRGB(0x59A14F),
+    ColorObjectFromRGB(0x8CD17D),
+    ColorObjectFromRGB(0xB6992D),
+    ColorObjectFromRGB(0xF1CE63),
+    ColorObjectFromRGB(0x499894),
+    ColorObjectFromRGB(0x86BCB6),
+    ColorObjectFromRGB(0xE15759),
+    ColorObjectFromRGB(0xFF9D9A),
+    ColorObjectFromRGB(0x79706E),
+    ColorObjectFromRGB(0xBAB0AC),
+    ColorObjectFromRGB(0xD37295),
+    ColorObjectFromRGB(0xFABFD2),
+    ColorObjectFromRGB(0xB07AA1),
+    ColorObjectFromRGB(0xD4A6C8),
+    ColorObjectFromRGB(0x9D7660),
+    ColorObjectFromRGB(0xD7B5A6),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_TABLEAU_20_10_0,    "tableau_20_10_0"  ]
+
+
+
+<color-palette name="tableau_10_0" type = "regular">
+<color>#4e79a7</color>
+<color>#f28e2b</color>
+<color>#e15759</color>
+<color>#76b7b2</color>
+<color>#59a14f</color>
+<color>#e8c443</color>
+<color>#b07aa1</color>
+<color>#ff9da7</color>
+<color>#9c755f</color>
+<color>#bab0ac</color>
+</color-palette>
+
+<color-palette name="tableau_20_10_0" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#ffbe7d</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#b6992d</color>
+<color>#f1ce63</color>
+<color>#499894</color>
+<color>#86bcb6</color>
+<color>#e15759</color>
+<color>#ff9d9a</color>
+<color>#79706e</color>
+<color>#bab0ac</color>
+<color>#d37295</color>
+<color>#fabfd2</color>
+<color>#b07aa1</color>
+<color>#d4a6c8</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+</color-palette>
