@@ -2,20 +2,20 @@
 var allPalettes = []
 
 
-allPalettes.push(`<color-palette name="tableau10 beta2" type = "regular">
+allPalettes.push(`<color-palette name="tableau_10_0" type = "regular">
 <color>#4e79a7</color>
 <color>#f28e2b</color>
+<color>#e15759</color>
+<color>#76b7b2</color>
 <color>#59a14f</color>
 <color>#edc948</color>
-<color>#87beb8</color>
-<color>#e15759</color>
-<color>#ff9da7</color>
 <color>#b07aa1</color>
-<color>#b4aca8</color>
+<color>#ff9da7</color>
 <color>#9c755f</color>
+<color>#bab0ac</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
+allPalettes.push(`<color-palette name="tableau_20_10_0" type = "regular">
 <color>#4e79a7</color>
 <color>#a0cbe8</color>
 <color>#f28e2b</color>
@@ -29,7 +29,7 @@ allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 <color>#e15759</color>
 <color>#ff9d9a</color>
 <color>#79706e</color>
-<color>#b4aca8</color>
+<color>#bab0ac</color>
 <color>#d37295</color>
 <color>#fabfd2</color>
 <color>#b07aa1</color>
@@ -37,7 +37,6 @@ allPalettes.push(`<color-palette name="tableau20 beta2" type = "regular">
 <color>#9d7660</color>
 <color>#d7b5a6</color>
 </color-palette>`)
-
 
 
 allPalettes.push(`<color-palette name="superfishel_stone_10_0" type = "regular">

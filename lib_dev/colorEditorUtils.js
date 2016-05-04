@@ -419,7 +419,21 @@ function paletteToFormattingXML(colors, pType) {
 	}				
 	return xml
 }
-
+function shuffle(colors,gSize) {
+	//this is primarily for formatting. Takes hue order, shuffles
+	var nArray = []
+	var offset = Math.floor(colors.length/2)	//need an int
+	for (var i=0; i<offset; i = i+gSize){
+		for (var g=0; g<gSize; g++){
+			nArray.push(colors[i+g])
+		}
+		for (var g=0; g<gSize; g++){
+			nArray.push(colors[i+g+offset])
+		}	
+	}
+	return nArray
+	
+}
 function copyColors(cArray, pName) { //deep copy of an array of color items
 	var colors = []
 	for (var i=0; i<cArray.length; i++) {
