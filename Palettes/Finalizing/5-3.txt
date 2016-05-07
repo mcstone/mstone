@@ -26,8 +26,97 @@
 <color>#bab0ac</color>
 </color-palette>
 
+<color-palette name="tableau_20 nl" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#febd7c</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#c1a132</color>
+<color>#f1ce63</color>
+<color>#269899</color>
+<color>#85c4bd</color>
+<color>#e15759</color>
+<color>#ff9996</color>
+<color>#70635f</color>
+<color>#b3a9a5</color>
+<color>#da799c</color>
+<color>#fdbbd0</color>
+<color>#905c8a</color>
+<color>#d0a2c4</color>
+<color>#a1765c</color>
+<color>#e2b49a</color>
+</color-palette>
 
+<color-palette name="tableau_20 nl v2" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#febd7c</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#bb9b2c</color>
+<color>#f1ce63</color>
+<color>#3fa9a9</color>
+<color>#85c4bd</color>
+<color>#e15759</color>
+<color>#ff9996</color>
+<color>#6b5e5a</color>
+<color>#bab0ac</color>
+<color>#da799c</color>
+<color>#fdbbd0</color>
+<color>#976392</color>
+<color>#cd9fc1</color>
+<color>#a47659</color>
+<color>#e2b49a</color>
+</color-palette>
 
+<color-palette name="tableau_20 nl v3" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#febd7c</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#c1a132</color>
+<color>#f1ce63</color>
+<color>#3fa9a9</color>
+<color>#85c4bd</color>
+<color>#e15759</color>
+<color>#ff9996</color>
+<color>#6b5e5a</color>
+<color>#bab0ac</color>
+<color>#d37295</color>
+<color>#fdbbd0</color>
+<color>#976392</color>
+<color>#cd9fc1</color>
+<color>#a5775a</color>
+<color>#e2b49a</color>
+</color-palette>
+
+<color-palette name="tableau_20 nl" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#febd7c</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#c1a132</color>
+<color>#f1ce63</color>
+<color>#269899</color>
+<color>#85c4bd</color>
+<color>#e15759</color>
+<color>#ff9996</color>
+<color>#70635f</color>
+<color>#b3a9a5</color>
+<color>#da799c</color>
+<color>#fdbbd0</color>
+<color>#905c8a</color>
+<color>#d0a2c4</color>
+<color>#a1765c</color>
+<color>#e2b49a</color>
+</color-palette>
 
 <color-palette name="tableau_20_10_0" type = "regular">
 <color>#4e79a7</color>

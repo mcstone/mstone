@@ -1,0 +1,33 @@
+        private static readonly List<string> BlackAndWhite = new List<string>(
+            ("#000000"),
+            ("#FFFFFF"));
+
+        private static readonly List<string> DarkGrays = new List<string>(
+            ("#1B1B1B"),
+            ("#333333"),
+            ("#555555"), // Default text color for Clean theme
+            ("#666666"),
+            ("#898989"));
+
+        private static readonly List<string> LightGrays = new List<string>(
+            ("#F5F5F5"), // Ultra light gray added to complement other ultra ligh (for banding)
+            ("#E6E6E6"), // Default header bgd color and default pane band color for Modern theme
+            ("#D4D4D4"), // Default header band color and default zero line color for Modern theme
+            ("#C0C0C0"),
+            ("#B4B4B4"));
+
+        private static readonly List<string> Presets1 = new List<string>(
+            ("#4E79A7"), ("#7BA6CC"), ("#A8D5F2"),
+            ("#57A76A"), ("#77BF79"), ("#97D788"),
+            ("#45949E"), ("#6CADB2"), ("#90C8C6"),
+            ("#A57197"), ("#BD8BAF"), ("#D4A6C8"),
+            ("#9D7660"), ("#B99582"), ("#D7B5A6"),
+            ("#8B827F"), ("#ACA3A0"), ("#CEC5C1"));
+
+        private static readonly List<string> Presets2 = new List<string>(
+            ("#F28E2B"), ("#FAA554"), ("#FFBC7B"),
+            ("#B7992E"), ("#D4B349"), ("#F1CE63"),
+            ("#E15759"), ("#F17B7F"), ("#FF9DA7"),
+            ("#79706E"), ("#988F8D"), ("#B8B0AD"),
+            ("#E37DA0"), ("#EF9FB9"), ("#FABFD2"),
+            ("#B57FA6"), ("#81B7B5"), ("#EDC948"));
