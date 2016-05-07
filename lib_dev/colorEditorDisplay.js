@@ -6,14 +6,14 @@ updatePlots = function() {
 	d3.select('#plots').selectAll("svg").remove(); //the LAB Plots
 	d3.select("#pSpace").selectAll("div").remove()	//all Palettes
 	d3.select("#statSpace").selectAll("div").remove()	//stats
-	
+	var stats = computeStats(state.colors,$('input:radio[name=stats-type]:checked').val())
 	if ($('#all-palettes').prop('checked')==true) {		
 		displayAllPalettes()	//uses the eColor from each palette. uses global state
 	} else {
 		displayColorspace()	//maybe should be an option rather than an either/or
 	}
-	displayStats()
-	displayExamples()	//has its own logic for deciding what examples to show.
+	if (stats !=null) {displayStats(stats)}
+	displayExamples(stats)	//has its own logic for deciding what examples to show.
 }
 
 
@@ -35,8 +35,8 @@ function setPlotSpec(aVals,bVals,lVals) {
 	plotSpec.lMin = lVals[0]
 	plotSpec.lMax = lVals[1]
 }
-function displayStats(){
-	var stats = computeStats(state.colors)	//for the current palette
+
+function displayStats(stats){
 	var cGroup = d3.select('#statSpace')
 		.append('div')
 		.attr('class','statString')
@@ -130,6 +130,8 @@ function displayColorspace() {
 	}
 }
 function displayAllPalettes() {
+	var stats_type = $('input:radio[name=stats-type]:checked').val()
+	
 	var pHeight = 32;
 	var pGap = 8;
 	var pW = 24
@@ -177,8 +179,8 @@ function displayAllPalettes() {
 		} else {
 			cGroup.style('color','gray')
 		}
-		if ($('#show-stats').prop('checked')==true) {
-			var stats = computeStats(p.eColors)	
+		var stats = computeStats(p.eColors,stats_type)
+		if (stats != null) {
 			cGroup.append('div').attr('class','pLable')
 				.text(stats.totalE.toString())
 				.style("width","20px")
@@ -209,7 +211,7 @@ function displayAllPalettes() {
 	}
 }
 
-function displayExamples() {  
+function displayExamples(stats) {  
 	//create some examples. Use flex boxes for layout	
 	var pSize = 32
 	var gap = 10
@@ -269,24 +271,7 @@ function displayExamples() {
 				.attr("x", 10)
 				.attr("y", 10)
 				drawArray(arrayBox,bW,bH,0, createRectMark)
-			if ($('#show-stats').prop('checked')==true) {
-				var stats = computeStats(state.colors)	//for the current palette
-				arrayBox = d3.select('#rightCol').append('div').append("svg")
-					.attr("height", bH*state.colors.length)
-					.attr('width', 35)
-					.attr('fill','gray')
-			
-
-				for (i = 0; i<stats.dE.length; i++) {
-					arrayBox.append('text').text(stats.dE[i].toString())
-					.attr('x',0)
-					.attr('y',(i+1)*bH+5)  //delta is between the two blocks
-				}
-				arrayBox.append('text').text(stats.totalE.toString())
-					.attr('x',0)
-					.attr('y',bH*state.colors.length)
-			}
-			//now overlay text
+						//now overlay text
 			if ($('#show-text').prop('checked')==true) {
 				var tString = $('#text-alpha').val()
 				var opacity = parseInt(tString)/100.0
@@ -310,6 +295,22 @@ function displayExamples() {
 					}
 				}
 			}
+			if (stats != null) {
+				arrayBox = d3.select('#rightCol').append('div').append("svg")
+					.attr("height", bH*state.colors.length)
+					.attr('width', 35)
+					.attr('fill','gray')
+			
+				for (i = 0; i<stats.dE.length; i++) {
+					arrayBox.append('text').text(stats.dE[i].toString())
+					.attr('x',0)
+					.attr('y',(i+1)*bH+5)  //delta is between the two blocks
+				}
+				arrayBox.append('text').text(stats.totalE.toString())
+					.attr('x',0)
+					.attr('y',bH*state.colors.length)
+			}
+
 		}
 	}
 	

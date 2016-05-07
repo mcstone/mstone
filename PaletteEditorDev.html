@@ -457,7 +457,8 @@ $(document).ready(function() {
 	$('#show-text').click(function(){
 		updatePlots()
 	})
-	$('#show-stats').click(function(){
+	
+	$('#stats-type').click(function(){
 		updatePlots()
 	})
 	$("#text-alpha").val('100')
@@ -497,6 +498,7 @@ $(document).ready(function() {
 		if (state.pOrder.length > 0) {
 			state.pOrder = state.colors
 			state.pOrder = []
+			$('input:radio[name=sort-type][value =pOrder]').prop('checked',true)
 		} 
 		if ($('#reverse-order').prop('checked')==true){
 			$('#reverse-order').prop('checked',false)
@@ -796,6 +798,14 @@ function clearSort() {
 				<div style="margin-right: 5px;">All Palettes </div>
 				<input type='checkbox' name='all-palettes' id='all-palettes'></input>
 			</div>
+			<form id='stats-type' >
+				<div class = 'control-group' style="margin-left: 0px;">
+					<div style="margin-right: 5px;">Show stats: </div>
+					<input type="radio" name='stats-type' value='dE'>dE</input>
+					<input type="radio" name='stats-type' value='dE94'  checked>dE94</input>
+					<input type="radio" name='stats-type' value='none' >none</input>
+				</div>
+			</form>
 			<div class = 'control-group'>
 				<div style="margin-right: 5px;">Marks Arrays </div>
 				<input type='checkbox' name='show-marks' id='show-marks' checked></input>
@@ -804,10 +814,7 @@ function clearSort() {
 				<div style="margin-right: 5px;">Wide Bars </div>
 				<input type='checkbox' name='show-bars' id='show-bars' checked></input>
 			</div>
-			<div class = 'control-group' style="margin-left: 5px;">
-				<div style="margin-right: 5px;">Show stats </div>
-				<input type='checkbox' name='show-stats' id='show-stats'  checked ></input>
-			</div>
+			
 			
 			<div class='control-group' style="margin-left: 5px;">
 				<div style="margin-right: 5px;">Overlay text </div>

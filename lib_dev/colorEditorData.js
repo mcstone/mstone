@@ -122,7 +122,7 @@ allPalettes.push(`<color-palette name="Miller Stone" type = "regular">
 <color>#4f6980</color>
 </color-palette>`)
 
-allPalettes.push(`<color-palette name="Data Jewels" type = "regular">
+allPalettes.push(`<color-palette name="Jewel Bright" type = "regular">
 <color>#eb1e2c</color>
 <color>#fd6f30</color>
 <color>#f9a729</color>

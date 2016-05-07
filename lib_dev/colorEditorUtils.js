@@ -460,12 +460,17 @@ labToHex = function(labVals) {
 	}
 	return hexVals
 }
-function computeStats(colors){
+
+function computeStats(colors, dE_type){
+	if (dE_type =='none') return null
 	var stats = {dE:[], minE: 0, maxE:0, aveE:0, totalE: 0}
 	var prev = colors[0]
 	var total = 0
 	for (var i=1; i<colors.length; i++) {
-		stats.dE[i-1] = deltaE(prev.color,colors[i].color)
+		if (dE_type =='dE94') {
+			stats.dE[i-1] = deltaE94(prev.color,colors[i].color)
+		}
+		else {stats.dE[i-1] = deltaE(prev.color,colors[i].color)}
 		total = total+stats.dE[i-1]
 		prev = colors[i]
 		stats.dE[i-1] = Math.round(stats.dE[i-1])
@@ -497,6 +502,7 @@ function deltaE94(c1,c2){
 	var C2 = Math.sqrt(lab2[1]*lab2[1]+lab2[2]*lab2[2]) //sqrt(a*a+b*b)
 	var da= lab1[1]-lab2[1]
 	var db= lab1[2]-lab2[2]
+	var dC = C1-C2
 	
 	//various weights. There are also kL, kC, kH, but they are all 1.0
 	var K1 = 0.045
