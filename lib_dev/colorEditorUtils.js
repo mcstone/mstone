@@ -215,6 +215,20 @@ function createHexString(colors, pName) {
 	}
 	return hexString
 }
+function paletteToCSV(colors, pName){
+	if (colors.length==0){return ''}
+	var csvString = "index,name,hex,L,C,H,a,b\n"
+	for (var i = 0; i<colors.length; i++) {
+		var hex=colors[i].color.hex()
+		var lab=colors[i].color.lab()
+		var lch=colors[i].color.lch()
+		var row = i.toString()+','+pName+','+hex+','
+			+lch[0].toString()+','+lch[1].toString()+','+lch[2].toString()+','
+			+lab[1].toString()+','+lab[2].toString()+'\n'
+		csvString = csvString+row
+	}
+	return csvString
+}
 function parseXML(xmlString) {
 	var doc = jQuery.parseXML('<all>'+xmlString+'</all>')	//would be nice to catch an error here
 	var pVals = []
@@ -370,23 +384,31 @@ function paletteToFormattingCode(colors, pType) {
 }
 
 function paletteToFormattingXML(colors, pType) {
-	//pType = light, dark, gray
-	var numStrings =['first','second','third','fourth','fifth', 'sixth', 'seventh', 'eighth', 'ninth']
+	//pType = light, light_prev, dark, gray
 	var xml = ""
 	var xmlHead = ''
+	var isPreview =''
 	var cLen = 3
 	var nCols = 2
 	var sCol = 0
 	switch (pType) {
 		case "light": {
-			xmlHead = "<preference name=\'swatch.light."
+			xmlHead = "<preference name=\'swatch.light"
 			nCols = 9
 			cLen = 6
 			sCol = 2
 			break
 		}
+		case "lightPreview": {
+			xmlHead = "<preference name=\'swatch.light"
+			nCols = 9
+			cLen = 6
+			sCol = 2
+			isPreview = '.preview'
+			break
+		}
 		case "dark": {
-			xmlHead = "<preference name=\'swatch.dark."
+			xmlHead = "<preference name=\'swatch.dark"
 			nCols = 8
 			cLen = 6
 			sCol = 2
@@ -396,9 +418,9 @@ function paletteToFormattingXML(colors, pType) {
 			sCol = 0
 			nCols = 2
 			cLen = 5
-			xml = "<preference name='swatch.firstcol.firstrow' value='#000000' />\n"
-			xml = xml+"<preference name='swatch.secondcol.firstrow' value='#ffffff' />\n"
-			xmlHead = "<preference name='swatch."  //gray doesn't include a type
+			xml = "<preference name='swatch.col1.row1' value='#000000' />\n"
+			xml = xml+"<preference name='swatch.col2.row1' value='#ffffff' />\n"
+			xmlHead = "<preference name=\'swatch"  //gray doesn't include a type
 			break;	
 		}
 	}
@@ -407,11 +429,12 @@ function paletteToFormattingXML(colors, pType) {
 	for (var col =0; col< nCols; col++){
 		var gHack = 0;
 		if (pType=='gray') {gHack = 1}	//force black and white to be at top
-		var cHead = xmlHead+numStrings[sCol]+'col.'
+		var cHead = xmlHead+".col"+sCol.toString()+"\'"
 		sCol = sCol+1
 		for (var row=0; row < cLen; row++){
-			if (cIndex>=colors.length){return xml}  
-			xml = xml+cHead+numStrings[row+gHack]+"row'"
+			if (cIndex>=colors.length){return xml} 
+			var rowNum = row+gHack
+			xml = xml+cHead+".row"+rowNum.toString()+isPreview+"\'"
 			xml = xml+ " value=\'"+colors[cIndex].color.hex()+"\' />\n"
 			cIndex = cIndex+1
 			if (cIndex>colors.length){return xml}  //ick, but two breaks is ick also

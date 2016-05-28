@@ -327,15 +327,16 @@ $(document).ready(function() {
 	$('#write').click(function(){
 		var type = $('input:radio[name=file_type]:checked').val();
 		var pText = ''
-		if (type=='hex') {pText = createHexString(state.colors,state.palette.pName)}
-		else if (type=='xml'){
-			var xmlType = $('#select-pType').val()
-			pText = paletteToXML(state.colors,state.palette.pName,xmlType)
+		var pName = state.palette.pName
+		var pType = state.palette.pType
+		var colors = state.palette.eColors
+		var xmlType = $('#select-pType').val()
+		switch (type) {
+			case 'hex': pText = pText+createHexString(colors,pName)+'/\n';break;
+			case 'xml': pText = pText+paletteToXML(colors,pName,xmlType)+'\n';break;
+			case 'code': pText = pText+paletteToCode(colors,pName, pType)+'\n';break;
+			case 'data': pText = pText+paletteToCSV(colors,pName, pType)+'\n';break;
 		}
-		else if (type=='code') {
-			pText = paletteToCode(state.colors,state.palette.pName,state.palette.pType)
-		}
-		else {}
 		$('#io-text').val(pText)
 	})
 	$('#write-all').click(function(){
@@ -344,7 +345,7 @@ $(document).ready(function() {
 		var colors = []
 		var pName = ''
 		var xmlType = ''
-		
+		var header = true
 		for (var p=0; p<state.palettes.length; p++) {
 			if (state.palettes[p].visible == false){continue}
 			colors = state.palettes[p].eColors
@@ -355,7 +356,9 @@ $(document).ready(function() {
 				case 'hex': pText = pText+createHexString(colors,pName)+'/\n';break;
 				case 'xml': pText = pText+paletteToXML(colors,pName,xmlType)+'\n';break;
 				case 'code': pText = pText+paletteToCode(colors,pName, pType)+'\n';break;
+				case 'data': pText = pText+paletteToCSV(colors,pName, pType, header)+'\n';break;
 			}
+			header = false
 		}
 		if (type=='code') {
 			
@@ -724,6 +727,7 @@ function clearSort() {
 				<input type="radio" name='file_type' value='hex' checked>Hex</input>
 				<input type="radio" name='file_type' value='xml'>XML</input>
 				<input type="radio" name='file_type' value='code'>code</input>
+				<input type="radio" name='file_type' value='data'>data</input>
 		
 			</form>
 		</div>
@@ -735,6 +739,7 @@ function clearSort() {
 				<option value='marks.ordered-diverging'>Ordered Diverging</option>
 				<option value='formatting.dark'>Formatting dark</option>
 				<option value='formatting.light'>Formatting light</option>
+				<option value='formatting.lightPreview'>Formatting lightPreview</option>
 				<option value='formatting.gray'>Formatting gray</option>
 				</select>
 		</div>

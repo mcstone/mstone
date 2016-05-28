@@ -1,9 +1,0 @@
-format-light orig #FFF5F5, #FCE5E5, #FAE1E1, #FAF5F0, #F5EDE0, #F2E7D5, #F7FAF0, #F0F5E1, #E7EDD5, #F0FAF9, #E6F5F3, #DDF0ED, #F0F7FA, #E6F1F5, #DDEBF0, #F2F6F7, #EEF1F3, #E6ECF0, #F0F3FA, #E6EBF5, #E2E6F0, #F7F3FA, #ede6f0, #e6dde8, #F2F6F7, #E8EFF0, #C7CECF, #F1F2F2, #F2F2F2, #E6E6E6, #F7F7F0, #EFF0EB, #E4E6DC, #FFFBF2, #FFF6E5, #FAF0DC, 2E3438, #182E3D, #133134, #282A38, #34313D, #33262D
- 
- format-light 2  #fff5f5, #fcecec, #fae1e1, #faf5f0, #f8efe2, #f2e7d5, #f7faf0, #f0f5e1, #e7edd5, #f0faf9, #e6f5f3, #ddf0ed, #f0f7fa, #e6f1f5, #ddebf0, #f2f6f7, #eef1f3, #e6ecf0, #f0f3fa, #e6ebf5, #e2e6f0, #f7f3fa, #f4ecf7, #ede4ef, #f2f6f7, #e8eff0, #d9e4e5, #f1f2f2, #ebebeb, #e6e6e6, #f7f7f0, #eff0eb, #e4e6dc, #fffbf2, #fff6e5, #faf0dc, 2E3438, #182E3D, #133134, #282A38, #34313D, #33262D
- 
- format-light 3  #fff5f5, #fcecec, #fae1e1, #faf5f0, #f8efe2, #f2e7d5, #f7faf0, #f0f5e1, #e7edd5, #f0faf9, #e6f5f3, #ddf0ed, #f0f7fa, #e6f1f5, #ddebf0, #f2f6f7, #eef1f3, #e6ecf0, #f0f3fa, #e6ebf5, #e2e6f0, #f7f3fa, #f4ecf7, #ede4ef, #f2f6f7, #e8eff0, #d9e4e5, #f1f2f2, #ebebeb, #e6e6e6, #f7f7f0, #eff0eb, #e4e6dc, #fffbf2, #fff6e5, #faf0dc, #33393d, #223747, #34313d, #173538, #2b2d3a, #33262d
- 
-format-light 4  #fae1e1, #fcecec, #fff5f5, #f2e7d5, #f8efe2, #faf5f0, #e7edd5, #f0f5e1, #f7faf0, #ddf0ed, #e6f5f3, #f0faf9, #ddebf0, #e6f1f5, #f0f7fa, #e6ecf0, #eef1f3, #f2f6f7, #e2e6f0, #e6ebf5, #f0f3fa, #ede4ef, #f4ecf7, #f7f3fa, #d9e4e5, #e8eff0, #f2f6f7, #e6e6e6, #ebebeb, #f1f2f2, #e4e6dc, #eff0eb, #f7f7f0, #faf0dc, #fff6e5, #fffbf2, #34313d, #233747, #33393d, #33262d, #2b2d3a, #173538
-
-format-dark  #1f77b4, #729ece, #aec7e8, #ff7f0e, #ff9e4a, #ffbb78, #2ca02c, #67bf5c, #98df8a, #d62728, #ed665d, #ff9896, #9467bd, #ad8bc9, #c5b0d5, #8c564b, #a8786e, #c49c94, #e377c2, #ed97ca, #f7b6d2, #7f7f7f, #a2a2a2, #c7c7c7, #bcbd22, #cdcc5d, #dbdb8d, #17becf, #6dccda, #9edae5, #8c6882, #b08ba8, #d0a9c8, #00a2a5, #3abcc1, #5cdbdd
