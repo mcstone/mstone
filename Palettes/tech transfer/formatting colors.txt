@@ -5,6 +5,8 @@ formatting darks v1 #4e79a7, #7ca7cd, #aad7f4, #f28e2b, #f9a447, #ffba61, #57a76
 
 formatting darks #4e79a7, #7ca7cd, #aad7f4, #f28e2b, #f9a447, #ffba61, #57a76a, #71bc73, #8cd17d, #bd9e34, #d7b54b, #f1ce63, #3f959f, #6bb1b6, #92cecc, #e15759, #ef807d, #faa8a3, #9c755f, #bd9885, #debcad, #d37295, #e598b1, #f6bcce, #79706e, #98908d, #b9b1ad, #a57197, #c18cb2, #dda9cd, #59504e, #98908c, #dcd4d0, #49525e, #889296, #d5d5d5, #81b7b5, #ff9da7, #edc948, #c18cb2
 
+format-light orig #FFF5F5, #FCE5E5, #FAE1E1, #FAF5F0, #F5EDE0, #F2E7D5, #F7FAF0, #F0F5E1, #E7EDD5, #F0FAF9, #E6F5F3, #DDF0ED, #F0F7FA, #E6F1F5, #DDEBF0, #F2F6F7, #EEF1F3, #E6ECF0, #F0F3FA, #E6EBF5, #E2E6F0, #F7F3FA, #ede6f0, #e6dde8, #F2F6F7, #E8EFF0, #C7CECF, #F1F2F2, #F2F2F2, #E6E6E6, #F7F7F0, #EFF0EB, #E4E6DC, #FFFBF2, #FFF6E5, #FAF0DC, 2E3438, #182E3D, #133134, #282A38, #34313D, #33262D
+
 
 Pink
 #f9f3ef, #f9eee8, #f9e9e0, 

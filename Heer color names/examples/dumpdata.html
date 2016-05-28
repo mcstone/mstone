@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Getting color and term data and dumping to csv</title>
+    <script type="text/javascript" src="../lib/d3/d3.js"></script>
+    <script type="text/javascript" src="../lib/d3/d3.color.js"></script>
+    <script type="text/javascript" src="../c3.js"></script>
+  <script type="text/javascript" src="dumpdata.js"></script>
+    <style type="text/css">
+      * { font-family: Helvetica Neue, Helvetica, Arial, sans-serif; }
+      body { background: #fff; }
+      div.color { display: inline-block; padding-bottom: 10px; }
+      #xkcd { left: 10px; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="xkcd"><h3>Dumping info to CSV</h3></div>
+		<select onChange="javascript:dumpData(this.value);">
+			<option value = "none">Choose type</option>
+		  <option value = "T_matrix" >T_matrix</option>
+		  <option value="terms">Terms</option>
+		  <option value="colors">Colors</option>
+		</select>
+    </div>
+  </body>
+</html>
