@@ -1,0 +1,985 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9300.16.0529.1454                                -->
+<workbook source-build='9.3.3 (9300.16.0529.1454)' source-platform='win' version='9.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='simple (Known Distributions)' inline='true' name='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp' version='9.3'>
+      <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='\\devmockup\wwwshare\DesignAndResearch\Research\usr\mstone\Palettes\Gradients\Known Distributions.xlsx' interpretationMode='0' password='' server='' validate='no'>
+        <relation name='simple (2)' table='[&apos;simple (2)$&apos;]' type='table'>
+          <columns gridOrigin='A1:V81:no:A1:V81:0' header='yes' outcome='6'>
+            <column datatype='string' name='cat1' ordinal='0' />
+            <column datatype='integer' name='cat2' ordinal='1' />
+            <column datatype='integer' name='Linear' ordinal='2' />
+            <column datatype='integer' name='Outliers' ordinal='3' />
+            <column datatype='integer' name='outliers 2' ordinal='4' />
+            <column datatype='real' name='Normal' ordinal='5' />
+            <column datatype='integer' name='Linear Diverging' ordinal='6' />
+            <column datatype='integer' name='Random' ordinal='7' />
+            <column datatype='integer' name='random 2' ordinal='8' />
+            <column datatype='integer' name='random 3' ordinal='9' />
+            <column datatype='integer' name='random 4' ordinal='10' />
+            <column datatype='integer' name='Gap' ordinal='11' />
+            <column datatype='real' name='gamma2.2' ordinal='12' />
+            <column datatype='real' name='gamma.45' ordinal='13' />
+            <column datatype='real' name='log' ordinal='14' />
+            <column datatype='integer' name='unit' ordinal='15' />
+            <column datatype='integer' name='index' ordinal='16' />
+            <column datatype='string' name='cat3' ordinal='17' />
+            <column datatype='integer' name='cat4' ordinal='18' />
+            <column datatype='integer' name='rGap' ordinal='19' />
+            <column datatype='integer' name='range 350' ordinal='20' />
+            <column datatype='integer' name='range750up' ordinal='21' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>cat1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[cat1]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>cat1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cat2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cat2]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>cat2</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Linear</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Linear]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Linear</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Outliers</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Outliers]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Outliers</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>outliers 2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[outliers 2]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>outliers 2</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Normal</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Normal]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Normal</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Linear Diverging</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Linear Diverging]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Linear Diverging</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Random</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Random]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Random</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>random 2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[random 2]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>random 2</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>random 3</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[random 3]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>random 3</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>random 4</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[random 4]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>random 4</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gap</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Gap]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>Gap</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gamma2.2</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[gamma2.2]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>gamma2.2</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gamma.45</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[gamma.45]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>gamma.45</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>log</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[log]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>log</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[unit]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>unit</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[index]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>index</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cat3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[cat3]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>cat3</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cat4</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cat4]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>cat4</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rGap</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rGap]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>rGap</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>range 350</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[range 350]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>range 350</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>range750up</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[range750up]</local-name>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias>range750up</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[simple (2)]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:V81:no:A1:V81:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Linear (bin)' datatype='integer' name='[Linear (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='2' formula='[Linear]' peg='0' size='100' />
+      </column>
+      <column datatype='integer' name='[Linear (copy)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[Linear]' />
+      </column>
+      <column datatype='integer' name='[Linear]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Cat1' datatype='string' name='[cat1]' role='dimension' type='nominal' />
+      <column caption='Cat2' datatype='integer' name='[cat2]' role='measure' type='quantitative' />
+      <column caption='Cat3' datatype='string' name='[cat3]' role='dimension' type='nominal' />
+      <column caption='Cat4' datatype='integer' name='[cat4]' role='measure' type='quantitative' />
+      <column caption='Gamma.45' datatype='real' name='[gamma.45]' role='measure' type='quantitative' />
+      <column caption='Gamma2.2' datatype='real' name='[gamma2.2]' role='measure' type='quantitative' />
+      <column caption='Index' datatype='integer' name='[index]' role='measure' type='quantitative' />
+      <column caption='Log' datatype='real' name='[log]' role='measure' type='quantitative' />
+      <column caption='Outliers 2' datatype='integer' name='[outliers 2]' role='measure' type='quantitative' />
+      <column caption='R Gap' datatype='integer' name='[rGap]' role='measure' type='quantitative' />
+      <column caption='Random 2' datatype='integer' name='[random 2]' role='measure' type='quantitative' />
+      <column caption='Random 3' datatype='integer' name='[random 3]' role='measure' type='quantitative' />
+      <column caption='Random 4' datatype='integer' name='[random 4]' role='measure' type='quantitative' />
+      <column caption='Range 350' datatype='integer' name='[range 350]' role='measure' type='quantitative' />
+      <column caption='Range750Up' datatype='integer' name='[range750up]' role='measure' type='quantitative' />
+      <column caption='Unit' datatype='integer' name='[unit]' role='measure' type='quantitative' />
+      <column-instance column='[Linear (copy)]' derivation='None' name='[none:Linear (copy):ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.375141' measure-ordering='alphabetic' measure-percentage='0.624859' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Linear (copy):ok]' type='palette'>
+            <map to='#1c5794'>
+              <bucket>670</bucket>
+            </map>
+            <map to='#1c5795'>
+              <bucket>850</bucket>
+            </map>
+            <map to='#1c5897'>
+              <bucket>660</bucket>
+            </map>
+            <map to='#1c5998'>
+              <bucket>840</bucket>
+            </map>
+            <map to='#1c5a99'>
+              <bucket>650</bucket>
+            </map>
+            <map to='#1c5b99'>
+              <bucket>830</bucket>
+            </map>
+            <map to='#1c5c9b'>
+              <bucket>640</bucket>
+            </map>
+            <map to='#1c5c9b'>
+              <bucket>820</bucket>
+            </map>
+            <map to='#1c5e9d'>
+              <bucket>630</bucket>
+            </map>
+            <map to='#1c5e9d'>
+              <bucket>810</bucket>
+            </map>
+            <map to='#1c609f'>
+              <bucket>620</bucket>
+            </map>
+            <map to='#1c609f'>
+              <bucket>800</bucket>
+            </map>
+            <map to='#1c62a1'>
+              <bucket>610</bucket>
+            </map>
+            <map to='#1c64a3'>
+              <bucket>600</bucket>
+            </map>
+            <map to='#1c66a4'>
+              <bucket>590</bucket>
+            </map>
+            <map to='#1c68a6'>
+              <bucket>580</bucket>
+            </map>
+            <map to='#1c6aa8'>
+              <bucket>570</bucket>
+            </map>
+            <map to='#1c6caa'>
+              <bucket>560</bucket>
+            </map>
+            <map to='#1c6eac'>
+              <bucket>550</bucket>
+            </map>
+            <map to='#1c70ae'>
+              <bucket>540</bucket>
+            </map>
+            <map to='#1c72b0'>
+              <bucket>530</bucket>
+            </map>
+            <map to='#1d558f'>
+              <bucket>870</bucket>
+            </map>
+            <map to='#1d5591'>
+              <bucket>680</bucket>
+            </map>
+            <map to='#1d5692'>
+              <bucket>860</bucket>
+            </map>
+            <map to='#1d74b1'>
+              <bucket>520</bucket>
+            </map>
+            <map to='#1e538d'>
+              <bucket>880</bucket>
+            </map>
+            <map to='#1e548d'>
+              <bucket>690</bucket>
+            </map>
+            <map to='#1f5187'>
+              <bucket>710</bucket>
+            </map>
+            <map to='#1f5187'>
+              <bucket>900</bucket>
+            </map>
+            <map to='#1f528a'>
+              <bucket>700</bucket>
+            </map>
+            <map to='#1f528a'>
+              <bucket>890</bucket>
+            </map>
+            <map to='#1f75b1'>
+              <bucket>510</bucket>
+            </map>
+            <map to='#204f84'>
+              <bucket>720</bucket>
+            </map>
+            <map to='#204f84'>
+              <bucket>910</bucket>
+            </map>
+            <map to='#214d7e'>
+              <bucket>930</bucket>
+            </map>
+            <map to='#214e81'>
+              <bucket>730</bucket>
+            </map>
+            <map to='#214e81'>
+              <bucket>920</bucket>
+            </map>
+            <map to='#224b7a'>
+              <bucket>750</bucket>
+            </map>
+            <map to='#224b7c'>
+              <bucket>940</bucket>
+            </map>
+            <map to='#224c7d'>
+              <bucket>740</bucket>
+            </map>
+            <map to='#2277b2'>
+              <bucket>500</bucket>
+            </map>
+            <map to='#234976'>
+              <bucket>960</bucket>
+            </map>
+            <map to='#234977'>
+              <bucket>760</bucket>
+            </map>
+            <map to='#234a79'>
+              <bucket>950</bucket>
+            </map>
+            <map to='#244773'>
+              <bucket>970</bucket>
+            </map>
+            <map to='#244874'>
+              <bucket>770</bucket>
+            </map>
+            <map to='#2478b2'>
+              <bucket>490</bucket>
+            </map>
+            <map to='#254670'>
+              <bucket>980</bucket>
+            </map>
+            <map to='#254671'>
+              <bucket>780</bucket>
+            </map>
+            <map to='#26456e'>
+              <bucket>790</bucket>
+            </map>
+            <map to='#26456e'>
+              <bucket>990</bucket>
+            </map>
+            <map to='#267ab3'>
+              <bucket>480</bucket>
+            </map>
+            <map to='#287bb3'>
+              <bucket>470</bucket>
+            </map>
+            <map to='#2b7db4'>
+              <bucket>460</bucket>
+            </map>
+            <map to='#2d7eb4'>
+              <bucket>450</bucket>
+            </map>
+            <map to='#2f80b4'>
+              <bucket>440</bucket>
+            </map>
+            <map to='#3281b5'>
+              <bucket>430</bucket>
+            </map>
+            <map to='#3483b5'>
+              <bucket>420</bucket>
+            </map>
+            <map to='#3684b6'>
+              <bucket>410</bucket>
+            </map>
+            <map to='#3886b6'>
+              <bucket>400</bucket>
+            </map>
+            <map to='#3b88b8'>
+              <bucket>390</bucket>
+            </map>
+            <map to='#3f8bba'>
+              <bucket>380</bucket>
+            </map>
+            <map to='#428ebc'>
+              <bucket>370</bucket>
+            </map>
+            <map to='#4591be'>
+              <bucket>360</bucket>
+            </map>
+            <map to='#4993c0'>
+              <bucket>350</bucket>
+            </map>
+            <map to='#4c96c3'>
+              <bucket>340</bucket>
+            </map>
+            <map to='#5099c5'>
+              <bucket>330</bucket>
+            </map>
+            <map to='#539cc7'>
+              <bucket>320</bucket>
+            </map>
+            <map to='#579fc9'>
+              <bucket>310</bucket>
+            </map>
+            <map to='#5aa2cb'>
+              <bucket>300</bucket>
+            </map>
+            <map to='#5da5ce'>
+              <bucket>290</bucket>
+            </map>
+            <map to='#61a8d0'>
+              <bucket>280</bucket>
+            </map>
+            <map to='#64abd2'>
+              <bucket>270</bucket>
+            </map>
+            <map to='#67add4'>
+              <bucket>260</bucket>
+            </map>
+            <map to='#69afd5'>
+              <bucket>250</bucket>
+            </map>
+            <map to='#6ab1d6'>
+              <bucket>240</bucket>
+            </map>
+            <map to='#6cb3d7'>
+              <bucket>230</bucket>
+            </map>
+            <map to='#6db5d8'>
+              <bucket>220</bucket>
+            </map>
+            <map to='#6fb7d9'>
+              <bucket>210</bucket>
+            </map>
+            <map to='#70b9da'>
+              <bucket>200</bucket>
+            </map>
+            <map to='#72bcdb'>
+              <bucket>190</bucket>
+            </map>
+            <map to='#73bedc'>
+              <bucket>180</bucket>
+            </map>
+            <map to='#75c0dd'>
+              <bucket>170</bucket>
+            </map>
+            <map to='#76c2de'>
+              <bucket>160</bucket>
+            </map>
+            <map to='#78c4e0'>
+              <bucket>150</bucket>
+            </map>
+            <map to='#79c6e1'>
+              <bucket>140</bucket>
+            </map>
+            <map to='#7bc8e1'>
+              <bucket>130</bucket>
+            </map>
+            <map to='#80c9e1'>
+              <bucket>120</bucket>
+            </map>
+            <map to='#84c9e0'>
+              <bucket>110</bucket>
+            </map>
+            <map to='#88cae0'>
+              <bucket>100</bucket>
+            </map>
+            <map to='#8dcbdf'>
+              <bucket>90</bucket>
+            </map>
+            <map to='#91ccde'>
+              <bucket>80</bucket>
+            </map>
+            <map to='#95cdde'>
+              <bucket>70</bucket>
+            </map>
+            <map to='#9acedd'>
+              <bucket>60</bucket>
+            </map>
+            <map to='#9ecfdd'>
+              <bucket>50</bucket>
+            </map>
+            <map to='#a2d0dc'>
+              <bucket>40</bucket>
+            </map>
+            <map to='#a7d1db'>
+              <bucket>30</bucket>
+            </map>
+            <map to='#abd2db'>
+              <bucket>20</bucket>
+            </map>
+            <map to='#afd3da'>
+              <bucket>10</bucket>
+            </map>
+            <map to='#b4d4da'>
+              <bucket>0</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='simple (Known Distributions)' name='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp' />
+          </datasources>
+          <datasource-dependencies datasource='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp'>
+            <column caption='Linear (bin)' datatype='integer' name='[Linear (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='2' formula='[Linear]' peg='0' size='100' />
+            </column>
+            <column datatype='integer' name='[Linear]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <show-full-range>
+          <column>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='simple (Known Distributions)' name='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp' />
+          </datasources>
+          <datasource-dependencies datasource='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp'>
+            <column caption='Linear (bin)' datatype='integer' name='[Linear (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='2' formula='[Linear]' peg='0' size='100' />
+            </column>
+            <column datatype='integer' name='[Linear]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]'>
+            <groupfilter from='0' function='range' level='[Linear (bin)]' to='9' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='simple (Known Distributions)' name='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp' />
+          </datasources>
+          <datasource-dependencies datasource='excel-direct.0z9i0sd1kzya8213r8t2q039zzdp'>
+            <column datatype='integer' name='[Linear (copy)]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='[Linear]' />
+            </column>
+            <column datatype='integer' name='[Linear]' role='measure' type='quantitative' />
+            <column-instance column='[Linear (copy)]' derivation='None' name='[none:Linear (copy):ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[none:Linear (copy):ok]'>
+            <groupfilter from='0' function='range' level='[none:Linear (copy):ok]' to='990' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[none:Linear (copy):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[none:Linear (copy):ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='28'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[Linear (bin)]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[none:Linear (copy):ok]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[excel-direct.0z9i0sd1kzya8213r8t2q039zzdp].[none:Linear (copy):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAADgElEQVR4nO3bv4vfZBzA8U++ac/2rmqLtP6YFMShg4Pg0EFw6ODmKq6C/5BOOrg5iuKi
+      oyK4iEMXrS20UpAirae2XBGEc7gWdL2WFny/XlPIkyc8Gd4hgWTZ39/fH4jaPOoFwKMkANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANKOHHaiLyj4Pzh0ALdv3551XR/kWuChO3QA67rOsePH59Kv
+      N2dm5vSJndn9e+barb9mXWbOPfvkfHHpxszMnD19YnZv35kfrt+arXUzb7783Hz49eWZmXnt
+      pTNz44878/2Vm3N868i88/qL8/6n383MzPlXXpjdmzfmwo8/z/axx+bdt87f7/XCfxw6gJmD
+      x6DLN3YPTrRu5ureMt9e/3OObpZ59ekn5svLv83MzPbRda5c/30+u/DLbG+t88bZZ+aDuwGc
+      2tmai9d256OvLs+pna15+9zz894nBwGcObkzV3+6OB9//s08dfJxAfDA3VcAMzPLv7aW5eCt
+      erMc7N/cHVyWmWVZZl2WWTcHx613B5dlmc3mYP96d+K9sc29sXUz6+p9nQdvOez/AHt7e7O9
+      vf2g1wMPldsqaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIg
+      TQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCk
+      CYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoA
+      SBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0
+      AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMA
+      aQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAm
+      ANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIg
+      TQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQNo/5MBZAmkRoFEAAAAASUVORK5C
+      YII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAADgElEQVR4nO3bv4vfZBzA8U++ac/2rmqLtP6YFMShg4Pg0EFw6ODmKq6C/5BOOrg5iuKi
+      oyK4iEMXrS20UpAirae2XBGEc7gWdL2WFny/XlPIkyc8Gd4hgWTZ39/fH4jaPOoFwKMkANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANKOHHaiLyj4Pzh0ALdv3551XR/kWuChO3QA67rOsePH59Kv
+      N2dm5vSJndn9e+barb9mXWbOPfvkfHHpxszMnD19YnZv35kfrt+arXUzb7783Hz49eWZmXnt
+      pTNz44878/2Vm3N868i88/qL8/6n383MzPlXXpjdmzfmwo8/z/axx+bdt87f7/XCfxw6gJmD
+      x6DLN3YPTrRu5ureMt9e/3OObpZ59ekn5svLv83MzPbRda5c/30+u/DLbG+t88bZZ+aDuwGc
+      2tmai9d256OvLs+pna15+9zz894nBwGcObkzV3+6OB9//s08dfJxAfDA3VcAMzPLv7aW5eCt
+      erMc7N/cHVyWmWVZZl2WWTcHx613B5dlmc3mYP96d+K9sc29sXUz6+p9nQdvOez/AHt7e7O9
+      vf2g1wMPldsqaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIg
+      TQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIE
+      QJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCk
+      CYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoA
+      SBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0
+      AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMA
+      aQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAm
+      ANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQJoASBMAaQIg
+      TQCkCYA0AZAmANIEQJoASBMAaQIgTQCkCYA0AZAmANIEQNo/5MBZAmkRoFEAAAAASUVORK5C
+      YII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      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
+      QmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

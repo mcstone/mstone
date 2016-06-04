@@ -1,0 +1,227 @@
+//working on 5 step seeds that also look good at 6
+
+<color-palette name="green_blue_diverging v2" type = "ordered-sequential">
+<color>#266f1e</color>
+<color>#448b3a</color>
+<color>#66a650</color>
+<color>#89c167</color>
+<color>#a0d989</color>
+<color>#c5dad4</color>
+<color>#99c5e3</color>
+<color>#6dadd8</color>
+<color>#5394c9</color>
+<color>#3b78a6</color>
+<color>#2d5b87</color>
+</color-palette>
+
+<color-palette name="green v4" type = "ordered-sequential">
+<color>#abde9d</color>
+<color>#83c874</color>
+<color>#47aa5b</color>
+<color>#318a41</color>
+<color>#006d30</color>
+</color-palette>
+
+<color-palette name="green v5" type = "ordered-sequential">
+<color>#b8e09d</color>
+<color>#88c777</color>
+<color>#61b153</color>
+<color>#3c9c4c</color>
+<color>#308541</color>
+<color>#2b6c35</color>
+</color-palette>
+
+
+<color-palette name="orange v7" type = "ordered-sequential">
+<color>#ffc685</color>
+<color>#f5aa4a</color>
+<color>#f58c30</color>
+<color>#eb691d</color>
+<color>#c85323</color>
+<color>#a03f24</color>
+</color-palette>
+
+<color-palette name="orange v6" type = "ordered-sequential">
+<color>#ffc685</color>
+<color>#f5aa4a</color>
+<color>#f58c30</color>
+<color>#eb691d</color>
+<color>#c85323</color>
+<color>#9e3d22</color>
+</color-palette>
+
+<color-palette name="orange v2" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#fba742</color>
+<color>#e47f15</color>
+<color>#c45c00</color>
+<color>#a33f01</color>
+</color-palette>
+
+<color-palette name="orange v3" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#f6aa3e</color>
+<color>#f28e2a</color>
+<color>#df731e</color>
+<color>#c45312</color>
+<color>#a33f01</color>
+</color-palette>
+
+<color-palette name="orange v4" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#f6aa3e</color>
+<color>#f28e2a</color>
+<color>#de6d20</color>
+<color>#c7501c</color>
+<color>#ac3513</color>
+</color-palette>
+
+<color-palette name="orange v5" type = "ordered-sequential">
+<color>#fdc888</color>
+<color>#f6ab4b</color>
+<color>#f08e29</color>
+<color>#df721e</color>
+<color>#c45312</color>
+<color>#a33f01</color>
+</color-palette>
+
+<color-palette name="purple v2" type = "ordered-sequential">
+<color>#efcae6</color>
+<color>#e3abce</color>
+<color>#c78fbc</color>
+<color>#ab73a6</color>
+<color>#8b5d92</color>
+<color>#69497b</color>
+</color-palette>
+
+olor-palette name="purple v2 s9" type = "ordered-sequential">
+<color>#efcae6</color>
+<color>#e7b5d6</color>
+<color>#dba3c8</color>
+<color>#ca91be</color>
+<color>#b980b1</color>
+<color>#a870a4</color>
+<color>#926397</color>
+<color>#7f568b</color>
+<color>#69497e</color>
+</color-palette>
+
+<color-palette name="green v3" type = "regular">
+<color>#b4e3a5</color>
+<color>#8cd17d</color>
+<color>#59a14f</color>
+<color>#1b823c</color>
+<color>#006c2f</color>
+</color-palette>
+
+<color-palette name="green v2" type = "regular">
+<color>#b4e3a5</color>
+<color>#8cd17d</color>
+<color>#74b669</color>
+<color>#509846</color>
+<color>#1b813b</color>
+<color>#006c2f</color>
+</color-palette>
+
+<color-palette name="green_gold v2" type = "regular">
+<color>#f4d166</color>
+<color>#bec55e</color>
+<color>#82b458</color>
+<color>#50a055</color>
+<color>#35854b</color>
+<color>#146c36</color>
+</color-palette>
+
+
+<color-palette name="blue_teal_10_0 s5" type = "ordered-sequential">
+<color>#bce4d8</color>
+<color>#85c5cd</color>
+<color>#3b9db7</color>
+<color>#34779c</color>
+<color>#2c5985</color>
+</color-palette>
+
+<color-palette name="blue_10_0 s6" type = "ordered-sequential">
+<color>#bedbed</color>
+<color>#93c2dd</color>
+<color>#6aa9cb</color>
+<color>#4f8db3</color>
+<color>#3c739f</color>
+<color>#315d89</color>
+</color-palette>
+
+<color-palette name="blue v3 s5" type = "ordered-sequential">
+<color>#b3ddf7</color>
+<color>#8cb9dc</color>
+<color>#6a98c0</color>
+<color>#4b77a3</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="blue v4 s5" type = "ordered-sequential">
+<color>#b3ddf7</color>
+<color>#86b9db</color>
+<color>#6a98c0</color>
+<color>#4b77a3</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="blue_teal v2" type = "ordered-sequential">
+<color>#bce4d8</color>
+<color>#a0d5d1</color>
+<color>#85c5cd</color>
+<color>#62b1c1</color>
+<color>#3b9db7</color>
+<color>#358aaa</color>
+<color>#34779c</color>
+<color>#2f6891</color>
+<color>#2c5985</color>
+</color-palette>
+
+<color-palette name="blue_teal v3" type = "ordered-sequential">
+<color>#bce4d8</color>
+<color>#9dd3d1</color>
+<color>#81c3cb</color>
+<color>#65b3c2</color>
+<color>#45a2b9</color>
+<color>#368fae</color>
+<color>#347da0</color>
+<color>#306a93</color>
+<color>#2c5985</color>
+</color-palette>
+
+<color-palette name="blue v2" type = "ordered-sequential">
+<color>#b3ddf7</color>
+<color>#9dcce9</color>
+<color>#88bbdc</color>
+<color>#79aace</color>
+<color>#6a98c0</color>
+<color>#5a87b1</color>
+<color>#4b76a3</color>
+<color>#3a6693</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="blue v3" type = "ordered-sequential">
+<color>#b3ddf7</color>
+<color>#a0cbea</color>
+<color>#8dbadc</color>
+<color>#7ba9ce</color>
+<color>#6a98c0</color>
+<color>#5a87b1</color>
+<color>#4b76a3</color>
+<color>#3a6693</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="blue v4" type = "ordered-sequential">
+<color>#bedbed</color>
+<color>#a4cce3</color>
+<color>#8abcd9</color>
+<color>#72adce</color>
+<color>#5f9dc1</color>
+<color>#4f8eb3</color>
+<color>#437da6</color>
+<color>#396d99</color>
+<color>#315d89</color>
+</color-palette>

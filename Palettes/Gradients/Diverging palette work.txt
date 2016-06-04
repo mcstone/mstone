@@ -1,0 +1,6 @@
+
+green-blue diverging v3  #006c2f, #157c38, #348b3f, #519847, #63a858, #74b769, #83c675, #97d688, #b4e3a5, #c5dad4,#b3ddf7, #9dcce9, #88bbdc, #79aace, #6a98c0, #5a87b1, #4b76a3, #3a6693, #2a5783/
+
+green-blue diverging v4 #2d671c, #337b29, #339041, #45a45d, #66bb7d, #8ccd9b,#bce4d8, #94cece, #6fb8c4, #4ca1b9, #368aaa, #307197, #2c5985
+
+green-blue diverging v4  #2c671b, #337b29, #339041, #45a45d, #66bb7d, #8fd09e, #cbe4d8, #96d1d1, #6fb8c4, #4ca1b9, #368aaa, #337198, #335f8a/

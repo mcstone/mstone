@@ -1,0 +1,49 @@
+<color-palette name="orange v6" type = "ordered-sequential">
+<color>#ffc685</color>
+<color>#fab767</color>
+<color>#f5a847</color>
+<color>#f59536</color>
+<color>#f2822a</color>
+<color>#ed6f20</color>
+<color>#e16220</color>
+<color>#d05822</color>
+<color>#c04f23</color>
+<color>#af4623</color>
+<color>#9e3d22</color>
+</color-palette>
+
+<color-palette name="blue_teal v3" type = "ordered-sequential">
+<color>#bce4d8</color>
+<color>#9dd3d1</color>
+<color>#81c3cb</color>
+<color>#65b3c2</color>
+<color>#45a2b9</color>
+<color>#368fae</color>
+<color>#347da0</color>
+<color>#306a93</color>
+<color>#2c5985</color>
+</color-palette>
+
+<color-palette name="blue v2" type = "ordered-sequential">
+<color>#b3ddf7</color>
+<color>#9dcce9</color>
+<color>#88bbdc</color>
+<color>#79aace</color>
+<color>#6a98c0</color>
+<color>#5a87b1</color>
+<color>#4b76a3</color>
+<color>#3a6693</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="blue v4" type = "ordered-sequential">
+<color>#bedbed</color>
+<color>#a4cce3</color>
+<color>#8abcd9</color>
+<color>#72adce</color>
+<color>#5f9dc1</color>
+<color>#4f8eb3</color>
+<color>#437da6</color>
+<color>#396d99</color>
+<color>#315d89</color>
+</color-palette>

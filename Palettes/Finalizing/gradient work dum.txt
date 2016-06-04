@@ -1,0 +1,55 @@
+blue_10_0  #aad7f4, #9ac8e8, #8ab7db, #7ba9ce, #6c99c2, #5e8bb6, #507ba9, #426d9b, #33608c/
+blue_teal_10_0  #a3ded5, #93cfcd, #81bfc5, #71aebd, #619eb6, #548fb1, #4e7ca9, #426e9b, #33608c/
+orange_10_0  #ffca70, #feb756, #f8a541, #f3912b, #e6821e, #d87311, #ca6401, #bd5507, #af470b/
+orange_gold_10  #f4d04c, #f1bc38, #eea925, #eb9315, #e47f09, #db6b03, #cd5501, #bf4300, #af2f00/
+green_10_0  #b9dfad, #9dd68e, #85ca76, #76bc68, #66ae5b, #589f4d, #499140, #3b8432, #2d7624/
+green_gold_10_0  #f1ce63, #cec85e, #acc15e, #8cb861, #6cae66, #52a266, #439458, #33834a, #22763f/
+red_10_0  #fec3ac, #f8ab96, #f69582, #f37f72, #e96662, #dd4f54, #d23c49, #c6273d, #b81a3d/
+red_gold_10_0  #f1ce63, #f6ba57, #faa650, #fc924e, #f5814b, #ed724a, #e46149, #da5147, #cf4144, #c33041, #b71d3e/
+Gray_10_0  #d5d5d5, #c6c8c7, #b6b9b9, #a7acad, #979fa1, #889296, #7a858b, #6c7880, #606b76, #555f6a, #49525e/
+gray_warm_10_0  #dcd4d0, #cec5c1, #c0b8b4, #b3aaa7, #a59c99, #98908c, #8b827f, #7e7673, #726866, #665c5a, #59504e/
+purple v2  #efcae6, #e7b6d6, #dba3c8, #c991bd, #b980b1, #a770a4, #936397, #7e568a, #69497b/
+brown_10_0  #eedbbd, #ebc68c, #e8b06f, #de9c57, #d18954, #c5744a, #bd5e38, #b04833, #9f3632/
+old-green  #bccfb4, #94bb83, #69a761, #339444, #27823b, #1a7232, #09622a/
+old-gray  #c3c3c3, #b2b2b2, #a2a2a2, #929292, #838383, #747474, #666666, #585858, #4b4b4b, #3f3f3f, #333333, #282828, #1e1e1e/
+old-blue  #b4d4da, #7bc8e2, #67add4, #3a87b7, #1c73b1, #1c5998, #26456e/
+old-red  #eac0bd, #f89a90, #f57667, #e35745, #d8392c, #cf1719, #c21417, #b10c1d, #9c0824/
+old-orange  #f0c294, #fdab67, #fd8938, #f06511, #d74401, #a33202, #7b3014/
+area-red  #f5cac7, #fbb3ab, #fd9c8f, #fe8b7a, #fd7864, #f46b55, #ea5e45, #e04e35, #d43e25, #c92b14, #bd1100/
+area-green  #dbe8b4, #c3e394, #acdc7a, #9ad26d, #8ac765, #7abc5f, #6cae59, #60a24d, #569735, #4a8c1c, #3c8200/
+area-brown  #f3e0c2, #f6d29c, #f7c577, #f0b763, #e4aa63, #d89c63, #cc8f63, #c08262, #bb7359, #bb6348, #bb5137/
+orange-blue_diverging_10_0  #b64a07, #c0540c, #c95e10, #d36815, #dd731a, #e67e20, #ef8929, #f3973a, #f5a452, #f6b16c, #f9be81, #d9d7cf, #aec8db, #9cbed6, #90b4ce, #84a8c5, #759ec0, #6a93b9, #5f89b2, #547ea9, #4973a0, #3d6995, #33608c/
+red_green_diverging_10_0  #b72236, #c73843, #d64a4f, #e1605f, #ea7471, #f18a84, #f79f99, #fcb4ae, #d4d4c9, #9dd68e, #85ca76, #76bc68, #66ae5b, #589f4d, #499140, #3b8432, #2d7624/
+red_green_gold _diverging_10_0  #c33041, #d04344, #dd5548, #e76749, #f17a4b, #f98c4d, #fba150, #fbbb58, #f4d166, #cec85e, #acc15e, #8cb861, #6cae66, #52a266, #439458, #33834a, #22763f/
+green_blue_diverging_10_0  #317928, #3e8534, #4a9140, #579e4c, #64aa58, #71b764, #7ec470, #8cd17d, #c5dad4, #9ac8e8, #8bb9dc, #7ba9cf, #6d9ac2, #5f8bb6, #507ca9, #426e9b, #33608c/
+red_black_10_0  #b72236, #c73843, #d64a4f, #e1605f, #ea7471, #f18a84, #f79f99, #fcb4ae, #d2d2d2, #c5c6c7, #b3b7b7, #a2a7a9, #91999d, #808a91, #717c85, #646f7a, #545e69/
+red_blue_white_diverging_10_0  #bf3841, #d2494e, #e15d5e, #ed7271, #f68986, #fca09c, #feb7b3, #fcd0cd, #fbe6e5, #fffefd, #deecf6, #b9dcf4, #9ecbea, #8ab8db, #78a5cc, #6694bd, #5681ae, #46709e, #33608c/
+green_blue_white_diverging_10_0  #317928, #418938, #529847, #62a856, #73b965, #84c875, #a0d693, #c0e2b8, #daefd9, #ffffff, #d2ebfa, #b0daf5, #9bc9e8, #88b6da, #77a4ca, #6693bc, #5581ad, #44709d, #33608c/
+red_black_white_diverging_10_0  #bf3841, #d2494e, #e15d5e, #ed7271, #f68986, #fca09c, #feb7b3, #fcd0cd, #fbe6e5, #fffefd, #ebebeb, #d6d8d8, #c2c5c6, #abb2b5, #959fa4, #808b92, #6c7881, #5a656f, #49525e/
+orange_blue_white_diverging_10_0  #b64a07, #c75b0f, #d76c17, #e77f22, #f29436, #f6aa5d, #f9be81, #fdcea0, #ffdfc0, #ffffff, #d2ebfa, #b0daf5, #9bc9e8, #88b6da, #77a4ca, #6693bc, #5581ad, #44709d, #33608c/
+new palette/
+blue_teal v2  #bce4d8, #a0d5d1, #85c5cd, #62b1c1, #3b9db7, #358aaa, #34779c, #2f6891, #2c5985/
+blue_teal v3  #bce4d8, #9dd3d1, #81c3cb, #65b3c2, #45a2b9, #368fae, #347da0, #306a93, #2c5985/
+blue v2  #b3ddf7, #9dcce9, #88bbdc, #79aace, #6a98c0, #5a87b1, #4b76a3, #3a6693, #2a5783/
+blue v3  #b3ddf7, #a0cbea, #8dbadc, #7ba9ce, #6a98c0, #5a87b1, #4b76a3, #3a6693, #2a5783/
+blue v4  #bedbed, #a4cce3, #8abcd9, #72adce, #5f9dc1, #4f8eb3, #437da6, #396d99, #315d89/
+green v2  #006c2f, #157c38, #348b3f, #519847, #63a858, #74b769, #83c675, #97d688, #b4e3a5/
+green v3  #b4e3a5, #97d688, #82c874, #71b865, #60a755, #4a994a, #308a41, #147b38, #006c2f/
+green_gold v2  #f4d166, #d5ca60, #b6c35c, #98bb59, #7cb257, #60a656, #4b9c53, #3f8f4f, #33834a, #257740, #146c36/
+purple v3  #efcae6, #e7b5d6, #dba3c8, #ca91be, #b980b1, #a870a4, #926397, #7f568b, #69497e/
+green v3(cp)  #b4e3a5, #97d688, #82c874, #71b865, #60a755, #4a994a, #308a41, #147b38, #006c2f/
+orange v2  #ffcf75, #fabb56, #f6a63b, #f28f2b, #e67d22, #d86b1b, #c95914, #b74b0b, #a33f01/
+orange v3  #ffcf75, #fabb56, #f6a63b, #f28f2b, #e57d21, #d86b19, #c95914, #b74b0b, #a33f01/
+orange v4  #ffcf75, #fabb56, #f6a63b, #f28f2b, #e77c24, #db691f, #cc571d, #bc4618, #ac3513/
+orange v5  #fac381, #f9b560, #f4a240, #ef8c28, #e47a21, #d7681a, #c85814, #b64b0b, #a33f01, #f06511, #f28e2b/
+green_blue_diverging v2  #266f1e, #327a29, #3c8333, #498e3d, #559845, #63a34e, #70ae56, #7eb860, #8ac369, #95ce79, #a0d989, #c5dad4, #99c5e3, #86bade, #74b1da, #65a5d4, #599bcd, #4c8fc3, #3d86b7, #2e7cac, #28719f, #2b6694, #2d5b87/
+orange v6-9  #ffcf75, #fdba58, #f9a43f, #ef912b, #e37e15, #d46e0a, #c55d01, #b44d01, #a33f01/
+orange v6(cp)  #ffbe7d, #faa555, #f28e2b, #ea681c, #c85323, #9e3d22, #f06511/
+orange v7  #ffc685, #f9b35f, #f5a040, #f4882d, #ed7221, #de6020, #cb5423, #b54924, #a03f24/
+orange v6-9(cp)  #ffc685, #fab767, #f5a847, #f59536, #f2822a, #ed6f20, #e16220, #d05822, #c04f23, #af4623, #9e3d22/
+green v4  #abde9d, #83c874, #50aa58, #318a41, #006d30/
+green v5  #b8e09d, #88c777, #61b153, #3c9c4c, #308541, #2b6c35/
+green v2(cp)  #006c2f, #28853c, #559b4b, #70b365, #8bcd7d/
+green_10_0(cp)  #2d671c, #337b29, #339041, #45a45d, #66bb7d, #8ccd9b/
+blue_teal v3(cp)  #bce4d8, #94cece, #6fb8c4, #4ca1b9, #368aaa, #307197, #2c5985/
+green-blue diverging v4  #2c671b, #307122, #337c2b, #338938, #369446, #409e55, #4ca963, #5ab271, #6abd80, #7dc78f, #8fd09e, #cbe4d8, #96d1d1, #85c6cb, #74bcc6, #64b1c0, #53a6bb, #459ab4, #3a8ead, #3483a5, #33769c, #336a93, #335f8a/

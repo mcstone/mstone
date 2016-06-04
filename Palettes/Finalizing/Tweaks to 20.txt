@@ -1,0 +1,10 @@
+tableau_20_dkOnly #79706e, #4e79a7, #9d7660, #e15759, #b07aa1, #499894, #d37295, #59a14f, #b6992d, #f28e2b/
+
+tableau_20_ltOnly #86bcb6, #bab0ac, #d4a6c8, #ff9d9a, #d7b5a6, #8cd17d, #a0cbe8, #ffbe7d, #fabfd2, #f1ce63/
+
+tableau_20_dkOnly v2  #736a69, #4e79a7, #9f6a91, #9f765e, #e15759, #449793, #59a14f, #d8779b, #b89a2f, #f28e2b/
+
+tableau_20_ltOnly v2  #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #ffbe7d, #f6c1d1, #f1ce63/
+tableau_20_ltOnly v2  #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #febd7c, #f6c1d1, #f1ce63/
+
+tableau_20 v2  #4e79a7, #a0cbe8, #f28e2b, #ffbe7d, #59a14f, #8cd17d, #b6992d, #f1ce63, #499894, #86bcb6, #e15759, #ff9d9a, #79706e, #bab0ac, #d37295, #fabfd2, #b07aa1, #d4a6c8, #9d7660, #d7b5a6, #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #febd7c, #f6c1d1, #f1ce63
