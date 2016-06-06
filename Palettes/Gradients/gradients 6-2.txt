@@ -47,3 +47,61 @@
 <color>#396d99</color>
 <color>#315d89</color>
 </color-palette>
+
+
+<color-palette name="orange v4" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#fbbf5c</color>
+<color>#f8af46</color>
+<color>#f49d34</color>
+<color>#f08c2a</color>
+<color>#e77b24</color>
+<color>#dd6c20</color>
+<color>#d25e1e</color>
+<color>#c5501b</color>
+<color>#b94317</color>
+<color>#ac3513</color>
+</color-palette>
+
+<color-palette name="orange v5" type = "ordered-sequential">
+<color>#fcca90</color>
+<color>#fcb871</color>
+<color>#f9a755</color>
+<color>#f4963c</color>
+<color>#ed862b</color>
+<color>#e4751d</color>
+<color>#da6515</color>
+<color>#cd580e</color>
+<color>#c04b09</color>
+<color>#ae4103</color>
+<color>#9c3900</color>
+</color-palette>
+difference between Orange v3 and v4 is the dark color. v4 is more saturated
+
+<color-palette name="orange b4" type = "ordered-sequential">
+<color>#ffc685</color>
+<color>#fab767</color>
+<color>#f5a847</color>
+<color>#f59536</color>
+<color>#f2822a</color>
+<color>#ed6f20</color>
+<color>#e16220</color>
+<color>#d05822</color>
+<color>#c04f23</color>
+<color>#af4623</color>
+<color>#9e3d22</color>
+</color-palette>
+
+<color-palette name="orange gold b4" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#fbbe67</color>
+<color>#f8ad55</color>
+<color>#f59a3c</color>
+<color>#f3882d</color>
+<color>#f0731a</color>
+<color>#e3651e</color>
+<color>#d25922</color>
+<color>#c24f23</color>
+<color>#b04623</color>
+<color>#9e3d22</color>
+</color-palette>

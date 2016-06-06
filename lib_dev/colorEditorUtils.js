@@ -236,7 +236,7 @@ function computeStats(colors, dE_type){
 		else {stats.dE[i-1] = deltaE(prev.color,colors[i].color)}
 		total = total+stats.dE[i-1]
 		prev = colors[i]
-		stats.dE[i-1] = Math.round(stats.dE[i-1])
+		stats.dE[i-1] = Math.round(stats.dE[i-1]*10)/10.0
 	}
 	stats.minE = Math.min(...stats.dE)
 	stats.maxE = Math.max(...stats.dE)

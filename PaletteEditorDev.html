@@ -554,8 +554,13 @@ $(document).ready(function() {
 	})
 //Gradient builders
 	$('#seq-display').click(function(){
-		if (radioGetSelected('seq-display')=='interpolated'){buildGradient()}
-		else {updatePlots()}	
+		if (radioGetSelected('seq-display')=='interpolated'){
+			buildGradient()
+		}
+		else {
+			state.colors = state.palette.eColors
+			updatePlots()
+		}	
 	})
 	$('#interp-space').click(function(){
 		buildGradient()
@@ -603,8 +608,7 @@ function radioGetSelected(radioName) {
 	return checked		
 }
 function radioSetSelected(radioName,itemName) {
-	$('input:radio[name='+radioName+'][value ='+itemName+']').prop('checked',true)
-	return checked		
+	$('input:radio[name='+radioName+'][value ='+itemName+']').prop('checked',true)	
 }
 
 function buildGradient() {
@@ -649,6 +653,7 @@ function buildGradient() {
 			break;
 	}
 	state.gColors = iColors
+	state.colors = state.gColors
 	radioSetSelected('seq-display','interpolated')
 	updatePlots()
 	

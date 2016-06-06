@@ -1,6 +1,25 @@
 
-green-blue diverging v3  #006c2f, #157c38, #348b3f, #519847, #63a858, #74b769, #83c675, #97d688, #b4e3a5, #c5dad4,#b3ddf7, #9dcce9, #88bbdc, #79aace, #6a98c0, #5a87b1, #4b76a3, #3a6693, #2a5783/
 
 green-blue diverging v4 #2d671c, #337b29, #339041, #45a45d, #66bb7d, #8ccd9b,#bce4d8, #94cece, #6fb8c4, #4ca1b9, #368aaa, #307197, #2c5985
 
 green-blue diverging v4  #2c671b, #337b29, #339041, #45a45d, #66bb7d, #8fd09e, #cbe4d8, #96d1d1, #6fb8c4, #4ca1b9, #368aaa, #337198, #335f8a/
+
+green-blue diverging v3  #016d2f, #157c38, #348b3f, #519847, #63a858, #74b769, #83c675, #97d688, #c5dad4, #9dcce9, #88bbdc, #79aace, #6a98c0, #5a87b1, #4b76a3, #3a6693, #2a5783
+
+blue 6  #b9ddf1, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+orange v8v3  #9d3c20, #ae4523, #c14e23, #d25822, #e2631f, #ef721c, #f38629, #f5993e, #f8ac54, #fabd72, #fbce92/
+
+
+orange-blue diverging v2  #9d3c20, #ae4523, #c14e23, #d25822, #e2631f, #ef721c, #f38629, #f5993e, #f8ac54, #fabd72, #fbce92, #b9ddf1, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+
+orange-blue diverging v3 #9e3d22, #af4623, #c04f23, #d05822, #e16220, #ed6f20, #f2822a, #f59536, #f5a847, #fab767, #ffc685, #b9ddf1, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+orange v8v3  #9d3c20, #ae4523, #c14e23, #d25822, #e2631f, #ef721c, #f38629, #f5993e, #f8ac54, #fabd72, #fbce92/
+
+
+orange-blue diverging v3  #9e3d22, #af4623, #c04f23, #d05822, #e16220, #ed6f20, #fa8932, #fb9b3c, #fcb251, #fec776, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+
+orange-blue diverging v2  #9d3c20, #ae4523, #c14e23, #d25822, #e2631f, #ef721c, #f38629, #f5993e, #f8ac54, #fdc075, #dbd6cc, #a6c9dc, #91bfde, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+
+orange-blue diverging v3  #9e3d22, #af4723, #c14f23, #d25921, #e06625, #ee7424, #f7842d, #fb963a, #fbab4b, #f6bf6f, #d9d5c9, #a1cae4, #8fbddd, #81afd4, #70a3c8, #6495be, #5888b4, #4b7ca9, #416f9d, #36638f, #2a5783/
+
+orange-blue_diverging v1  #a63709, #b3450b, #bf530d, #cc6011, #d96d18, #e47c1f, #ee8b2c, #f49b42, #f6ad65, #f9be81, #d9d7cf, #a9c7dd, #97bad4, #89afc9, #7aa2c1, #6b95ba, #5e89b2, #527ca8, #456f9c, #386491, #2a5984/

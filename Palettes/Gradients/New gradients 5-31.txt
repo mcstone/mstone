@@ -14,6 +14,8 @@
 <color>#2d5b87</color>
 </color-palette>
 
+
+
 <color-palette name="green v4" type = "ordered-sequential">
 <color>#abde9d</color>
 <color>#83c874</color>
@@ -22,13 +24,6 @@
 <color>#006d30</color>
 </color-palette>
 
-<color-palette name="green v5" type = "ordered-sequential">
-<color>#b8e09d</color>
-<color>#88c777</color>
-<color>#61b153</color>
-<color>#3c9c4c</color>
-<color>#308541</color>
-<color>#2b6c35</color>
 </color-palette>
 
 
@@ -106,21 +101,60 @@ olor-palette name="purple v2 s9" type = "ordered-sequential">
 <color>#69497e</color>
 </color-palette>
 
-<color-palette name="green v3" type = "regular">
-<color>#b4e3a5</color>
-<color>#8cd17d</color>
-<color>#59a14f</color>
-<color>#1b823c</color>
+
+
+<color-palette name="green v2" type = "ordered-sequential">
+<color>#bbe3b0</color>
+<color>#a3d996</color>
+<color>#8ace7c</color>
+<color>#7dc071</color>
+<color>#70b367</color>
+<color>#61a659</color>
+<color>#53994a</color>
+<color>#448e41</color>
+<color>#348038</color>
+<color>#337336</color>
+<color>#316534</color>
+</color-palette>
+
+<color-palette name="green v4" type = "ordered-sequential">
+<color>#baddaa</color>
+<color>#9ad387</color>
+<color>#81c572</color>
+<color>#70b662</color>
+<color>#60a754</color>
+<color>#509748</color>
+<color>#488731</color>
+<color>#3f7925</color>
+<color>#336928</color>
+</color-palette>
+
+<color-palette name="green v3" type = "ordered-sequential">
+<color>#b8dfb1</color>
+<color>#9fd791</color>
+<color>#89cc7b</color>
+<color>#79c06c</color>
+<color>#6db361</color>
+<color>#5fa755</color>
+<color>#4e9c4c</color>
+<color>#3a8f44</color>
+<color>#26843d</color>
+<color>#117836</color>
 <color>#006c2f</color>
 </color-palette>
 
-<color-palette name="green v2" type = "regular">
-<color>#b4e3a5</color>
-<color>#8cd17d</color>
-<color>#74b669</color>
-<color>#509846</color>
-<color>#1b813b</color>
-<color>#006c2f</color>
+<color-palette name="old-green update" type = "ordered-sequential">
+<color>#c1dab7</color>
+<color>#aed09e</color>
+<color>#9cc585</color>
+<color>#8bba6f</color>
+<color>#75af5d</color>
+<color>#5ca551</color>
+<color>#459a48</color>
+<color>#308e41</color>
+<color>#27813b</color>
+<color>#1e7536</color>
+<color>#146931</color>
 </color-palette>
 
 <color-palette name="green_gold v2" type = "regular">

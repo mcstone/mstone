@@ -8,3 +8,40 @@ tableau_20_ltOnly v2  #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0c
 tableau_20_ltOnly v2  #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #febd7c, #f6c1d1, #f1ce63/
 
 tableau_20 v2  #4e79a7, #a0cbe8, #f28e2b, #ffbe7d, #59a14f, #8cd17d, #b6992d, #f1ce63, #499894, #86bcb6, #e15759, #ff9d9a, #79706e, #bab0ac, #d37295, #fabfd2, #b07aa1, #d4a6c8, #9d7660, #d7b5a6, #83b9b3, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #febd7c, #f6c1d1, #f1ce63
+
+tableau_20_ltOnly v3  #86bcb6, #bab0ac, #d6a8ca, #ff9d9a, #dab6a7, #8cd17d, #a0cbe8, #ffb982, #f6c1d0, #f1ce63/
+tableau_20_dkOnly v3  #676e70, #9d7660, #4e79a7, #9e678e, #e15759, #479591, #d77699, #59a14f, #b89a2f, #f28e2b/
+
+tableau_20 v2 #4e79a7, #a0cbe8, #f28e2b, #ffbe7d, #59a14f, #8cd17d, #b6992d, #f1ce63, #499894, #86bcb6, #e15759, #ff9d9a, #79706e, #bab0ac, #d37295, #fabfd2, #b07aa1, #d4a6c8, #9d7660, #d7b5a6/
+
+t20 bottom v2 #e15759, #ff9d9a, #736a69, #bab0ac, #d77699, #fabfd2, #9e678e, #d4a6c8, #9d7660, #d7b5a6/
+
+tableau_20 lt v4  #86bcb6, #bab0ac, #d5a7c9, #ff9d9a, #d7b5a6, #8cd17d, #a0cbe8, #fdbc7b, #f6c1d0, #f1ce63/
+
+t20 bottom v3 #e15759, #ff9d9a, #736a69, #bab0ac, #d77699, #f6c1d0, #9e678e, #d5a7c9, #9d7660, #dab6a7/
+t20 top v2 #4e79a7, #a0cbe8, #f28e2b, #fdbc7b, #59a14f, #8cd17d, #b89a2f, #f1ce63, #479591, #8ec4be/
+
+t20 v3 #4e79a7, #a0cbe8, #f28e2b, #fdbc7b, #59a14f, #8cd17d, #b89a2f, #f1ce63, #479591, #8ec4be, #e15759, #ff9d9a, #736a69, #bab0ac, #d77699, #f6c1d0, #9e678e, #d5a7c9, #9d7660, #dab6a7
+
+<color-palette name="tableau_20 v3" type = "regular">
+<color>#4e79a7</color>
+<color>#a0cbe8</color>
+<color>#f28e2b</color>
+<color>#ffbe7d</color>
+<color>#59a14f</color>
+<color>#8cd17d</color>
+<color>#b6992d</color>
+<color>#f1ce63</color>
+<color>#479591</color>
+<color>#8ec4be</color>
+<color>#e15759</color>
+<color>#ff9d9a</color>
+<color>#736a69</color>
+<color>#bab0ac</color>
+<color>#d77699</color>
+<color>#f6c1d0</color>
+<color>#9e678e</color>
+<color>#d4a6c8</color>
+<color>#9d7660</color>
+<color>#d7b5a6</color>
+</color-palette>
