@@ -25,7 +25,19 @@
 </color-palette>
 
 </color-palette>
-
+<color-palette name="orange v5" type = "ordered-sequential">
+<color>#fec68e</color>
+<color>#fbb76a</color>
+<color>#f5a848</color>
+<color>#f29734</color>
+<color>#ec8826</color>
+<color>#e37921</color>
+<color>#da6a1b</color>
+<color>#d05b15</color>
+<color>#c54e12</color>
+<color>#b34714</color>
+<color>#a13f15</color>
+</color-palette>
 
 <color-palette name="orange v7" type = "ordered-sequential">
 <color>#ffc685</color>
