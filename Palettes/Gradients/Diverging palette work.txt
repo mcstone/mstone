@@ -23,3 +23,101 @@ orange-blue diverging v2  #9d3c20, #ae4523, #c14e23, #d25822, #e2631f, #ef721c, 
 orange-blue diverging v3  #9e3d22, #af4723, #c14f23, #d25921, #e06625, #ee7424, #f7842d, #fb963a, #fbab4b, #f6bf6f, #d9d5c9, #a1cae4, #8fbddd, #81afd4, #70a3c8, #6495be, #5888b4, #4b7ca9, #416f9d, #36638f, #2a5783/
 
 orange-blue_diverging v1  #a63709, #b3450b, #bf530d, #cc6011, #d96d18, #e47c1f, #ee8b2c, #f49b42, #f6ad65, #f9be81, #d9d7cf, #a9c7dd, #97bad4, #89afc9, #7aa2c1, #6b95ba, #5e89b2, #527ca8, #456f9c, #386491, #2a5984/
+
+area orange-blue   #9e3a26, #b54526, #ca5227, #de6021, #ef721a, #f38b30, #f6a348, #faba62, #ffcf75,#bce4d8, #9dd3d1, #81c3cb, #65b3c2, #45a2b9, #368fae, #347da0, #306a93, #2c5985/
+
+area orange-blue v2  #9e3a26, #b54526, #ca5227, #de6021, #ef721a, #f38b30, #f4a742, #efbe6b, #dcd8c5, #a7cfcd, #81c3cb, #65b3c2, #45a2b9, #368fae, #347da0, #306a93, #2c5985/
+
+area orange-blue v2  #9e3a26, #b84726, #d05725, #e7691e, #f28229, #f4a140, #f6c069, #dcd8c7, #a5cfd1, #77c0cb, #5bacc2, #4697b8, #3e82ac, #3e6c96, #3a597c/
+
+area orange-blue v2  #9e3a26, #b24426, #c45025, #d75d23, #e86b1f, #ef8029, #f39739, #f5ac4e, #f6c069, #dcd8c7,
+#bedbed, #a4cce3, #8abcd9, #72adce, #5f9dc1, #4f8eb3, #437da6, #396d99, #315d89/
+
+orange-blue v4  #9e3d22, #ad4523, #bc4d23, #cb5522, #d95e21, #e76820, #ee7725, #f58a30, #fa9e3f, #fdb053, #ffc171, #d9d5c9, #9dcbe4, #8ec2df, #80b6d9, #73a8d0, #669bc7, #5c91bf, #5385b2, #487aa9, #3b6ea0, #306495, #2b5c8a/
+
+green-blue diverging  #24693d, #27763d, #2f8243, #408e4d, #4e9a51, #5ea654, #6ab25f, #78bf6c, #87cc79, #99d788, #b3e0a6, #b9ddf1, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+
+
+<color-palette name="gray_warm_10_0" type = "ordered-diverging">
+<color>#dcd4d0</color>
+<color>#cec5c1</color>
+<color>#c0b8b4</color>
+<color>#b3aaa7</color>
+<color>#a59c99</color>
+<color>#98908c</color>
+<color>#8b827f</color>
+<color>#7e7673</color>
+<color>#726866</color>
+<color>#665c5a</color>
+<color>#59504e</color>
+</color-palette>
+
+<color-palette name="Gray_10_0" type = "ordered-diverging">
+<color>#d5d5d5</color>
+<color>#c6c8c7</color>
+<color>#b6b9b9</color>
+<color>#a7acad</color>
+<color>#979fa1</color>
+<color>#889296</color>
+<color>#7a858b</color>
+<color>#6c7880</color>
+<color>#606b76</color>
+<color>#555f6a</color>
+<color>#49525e</color>
+</color-palette>
+
+<color-palette name="blue b4" type = "ordered-sequential">
+<color>#b9ddf1</color>
+<color>#a6d0ea</color>
+<color>#94c2e1</color>
+<color>#83b3d7</color>
+<color>#75a6cc</color>
+<color>#6798c1</color>
+<color>#598ab6</color>
+<color>#4c7dab</color>
+<color>#42709e</color>
+<color>#376491</color>
+<color>#2a5783</color>
+</color-palette>
+
+<color-palette name="orange b4" type = "ordered-sequential">
+<color>#ffc685</color>
+<color>#fab767</color>
+<color>#f5a847</color>
+<color>#f59536</color>
+<color>#f2822a</color>
+<color>#ed6f20</color>
+<color>#e16220</color>
+<color>#d05822</color>
+<color>#c04f23</color>
+<color>#af4623</color>
+<color>#9e3d22</color>
+</color-palette>
+
+<color-palette name="red b4" type = "ordered-sequential">
+<color>#ffbeb2</color>
+<color>#feac9d</color>
+<color>#fc9b87</color>
+<color>#fa8971</color>
+<color>#f67561</color>
+<color>#f26250</color>
+<color>#eb4c48</color>
+<color>#e03841</color>
+<color>#d2283d</color>
+<color>#c11a3b</color>
+<color>#ae123a</color>
+</color-palette>
+
+<color-palette name="green b4" type = "ordered-sequential">
+<color>#b3e0a6</color>
+<color>#99d788</color>
+<color>#87cc79</color>
+<color>#78bf6c</color>
+<color>#6ab25f</color>
+<color>#5ea654</color>
+<color>#4e9a51</color>
+<color>#408e4d</color>
+<color>#2f8243</color>
+<color>#27763d</color>
+<color>#24693d</color>
+</color-palette>

@@ -24,6 +24,21 @@
 <color>#006d30</color>
 </color-palette>
 
+<color-palette name="orange-gold v2" type = "ordered-sequential">
+<color>#ffcf75</color>
+<color>#fbbe67</color>
+<color>#f8ad55</color>
+<color>#f59a3c</color>
+<color>#f3882d</color>
+<color>#f0731a</color>
+<color>#e3651e</color>
+<color>#d35825</color>
+<color>#c44d28</color>
+<color>#b24426</color>
+<color>#9e3a26</color>
+</color-palette>
+
+
 </color-palette>
 <color-palette name="orange v5" type = "ordered-sequential">
 <color>#fec68e</color>
