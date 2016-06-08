@@ -116,11 +116,15 @@ formatTriple = function(t,p) {
 	return s
 }
 changePalette = function() {
-	name = $("#select-palette").val() 
+	var name = $("#select-palette").val()
+	var pType = "Categorical"
 	clearSelection()
 	//clearSort()
 	setPalette(state,name)
 	$("#pname-text").val(name)
+	if (state.palette.pType=='formatting') {pType = 'formatting.light'}
+	else {pType = 'marks.'+state.palette.pType}
+	$('#select-pType').val(pType)
 	updatePlots()
 }
 initDisplay = function() { 

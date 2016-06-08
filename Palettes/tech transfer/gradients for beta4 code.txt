@@ -1,0 +1,646 @@
+// blue_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue_10_0")), PaletteOrderedSequential, IDS_PALETTE_BLUE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB9DDF1),
+    ColorObjectFromRGB(0xA6D0EA),
+    ColorObjectFromRGB(0x94C2E1),
+    ColorObjectFromRGB(0x83B3D7),
+    ColorObjectFromRGB(0x75A6CC),
+    ColorObjectFromRGB(0x6798C1),
+    ColorObjectFromRGB(0x598AB6),
+    ColorObjectFromRGB(0x4C7DAB),
+    ColorObjectFromRGB(0x42709E),
+    ColorObjectFromRGB(0x376491),
+    ColorObjectFromRGB(0x2A5783),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_BLUE_10_0,    "blue_10_0"  ]
+
+// orange_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("orange_10_0")), PaletteOrderedSequential, IDS_PALETTE_ORANGE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xFFC685),
+    ColorObjectFromRGB(0xFAB767),
+    ColorObjectFromRGB(0xF5A847),
+    ColorObjectFromRGB(0xF59536),
+    ColorObjectFromRGB(0xF2822A),
+    ColorObjectFromRGB(0xED6F20),
+    ColorObjectFromRGB(0xE16220),
+    ColorObjectFromRGB(0xD05822),
+    ColorObjectFromRGB(0xC04F23),
+    ColorObjectFromRGB(0xAF4623),
+    ColorObjectFromRGB(0x9E3D22),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE_10_0,    "orange_10_0"  ]
+
+// green_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_10_0")), PaletteOrderedSequential, IDS_PALETTE_GREEN_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB3E0A6),
+    ColorObjectFromRGB(0x99D788),
+    ColorObjectFromRGB(0x87CC79),
+    ColorObjectFromRGB(0x78BF6C),
+    ColorObjectFromRGB(0x6AB25F),
+    ColorObjectFromRGB(0x5EA654),
+    ColorObjectFromRGB(0x4E9A51),
+    ColorObjectFromRGB(0x408E4D),
+    ColorObjectFromRGB(0x2F8243),
+    ColorObjectFromRGB(0x27763D),
+    ColorObjectFromRGB(0x24693D),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GREEN_10_0,    "green_10_0"  ]
+
+// red_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_10_0")), PaletteOrderedSequential, IDS_PALETTE_RED_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xFFBEB2),
+    ColorObjectFromRGB(0xFEAC9D),
+    ColorObjectFromRGB(0xFC9B87),
+    ColorObjectFromRGB(0xFA8971),
+    ColorObjectFromRGB(0xF67561),
+    ColorObjectFromRGB(0xF26250),
+    ColorObjectFromRGB(0xEB4C48),
+    ColorObjectFromRGB(0xE03841),
+    ColorObjectFromRGB(0xD2283D),
+    ColorObjectFromRGB(0xC11A3B),
+    ColorObjectFromRGB(0xAE123A),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_10_0,    "red_10_0"  ]
+
+// purple_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("purple_10_0")), PaletteOrderedSequential, IDS_PALETTE_PURPLE_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xEEC9E5),
+    ColorObjectFromRGB(0xE7BADA),
+    ColorObjectFromRGB(0xDCADCD),
+    ColorObjectFromRGB(0xD1A0C0),
+    ColorObjectFromRGB(0xC792B5),
+    ColorObjectFromRGB(0xBC86A9),
+    ColorObjectFromRGB(0xB0799F),
+    ColorObjectFromRGB(0xA06F99),
+    ColorObjectFromRGB(0x916491),
+    ColorObjectFromRGB(0x865986),
+    ColorObjectFromRGB(0x7C4D79),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_PURPLE_10_0,    "purple_10_0"  ]
+
+// brown_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("brown_10_0")), PaletteOrderedSequential, IDS_PALETTE_BROWN_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xEEDBBD),
+    ColorObjectFromRGB(0xECCA96),
+    ColorObjectFromRGB(0xE9B97A),
+    ColorObjectFromRGB(0xE4A865),
+    ColorObjectFromRGB(0xDC9856),
+    ColorObjectFromRGB(0xD18954),
+    ColorObjectFromRGB(0xC7784C),
+    ColorObjectFromRGB(0xC0673F),
+    ColorObjectFromRGB(0xB85536),
+    ColorObjectFromRGB(0xAD4433),
+    ColorObjectFromRGB(0x9F3632),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_BROWN_10_0,    "brown_10_0"  ]
+
+// gray_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gray_10_0")), PaletteOrderedSequential, IDS_PALETTE_GRAY_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xD5D5D5),
+    ColorObjectFromRGB(0xC6C8C7),
+    ColorObjectFromRGB(0xB6B9B9),
+    ColorObjectFromRGB(0xA7ACAD),
+    ColorObjectFromRGB(0x979FA1),
+    ColorObjectFromRGB(0x889296),
+    ColorObjectFromRGB(0x7A858B),
+    ColorObjectFromRGB(0x6C7880),
+    ColorObjectFromRGB(0x606B76),
+    ColorObjectFromRGB(0x555F6A),
+    ColorObjectFromRGB(0x49525E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GRAY_10_0,    "gray_10_0"  ]
+
+// gray_warm_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gray_warm_10_0")), PaletteOrderedSequential, IDS_PALETTE_GRAY_WARM_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xDCD4D0),
+    ColorObjectFromRGB(0xCEC5C1),
+    ColorObjectFromRGB(0xC0B8B4),
+    ColorObjectFromRGB(0xB3AAA7),
+    ColorObjectFromRGB(0xA59C99),
+    ColorObjectFromRGB(0x98908C),
+    ColorObjectFromRGB(0x8B827F),
+    ColorObjectFromRGB(0x7E7673),
+    ColorObjectFromRGB(0x726866),
+    ColorObjectFromRGB(0x665C5A),
+    ColorObjectFromRGB(0x59504E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GRAY_WARM_10_0,    "gray_warm_10_0"  ]
+
+
+// teal_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("teal_10_0")), PaletteRegular, IDS_PALETTE_TEAL_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xB4DFE0),
+    ColorObjectFromRGB(0x9ED3D3),
+    ColorObjectFromRGB(0x89C8C5),
+    ColorObjectFromRGB(0x75BCBA),
+    ColorObjectFromRGB(0x61B0AE),
+    ColorObjectFromRGB(0x4CA5A3),
+    ColorObjectFromRGB(0x379897),
+    ColorObjectFromRGB(0x228B8B),
+    ColorObjectFromRGB(0x117F81),
+    ColorObjectFromRGB(0x027378),
+    ColorObjectFromRGB(0x00656F),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_TEAL_10_0,    "teal_10_0"  ]
+
+
+
+// blue_teal_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("blue_teal_10_0")), PaletteOrderedSequential, IDS_PALETTE_BLUE_TEAL_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xBCE4D8),
+    ColorObjectFromRGB(0x9DD3D1),
+    ColorObjectFromRGB(0x81C3CB),
+    ColorObjectFromRGB(0x65B3C2),
+    ColorObjectFromRGB(0x45A2B9),
+    ColorObjectFromRGB(0x368FAE),
+    ColorObjectFromRGB(0x347DA0),
+    ColorObjectFromRGB(0x306A93),
+    ColorObjectFromRGB(0x2C5985),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_BLUE_TEAL_10_0,    "blue_teal_10_0"  ]
+
+// orange_gold_10
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("orange_gold_10")), PaletteOrderedSequential, IDS_PALETTE_ORANGE_GOLD_10);
+pal->SetColors({
+    ColorObjectFromRGB(0xF4D166),
+    ColorObjectFromRGB(0xF8BE5C),
+    ColorObjectFromRGB(0xF8AA4C),
+    ColorObjectFromRGB(0xF5983B),
+    ColorObjectFromRGB(0xF3852A),
+    ColorObjectFromRGB(0xEF701B),
+    ColorObjectFromRGB(0xE2621F),
+    ColorObjectFromRGB(0xD65322),
+    ColorObjectFromRGB(0xC54923),
+    ColorObjectFromRGB(0xB14223),
+    ColorObjectFromRGB(0x9E3A26),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE_GOLD_10,    "orange_gold_10"  ]
+
+// green_gold_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_gold_10_0")), PaletteOrderedSequential, IDS_PALETTE_GREEN_GOLD_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xF4D166),
+    ColorObjectFromRGB(0xD5CA60),
+    ColorObjectFromRGB(0xB6C35C),
+    ColorObjectFromRGB(0x98BB59),
+    ColorObjectFromRGB(0x7CB257),
+    ColorObjectFromRGB(0x60A656),
+    ColorObjectFromRGB(0x4B9C53),
+    ColorObjectFromRGB(0x3F8F4F),
+    ColorObjectFromRGB(0x33834A),
+    ColorObjectFromRGB(0x257740),
+    ColorObjectFromRGB(0x146C36),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GREEN_GOLD_10_0,    "green_gold_10_0"  ]
+
+// red_gold_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_gold_10_0")), PaletteOrderedSequential, IDS_PALETTE_RED_GOLD_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xF4D166),
+    ColorObjectFromRGB(0xF6BE59),
+    ColorObjectFromRGB(0xF9AA51),
+    ColorObjectFromRGB(0xFC964E),
+    ColorObjectFromRGB(0xF6834B),
+    ColorObjectFromRGB(0xEE734A),
+    ColorObjectFromRGB(0xE56249),
+    ColorObjectFromRGB(0xDB5247),
+    ColorObjectFromRGB(0xCF4244),
+    ColorObjectFromRGB(0xC43141),
+    ColorObjectFromRGB(0xB71D3E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_GOLD_10_0,    "red_gold_10_0"  ]
+
+// orange_blue_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("orange_blue_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_ORANGE_BLUE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x9E3D22),
+    ColorObjectFromRGB(0xAD4523),
+    ColorObjectFromRGB(0xBC4D23),
+    ColorObjectFromRGB(0xCB5522),
+    ColorObjectFromRGB(0xD95E21),
+    ColorObjectFromRGB(0xE76820),
+    ColorObjectFromRGB(0xEE7725),
+    ColorObjectFromRGB(0xF58A30),
+    ColorObjectFromRGB(0xFA9E3F),
+    ColorObjectFromRGB(0xFDB053),
+    ColorObjectFromRGB(0xFFC171),
+    ColorObjectFromRGB(0xD9D5C9),
+    ColorObjectFromRGB(0x9DCBE4),
+    ColorObjectFromRGB(0x8EC2DF),
+    ColorObjectFromRGB(0x80B6D9),
+    ColorObjectFromRGB(0x73A8D0),
+    ColorObjectFromRGB(0x669BC7),
+    ColorObjectFromRGB(0x5C91BF),
+    ColorObjectFromRGB(0x5385B2),
+    ColorObjectFromRGB(0x487AA9),
+    ColorObjectFromRGB(0x3B6EA0),
+    ColorObjectFromRGB(0x306495),
+    ColorObjectFromRGB(0x2B5C8A),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE_BLUE_DIVERGING_10_0,    "orange_blue_diverging_10_0"  ]
+
+// red_green_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_green_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_GREEN_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xAE123A),
+    ColorObjectFromRGB(0xBF193B),
+    ColorObjectFromRGB(0xCE253D),
+    ColorObjectFromRGB(0xDC3440),
+    ColorObjectFromRGB(0xE74545),
+    ColorObjectFromRGB(0xEF574C),
+    ColorObjectFromRGB(0xF46956),
+    ColorObjectFromRGB(0xF77C66),
+    ColorObjectFromRGB(0xFA8D75),
+    ColorObjectFromRGB(0xFC9C89),
+    ColorObjectFromRGB(0xFEAC9D),
+    ColorObjectFromRGB(0xCED7C3),
+    ColorObjectFromRGB(0x99D788),
+    ColorObjectFromRGB(0x88CD7A),
+    ColorObjectFromRGB(0x7BC26F),
+    ColorObjectFromRGB(0x6FB663),
+    ColorObjectFromRGB(0x64AB59),
+    ColorObjectFromRGB(0x57A153),
+    ColorObjectFromRGB(0x499550),
+    ColorObjectFromRGB(0x3B8A4A),
+    ColorObjectFromRGB(0x2D7F42),
+    ColorObjectFromRGB(0x27753D),
+    ColorObjectFromRGB(0x24693D),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_GREEN_DIVERGING_10_0,    "red_green_diverging_10_0"  ]
+
+// green_blue_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_blue_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_GREEN_BLUE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x24693D),
+    ColorObjectFromRGB(0x27753D),
+    ColorObjectFromRGB(0x308143),
+    ColorObjectFromRGB(0x3D8C4B),
+    ColorObjectFromRGB(0x4A974F),
+    ColorObjectFromRGB(0x58A153),
+    ColorObjectFromRGB(0x66AD5A),
+    ColorObjectFromRGB(0x72B966),
+    ColorObjectFromRGB(0x7DC471),
+    ColorObjectFromRGB(0x8CD07D),
+    ColorObjectFromRGB(0x9CDA8C),
+    ColorObjectFromRGB(0xC9DAD2),
+    ColorObjectFromRGB(0xA0C9E0),
+    ColorObjectFromRGB(0x90BDDC),
+    ColorObjectFromRGB(0x80B1D5),
+    ColorObjectFromRGB(0x73A6CC),
+    ColorObjectFromRGB(0x689AC3),
+    ColorObjectFromRGB(0x5E8FB9),
+    ColorObjectFromRGB(0x5283AF),
+    ColorObjectFromRGB(0x4878A5),
+    ColorObjectFromRGB(0x406C99),
+    ColorObjectFromRGB(0x35628E),
+    ColorObjectFromRGB(0x2A5783),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GREEN_BLUE_DIVERGING_10_0,    "green_blue_diverging_10_0"  ]
+
+// red_blue_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_blue_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_BLUE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xA90C38),
+    ColorObjectFromRGB(0xBB163A),
+    ColorObjectFromRGB(0xCA223C),
+    ColorObjectFromRGB(0xD9303F),
+    ColorObjectFromRGB(0xE44144),
+    ColorObjectFromRGB(0xEE534B),
+    ColorObjectFromRGB(0xF36755),
+    ColorObjectFromRGB(0xF77A64),
+    ColorObjectFromRGB(0xFA8B75),
+    ColorObjectFromRGB(0xFD9B87),
+    ColorObjectFromRGB(0xFFAC9B),
+    ColorObjectFromRGB(0xDFD4D1),
+    ColorObjectFromRGB(0xA9CEE6),
+    ColorObjectFromRGB(0x96C2E1),
+    ColorObjectFromRGB(0x88B6D9),
+    ColorObjectFromRGB(0x7AABD0),
+    ColorObjectFromRGB(0x6D9FC6),
+    ColorObjectFromRGB(0x6192BC),
+    ColorObjectFromRGB(0x5787B3),
+    ColorObjectFromRGB(0x4C7CA9),
+    ColorObjectFromRGB(0x42709E),
+    ColorObjectFromRGB(0x386592),
+    ColorObjectFromRGB(0x2E5A87),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_BLUE_DIVERGING_10_0,    "red_blue_diverging_10_0"  ]
+
+// red_black_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_black_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_BLACK_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xAE123A),
+    ColorObjectFromRGB(0xBF193B),
+    ColorObjectFromRGB(0xCF253D),
+    ColorObjectFromRGB(0xDC3340),
+    ColorObjectFromRGB(0xE74445),
+    ColorObjectFromRGB(0xEF574C),
+    ColorObjectFromRGB(0xF46A57),
+    ColorObjectFromRGB(0xF77B66),
+    ColorObjectFromRGB(0xFB8D75),
+    ColorObjectFromRGB(0xFC9D89),
+    ColorObjectFromRGB(0xFEAC9D),
+    ColorObjectFromRGB(0xD9D9D9),
+    ColorObjectFromRGB(0xC6C8C7),
+    ColorObjectFromRGB(0xB8BBBA),
+    ColorObjectFromRGB(0xAAAFAF),
+    ColorObjectFromRGB(0x9CA3A5),
+    ColorObjectFromRGB(0x8E979A),
+    ColorObjectFromRGB(0x818B90),
+    ColorObjectFromRGB(0x748087),
+    ColorObjectFromRGB(0x68747D),
+    ColorObjectFromRGB(0x5E6974),
+    ColorObjectFromRGB(0x545E69),
+    ColorObjectFromRGB(0x49525E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_BLACK_10_0,    "red_black_10_0"  ]
+
+// gold_purple_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("gold_purple_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_GOLD_PURPLE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xAD9024),
+    ColorObjectFromRGB(0xB49629),
+    ColorObjectFromRGB(0xBB9D32),
+    ColorObjectFromRGB(0xC1A33B),
+    ColorObjectFromRGB(0xC8AB43),
+    ColorObjectFromRGB(0xCFB250),
+    ColorObjectFromRGB(0xD4B95E),
+    ColorObjectFromRGB(0xDBC06C),
+    ColorObjectFromRGB(0xDFC689),
+    ColorObjectFromRGB(0xE3D8CF),
+    ColorObjectFromRGB(0xDEB7CB),
+    ColorObjectFromRGB(0xD9AEC8),
+    ColorObjectFromRGB(0xD4A3C3),
+    ColorObjectFromRGB(0xCE9BBE),
+    ColorObjectFromRGB(0xC892B8),
+    ColorObjectFromRGB(0xC189B0),
+    ColorObjectFromRGB(0xBA82A9),
+    ColorObjectFromRGB(0xB37AA1),
+    ColorObjectFromRGB(0xAC7299),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GOLD_PURPLE_DIVERGING_10_0,    "gold_purple_diverging_10_0"  ]
+
+// red_green_gold_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_green_gold_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_GREEN_GOLD_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xBE2A3E),
+    ColorObjectFromRGB(0xC7383F),
+    ColorObjectFromRGB(0xD24743),
+    ColorObjectFromRGB(0xDE5748),
+    ColorObjectFromRGB(0xE56349),
+    ColorObjectFromRGB(0xEC714A),
+    ColorObjectFromRGB(0xF37E4B),
+    ColorObjectFromRGB(0xF88A4D),
+    ColorObjectFromRGB(0xFA994E),
+    ColorObjectFromRGB(0xFBA952),
+    ColorObjectFromRGB(0xFCBB58),
+    ColorObjectFromRGB(0xF4D166),
+    ColorObjectFromRGB(0xCEC85E),
+    ColorObjectFromRGB(0xB6C35A),
+    ColorObjectFromRGB(0x9FBE5F),
+    ColorObjectFromRGB(0x89B761),
+    ColorObjectFromRGB(0x72B065),
+    ColorObjectFromRGB(0x5FA866),
+    ColorObjectFromRGB(0x4F9F63),
+    ColorObjectFromRGB(0x459559),
+    ColorObjectFromRGB(0x398A50),
+    ColorObjectFromRGB(0x2E7F47),
+    ColorObjectFromRGB(0x22763F),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_GREEN_GOLD_DIVERGING_10_0,    "red_green_gold_diverging_10_0"  ]
+
+// sunrise_sunset_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("sunrise_sunset_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_SUNRISE_SUNSET_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x33608C),
+    ColorObjectFromRGB(0x526598),
+    ColorObjectFromRGB(0x7567A2),
+    ColorObjectFromRGB(0x9768A5),
+    ColorObjectFromRGB(0xB669A1),
+    ColorObjectFromRGB(0xD16C98),
+    ColorObjectFromRGB(0xE7718A),
+    ColorObjectFromRGB(0xF67C7C),
+    ColorObjectFromRGB(0xFF8974),
+    ColorObjectFromRGB(0xF6BA57),
+    ColorObjectFromRGB(0xEE9B47),
+    ColorObjectFromRGB(0xEE8A43),
+    ColorObjectFromRGB(0xED7846),
+    ColorObjectFromRGB(0xE96749),
+    ColorObjectFromRGB(0xDF5A47),
+    ColorObjectFromRGB(0xD54C45),
+    ColorObjectFromRGB(0xCB3F42),
+    ColorObjectFromRGB(0xC12E3F),
+    ColorObjectFromRGB(0xB81840),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_SUNRISE_SUNSET_DIVERGING_10_0,    "sunrise_sunset_diverging_10_0"  ]
+
+// orange_blue_white_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("orange_blue_white_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_ORANGE_BLUE_WHITE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x9E3D22),
+    ColorObjectFromRGB(0xB24723),
+    ColorObjectFromRGB(0xC55123),
+    ColorObjectFromRGB(0xD85D21),
+    ColorObjectFromRGB(0xE96B21),
+    ColorObjectFromRGB(0xF17E29),
+    ColorObjectFromRGB(0xF79236),
+    ColorObjectFromRGB(0xFBA749),
+    ColorObjectFromRGB(0xFEBB65),
+    ColorObjectFromRGB(0xFFCD93),
+    ColorObjectFromRGB(0xFFDFC0),
+    ColorObjectFromRGB(0xFFFFFF),
+    ColorObjectFromRGB(0xD2EBFA),
+    ColorObjectFromRGB(0xBBDDF1),
+    ColorObjectFromRGB(0xA5CFE7),
+    ColorObjectFromRGB(0x8DC1DF),
+    ColorObjectFromRGB(0x7CB2D6),
+    ColorObjectFromRGB(0x6DA3CC),
+    ColorObjectFromRGB(0x5F94C1),
+    ColorObjectFromRGB(0x5386B3),
+    ColorObjectFromRGB(0x4577A7),
+    ColorObjectFromRGB(0x366A9B),
+    ColorObjectFromRGB(0x2B5C8A),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_ORANGE_BLUE_WHITE_DIVERGING_10_0,    "orange_blue_white_diverging_10_0"  ]
+
+// red_green_white_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_green_white_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_GREEN_WHITE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xAE123A),
+    ColorObjectFromRGB(0xC41E3C),
+    ColorObjectFromRGB(0xD8303F),
+    ColorObjectFromRGB(0xE84646),
+    ColorObjectFromRGB(0xF16051),
+    ColorObjectFromRGB(0xF77963),
+    ColorObjectFromRGB(0xFA9079),
+    ColorObjectFromRGB(0xFDA695),
+    ColorObjectFromRGB(0xFFBAB0),
+    ColorObjectFromRGB(0xFED1CC),
+    ColorObjectFromRGB(0xFBE6E5),
+    ColorObjectFromRGB(0xFFFFFF),
+    ColorObjectFromRGB(0xDAEFD9),
+    ColorObjectFromRGB(0xBCE5B7),
+    ColorObjectFromRGB(0xA1DA93),
+    ColorObjectFromRGB(0x89CD7B),
+    ColorObjectFromRGB(0x79BF6C),
+    ColorObjectFromRGB(0x6AB15E),
+    ColorObjectFromRGB(0x59A354),
+    ColorObjectFromRGB(0x489450),
+    ColorObjectFromRGB(0x378747),
+    ColorObjectFromRGB(0x29783E),
+    ColorObjectFromRGB(0x24693D),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_GREEN_WHITE_DIVERGING_10_0,    "red_green_white_diverging_10_0"  ]
+
+// green_blue_white_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("green_blue_white_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_GREEN_BLUE_WHITE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0x24693D),
+    ColorObjectFromRGB(0x29783E),
+    ColorObjectFromRGB(0x368646),
+    ColorObjectFromRGB(0x46934E),
+    ColorObjectFromRGB(0x59A153),
+    ColorObjectFromRGB(0x69B05D),
+    ColorObjectFromRGB(0x77BE6B),
+    ColorObjectFromRGB(0x88CD79),
+    ColorObjectFromRGB(0x9DDA8E),
+    ColorObjectFromRGB(0xB8E5B1),
+    ColorObjectFromRGB(0xD5EFD4),
+    ColorObjectFromRGB(0xFFFFFF),
+    ColorObjectFromRGB(0xCEE8F3),
+    ColorObjectFromRGB(0xB8DAEA),
+    ColorObjectFromRGB(0xA3CBE1),
+    ColorObjectFromRGB(0x8EBCDB),
+    ColorObjectFromRGB(0x7CADD2),
+    ColorObjectFromRGB(0x6C9EC6),
+    ColorObjectFromRGB(0x5E8FB9),
+    ColorObjectFromRGB(0x5081AD),
+    ColorObjectFromRGB(0x4472A0),
+    ColorObjectFromRGB(0x386591),
+    ColorObjectFromRGB(0x2A5783),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_GREEN_BLUE_WHITE_DIVERGING_10_0,    "green_blue_white_diverging_10_0"  ]
+
+// red_blue_white_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_blue_white_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_BLUE_WHITE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xA90C38),
+    ColorObjectFromRGB(0xC01A3B),
+    ColorObjectFromRGB(0xD52C3E),
+    ColorObjectFromRGB(0xE54245),
+    ColorObjectFromRGB(0xF05C4F),
+    ColorObjectFromRGB(0xF67660),
+    ColorObjectFromRGB(0xFB8D78),
+    ColorObjectFromRGB(0xFEA391),
+    ColorObjectFromRGB(0xFFBAAE),
+    ColorObjectFromRGB(0xFFD0CB),
+    ColorObjectFromRGB(0xFBE6E5),
+    ColorObjectFromRGB(0xFFFFFF),
+    ColorObjectFromRGB(0xD2EBFA),
+    ColorObjectFromRGB(0xBDDDF0),
+    ColorObjectFromRGB(0xA8CDE6),
+    ColorObjectFromRGB(0x93C0DF),
+    ColorObjectFromRGB(0x81B1D5),
+    ColorObjectFromRGB(0x70A2C8),
+    ColorObjectFromRGB(0x6192BC),
+    ColorObjectFromRGB(0x5484B1),
+    ColorObjectFromRGB(0x4776A3),
+    ColorObjectFromRGB(0x3A6795),
+    ColorObjectFromRGB(0x2E5A87),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_BLUE_WHITE_DIVERGING_10_0,    "red_blue_white_diverging_10_0"  ]
+
+// red_black_white_diverging_10_0
+pal = make_unique<TableauColorPalette>(ColorPaletteID(TS("red_black_white_diverging_10_0")), PaletteOrderedDiverging, IDS_PALETTE_RED_BLACK_WHITE_DIVERGING_10_0);
+pal->SetColors({
+    ColorObjectFromRGB(0xAE123A),
+    ColorObjectFromRGB(0xC51D3C),
+    ColorObjectFromRGB(0xD9303F),
+    ColorObjectFromRGB(0xE84646),
+    ColorObjectFromRGB(0xF16051),
+    ColorObjectFromRGB(0xF77964),
+    ColorObjectFromRGB(0xFB8F78),
+    ColorObjectFromRGB(0xFDA694),
+    ColorObjectFromRGB(0xFFBAB0),
+    ColorObjectFromRGB(0xFED1CC),
+    ColorObjectFromRGB(0xFBE6E5),
+    ColorObjectFromRGB(0xFFFFFF),
+    ColorObjectFromRGB(0xEBEBEB),
+    ColorObjectFromRGB(0xDADADA),
+    ColorObjectFromRGB(0xC9CACA),
+    ColorObjectFromRGB(0xB7BBBA),
+    ColorObjectFromRGB(0xA6ACAC),
+    ColorObjectFromRGB(0x949C9E),
+    ColorObjectFromRGB(0x838D91),
+    ColorObjectFromRGB(0x727E86),
+    ColorObjectFromRGB(0x646F79),
+    ColorObjectFromRGB(0x56606B),
+    ColorObjectFromRGB(0x49525E),
+});
+s_tableauPalettes.emplace_back(std::move(pal));
+[ IDS_PALETTE_RED_BLACK_WHITE_DIVERGING_10_0,    "red_black_white_diverging_10_0"  ]
+
+
+//let's try this order, tell me what you think.
+
+[ IDS_PALETTE_BLUE_10_0,    "blue_10_0"  ]
+[ IDS_PALETTE_ORANGE_10_0,    "orange_10_0"  ]
+[ IDS_PALETTE_GREEN_10_0,    "green_10_0"  ]
+[ IDS_PALETTE_RED_10_0,    "red_10_0"  ]
+[ IDS_PALETTE_PURPLE_10_0,    "purple_10_0"  ]
+[ IDS_PALETTE_BROWN_10_0,    "brown_10_0"  ]
+[ IDS_PALETTE_GRAY_10_0,    "gray_10_0"  ]
+[ IDS_PALETTE_GRAY_WARM_10_0,    "gray_warm_10_0"  ]
+[ IDS_PALETTE_BLUE_TEAL_10_0,    "blue_teal_10_0"  ]
+[ IDS_PALETTE_ORANGE_GOLD_10,    "orange_gold_10"  ]
+[ IDS_PALETTE_GREEN_GOLD_10_0,    "green_gold_10_0"  ]
+[ IDS_PALETTE_RED_GOLD_10_0,    "red_gold_10_0"  ]
+[ IDS_PALETTE_ORANGE_BLUE_DIVERGING_10_0,    "orange_blue_diverging_10_0"  ]
+[ IDS_PALETTE_RED_GREEN_DIVERGING_10_0,    "red_green_diverging_10_0"  ]
+[ IDS_PALETTE_GREEN_BLUE_DIVERGING_10_0,    "green_blue_diverging_10_0"  ]
+[ IDS_PALETTE_RED_BLUE_DIVERGING_10_0,    "red_blue_diverging_10_0"  ]
+[ IDS_PALETTE_RED_BLACK_10_0,    "red_black_10_0"  ]
+[ IDS_PALETTE_GOLD_PURPLE_DIVERGING_10_0,    "gold_purple_diverging_10_0"  ]
+[ IDS_PALETTE_RED_GREEN_GOLD_DIVERGING_10_0,    "red_green_gold_diverging_10_0"  ]
+[ IDS_PALETTE_SUNRISE_SUNSET_DIVERGING_10_0,    "sunrise_sunset_diverging_10_0"  ]
+[ IDS_PALETTE_ORANGE_BLUE_WHITE_DIVERGING_10_0,    "orange_blue_white_diverging_10_0"  ]
+[ IDS_PALETTE_RED_GREEN_WHITE_DIVERGING_10_0,    "red_green_white_diverging_10_0"  ]
+[ IDS_PALETTE_GREEN_BLUE_WHITE_DIVERGING_10_0,    "green_blue_white_diverging_10_0"  ]
+[ IDS_PALETTE_RED_BLUE_WHITE_DIVERGING_10_0,    "red_blue_white_diverging_10_0"  ]
+[ IDS_PALETTE_RED_BLACK_WHITE_DIVERGING_10_0,    "red_black_white_diverging_10_0"  ]
+
