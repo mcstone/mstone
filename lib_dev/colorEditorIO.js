@@ -169,36 +169,45 @@ function colorToCodeHex(color){
 
 function paletteToFormattingCode(colors, pType) {
 	//pType = light, dark, gray
-	var numStrings =['first','second','third','fourth','fifth', 'sixth', 'seventh', 'eighth', 'ninth']
 	var code = ""
 	var codeHead = ''
 	var cLen = 3
 	var nCols = 2
 	var sCol = 0
+	var preview = ''
 	switch (pType) {
 		case "light": {
-			codeHead = '{ TS("swatch.light.'
+			codeHead = '{ TS("swatch.light'
 			code = '// ------- Preset lights \n'
-			nCols = 9
+			nCols = 8
 			cLen = 6
 			sCol = 2
 			break
 		}
-		case "dark": {
-			codeHead = '{ TS("swatch.dark.'
-			code = '// ------- Preset darks \n'
+		case "lightPreview": {
+			codeHead = '{ TS("swatch.light'
+			code = '// ------- Preset lights \n'
 			nCols = 8
 			cLen = 6
-			sCol = 2
+			sCol = 3
+			preview = '.preview'
+			break
+		}
+		case "dark": {
+			codeHead = '{ TS("swatch.dark'
+			code = '// ------- Preset darks \n'
+			nCols = 7
+			cLen = 6
+			sCol = 3
 			break;
 		}
 		case 'gray': {
-			sCol = 0
+			sCol = 1
 			nCols = 2
 			cLen = 5
 			code = '// ------- Preset Black And White\n'
-			code = code+'{ TS("swatch.firstcol.firstrow"), PE(TS("#000000")) },\n'
-			code = code+'{ TS("swatch.secondcol.firstrow"), PE(TS("#FFFFFF")) },\n\n'
+			code = code+'{ TS("swatch.col1.row1"), PE(TS("#000000")) },\n'
+			code = code+'{ TS("swatch.col2.row1"), PE(TS("#FFFFFF")) },\n\n'
 			code = code+'// ------- Preset Grays\n'
 			codeHead = '{ TS("swatch.' //gray doesn't include a type
 			break;	
@@ -206,14 +215,15 @@ function paletteToFormattingCode(colors, pType) {
 	}
 	//now we fill in the rows and columns
 	var cIndex = 0	//for the colors
-	for (var col =0; col< nCols; col++){
+	for (var col =1; col<= nCols; col++){
 		var gHack = 0;
 		if (pType=='gray') {gHack = 1}	//force black and white to be at top
-		var cHead = codeHead+numStrings[sCol]+'col.'
+		var cHead = codeHead+'.col'+sCol.toString()
 		sCol = sCol+1
-		for (var row=0; row < cLen; row++){
+		for (var row=1; row <= cLen; row++){
 			if (cIndex>=colors.length){return code}  
-			code = code+cHead+numStrings[row+gHack]+'row"), PE(TS('
+			code = code+cHead+'.row'+ row.toString()+preview
+			code = code+'), PE(TS('
 			code = code+'\"'+colors[cIndex].color.hex().toUpperCase()+'\")) },\n'
 			cIndex = cIndex+1
 			if (cIndex>colors.length){return code}  //ick, but two breaks is ick also
@@ -229,20 +239,20 @@ function paletteToFormattingXML(colors, pType) {
 	var isPreview =''
 	var cLen = 3
 	var nCols = 2
-	var sCol = 0
+	var sCol = 1
 	switch (pType) {
 		case "light": {
 			xmlHead = "<preference name=\'swatch.light"
-			nCols = 9
+			nCols = 8
 			cLen = 6
-			sCol = 2
+			sCol = 3
 			break
 		}
 		case "lightPreview": {
 			xmlHead = "<preference name=\'swatch.light"
-			nCols = 9
+			nCols = 8
 			cLen = 6
-			sCol = 2
+			sCol = 3
 			isPreview = '.preview'
 			break
 		}
@@ -250,31 +260,31 @@ function paletteToFormattingXML(colors, pType) {
 			xmlHead = "<preference name=\'swatch.dark"
 			nCols = 8
 			cLen = 6
-			sCol = 2
+			sCol = 3
 			break;
 		}
 		case 'gray': {
-			sCol = 0
+			sCol = 1
 			nCols = 2
 			cLen = 5
 			xml = "<preference name='swatch.col1.row1' value='#000000' />\n"
-			xml = xml+"<preference name='swatch.col2.row1' value='#ffffff' />\n"
+			xml = xml+"<preference name='swatch.col2.row1' value='#FFFFFF' />\n"
 			xmlHead = "<preference name=\'swatch"  //gray doesn't include a type
 			break;	
 		}
 	}
 	//now we fill in the rows and columns
 	var cIndex = 0	//for the colors
-	for (var col =0; col< nCols; col++){
+	for (var col =1; col<= nCols; col++){
 		var gHack = 0;
 		if (pType=='gray') {gHack = 1}	//force black and white to be at top
-		var cHead = xmlHead+".col"+sCol.toString()+"\'"
+		var cHead = xmlHead+".col"+sCol.toString()
 		sCol = sCol+1
-		for (var row=0; row < cLen; row++){
+		for (var row=1; row <= cLen; row++){
 			if (cIndex>=colors.length){return xml} 
 			var rowNum = row+gHack
 			xml = xml+cHead+".row"+rowNum.toString()+isPreview+"\'"
-			xml = xml+ " value=\'"+colors[cIndex].color.hex()+"\' />\n"
+			xml = xml+ " value=\'"+colors[cIndex].color.hex().toUpperCase()+"\' />\n"
 			cIndex = cIndex+1
 			if (cIndex>colors.length){return xml}  //ick, but two breaks is ick also
 		}

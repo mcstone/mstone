@@ -1,0 +1,57 @@
+FL10.0  #efebe8, #f5f1f0, #f9f8f7, #f0eae8, #f5f0ef, #faf5f4, #f5eddc, #faf4e7, #fefaf1, #e9ebe0, #f0f1e8, #f7f7f0, #ebebeb, #f2f2f2, #f9f9f9, #dfe7e8, #e9f0f1, #f2f9f9, #f3ebf3, #f7f1f6, #fbf7fb, #e2e6f0, #e9edf5, #f0f3fa, #e6ecf0, #eef1f3, #f2f6f7, #ddebf0, #e7f1f5, #f0f7fa, #dfedeb, #e9f3f2, #f3faf9, #e8edda, #eff3e3, #f7faf0, #f5ead7, #f6eee3, #faf5f0, #f9e9e0, #f9eee8, #f9f3ef/
+FL10.0(cp)  #f2eae4, #f8f0ee, #faf8f6, #f5e9e5, #f9efed, #fef4f2, #fbecca, #fff4da, #fffae8, #e8ecd6, #f0f2e0, #f7f7e9, #ebebeb, #f2f2f2, #f9f9f9, #d8e9eb, #e3f1f3, #ecfafa, #f9e9f9, #fbeff9, #fef6fe, #dee6fa, #e5edfd, #edf3ff, #e1edf5, #ebf1f5, #eff7f9, #d1edf8, #def3fb, #eaf8fe, #d4f0ec, #e1f5f3, #edfcfa, #e5efc9, #edf5d5, #f5fbe7, #fde9c3, #fcedd7, #fef4ea, #ffe6d4, #ffece0, #fef2ea/
+FL9.2  #ebd1d1, #f2e6e6, #faf2f2, #b5ead7, #d3f2e7, #f0fcf8, #e3d7c3, #f3e6d3, #fcf4e8, #bee2e8, #d6f2f7, #eefcff, #f0d9b6, #fae7c8, #fbf2e2, #b7d2f2, #d7e9ff, #ebf4ff, #ffe791, #fff2bf, #fff8de, #c1d6e5, #d5e8f5, #ebf7ff, #e0d490, #f5eaab, #fff8d6, #c3cdeb, #e1e8fa, #f0f3fa, #dae5c1, #eaedd3, #f0fae8, #d3d1e8, #e5e4f6, #f3f2fa, #cde5bc, #dbf0cc, #eaf7e1, #d8cedf, #eee6f2, #f4f0f5/
+new palette/
+FL10.0 pr1  #f5eae1, #fbefec, #fbf8f5, #f9e8e2, #fdeeeb, #fff3f0, #ffecb9, #fff3cc, #fffadf, #e7edcc, #eff3d8, #f8f8e3, #ebebeb, #f2f2f2, #f9f9f9, #d2eaed, #ddf3f6, #e7fcfc, #fee6fe, #ffeefd, #fff5ff, #d9e6ff, #e1eeff, #eaf3ff, #dbeefa, #e9f2f8, #ebf8fb, #c3f0ff, #d5f4ff, #e4f9ff, #c7f3ed, #d9f7f4, #e8fdfa, #e1f2b8, #eaf7c7, #f3fddf, #ffe8ae, #ffeccb, #fff4e5, #ffe3c8, #ffead8, #fff1e5/
+FL10.0 pr2  #ece8e5, #f2eeed, #f6f5f4, #ede7e5, #f2edec, #f7f2f1, #f2ead9, #f7f1e4, #fbf7ee, #e6e8dd, #edeee5, #f4f4ed, #e8e8e8, #efefef, #f6f6f6, #dce4e5, #e6edee, #eff6f6, #f0e8f0, #f4eef3, #f8f4f8, #dfe3ed, #e6eaf2, #edf0f7, #e3e9ed, #ebeef0, #eff3f4, #dae8ed, #e4eef2, #edf4f7, #dceae8, #e6f0ef, #f0f7f6, #e5ead7, #ecf0e0, #f4f7ed, #f2e7d4, #f3ebe0, #f7f2ed, #f6e6dd, #f6ebe5, #f6f0ec/
+FL10.0 pr3  #f1e7e0, #f7edea, #f7f5f2, #f4e5e0, #f8ebe9, #fdf0ee, #fbe9bf, #fef0d0, #fff7e0, #e4eace, #edefd9, #f5f5e3, #e8e8e8, #efefef, #f6f6f6, #d2e6e9, #ddeff2, #e6f8f8, #f8e4f9, #faebf8, #fcf2fc, #d8e3fc, #e0eafe, #e8f0ff, #dbeaf4, #e7eff4, #eaf4f7, #c7ecf8, #d7f1fb, #e4f6fd, #cbeeea, #daf3f1, #e8f9f7, #e0edbe, #e8f3cb, #f1f9e0, #fee5b6, #fceace, #fdf1e4, #ffe2cb, #ffe8d9, #fdeee4/
+
+
+FL10.0 pr4  #f1e7e0, #f7edea, #f7f5f2, #f6e5de, #f8ebe9, #fdf0ee, #fbe9bf, #fef0d0, #fff7e0, #e4eace, #edefd9, #f5f5e3, #e8e8e8, #efefef, #f6f6f6, #d2e6e9, #ddeff2, #e5f3f3, #f5e4f5, #faebf8, #fcf2fc, #d9e0f7, #e1eafe, #e8f0ff, #d5eafa, #e0f0fb, #eaf4f7, #caebf7, #d7f1fb, #e4f6fd, #cbeeea, #daf3f1, #e8f9f7, #e0edbe, #e8f3cb, #f1f9e0, #fae2b3, #fceace, #fdf1e4, #ffe2cb, #ffe8d9, #fdeee4/
+
+FL10.0 pr5  #ece8e5, #f2eeed, #f6f5f4, #ede7e5, #f2edec, #f7f2f1, #f2ead9, #f7f1e4, #fbf7ee, #e6e8dd, #edeee5, #f4f4ed, #e8e8e8, #efefef, #f6f6f6, #dce4e5, #e6edee, #eff6f6, #f0e8f0, #f4eef3, #f8f4f8, #dfe3ed, #e6eaf2, #edf0f7, #e3e9ed, #ebeef0, #eff3f4, #dae8ed, #e4eef2, #edf4f7, #dceae8, #e6f0ef, #f0f7f6, #e5ead7, #ecf0e0, #f4f7ed, #f2e7d4, #f3ebe0, #f7f2ed, #f6e6dd, #f6ebe5, #f6f0ec/
+
+
+<preferences>
+<preference key='swatch.light.col2'.row0.preview' value='#f1e7e0' />
+<preference key='swatch.light.col2'.row1.preview' value='#f7edea' />
+<preference key='swatch.light.col2'.row2.preview' value='#f7f5f2' />
+<preference key='swatch.light.col2'.row3.preview' value='#f4e5e0' />
+<preference key='swatch.light.col2'.row4.preview' value='#f8ebe9' />
+<preference key='swatch.light.col2'.row5.preview' value='#fdf0ee' />
+<preference key='swatch.light.col3'.row0.preview' value='#fbe9bf' />
+<preference key='swatch.light.col3'.row1.preview' value='#fef0d0' />
+<preference key='swatch.light.col3'.row2.preview' value='#fff7e0' />
+<preference key='swatch.light.col3'.row3.preview' value='#e4eace' />
+<preference key='swatch.light.col3'.row4.preview' value='#edefd9' />
+<preference key='swatch.light.col3'.row5.preview' value='#f5f5e3' />
+<preference key='swatch.light.col4'.row0.preview' value='#e8e8e8' />
+<preference key='swatch.light.col4'.row1.preview' value='#efefef' />
+<preference key='swatch.light.col4'.row2.preview' value='#f6f6f6' />
+<preference key='swatch.light.col4'.row3.preview' value='#d2e6e9' />
+<preference key='swatch.light.col4'.row4.preview' value='#ddeff2' />
+<preference key='swatch.light.col4'.row5.preview' value='#e6f8f8' />
+<preference key='swatch.light.col5'.row0.preview' value='#f8e4f9' />
+<preference key='swatch.light.col5'.row1.preview' value='#faebf8' />
+<preference key='swatch.light.col5'.row2.preview' value='#fcf2fc' />
+<preference key='swatch.light.col5'.row3.preview' value='#d8e3fc' />
+<preference key='swatch.light.col5'.row4.preview' value='#e0eafe' />
+<preference key='swatch.light.col5'.row5.preview' value='#e8f0ff' />
+<preference key='swatch.light.col6'.row0.preview' value='#dbeaf4' />
+<preference key='swatch.light.col6'.row1.preview' value='#e7eff4' />
+<preference key='swatch.light.col6'.row2.preview' value='#eaf4f7' />
+<preference key='swatch.light.col6'.row3.preview' value='#c7ecf8' />
+<preference key='swatch.light.col6'.row4.preview' value='#d7f1fb' />
+<preference key='swatch.light.col6'.row5.preview' value='#e4f6fd' />
+<preference key='swatch.light.col7'.row0.preview' value='#cbeeea' />
+<preference key='swatch.light.col7'.row1.preview' value='#daf3f1' />
+<preference key='swatch.light.col7'.row2.preview' value='#e8f9f7' />
+<preference key='swatch.light.col7'.row3.preview' value='#e0edbe' />
+<preference key='swatch.light.col7'.row4.preview' value='#e8f3cb' />
+<preference key='swatch.light.col7'.row5.preview' value='#f1f9e0' />
+<preference key='swatch.light.col8'.row0.preview' value='#fee5b6' />
+<preference key='swatch.light.col8'.row1.preview' value='#fceace' />
+<preference key='swatch.light.col8'.row2.preview' value='#fdf1e4' />
+<preference key='swatch.light.col8'.row3.preview' value='#ffe2cb' />
+<preference key='swatch.light.col8'.row4.preview' value='#ffe8d9' />
+<preference key='swatch.light.col8'.row5.preview' value='#fdeee4' />

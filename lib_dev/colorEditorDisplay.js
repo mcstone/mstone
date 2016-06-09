@@ -7,6 +7,9 @@ updatePlots = function() {
 	d3.select("#pSpace").selectAll("div").remove()	//all Palettes
 	d3.select("#statSpace").selectAll("div").remove()	//stats
 	var stats = computeStats(state.colors,$('input:radio[name=stats-type]:checked').val())
+	/*if $('#fill-background').prop('checked')==true{
+		plotSpec.divFill = state.pColor.hex()
+	}*/
 	if ($('#all-palettes').prop('checked')==true) {		
 		displayAllPalettes()	//uses the eColor from each palette. uses global state
 	} else {
@@ -25,7 +28,7 @@ hex2tip = function(hex) {
 }
 //controls the size, shape and extent of the LAB plots
 
-var plotSpec = {aMin: -100, aMax: 100, bMin:-100, bMax: 100, lMin: 0, lMax: 100, abSize: 385, lWidth: 100, lTop: 23, pSize: 8, selScale: 1.5}
+var plotSpec = {aMin: -100, aMax: 100, bMin:-100, bMax: 100, lMin: 0, lMax: 100, abSize: 385, lWidth: 100, lTop: 23, pSize: 8, selScale: 1.5, divFill: '#ffffff'}
 function setPlotSpec(aVals,bVals,lVals) {
 	//aVals and bVals might be pairs, or they might be single value
 	if (aVals.length == 2) {plotSpec.aMin = aVals[0]; plotSpec.aMax = aVals[1]}
@@ -79,10 +82,12 @@ function displayColorspace() {
 		.append("svg")
 		.attr("width", abSize).attr("height",abSize)
 		.style("border", "1px solid lightgray")
+		.style("fill", "1px solid white")
 	var svg_L = d3.select("#LPlot")
 		.append("svg")
 		.attr("width", lWidth).attr("height",abSize)
 		.style("border", "1px solid lightgray")
+		.style("fill", "1px solid white")
 	
 	svg_ab.append("line").attr("x1", 0).attr("y1", abSize-bCenter)
 		.attr("x2",abSize).attr("y2",abSize-bCenter)
@@ -162,7 +167,7 @@ function displayAllPalettes() {
 		}
 
 	}
-	
+	d3.select('#pSpace').style("fill", "1px solid white")
 	for (var i =0; i<state.palettes.length; i++) {
 		var p = state.palettes[i]
 		if (p.visible == false){continue}
@@ -219,12 +224,13 @@ function displayExamples(stats) {
 	
 	
 	if (state.colors.length > 28) {
+		var h = (12+2)*6
 		arrayBox = d3.select('#pExamples').append('div').append('svg')
 			.attr("width",480)
-			.attr("height",500)
+			.attr("height",h)
 			.attr("x", 10)
 			.attr("y", 10)
-		drawArray(arrayBox, 24, 24,4, createRectMark)
+		drawArray(arrayBox, 12, 12,2, createRectMark)
 	}
 	else {
 		var step = pSize+gap

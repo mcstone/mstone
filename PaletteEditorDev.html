@@ -410,7 +410,7 @@ $(document).ready(function() {
 		for (var i=0; i<pVals.length; i++) { //array of {pName, pType hVals}, pName and pType may be null if this was a hex read
 			var pName = 'new palette'
 			if (pVals[i].pName !=null){pName = pVals[i].pName}
-			if (pVals[i].pType !=null){pType = pVals[i].pType} else (pVals.pType = menu_pType)
+			if (pVals[i].pType !=null){pType = pVals[i].pType} else (pType = menu_pType)
 			pName = makeUnique(pName)
 			var newPalette = createPalette(pVals[i].hex, pName, pType)
 			addPalette(newPalette)
@@ -442,7 +442,7 @@ $(document).ready(function() {
 		switch (type) {
 			case 'hex': pText = pText+createHexString(colors,pName)+'/\n';break;
 			case 'xml': pText = pText+paletteToXML(colors,pName,xmlType)+'\n';break;
-			case 'code': pText = pText+paletteToCode(colors,pName, pType)+'\n';break;
+			case 'code': pText = pText+paletteToCode(colors,pName, xmlType)+'\n';break;
 			case 'data': pText = pText+paletteToCSV(colors,pName, pType)+'\n';break;
 		}
 		$('#io-text').val(pText)
@@ -463,7 +463,7 @@ $(document).ready(function() {
 			switch (type) {
 				case 'hex': pText = pText+createHexString(colors,pName)+'/\n';break;
 				case 'xml': pText = pText+paletteToXML(colors,pName,xmlType)+'\n';break;
-				case 'code': pText = pText+paletteToCode(colors,pName, pType)+'\n';break;
+				case 'code': pText = pText+paletteToCode(colors,pName, xmlType)+'\n';break;
 				case 'data': pText = pText+paletteToCSV(colors,pName, pType, header)+'\n';break;
 			}
 			header = false

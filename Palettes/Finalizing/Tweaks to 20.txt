@@ -47,3 +47,13 @@ t20 v3 #4e79a7, #a0cbe8, #f28e2b, #fdbc7b, #59a14f, #8cd17d, #b89a2f, #f1ce63, #
 </color-palette>
 
 tableau medium  #719ac0, #faa655, #72b965, #ddbc52, #60afab, #f17b78, #998f8d, #e799b3, #bb88ad, #bd937d/
+
+If we added a way to "freeze" the current tiled layout so you could use it as a template, that would be very helpful. The minimum effort in that area would let me replace one worksheet with another without the whole layout moving around. 
+
+If you think to use the horizontal and vertical "objects" you can often get a much better layout. How about a way to assert after  the sheets are in the view that you want them, for example, in an evenly spaced horizontal layout (aka, I should have used a horizontal object)?
+
+For floating objects, alignment controls (PPT arrange ) would be very helpful. Could even include an equivalent to "align baseline" for type that aligned two views along their axis
+
+Missing in such systems is "make the same size" as well as align.
+
+Freezing floating objects into groups is the way a free form system allows easy
