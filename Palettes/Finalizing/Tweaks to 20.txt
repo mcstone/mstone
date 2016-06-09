@@ -46,3 +46,4 @@ t20 v3 #4e79a7, #a0cbe8, #f28e2b, #fdbc7b, #59a14f, #8cd17d, #b89a2f, #f1ce63, #
 <color>#d7b5a6</color>
 </color-palette>
 
+tableau medium  #719ac0, #faa655, #72b965, #ddbc52, #60afab, #f17b78, #998f8d, #e799b3, #bb88ad, #bd937d/

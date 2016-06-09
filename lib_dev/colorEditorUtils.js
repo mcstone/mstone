@@ -10,7 +10,7 @@ function colorItem(color, selected, palette, name, notes) {
  }
 function paletteItem(pName, pType, original, visible) {
 	this.pName = pName
-	this.pType = pType	//regular, sequential, diverging, 3xformatting
+	this.pType = pType	//regular, sequential, diverging, formatting
 	this.oColors = original
 	this.eColors = []	//edited colors
 	this.pOrder = []  //a place to hold the original palette order when sorting
@@ -83,7 +83,7 @@ function pTypeToVisible(pType){
 		case 'none':
 			visible = true; break;	//can't filter out the "new palette"
 		default: 
-			visible = false;
+			visible = true;
 	}
 	return visible			
 }
@@ -166,26 +166,16 @@ function sortColors(colors,sType) {
 				colors.sort(function(c1,c2){return byLCH(c1,c2,0)})
 				break;
 			case "C":
-				colors.sort(function(c1,c2){return byLCH(c1,c2,2)})
+				colors.sort(function(c1,c2){return byLCH(c1,c2,1)})
 				break;
 			case "H":
-				colors.sort(function(c1,c2){return byLCH(c1,c2,1)})
+				colors.sort(function(c1,c2){return byLCH(c1,c2,2)})
 				break;
 		}
 		return colors
 }
 
-/*function byMinDE(cItem1,cItem2) { //colorItems
-	var dE = deltaE(cItem1,cItem2)
-	if (c1[i1] > c2[i1]) {
-		return 1
-	}
-	if (c1[i1] < c2[i1]) {
-		return -1
-	}
-	// c1[i1] must be equal to c2[i1]
-	return 0;
-}*/
+
 	
 function byLCH(cItem1,cItem2, i1) { //colorItems
 	var c1 = cItem1.color.lch()
@@ -200,20 +190,43 @@ function byLCH(cItem1,cItem2, i1) { //colorItems
 	return 0;
 }
 
-function makeClusters(nClusters,colors) {//list of colorItems
-	var lch = []
-	for (var i=0;i<colors.length;i++){
-		lch[i] = colors[i].color.lch()
+//splits a formatting palette into 3, dk,md,lt
+function fSplit(palette){
+	if (palette.pType !='formatting'){return}
+	var cList = palette.eColors
+	var cDark = []
+	var cMedium = []
+	var cLight = []
+	var n=0
+	for (var i=0; i<cList.length; i=i+3){
+		cDark[n] = cList[i].color.hex()
+		cMedium[n] = cList[i+1].color.hex()
+		cLight[n] = cList[i+2].color.hex()
+		n=n+1
 	}
-	state.clusterMaker.data(lch)
-	state.clusterMaker.k(nClusters)
-	var clusters = state.clusterMaker.clusters()
-	//now we have an array of {centroid, points}
-	
+	addPalette(createPalette(cDark,palette.pName+'.dark','formatting','true'))
+	addPalette(createPalette(cMedium,palette.pName+'.medium','formatting','true'))
+	addPalette(createPalette(cLight,palette.pName+'.light','formatting','true'))
+	updatePaletteControls()
 }
 
-
-
+function modifyColors(cItems,dim,by){
+	var index = 1	//assume c
+	var mod = []
+	switch (dim){
+		case "L": index = 0; break;
+		case "C": index = 1; break;
+		case "H": index = 2; break;
+	}
+	for (var i=0;i<cItems.length; i++){
+		var lch = cItems[i].color.lch()
+		var oldLCH = lch
+		lch[index] = lch[index]*by
+		mod[i] = chroma.lch(lch)	//array of Chroma colors
+		mod[i]=new colorItem(chroma.lch(lch),false)
+	}
+	return mod
+}
 function findColor(cItem,cList, minD){  //is the color in the list?
 	var found = []
 	for (var i = 0; i<cList.length; i++ ){
@@ -279,5 +292,17 @@ function deltaE94(c1,c2){
 	var fdH = Math.sqrt(da*da+db*db-(dC*dC))/SH
 	var dE94 = Math.sqrt(fdL*fdL + fdC*fdC + fdH*fdH)
 	return dE94
+	
+}
+
+function makeClusters(nClusters,colors) {//list of colorItems
+	var lch = []
+	for (var i=0;i<colors.length;i++){
+		lch[i] = colors[i].color.lch()
+	}
+	state.clusterMaker.data(lch)
+	state.clusterMaker.k(nClusters)
+	var clusters = state.clusterMaker.clusters()
+	//now we have an array of {centroid, points}
 	
 }

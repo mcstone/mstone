@@ -1,0 +1,9 @@
+FL10.0  #efebe8, #f5f1f0, #f9f8f7, #f0eae8, #f5f0ef, #faf5f4, #f5eddc, #faf4e7, #fefaf1, #e9ebe0, #f0f1e8, #f7f7f0, #ebebeb, #f2f2f2, #f9f9f9, #dfe7e8, #e9f0f1, #f2f9f9, #f3ebf3, #f7f1f6, #fbf7fb, #e2e6f0, #e9edf5, #f0f3fa, #e6ecf0, #eef1f3, #f2f6f7, #ddebf0, #e7f1f5, #f0f7fa, #dfedeb, #e9f3f2, #f3faf9, #e8edda, #eff3e3, #f7faf0, #f5ead7, #f6eee3, #faf5f0, #f9e9e0, #f9eee8, #f9f3ef/
+FL9.2  #ebd1d1, #f2e6e6, #faf2f2, #b5ead7, #d3f2e7, #f0fcf8, #e3d7c3, #f3e6d3, #fcf4e8, #bee2e8, #d6f2f7, #eefcff, #f0d9b6, #fae7c8, #fbf2e2, #b7d2f2, #d7e9ff, #ebf4ff, #ffe791, #fff2bf, #fff8de, #c1d6e5, #d5e8f5, #ebf7ff, #e0d490, #f5eaab, #fff8d6, #c3cdeb, #e1e8fa, #f0f3fa, #dae5c1, #eaedd3, #f0fae8, #d3d1e8, #e5e4f6, #f3f2fa, #cde5bc, #dbf0cc, #eaf7e1, #d8cedf, #eee6f2, #f4f0f5/
+new palette/
+FL10.0.dark  #efebe8, #f0eae8, #f5eddc, #e9ebe0, #ebebeb, #dfe7e8, #f3ebf3, #e2e6f0, #e6ecf0, #ddebf0, #dfedeb, #e8edda, #f5ead7, #f9e9e0/
+FL10.0.medium  #f5f1f0, #f5f0ef, #faf4e7, #f0f1e8, #f2f2f2, #e9f0f1, #f7f1f6, #e9edf5, #eef1f3, #e7f1f5, #e9f3f2, #eff3e3, #f6eee3, #f9eee8/
+FL10.0.light  #f9f8f7, #faf5f4, #fefaf1, #f7f7f0, #f9f9f9, #f2f9f9, #fbf7fb, #f0f3fa, #f2f6f7, #f0f7fa, #f3faf9, #f7faf0, #faf5f0, #f9f3ef/
+FL9.2.dark  #ebd1d1, #b5ead7, #e3d7c3, #bee2e8, #f0d9b6, #b7d2f2, #ffe791, #c1d6e5, #e0d490, #c3cdeb, #dae5c1, #d3d1e8, #cde5bc, #d8cedf/
+FL9.2.medium  #f2e6e6, #d3f2e7, #f3e6d3, #d6f2f7, #fae7c8, #d7e9ff, #fff2bf, #d5e8f5, #f5eaab, #e1e8fa, #eaedd3, #e5e4f6, #dbf0cc, #eee6f2/
+FL9.2.light  #faf2f2, #f0fcf8, #fcf4e8, #eefcff, #fbf2e2, #ebf4ff, #fff8de, #ebf7ff, #fff8d6, #f0f3fa, #f0fae8, #f3f2fa, #eaf7e1, #f4f0f5/

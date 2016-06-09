@@ -105,7 +105,7 @@ state.colors =[]	//the colors being edited. Pointer to state.palette.eColors
 state.selectedPt = null  //currently selected point. A colorItem
 state.path = "../../data/stone/"
 state.clusterMaker = myclusters.exports;
-state.visibleTypes = {regular: true, sequential: false, diverging: false, formatting: false, classic: false}
+state.visibleTypes = {regular: false, sequential: false, diverging: false, formatting: true, classic: false}
 
 
 formatTriple = function(t,p) {
@@ -581,6 +581,15 @@ $(document).ready(function() {
 		radioSetSelected('seq-display','input')
 		updatePlots()
 	})
+//global modifiers
+	$('#button-mod').click(function(){
+		var dim = radioGetSelected('mod-type')
+		var by = parseFloat($("#text-mod").val())
+		state.gColors = modifyColors(state.colors,dim,by) //changes the gColors
+		state.colors = state.gColors
+		updatePlots()
+	})
+	
 //Customize the plots
 	$('#button-updatePlots').click(function(){
 		var aVals =  parseList($("#text-aVals").val(),false)
@@ -743,13 +752,13 @@ function findSelectedColor() {
 		</div>
 		<div class = 'control-group'>
 				<div style="margin-left: 5px;">Regular</div>
-				<input type='checkbox' id='filter-regular' checked></input>
+				<input type='checkbox' id='filter-regular' ></input>
 				<div style="margin-left: 5px;">Sequential</div>
 				<input type='checkbox' id='filter-sequential'></input>
 				<div style="margin-left: 5px;">Diverging</div>
 				<input type='checkbox' id='filter-diverging'></input>
 				<div style="margin-left: 5px;">Formatting</div>
-				<input type='checkbox' id='filter-formatting'></input>
+				<input type='checkbox' id='filter-formatting' ></input>
 			</div>
 		<div class = "control-group" style="margin-right: 0px; margin-bottom: 5px;" >
 			<button type="button" id='read'>Read</button>
@@ -874,6 +883,7 @@ function findSelectedColor() {
 				<div style="margin-right: 5px;">All Palettes </div>
 				<input type='checkbox' name='all-palettes' id='all-palettes'></input>
 			</div>
+			
 			<form id='stats-type' >
 				<div class = 'control-group' style="margin-left: 0px;">
 					<div style="margin-right: 5px;">Show stats: </div>
@@ -957,8 +967,21 @@ function findSelectedColor() {
 				</form>
 				
 				<button type="button" id='button-toInput'  style = "margin: 5px;">Copy to  Input</button> <br>
-									
-			</div>
+				<div class='control-group' style="margin-left: 5px;">
+					<div class = 'control-group' style="margin-left: 0px;">
+						<button type="button" id='button-mod'  style = "margin: 5px;">Multiply</button> <br>
+					<form id='mod-type' >
+						<input type="radio" name='mod-type' value='L'>L</input>
+						<input type="radio" name='mod-type' value='C' checked>C</input>
+						<input type="radio" name='mod-type' value='H' >H</input>
+					</form>
+					<div style="margin-right: 5px; margin-left: 10px;">By</div>
+					<input type="text" id="text-mod" name="text-mod" 
+					style = "width: 30px; border: 1px solid #cccccc; margin-left=5px;"/>
+
+					</div>
+
+				</div>
 	<!--Plot Controls  -->	
 			<div id='plot-controls' name='plot-controls'>
 				<div class = 'myHeader'style="margin-left: -2px; margin-top: 3px;">Plot Controls</div>

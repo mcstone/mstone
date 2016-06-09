@@ -9,7 +9,7 @@ function parseList(lString, isInt){
 	return vals
 }
 function inputPalettes(hString) {
-	hString.trim()
+	hString = hString.trim()
 	if (hString[0] == '<') {return parseXML(hString)}
 	else {return parseHexString(hString)}
 }
@@ -39,7 +39,7 @@ function parseHexString(hString) {
 				name =name.replace(/['"]+/g, '')  //remove quotes
 			}
 		}
-		pVals[pVals.length] = {pName: name, hex: hexValues, pType: "unknown"}
+		pVals[pVals.length] = {pName: name, hex: hexValues, pType: null}
 	}
 	return pVals
 }

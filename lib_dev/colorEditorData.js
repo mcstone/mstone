@@ -319,71 +319,7 @@ allPalettes.push(`<color-palette name="tableau20_classic" type = "regular">
 <color>#17becf</color>
 <color>#9edae5</color>
 </color-palette>`)
-allPalettes.push(`<color-palette name="old-traffic-light" type = "regular">
-<color>#b10318</color>
-<color>#dba13a</color>
-<color>#309343</color>
-<color>#d82526</color>
-<color>#ffc156</color>
-<color>#69b764</color>
-<color>#f26c64</color>
-<color>#ffdd71</color>
-<color>#9fcd99</color>
-</color-palette>`)
-allPalettes.push(`<color-palette name="old-color-blind" type = "regular">
-<color>#006ba4</color>
-<color>#ff800e</color>
-<color>#ababab</color>
-<color>#595959</color>
-<color>#5f9ed1</color>
-<color>#c85200</color>
-<color>#898989</color>
-<color>#a2c8ec</color>
-<color>#ffbc79</color>
-<color>#cfcfcf</color>
-</color-palette>`)
-allPalettes.push(`<color-palette name="old-Purple-Pink-Gray" type = "regular">
-<color>#7b66d2</color>
-<color>#a699e8</color>
-<color>#dc5fbd</color>
-<color>#ffc0da</color>
-<color>#5f5a41</color>
-<color>#b4b19b</color>
-<color>#995688</color>
-<color>#d898ba</color>
-<color>#ab6ad5</color>
-<color>#d098ee</color>
-<color>#8b7c6e</color>
-<color>#dbd4c5</color>
-</color-palette>`)
-allPalettes.push(`<color-palette name="old-Green-Orange-Teal" type = "regular">
-<color>#32a251</color>
-<color>#acd98d</color>
-<color>#ff7f0f</color>
-<color>#ffb977</color>
-<color>#3cb7cc</color>
-<color>#98d9e4</color>
-<color>#b85a0d</color>
-<color>#ffd94a</color>
-<color>#39737c</color>
-<color>#86b4a9</color>
-<color>#82853b</color>
-<color>#ccc94d</color>
-</color-palette>`)
-allPalettes.push(`<color-palette name="old-Blue-Red-Brown" type = "regular">
-<color>#2c69b0</color>
-<color>#b5c8e2</color>
-<color>#f02720</color>
-<color>#ffb6b0</color>
-<color>#ac613c</color>
-<color>#e9c39b</color>
-<color>#6ba3d6</color>
-<color>#b5dffd</color>
-<color>#ac8763</color>
-<color>#ddc9b4</color>
-<color>#bd0a36</color>
-<color>#f4737a</color>
-</color-palette>`)
+
 
 //sequential
 allPalettes.push(`<color-palette name="blue_10_0" type = "ordered-sequential">
