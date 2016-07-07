@@ -3,7 +3,7 @@ FL10.0(cp)  #f2eae4, #f8f0ee, #faf8f6, #f5e9e5, #f9efed, #fef4f2, #fbecca, #fff4
 FL9.2  #ebd1d1, #f2e6e6, #faf2f2, #b5ead7, #d3f2e7, #f0fcf8, #e3d7c3, #f3e6d3, #fcf4e8, #bee2e8, #d6f2f7, #eefcff, #f0d9b6, #fae7c8, #fbf2e2, #b7d2f2, #d7e9ff, #ebf4ff, #ffe791, #fff2bf, #fff8de, #c1d6e5, #d5e8f5, #ebf7ff, #e0d490, #f5eaab, #fff8d6, #c3cdeb, #e1e8fa, #f0f3fa, #dae5c1, #eaedd3, #f0fae8, #d3d1e8, #e5e4f6, #f3f2fa, #cde5bc, #dbf0cc, #eaf7e1, #d8cedf, #eee6f2, #f4f0f5/
 new palette/
 FL10.0 pr1  #f5eae1, #fbefec, #fbf8f5, #f9e8e2, #fdeeeb, #fff3f0, #ffecb9, #fff3cc, #fffadf, #e7edcc, #eff3d8, #f8f8e3, #ebebeb, #f2f2f2, #f9f9f9, #d2eaed, #ddf3f6, #e7fcfc, #fee6fe, #ffeefd, #fff5ff, #d9e6ff, #e1eeff, #eaf3ff, #dbeefa, #e9f2f8, #ebf8fb, #c3f0ff, #d5f4ff, #e4f9ff, #c7f3ed, #d9f7f4, #e8fdfa, #e1f2b8, #eaf7c7, #f3fddf, #ffe8ae, #ffeccb, #fff4e5, #ffe3c8, #ffead8, #fff1e5/
-FL10.0 pr2  #ece8e5, #f2eeed, #f6f5f4, #ede7e5, #f2edec, #f7f2f1, #f2ead9, #f7f1e4, #fbf7ee, #e6e8dd, #edeee5, #f4f4ed, #e8e8e8, #efefef, #f6f6f6, #dce4e5, #e6edee, #eff6f6, #f0e8f0, #f4eef3, #f8f4f8, #dfe3ed, #e6eaf2, #edf0f7, #e3e9ed, #ebeef0, #eff3f4, #dae8ed, #e4eef2, #edf4f7, #dceae8, #e6f0ef, #f0f7f6, #e5ead7, #ecf0e0, #f4f7ed, #f2e7d4, #f3ebe0, #f7f2ed, #f6e6dd, #f6ebe5, #f6f0ec/
+
 FL10.0 pr3  #f1e7e0, #f7edea, #f7f5f2, #f4e5e0, #f8ebe9, #fdf0ee, #fbe9bf, #fef0d0, #fff7e0, #e4eace, #edefd9, #f5f5e3, #e8e8e8, #efefef, #f6f6f6, #d2e6e9, #ddeff2, #e6f8f8, #f8e4f9, #faebf8, #fcf2fc, #d8e3fc, #e0eafe, #e8f0ff, #dbeaf4, #e7eff4, #eaf4f7, #c7ecf8, #d7f1fb, #e4f6fd, #cbeeea, #daf3f1, #e8f9f7, #e0edbe, #e8f3cb, #f1f9e0, #fee5b6, #fceace, #fdf1e4, #ffe2cb, #ffe8d9, #fdeee4/
 
 
@@ -11,6 +11,12 @@ FL10.0 pr4  #f1e7e0, #f7edea, #f7f5f2, #f6e5de, #f8ebe9, #fdf0ee, #fbe9bf, #fef0
 
 FL10.0 pr5  #ece8e5, #f2eeed, #f6f5f4, #ede7e5, #f2edec, #f7f2f1, #f2ead9, #f7f1e4, #fbf7ee, #e6e8dd, #edeee5, #f4f4ed, #e8e8e8, #efefef, #f6f6f6, #dce4e5, #e6edee, #eff6f6, #f0e8f0, #f4eef3, #f8f4f8, #dfe3ed, #e6eaf2, #edf0f7, #e3e9ed, #ebeef0, #eff3f4, #dae8ed, #e4eef2, #edf4f7, #dceae8, #e6f0ef, #f0f7f6, #e5ead7, #ecf0e0, #f4f7ed, #f2e7d4, #f3ebe0, #f7f2ed, #f6e6dd, #f6ebe5, #f6f0ec/
 
+FL10.0(0.99L)  #ece8e5, #f2eeed, #f6f5f4, #ede7e5, #f2edec, #f7f2f1, #f2ead9, #f7f1e4, #fbf7ee, #e6e8dd, #edeee5, #f4f4ed, #e8e8e8, #efefef, #f6f6f6, #dce4e5, #e6edee, #eff6f6, #f0e8f0, #f4eef3, #f8f4f8, #dfe3ed, #e6eaf2, #edf0f7, #e3e9ed, #ebeef0, #eff3f4, #dae8ed, #e4eef2, #edf4f7, #dceae8, #e6f0ef, #f0f7f6, #e5ead7, #ecf0e0, #f4f7ed, #f2e7d4, 
+#f3ebe0, #f7f2ed, #f6e6dd, #f6ebe5, #f6f0ec/
+
+FL10.0(0.99L)(1.8C)  #efe7e2, #f5edec, #f7f5f3, #f1e6e2, #f5ecea, #faf1ef, #f7eacb, #fbf1d9, #fef7e7, #e5e9d5, #edefde, #f4f4e8, #e8e8e8, #efefef, #f6f6f6, #d7e5e7, #e1eef0, #eaf7f7, #f4e6f5, #f7edf6, #faf3fa, #dce3f5, #e3eaf9, #ebf0fd, #dfeaf1, #e9eef2, #ecf4f5, #d0eaf3, #ddeff7, #e8f5fa, #d3ece9, #e0f2f0, #ecf8f6, #e3ecca, #eaf2d5, #f3f8e6, #f9e6c4, #f8ead6, #faf1e8, #ffe4d3, #fde9df, #faefe8/
+
+FL10.0(0.99L)(2.0C)  #efe7e1, #f5edeb, #f7f5f3, #f2e6e2, #f6ecea, #fbf1ef, #f8e9c7, #fcf1d7, #fff7e5, #e5e9d3, #edefdd, #f4f4e6, #e8e8e8, #efefef, #f6f6f6, #d5e6e8, #e0eef0, #e9f7f7, #f6e6f6, #f8ecf6, #fbf3fb, #dbe3f7, #e2eafa, #eaf0fe, #deeaf2, #e8eef2, #ecf4f6, #ceeaf5, #dbf0f8, #e7f5fb, #d1ede9, #def2f0, #eaf9f7, #e2ecc6, #eaf2d2, #f2f8e4, #fae6c0, #f9ead4, #fbf1e7, #ffe3d1, #ffe9dd, #fbefe7/
 
 <preferences>
 <preference key='swatch.light.col2'.row0.preview' value='#f1e7e0' />
