@@ -229,6 +229,11 @@ $(document).ready(function() {
 		return true;
 	})
 	$('#pname-text').val(state.palette.pName)
+//now make the filter UX match the state
+	$('#filter-regular').prop('checked', state.visibleTypes.regular)
+	$('#filter-sequential').prop('checked', state.visibleTypes.sequential)
+	$('#filter-diverging').prop('checked', state.visibleTypes.diverging)
+	$('#filter-formatting').prop('checked', state.visibleTypes.formatting)
 	
 //color editing controls, sliders, patch, hex type-in	
 	$("#hue").slider({
@@ -496,6 +501,22 @@ $(document).ready(function() {
 		state.visibleTypes.formatting = this.checked
 		filterPalettes()
 	})
+//the formatting background controls
+	$('#flc_preview').click(function(){
+		flcControls.useAsPreview = this.checked
+		if (flcControls.active==true)
+		if ((this.checked == false) ) {
+			$('body').css('background-color', state.pColor.hex())
+		} else {
+			$('body').css('background-color', flcControls.lastPreview)
+		}
+	})	
+	$('#flc_background').click(function(){
+		flcControls.active = this.checked
+		if (this.checked == false) {
+			$('body').css('background-color', '#ffffff')
+		}
+	})	
 //the giant sidebar controls
 	//replaces the colorspace plots with a palette overview
 	$('#all-palettes').click(function(){	
@@ -795,9 +816,9 @@ function findSelectedColor() {
 		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 325px;">Palette type controls only the XML written. (more functionality soon)</textarea>
 	</div>
 <!--The color selection controls -->
-	<div class ='vContainer' id="edit_color">
+	<div class ='vContainer' id="edit_color" >
 		<div class = 'myHeader' >Color Controls</div>	
-		<div class='hContainer' id='color_sliders'>
+		<div class='hContainer' id='color_sliders' style= 'background-color: white'>
 		<!-- HSV sliders -->
 			<div class = "vContainer">
 				<div class = 'hContainer'>
@@ -874,7 +895,16 @@ function findSelectedColor() {
 			<div id = "statSpace" style="margin_top: 5px"></div>
 			<div id = 'pSpace' class='vContainer' style="margin: 5px 5px 5px 0px;"></div>
 		</div>
-		<div id = "pExamples" class='pExamples'></div>
+		<div class ='vContainer' id='examplesOuter'>
+			<div class = 'control-group' style="margin-left: 5px;" id='fl_controls'>
+				<div style="margin-right: 5px;">Set background</div>
+				<input type='checkbox' id='flc_background' ></input>
+				<div style="margin-right: 5px; margin-left: 15px">Use as preview</div>
+				<input type='checkbox' id='flc_preview' ></input>
+			</div>
+			<div id = "pExamples" class='pExamples'>
+			</div>
+		</div>
 		
 		<div id = "example-controls" class ='vContainer' style="margin-top:10px;">
 <!--The Layout Controls  -->			
