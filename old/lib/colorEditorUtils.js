@@ -283,7 +283,7 @@ function paletteToCode(colors,pName,pType) {
 			code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n\n'
 		} else {
 			code = code + 's_tableauPalettes.emplace_back(std::move(pal));\n'
-			code = code + pNameToCode(state.palette.pName)+'\n'
+			code = code + pNameToCode(pName)+'\n'
 		}
 		
 	}
@@ -419,7 +419,21 @@ function paletteToFormattingXML(colors, pType) {
 	}				
 	return xml
 }
-
+function shuffle(colors,gSize) {
+	//this is primarily for formatting. Takes hue order, shuffles
+	var nArray = []
+	var offset = Math.floor(colors.length/2)	//need an int
+	for (var i=0; i<offset; i = i+gSize){
+		for (var g=0; g<gSize; g++){
+			nArray.push(colors[i+g])
+		}
+		for (var g=0; g<gSize; g++){
+			nArray.push(colors[i+g+offset])
+		}	
+	}
+	return nArray
+	
+}
 function copyColors(cArray, pName) { //deep copy of an array of color items
 	var colors = []
 	for (var i=0; i<cArray.length; i++) {
@@ -445,4 +459,62 @@ labToHex = function(labVals) {
 		hexVals[i] = chroma.lab(v[0],v[1],v[2]).hex()
 	}
 	return hexVals
+}
+
+function computeStats(colors, dE_type){
+	if (dE_type =='none') return null
+	var stats = {dE:[], minE: 0, maxE:0, aveE:0, totalE: 0}
+	var prev = colors[0]
+	var total = 0
+	for (var i=1; i<colors.length; i++) {
+		if (dE_type =='dE94') {
+			stats.dE[i-1] = deltaE94(prev.color,colors[i].color)
+		}
+		else {stats.dE[i-1] = deltaE(prev.color,colors[i].color)}
+		total = total+stats.dE[i-1]
+		prev = colors[i]
+		stats.dE[i-1] = Math.round(stats.dE[i-1])
+	}
+	stats.minE = Math.min(...stats.dE)
+	stats.maxE = Math.max(...stats.dE)
+	stats.aveE = Math.round(total/stats.dE.length)
+	stats.totalE = Math.round(total)
+	return stats
+}
+//color differences between chroma.js colors
+//the basic one.
+function deltaE(c1,c2){
+	var lab1 = c1.lab()
+	var lab2 = c2.lab()
+	var dL = lab1[0]-lab2[0]
+	var da= lab1[1]-lab2[1]
+	var db= lab1[2]-lab2[2]
+	var dE = Math.sqrt(dL*dL+da*da+db*db)
+	return dE
+}
+
+//A somewhat better one.
+//But, note this is an asymmetric function, deltaE94(c1,c2) != deltaE94(c2,c1)
+function deltaE94(c1,c2){  
+	var lab1 = c1.lab()  //.lch() returns the wrong h
+	var lab2 = c2.lab()
+	var C1 = Math.sqrt(lab1[1]*lab1[1]+lab1[2]*lab1[2]) //sqrt(a*a+b*b)
+	var C2 = Math.sqrt(lab2[1]*lab2[1]+lab2[2]*lab2[2]) //sqrt(a*a+b*b)
+	var da= lab1[1]-lab2[1]
+	var db= lab1[2]-lab2[2]
+	var dC = C1-C2
+	
+	//various weights. There are also kL, kC, kH, but they are all 1.0
+	var K1 = 0.045
+	var K2 = 0.015
+	var SL = 1
+	var SC = 1+K1*C1  //note the dependency on C1 only
+	var SH = 1+K2*C1
+	//these factors are dV/SV, will distance them below
+	var fdL = (lab1[0]-lab2[0])/SL
+	var fdC = (C1-C2)/SC
+	var fdH = Math.sqrt(da*da+db*db-(dC*dC))/SH
+	var dE94 = Math.sqrt(fdL*fdL + fdC*fdC + fdH*fdH)
+	return dE94
+	
 }
