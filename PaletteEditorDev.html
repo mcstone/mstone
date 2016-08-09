@@ -315,20 +315,8 @@ $(document).ready(function() {
             }
        
         } else if ($('#all-palettes').prop('checked')==true) {
-			if (state.palettes.length > 1) {  //move the palette up the palette list
-				var index = state.palettes.indexOf(state.palette)
-				var item  = state.palettes.splice(index,1)[0]	//removes it
-				if (index == 0) {
-					index = state.palettes.length-1
-				} else {index = index-1}
-				while (index>0) { //find previous visible
-					if (state.palettes[index].visible==true){
-						state.palettes.splice(index,0,item)	//insert item before it
-						updatePaletteControls()
-						break;
-					} else {index = index-1}
-				}
-			}
+			var index = state.palettes.indexOf(state.palette)
+			movePaletteUp(state.palettes,index)
 		}
 		updatePlots()
 	})
@@ -345,20 +333,8 @@ $(document).ready(function() {
                 state.colors[index+1] = item
             }
         } else if ($('#all-palettes').prop('checked')==true) {
-			if (state.palettes.length > 1) {  //move the palette down the palette list
-				var index = state.palettes.indexOf(state.palette)
-				var item  = state.palettes.splice(index,1)[0]	//removes it
-				var last = state.palettes.length-1
-				if (index == last) {index = 0} else {index = index + 1}
-				while (index <= last) { //find next visible
-					if (state.palettes[index].visible==true){
-						if (index==last) { state.palettes.pop(item)}
-						else {state.palettes.splice(index,0,item)}	//insert item before it
-						updatePaletteControls()
-						break;
-					} else {index = index+1}
-				}
-			}
+			var index = state.palettes.indexOf(state.palette)
+			movePaletteDown(state.palettes,index)	
 		}
 		updatePlots()
 	})

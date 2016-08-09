@@ -236,7 +236,35 @@ function findColor(cItem,cList, minD){  //is the color in the list?
 	}
 return found
 }
+//this wants to work on the visible palettes, which is what makes it messy.
+function movePaletteUp(pList, pIndex) {
+	if (pList.length<=1) {return pIndex} //only one item
+	//find next visible palette, will want to insert before it
+	var bIndex = -1
+	
+	for (var i = pIndex-1; i > 0; i= i-1;) {
+		if (pList[i].visible == true) {
+			bIndex = i;
+			break;
+		}
+	}
+	var item = pList.splice(pIndex,1)[0] //remove from list
+	if (bIndex == -1) { //add to the end
+		pList.push(item)
+	} else {//add before. bIndex still valid
+		pList.splice(bIndex,0,item)
+	}
+	
+}
 
+//such a hack, but it works.
+function movePaletteDown(pList, pIndex) {
+	var item = pList[pIndex]
+	pList.reverse()
+	movePaletteUp(pList,pList.indexOf(item))
+	pList.reverse()
+	
+}
 function computeStats(colors, dE_type){
 	if (dE_type =='none') return null
 	var stats = {dE:[], minE: 0, maxE:0, aveE:0, totalE: 0}
