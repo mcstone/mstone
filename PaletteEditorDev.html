@@ -105,7 +105,7 @@ state.colors =[]	//the colors being edited. Pointer to state.palette.eColors
 state.selectedPt = null  //currently selected point. A colorItem
 state.path = "../../data/stone/"
 state.clusterMaker = myclusters.exports;
-state.visibleTypes = {regular: false, sequential: false, diverging: false, formatting: true, classic: false}
+state.visibleTypes = {regular: true, sequential: false, diverging: false, formatting: false, classic: false}
 
 
 formatTriple = function(t,p) {
@@ -411,11 +411,10 @@ $(document).ready(function() {
 		var pText = $('#io-text').val()
 		var pVals = inputPalettes(pText)
 		var menu_pType = $('#select-pType').val()	//set from menu
-		
 		for (var i=0; i<pVals.length; i++) { //array of {pName, pType hVals}, pName and pType may be null if this was a hex read
 			var pName = 'new palette'
 			if (pVals[i].pName !=null){pName = pVals[i].pName}
-			if (pVals[i].pType !=null){pType = pVals[i].pType} else (pType = menu_pType)
+			if (pVals[i].pType !=null){pType = pVals[i].pType} else (pType = menuToPType(menu_pType))
 			pName = makeUnique(pName)
 			var newPalette = createPalette(pVals[i].hex, pName, pType)
 			addPalette(newPalette)
@@ -813,7 +812,7 @@ function findSelectedColor() {
 				<option value='formatting.gray'>Formatting gray</option>
 				</select>
 		</div>
-		<textarea id="io-text" rows="50" style = "border: 1px solid #cccccc; width: 325px;">Palette type controls only the XML written. (more functionality soon)</textarea>
+		<textarea id="io-text" rows="35" style = "border: 1px solid #cccccc; width: 325px;">Palette type controls only the XML written. (more functionality soon)</textarea>
 	</div>
 <!--The color selection controls -->
 	<div class ='vContainer' id="edit_color" >
@@ -948,8 +947,8 @@ function findSelectedColor() {
 				<div class = "control-group">
 					<div style="width: 50px;">Sort by: </div> 
 						<input type="radio" name='sort-type' value='L'>L</input>
-						<input type="radio" name='sort-type' value='C'>H</input>
-						<input type="radio" name='sort-type' value='H'>C</input>
+						<input type="radio" name='sort-type' value='C'>C</input>
+						<input type="radio" name='sort-type' value='H'>H</input>
 						<input type="radio" name='sort-type' id='none' value='pOrder' checked>none</input>
 					</div>
 				</form>

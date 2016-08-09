@@ -8,6 +8,12 @@ function parseList(lString, isInt){
 	}
 	return vals
 }
+function menuToPType(menuVal){
+	var pieces = menuVal.split('.')
+	var pType = "formatting"
+	if (pieces[0]=='marks'){pType = pieces[1]}
+	return pType
+}
 function inputPalettes(hString) {
 	hString = hString.trim()
 	if (hString[0] == '<') {return parseXML(hString)}

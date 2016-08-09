@@ -1,0 +1,31 @@
+blue_10_0  #b9ddf1, #a6d0ea, #94c2e1, #83b3d7, #75a6cc, #6798c1, #598ab6, #4c7dab, #42709e, #376491, #2a5783/
+orange_10_0  #ffc685, #fab767, #f5a847, #f59536, #f2822a, #ed6f20, #e16220, #d05822, #c04f23, #af4623, #9e3d22/
+green_10_0  #b3e0a6, #99d788, #87cc79, #78bf6c, #6ab25f, #5ea654, #4e9a51, #408e4d, #2f8243, #27763d, #24693d/
+red_10_0  #ffbeb2, #feac9d, #fc9b87, #fa8971, #f67561, #f26250, #eb4c48, #e03841, #d2283d, #c11a3b, #ae123a/
+purple_10_0  #eec9e5, #e7bada, #dcadcd, #d1a0c0, #c792b5, #bc86a9, #b0799f, #a06f99, #916491, #865986, #7c4d79/
+brown_10_0  #eedbbd, #ecca96, #e9b97a, #e4a865, #dc9856, #d18954, #c7784c, #c0673f, #b85536, #ad4433, #9f3632/
+gray_10_0  #d5d5d5, #c6c8c7, #b6b9b9, #a7acad, #979fa1, #889296, #7a858b, #6c7880, #606b76, #555f6a, #49525e/
+gray_warm_10_0  #dcd4d0, #cec5c1, #c0b8b4, #b3aaa7, #a59c99, #98908c, #8b827f, #7e7673, #726866, #665c5a, #59504e/
+teal_10_0  #bbdfdf, #a2d4d5, #8ac9c9, #75bcbb, #61b0af, #4da5a4, #379998, #2b8b8c, #1e7f7f, #127273, #006667/
+blue_teal_10_0  #bce4d8, #9dd3d1, #81c3cb, #65b3c2, #45a2b9, #368fae, #347da0, #306a93, #2c5985/
+orange_gold_10  #f4d166, #f8be5c, #f8aa4c, #f5983b, #f3852a, #ef701b, #e2621f, #d65322, #c54923, #b14223, #9e3a26/
+green_gold_10_0  #f4d166, #d5ca60, #b6c35c, #98bb59, #7cb257, #60a656, #4b9c53, #3f8f4f, #33834a, #257740, #146c36/
+red_gold_10_0  #f4d166, #f6be59, #f9aa51, #fc964e, #f6834b, #ee734a, #e56249, #db5247, #cf4244, #c43141, #b71d3e/
+tableau-blue  #b4d4da, #7bc8e2, #67add4, #3a87b7, #1c73b1, #1c5998, #26456e/
+tableau-orange  #f0c294, #fdab67, #fd8938, #f06511, #d74401, #a33202, #7b3014/
+tableau-green  #bccfb4, #94bb83, #69a761, #339444, #27823b, #1a7232, #09622a/
+tableau-red  #eac0bd, #f89a90, #f57667, #e35745, #d8392c, #cf1719, #c21417, #b10c1d, #9c0824/
+tableau-gray  #c3c3c3, #b2b2b2, #a2a2a2, #929292, #838383, #747474, #666666, #585858, #4b4b4b, #3f3f3f, #333333, #282828, #1e1e1e/
+area-red  #f5cac7, #fbb3ab, #fd9c8f, #fe8b7a, #fd7864, #f46b55, #ea5e45, #e04e35, #d43e25, #c92b14, #bd1100/
+area-green  #dbe8b4, #c3e394, #acdc7a, #9ad26d, #8ac765, #7abc5f, #6cae59, #60a24d, #569735, #4a8c1c, #3c8200/
+area-brown  #f3e0c2, #f6d29c, #f7c577, #f0b763, #e4aa63, #d89c63, #cc8f63, #c08262, #bb7359, #bb6348, #bb5137/
+blue_10_v1  #aad7f4, #9ac8e8, #8ab7db, #7ba9ce, #6c99c2, #5e8bb6, #507ba9, #426d9b, #33608c/
+orange_10_v1  #ffca70, #feb756, #f8a541, #f3912b, #e6821e, #d87311, #ca6401, #bd5507, #af470b/
+green_10_v1  #ace288, #96d680, #82ca7a, #72bd74, #63b16e, #53a367, #46965b, #3a8b50, #2c7e45/
+red_10_v1  #ffc8c2, #fcb4ae, #f79f99, #f18a84, #ea7471, #e1605f, #d64a4f, #c73843, #b72236/
+blue_teal_10_v1  #abded5, #93cfcd, #81bfc5, #71aebd, #619eb6, #548fb1, #4e7ca9, #426e9b, #33608c/
+green_gold_10_v1  #f1ce63, #cec85e, #acc15e, #8cb861, #6cae66, #52a266, #46975b, #3a8a50, #2c7e45/
+orange_gold_10_v1  #eeca46, #eebe39, #eeb22d, #eda523, #ec9818, #ea8c10, #e5800a, #e17505, #dc6903, #d85c03, #d24f04/
+red_gold_10_v1  #f1ce63, #f6ba57, #faa650, #fc924e, #f5814b, #ed724a, #e46149, #da5147, #cf4144, #c33041, #b71d3e/
+gray_warm_10_v1  #dcd4d0, #cec5c1, #c0b8b4, #b3aaa7, #a59c99, #98908c, #8b827f, #7e7673, #726866, #665c5a, #59504e/
+Gray_10_v1  #d5d5d5, #c6c8c7, #b6b9b9, #a7acad, #979fa1, #889296, #7a858b, #6c7880, #606b76, #555f6a, #49525e/

@@ -1,0 +1,45 @@
+  <color-palette name="cyclic_10_0" type = "regular">
+  <color>#1BA3C6</color>
+    <color>#37C1BD</color>
+    <color>#1FAE81</color>
+    <color>#459F3B</color>
+    <color>#BCBD22</color>
+    <color>#F8B921</color>
+    <color>#F88113</color>
+    <color>#DF3028</color>
+    <color>#F43C63</color>
+    <color>#FE7CAA</color>
+    <color>#D669BE</color>
+    <color>#906FC4</color>
+    <color>#4F7CBA</color>
+    </color-palette>
+
+
+//original
+<color-palette name="Miller Stone" type = "regular">
+<color>#f47942</color>
+<color>#fbb04e</color>
+<color>#b9aa97</color>
+<color>#7e756d</color>
+<color>#bfbb60</color>
+<color>#638b66</color>
+<color>#a2ceaa</color>
+<color>#849db1</color>
+<color>#d7ce9f</color>
+<color>#4f6980</color>
+</color-palette>
+
+//updated    
+    <color-palette name="Miller Stone 10.1" type = "regular">
+    <color>#4f6980</color>
+    <color>#849db1</color>
+    <color>#a2ceaa</color>
+    <color>#638b66</color>
+    <color>#bfbb60</color>
+    <color>#f47942</color>
+    <color>#fbb04e</color>
+    <color>#b66353</color>
+    <color>#d7ce9f</color>
+    <color>#b9aa97</color>
+    <color>#7e756d</color>
+    </color-palette>

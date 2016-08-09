@@ -82,7 +82,7 @@ SUNSET
 </color-palette>
 
 STUDIO
-<color-palette name=“studio" type = "regular">
+<color-palette name="studio" type = "regular">
 <color>#b66353</color>
 <color>#f47942</color>
 <color>#fbb04e</color>
@@ -111,7 +111,7 @@ COLORz
 </color-palette>
 
 ARTIFACTS
-<color-palette name=“artifacts" type = "regular">
+<color-palette name="artifacts" type = "regular">
 <color>#8f779e</color>
 <color>#524977</color>
 <color>#abb2b9</color>
